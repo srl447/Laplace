@@ -287,8 +287,92 @@ public class Dealer : MonoBehaviour
         }
     }
 
+    /*
+     * TODO: Sake Cup counting for trash
+     * TODO: Moon/Flower Viewing
+     * TODO: 3 Red/Blue Tanzaku
+     * TODO: Boar, Deer, Butterfly
+     * TODO: Winning does something besides sends a debug log
+     */
     void CheckEnd() //checks to see if one of the end game conditions has happened
     {
+        ArrayList[] checkPile = null;
+        switch(turn)
+        {
+            case 1:
+                checkPile = pileP;
+                break;
+            case 2:
+                checkPile = pileC;
+                break;
+        }
+        if (checkPile != null)
+        {
+            if (checkPile[0].Count >= 10)
+            {
+                Debug.Log("Trash");
+                turn = 0;
+            }
+            if (checkPile[1].Count >= 5)
+            {
+                Debug.Log("Tanzaku");
+                turn = 0;
+            }
+            if (checkPile[2].Count >= 5)
+            {
+                Debug.Log("Seeds");
+                turn = 0;
+            }
+            if (checkPile[3].Count == 5)
+            {
+                Debug.Log("Five Lights");
+                turn = 0;
+            }
+            else if(checkPile[3].Count >= 3)
+            {
+                bool moon = false, crane = false,
+                     blossom = false, rainman = false, phoenix = false;
+                foreach(GameObject card in checkPile[3])
+                {
+                    switch(card.GetComponent<Card>().suit)
+                    {
+                        case 1:
+                            crane = true;
+                            break;
+                        case 3:
+                            blossom = true;
+                            break;
+                        case 8:
+                            moon = true;
+                            break;
+                        case 11:
+                            rainman = true;
+                            break;
+                        case 12:
+                            phoenix = true;
+                            break;
+                    }
+                }
+                if(moon && crane && blossom)
+                {
+                    if(phoenix)
+                    {
+                        Debug.Log("Four Lights");
+                        turn = 0;
+                    }
+                    else
+                    {
+                        Debug.Log("Three Lights");
+                        turn = 0;
+                    }
+                }
+                else if(rainman && crane && blossom && phoenix)
+                {
+                    Debug.Log("Rainy Four Lights");
+                    turn = 0;
+                }
+            }
+        }
         if (deck.Count == 0 || table.Count == 0)
         {
             turn = 0;
