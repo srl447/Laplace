@@ -291,7 +291,6 @@ public class Dealer : MonoBehaviour
      * TODO: Sake Cup counting for trash
      * TODO: Moon/Flower Viewing
      * TODO: 3 Red/Blue Tanzaku
-     * TODO: Boar, Deer, Butterfly
      * TODO: Winning does something besides sends a debug log
      */
     void CheckEnd() //checks to see if one of the end game conditions has happened
@@ -322,6 +321,30 @@ public class Dealer : MonoBehaviour
             {
                 Debug.Log("Seeds");
                 turn = 0;
+            }
+            if (checkPile[2].Count >= 3)
+            {
+                bool boar = false, deer = false, butterfly = false;
+                foreach (GameObject card in checkPile[2])
+                {
+                    switch (card.GetComponent<Card>().suit)
+                    {
+                        case 6:
+                            butterfly = true;
+                            break;
+                        case 7:
+                            boar = true;
+                            break;
+                        case 10:
+                            deer = true;
+                            break;
+                    }
+                }
+                if(boar && deer && butterfly)
+                {
+                    Debug.Log("Boar, Deer, Butterfly");
+                    turn = 0;
+                }
             }
             if (checkPile[3].Count == 5)
             {
