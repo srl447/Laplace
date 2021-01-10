@@ -124,7 +124,8 @@ public class Dealer : MonoBehaviour
                 }
                 NextDeck();
                 CheckEnd();
-                turn = 2;
+                if(turn == 1)
+                    turn = 2;
             }
         }
     }
@@ -160,7 +161,8 @@ public class Dealer : MonoBehaviour
                 {
                     NextDeck();
                     CheckEnd();
-                    turn = 1;
+                    if(turn == 2)
+                        turn = 1;
                     break;
                 }
             }
@@ -175,7 +177,8 @@ public class Dealer : MonoBehaviour
                     handC[i] = null;
                     NextDeck();
                     CheckEnd();
-                    turn = 1;
+                    if (turn == 2)
+                        turn = 1;
                     break;
                 }
             }
