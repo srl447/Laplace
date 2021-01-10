@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Dealer : MonoBehaviour
 {
+    /*
+     * TODO: Calling Koi-koi
+     * TODO: Pile checking on hover or making the cards smaller or something
+     */
     // Start is called before the first frame update
     public GameObject[] cards, handP, handC; //all the cards, player and computer hands
     ArrayList table = new ArrayList(); //cards on the table
@@ -69,14 +73,14 @@ public class Dealer : MonoBehaviour
     {
         GameObject[] shuffle = (GameObject[])cards.Clone(); //clone a list of all cards
         deck.Clear(); //clear the queue *note: probably need to destroy all previous cards as well
-        for (int i = 0; i < 47; i++)  //swaps each card in the deck with a random one
+        for (int i = 0; i < 48; i++)  //swaps each card in the deck with a random one
         {
             int pick = Random.Range(0, 47);
             cards[i] = shuffle[pick];
             cards[pick] = shuffle[i];
             shuffle = (GameObject[])cards.Clone(); //make sure the reference deck is updated
         }
-        for (int i = 0; i < 47; i++) //create each card in the deck
+        for (int i = 0; i < 48; i++) //create each card in the deck
         {
             GameObject newCard = Instantiate(cards[i]) as GameObject;
             newCard.transform.position = new Vector3(-10f + (.005f * i), 0f, 0);
@@ -119,6 +123,7 @@ public class Dealer : MonoBehaviour
                     handP[i] = null;
                 }
                 NextDeck();
+                CheckEnd();
                 turn = 2;
             }
         }
@@ -154,6 +159,7 @@ public class Dealer : MonoBehaviour
                 if(match)
                 {
                     NextDeck();
+                    CheckEnd();
                     turn = 1;
                     break;
                 }
@@ -168,6 +174,7 @@ public class Dealer : MonoBehaviour
                     table.Add(handC[i]);
                     handC[i] = null;
                     NextDeck();
+                    CheckEnd();
                     turn = 1;
                     break;
                 }
@@ -288,9 +295,10 @@ public class Dealer : MonoBehaviour
     }
 
     /*
-     * TODO: Sake Cup counting for trash
-     * TODO: Moon/Flower Viewing
-     * TODO: 3 Red/Blue Tanzaku
+     * TODO: Making Sake Trash Optional
+     * TODO: Winning a suit only counts after a koi-koi if it earns more points than previously
+     * TODO: 3 Red/Blue Poetry Tanzaku
+     * TODO: All of 1 Month
      * TODO: Winning does something besides sends a debug log
      */
     void CheckEnd() //checks to see if one of the end game conditions has happened
@@ -307,23 +315,14 @@ public class Dealer : MonoBehaviour
         }
         if (checkPile != null)
         {
-            if (checkPile[0].Count >= 10)
+            bool sake = false;
+            if (checkPile[2].Count >= 1)
             {
-                Debug.Log("Trash");
-                turn = 0;
-            }
-            if (checkPile[1].Count >= 5)
-            {
-                Debug.Log("Tanzaku");
-                turn = 0;
-            }
-            if (checkPile[2].Count >= 5)
-            {
-                Debug.Log("Seeds");
-                turn = 0;
-            }
-            if (checkPile[2].Count >= 3)
-            {
+                if (checkPile[2].Count >= 5)
+                {
+                    Debug.Log("Seeds");
+                    turn = 0;
+                }
                 bool boar = false, deer = false, butterfly = false;
                 foreach (GameObject card in checkPile[2])
                 {
@@ -335,23 +334,36 @@ public class Dealer : MonoBehaviour
                         case 7:
                             boar = true;
                             break;
+                        case 9:
+                            sake = true;
+                            break;
                         case 10:
                             deer = true;
                             break;
                     }
                 }
-                if(boar && deer && butterfly)
+                if (boar && deer && butterfly)
                 {
                     Debug.Log("Boar, Deer, Butterfly");
                     turn = 0;
                 }
+            }
+            if (checkPile[0].Count >= 10 || (sake && checkPile[0].Count >= 9))
+            {
+                Debug.Log("Trash");
+                turn = 0;
+            }
+            if (checkPile[1].Count >= 5)
+            {
+                Debug.Log("Tanzaku");
+                turn = 0;
             }
             if (checkPile[3].Count == 5)
             {
                 Debug.Log("Five Lights");
                 turn = 0;
             }
-            else if(checkPile[3].Count >= 3)
+            if(checkPile[3].Count >= 1)
             {
                 bool moon = false, crane = false,
                      blossom = false, rainman = false, phoenix = false;
@@ -392,6 +404,16 @@ public class Dealer : MonoBehaviour
                 else if(rainman && crane && blossom && phoenix)
                 {
                     Debug.Log("Rainy Four Lights");
+                    turn = 0;
+                }
+                if (sake && moon)
+                {
+                    Debug.Log("Moon Viewing");
+                    turn = 0;
+                }
+                if (sake && blossom)
+                {
+                    Debug.Log("Flower Viewing");
                     turn = 0;
                 }
             }
