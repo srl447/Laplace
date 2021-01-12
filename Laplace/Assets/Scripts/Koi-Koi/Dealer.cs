@@ -11,6 +11,7 @@ public class Dealer : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] cards, handP, handC; //all the cards, player and computer hands
     ArrayList table = new ArrayList(); //cards on the table
+    ArrayList winCons = new ArrayList(); //List of conditions won
     ArrayList[] pileP = { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() }; //cards collected by the player
     ArrayList[] pileC = { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() }; //cards collected by the computer
     Queue deck = new Queue(); // deck of cards
@@ -307,6 +308,7 @@ public class Dealer : MonoBehaviour
     void CheckEnd() //checks to see if one of the end game conditions has happened
     {
         ArrayList[] checkPile = null;
+        ArrayList newWin = new ArrayList();
         switch(turn)
         {
             case 1:
@@ -316,17 +318,36 @@ public class Dealer : MonoBehaviour
                 checkPile = pileC;
                 break;
         }
+        if (deck.Count == 0 || table.Count == 0)
+        {
+            turn = 5;
+        }
         if (checkPile != null)
         {
-            bool sake = false;
+            bool sake = false, boar = false, deer = false, butterfly = false,
+            moon = false, crane = false, blossom = false, rainman = false, phoenix = false;
+            /*int[] suitCount = new int[12];
+            for (int i = 0; i < 4; i++)
+            {
+                foreach (GameObject card in checkPile[i])
+                {
+                    suitCount[card.GetComponent<Card>().suit - 1]++;
+                }
+            }
+            for(int i = 0; i < 12; i++)
+            {
+                if(suitCount[i] == 4)
+                {
+                    newWin.Add("Full Suit:6");
+                    turn = 3;
+                }
+            }*/
             if (checkPile[2].Count >= 1)
             {
                 if (checkPile[2].Count >= 5)
                 {
-                    Debug.Log("Seeds");
-                    turn = 0;
+                    newWin.Add("Seeds:" + (checkPile[2].Count - 4));
                 }
-                bool boar = false, deer = false, butterfly = false;
                 foreach (GameObject card in checkPile[2])
                 {
                     switch (card.GetComponent<Card>().suit)
@@ -347,29 +368,24 @@ public class Dealer : MonoBehaviour
                 }
                 if (boar && deer && butterfly)
                 {
-                    Debug.Log("Boar, Deer, Butterfly");
-                    turn = 0;
+                    newWin.Add("Boar, Deer, Butterfly:5");
                 }
             }
             if (checkPile[0].Count >= 10 || (sake && checkPile[0].Count >= 9))
             {
-                Debug.Log("Trash");
-                turn = 0;
+                int sak = sake ? 1 : 0; //wth C# why isn't bools 0/1
+                newWin.Add("Trash:" + (checkPile[0].Count - (9 + sak)));
             }
             if (checkPile[1].Count >= 5)
             {
-                Debug.Log("Tanzaku");
-                turn = 0;
+                newWin.Add("Tanzaku:"+(checkPile[0].Count-4));
             }
             if (checkPile[3].Count == 5)
             {
-                Debug.Log("Five Lights");
-                turn = 0;
+                newWin.Add("Five Lights:20");
             }
             if(checkPile[3].Count >= 1)
             {
-                bool moon = false, crane = false,
-                     blossom = false, rainman = false, phoenix = false;
                 foreach(GameObject card in checkPile[3])
                 {
                     switch(card.GetComponent<Card>().suit)
@@ -395,35 +411,32 @@ public class Dealer : MonoBehaviour
                 {
                     if(phoenix)
                     {
-                        Debug.Log("Four Lights");
-                        turn = 0;
+                        newWin.Add("Four Lights:10");
                     }
                     else
                     {
-                        Debug.Log("Three Lights");
-                        turn = 0;
+                        newWin.Add("Three Lights:6");
                     }
                 }
                 else if(rainman && crane && blossom && phoenix)
                 {
-                    Debug.Log("Rainy Four Lights");
-                    turn = 0;
+                    newWin.Add("Rainy Four Lights:8");
                 }
                 if (sake && moon)
                 {
-                    Debug.Log("Moon Viewing");
-                    turn = 0;
+                    newWin.Add("Moon Viewing:5");
                 }
                 if (sake && blossom)
                 {
-                    Debug.Log("Flower Viewing");
-                    turn = 0;
+                    newWin.Add("Flower Viewing:5");
                 }
             }
         }
-        if (deck.Count == 0 || table.Count == 0)
+        if(newWin.Count != 0)
         {
-            turn = 0;
+            turn = (checkPile == pileP) ? 3 : 4;
+            winCons = newWin;
+            Debug.Log(winCons[0]);
         }
     }
 }
