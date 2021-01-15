@@ -17,6 +17,9 @@ public class IntroText : MonoBehaviour
     };
 
     public string[] T { get => t; set => t = value; }
+    public Sprite[] background;
+    Sprite bg;
+    int bgCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +52,11 @@ public class IntroText : MonoBehaviour
         string text = part[0];
         string speaker = (part.Length >= 2) ? part[1] : "";
         bool a = (part.Length >= 3) ? true : false;
-
-        textC.Say(text,a,speaker);
+        if(part.Length >= 4 && part[3] != "")
+        {
+            bg = background[bgCount];
+            bgCount++;
+        }
+        textC.Say(bg, text,a,speaker);
     }
 }

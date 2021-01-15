@@ -18,11 +18,12 @@ public class TextControl : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    public void Say(string speech, bool additive = false, string speaker = "")
+    public Image background;
+    public void Say(Sprite bg, string speech, bool additive = false, string speaker = "")
     {
         StopSpeaking();
         mainText.text = targetText;
+        background.sprite = bg;
         speaking = StartCoroutine(Speaking(speech, additive, speaker));
 
     }
