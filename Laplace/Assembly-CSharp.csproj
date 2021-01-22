@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Koi-Koi\Cursor.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Dealer.cs" />
     <Compile Include="Assets\Scripts\VN\IntroText.cs" />
+    <Compile Include="Assets\Scripts\VN\Scene.cs" />
     <Compile Include="Assets\Scripts\VN\TextControl.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

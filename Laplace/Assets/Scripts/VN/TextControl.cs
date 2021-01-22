@@ -18,12 +18,29 @@ public class TextControl : MonoBehaviour
 
     }
 
-    public Image background;
-    public void Say(Sprite bg, string speech, bool additive = false, string speaker = "")
+    public void Say(string speech, bool additive = false, string speaker = "", string style = "")
     {
         StopSpeaking();
         mainText.text = targetText;
-        background.sprite = bg;
+        if(style != "")
+        {
+            if(style == "I")
+            {
+                mainText.fontStyle = FontStyle.Italic;
+            }
+            else if (style == "B")
+            {
+                mainText.fontStyle = FontStyle.Bold;
+            }
+            else if (style == "BI")
+            {
+                mainText.fontStyle = FontStyle.BoldAndItalic;
+            }
+            else
+            {
+                mainText.fontStyle = FontStyle.Normal;
+            }
+        }
         speaking = StartCoroutine(Speaking(speech, additive, speaker));
 
     }
@@ -87,11 +104,13 @@ public class TextControl : MonoBehaviour
         public GameObject textBox;
         public Text speakerName;
         public Text mainText;
+        public Image backgroundImage;
     }
 
     //So there's no need to reference elements every time
     public GameObject textBox { get { return elements.textBox; } }
     public Text speakerName { get { return elements.speakerName; } }
     public Text mainText { get { return elements.mainText; } }
+    public Image backgroundImage { get { return elements.backgroundImage; } }
 }
 

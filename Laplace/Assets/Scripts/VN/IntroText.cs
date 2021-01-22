@@ -5,26 +5,33 @@ using UnityEngine;
 public class IntroText : MonoBehaviour
 {
     TextControl textC;
+    public Scene Intro = new Scene(), Second = new Scene();
+    Scene current = new Scene();
     int count = 0;
-    private string[] t = new string[]
-    {
-        "Ugh why is it early:Modayaal",
-        "Time to grab a drink",
-        "Where did I put it",
-        "Oh Yeah!   ",
-        "I can make it::A"
-
-    };
-
-    public string[] T { get => t; set => t = value; }
-    public Sprite[] background;
-    Sprite bg;
-    int bgCount = 0;
+    public Sprite bg, bg2;
 
     // Start is called before the first frame update
     void Start()
     {
+        Intro.textBody = new string[]
+        {
+            "YARGHHRHRRHH:Modayaal",
+        "Suddenly infinity entered my mind.:::I",
+        "The same as it did every morning.::A",
+        "I need my morning ethanol:::N",
+        "I can make it:::I"
+
+        };
+        Second.textBody = new string[]
+        {
+            "*GLUG*:Modayaal:::I"
+        };
+        Intro.nextScene = Second;
+        Intro.background = bg;
+        Second.background = bg2;
         textC = TextControl.instance;
+        current = Intro;
+        textC.backgroundImage.sprite = current.background;
     }
 
 
@@ -35,12 +42,18 @@ public class IntroText : MonoBehaviour
         {
             if(!textC.isSpeaking || textC.waitForInput)
             {
-                if(count >= T.Length)
+                if(count >= current.textBody.Length)
                 {
+                    if(current.nextScene != null)
+                    {
+                        current = current.nextScene;
+                        textC.backgroundImage.sprite = current.background;
+                        count = 0;
+                    }
                     return;
                 }
 
-                Say(T[count]);
+                Say(current.textBody[count]);
                 count++;
             }
         }
@@ -51,12 +64,8 @@ public class IntroText : MonoBehaviour
         string[] part = s.Split(':');
         string text = part[0];
         string speaker = (part.Length >= 2) ? part[1] : "";
-        bool a = (part.Length >= 3) ? true : false;
-        if(part.Length >= 4 && part[3] != "")
-        {
-            bg = background[bgCount];
-            bgCount++;
-        }
-        textC.Say(bg, text,a,speaker);
+        bool a = (part.Length >= 3 && part[2] == "A") ? true : false;
+        string style = (part.Length >= 4) ? part[3] : "";
+        textC.Say(text,a,speaker, style);
     }
 }
