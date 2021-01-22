@@ -104,7 +104,7 @@ public class TextControl : MonoBehaviour
         public GameObject textBox;
         public Text speakerName;
         public Text mainText;
-        public Image backgroundImage;
+        public Image backgroundImage, leftImage, rightImage, centerImage;
     }
 
     //So there's no need to reference elements every time
@@ -112,5 +112,9 @@ public class TextControl : MonoBehaviour
     public Text speakerName { get { return elements.speakerName; } }
     public Text mainText { get { return elements.mainText; } }
     public Image backgroundImage { get { return elements.backgroundImage; } }
+    public Image leftImage { get { return elements.leftImage; } }
+    public Image rightImage { get { return elements.rightImage; } }
+    public Image centerImage { get { return elements.centerImage; } }
+
 }
 

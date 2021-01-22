@@ -24,7 +24,9 @@ public class IntroText : MonoBehaviour
         };
         Second.textBody = new string[]
         {
-            "*GLUG*:Modayaal:::I"
+            "*GLUG*:Modayaal:::I",
+            "*GLUG*::A",
+            "*GLUG*::A"
         };
         Intro.nextScene = Second;
         Intro.background = bg;
