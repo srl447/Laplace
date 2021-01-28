@@ -34,6 +34,10 @@ public class IntroText : MonoBehaviour
         textC = TextControl.instance;
         current = Intro;
         textC.backgroundImage.sprite = current.background;
+        textC.leftImage.sprite = current.left;
+        textC.rightImage.sprite = current.right;
+        textC.miniImage.sprite = current.mini;
+        textC.centerImage.sprite = current.center;
     }
 
 

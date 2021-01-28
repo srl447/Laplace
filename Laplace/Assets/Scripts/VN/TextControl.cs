@@ -22,7 +22,50 @@ public class TextControl : MonoBehaviour
     {
         StopSpeaking();
         mainText.text = targetText;
-        if(style != "")
+        Debug.Log("Saying");
+        //set elements to appear/dissappear when they change
+        if(backgroundImage.sprite == null)
+        {
+            backgroundImage.color = Color.clear;
+        }
+        else
+        {
+            backgroundImage.color = Color.white;
+        }
+        if (rightImage.sprite == null)
+        {
+            rightImage.color = Color.clear;
+        }
+        else
+        {
+            rightImage.color = Color.white;
+        }
+        if (leftImage.sprite == null)
+        {
+            leftImage.color = Color.clear;
+        }
+        else
+        {
+            leftImage.color = Color.white;
+        }
+        if (miniImage.sprite == null)
+        {
+            miniImage.color = Color.clear;
+        }
+        else
+        {
+            miniImage.color = Color.white;
+        }
+        if (centerImage.sprite == null)
+        {
+            centerImage.color = Color.clear;
+        }
+        else
+        {
+            centerImage.color = Color.white;
+        }
+        //sets the style of the text
+        if (style != "")
         {
             if(style == "I")
             {
@@ -104,7 +147,7 @@ public class TextControl : MonoBehaviour
         public GameObject textBox;
         public Text speakerName;
         public Text mainText;
-        public Image backgroundImage, leftImage, rightImage, centerImage;
+        public Image backgroundImage, leftImage, rightImage, centerImage, miniImage;
     }
 
     //So there's no need to reference elements every time
@@ -115,6 +158,7 @@ public class TextControl : MonoBehaviour
     public Image leftImage { get { return elements.leftImage; } }
     public Image rightImage { get { return elements.rightImage; } }
     public Image centerImage { get { return elements.centerImage; } }
+    public Image miniImage { get { return elements.miniImage; } }
 
 }
 
