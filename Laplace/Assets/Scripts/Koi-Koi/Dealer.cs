@@ -318,10 +318,8 @@ public class Dealer : MonoBehaviour
 
     /*
      * TODO: Making Sake Trash Optional
-     * TODO: Winning a suit only counts after a koi-koi if it earns more points than previously
-     * TODO: 3 Red/Blue Poetry Tanzaku
      * TODO: All of 1 Month
-     * TODO: Winning does something besides sends a debug log
+     * TODO: Winning does something
      */
     void CheckEnd() //checks to see if one of the end game conditions has happened
     {
@@ -421,9 +419,46 @@ public class Dealer : MonoBehaviour
                 int sak = sake ? 1 : 0; //wth C# why isn't bools 0/1
                 newWin.Add("Trash:" + (checkPile[0].Count - (9 + sak)));
             }
-            if (checkPile[1].Count >= 5)
+            if (checkPile[1].Count >= 3)
             {
-                newWin.Add("Tanzaku:"+(checkPile[0].Count-4));
+                if (checkPile[1].Count >= 5)
+                {
+                    newWin.Add("Tanzaku:" + (checkPile[0].Count - 4));
+                }
+                //poetry tanzaku counting
+                int poetryTanzaku = 0, blueTanzaku = 0;
+                foreach (GameObject card in checkPile[1])
+                {
+                    switch (card.GetComponent<Card>().suit)
+                    {
+                        case 1:
+                            poetryTanzaku++;
+                            break;
+                        case 2:
+                            poetryTanzaku++;
+                            break;
+                        case 3:
+                            poetryTanzaku++;
+                            break;
+                        case 6:
+                            blueTanzaku++;
+                            break;
+                        case 9:
+                            blueTanzaku++;
+                            break;
+                        case 10:
+                            blueTanzaku++;
+                            break;
+                    }
+                }
+                if(poetryTanzaku == 3)
+                {
+                    newWin.Add("Red Poetry Tanzaku:5");
+                }
+                if(blueTanzaku == 3)
+                {
+                    newWin.Add("Blue Poetry Tanzaku:5");
+                }
             }
             if (checkPile[3].Count == 5)
             {
@@ -476,7 +511,7 @@ public class Dealer : MonoBehaviour
                     newWin.Add("Flower Viewing:5");
                 }
             }
-            if (newWin.Count > winCons.Count)
+            if (WinTotal(newWin) > WinTotal(winCons))
             {
                 turn = (checkPile == pileP) ? 3 : 4;
                 winCons = newWin;
@@ -490,22 +525,22 @@ public class Dealer : MonoBehaviour
      * WinSort()[0] is an array of strings containing the win conditions achieved by name
      * WinSort()[1] is a corresponding array of strings containing the values of the win conditions met
      */
-    string[][] WinSort() 
+    string[][] WinSort(ArrayList winToSort) 
     {
-        string[] names = new string[winCons.Count], values = new string[winCons.Count];
-        for (int i = 0; i < winCons.Count; i++)
+        string[] names = new string[winToSort.Count], values = new string[winToSort.Count];
+        for (int i = 0; i < winToSort.Count; i++)
         {
-            string winConCurrent = (string)winCons[i]; //need to make sure I can use the Split function
+            string winConCurrent = (string)winToSort[i]; //need to make sure I can use the Split function
             string[] namePoints = winConCurrent.Split(':');
             names[i] = namePoints[0]; //the name is always the 1st part
             values[i] = namePoints[1]; //the value is always the 2nd part
         }
         return new string[2][] {names, values};
     }
-    int WinTotal() //gives a total point value for the current winCons using WinSort()
+    int WinTotal(ArrayList winToTotal) //gives a total point value for the current winCons using WinSort()
     {
         int totalPoints = 0;
-        string[] values = WinSort()[1];
+        string[] values = WinSort(winToTotal)[1];
         foreach(string v in values)
         {
             Debug.Log(v);
@@ -521,7 +556,7 @@ public class Dealer : MonoBehaviour
      */
     bool ComputerKoiKoi()
     {
-        bool koi = (Random.Range(0, 20) + WinTotal() < 14) ? true : false;
+        bool koi = (Random.Range(0, 20) + WinTotal(winCons) < 14) ? true : false;
         if (koi) //don't want computer koi-koing if they don't have any cards
         {
             int countH = 0;
