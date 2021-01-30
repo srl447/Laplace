@@ -56,6 +56,39 @@ public class Dealer : MonoBehaviour
             TableLayout();
         }
         turn = 1;
+        //Checking to see if someone won based on collecting a full suit in hand
+        int[] suitCount = new int[12];
+        for (int i = 0; i < 4; i++)
+        {
+            foreach (GameObject card in handC)
+            {
+                suitCount[card.GetComponent<Card>().suit - 1]++;
+            }
+        }
+        for (int i = 0; i < 12; i++)
+        {
+            if (suitCount[i] == 4)
+            {
+                winCons.Add("Full Suit:6");
+                turn = 4;
+            }
+        }
+        suitCount = new int[12];
+        for (int i = 0; i < 4; i++)
+        {
+            foreach (GameObject card in handP)
+            {
+                suitCount[card.GetComponent<Card>().suit - 1]++;
+            }
+        }
+        for (int i = 0; i < 12; i++)
+        {
+            if (suitCount[i] == 4)
+            {
+                winCons.Add("Full Suit:6");
+                turn = 3;
+            }
+        }
     }
     // Update is called once per frame
     void Update()
