@@ -24,6 +24,7 @@ public class Dealer : MonoBehaviour
          *      That's how Koi-Koi works
          *   TODO: Move to a coroutine and animate it
          *   TODO: Decide a "dealer" and deal out cards accordingly
+         *      Maybe I can just cheat and always have the player deal
          *   TODO: Check for multiples of a suit and act accordingly
          *       This means either ending the game and awarding 6 points to either player for a full suit
          *       or bunching up 3 of the same suit that are on the table
@@ -59,7 +60,8 @@ public class Dealer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckEnd();
+        CheckEnd(); //makes sure the table, deck, hands, etc aren't empty
+        //should this be a switch case? is that more efficient?
         if (turn == 1)
         {
             PlayerTurn();
@@ -67,6 +69,22 @@ public class Dealer : MonoBehaviour
         else if (turn == 2)
         {
             ComputerTurn();
+        }
+        else if (turn == 3)
+        {
+            //TODO: Player Koi-Koi options and winnig and such
+        }
+        else if (turn == 4)
+        {
+            if(ComputerKoiKoi())
+            {
+                turn = 1;
+            }
+            //TODO:Computer winning 
+        }
+        else if (turn == 5)
+        {
+            //TODO:What happens when the deck. hands, table runs out of cards and such
         }
     }
 
@@ -312,13 +330,29 @@ public class Dealer : MonoBehaviour
         switch(turn)
         {
             case 1:
+                /* checks if the player's hand is empty 
+                 * TODO: Check if the computers hand is empty if I ever get to making
+                 *  the computer able to deal
+                 */
+                int countH = 0;
+                foreach (GameObject c in handP)
+                {
+                    if (c == null)
+                    {
+                        countH++;
+                    }
+                }
+                if (countH == 8)
+                {
+                    turn = 5;
+                }
                 checkPile = pileP;
                 break;
             case 2:
                 checkPile = pileC;
                 break;
         }
-        if (deck.Count == 0 || table.Count == 0)
+        if (deck.Count == 0 || table.Count == 0) //checks if table or deck is empty
         {
             turn = 5;
         }
@@ -326,7 +360,9 @@ public class Dealer : MonoBehaviour
         {
             bool sake = false, boar = false, deer = false, butterfly = false,
             moon = false, crane = false, blossom = false, rainman = false, phoenix = false;
-            /*int[] suitCount = new int[12];
+            /* this is supposed to count for a suit being a win con, but I don't think that's actually
+             * a win condition
+             * int[] suitCount = new int[12];
             for (int i = 0; i < 4; i++)
             {
                 foreach (GameObject card in checkPile[i])
@@ -373,6 +409,15 @@ public class Dealer : MonoBehaviour
             }
             if (checkPile[0].Count >= 10 || (sake && checkPile[0].Count >= 9))
             {
+                /*Trash is counted as 1 points plus 1 point for every additional card 
+                 *The sake cup can also act as trash
+                 *TODO: Make the sake card not count if it's used for another win condition
+                 *  I'm pretty sure this is a rule, but I'm not 100% certain
+                 *  I think technically I'm supposed to ask players if they want to count the sake
+                 *  cup for the win
+                 *  I could also do none of this and it wouldn't have a major impact, so this
+                 *  should be saved for later
+                 */
                 int sak = sake ? 1 : 0; //wth C# why isn't bools 0/1
                 newWin.Add("Trash:" + (checkPile[0].Count - (9 + sak)));
             }
@@ -431,12 +476,67 @@ public class Dealer : MonoBehaviour
                     newWin.Add("Flower Viewing:5");
                 }
             }
+            if (newWin.Count > winCons.Count)
+            {
+                turn = (checkPile == pileP) ? 3 : 4;
+                winCons = newWin;
+                Debug.Log(winCons[0]);
+            }
         }
-        if(newWin.Count != 0)
+    }
+    /*
+     * Separates winCons into a list of winning names and a list of point values (matching order)
+     * For Clarification
+     * WinSort()[0] is an array of strings containing the win conditions achieved by name
+     * WinSort()[1] is a corresponding array of strings containing the values of the win conditions met
+     */
+    string[][] WinSort() 
+    {
+        string[] names = new string[winCons.Count], values = new string[winCons.Count];
+        for (int i = 0; i < winCons.Count; i++)
         {
-            turn = (checkPile == pileP) ? 3 : 4;
-            winCons = newWin;
-            Debug.Log(winCons[0]);
+            string winConCurrent = (string)winCons[i]; //need to make sure I can use the Split function
+            string[] namePoints = winConCurrent.Split(':');
+            names[i] = namePoints[0]; //the name is always the 1st part
+            values[i] = namePoints[1]; //the value is always the 2nd part
         }
+        return new string[2][] {names, values};
+    }
+    int WinTotal() //gives a total point value for the current winCons using WinSort()
+    {
+        int totalPoints = 0;
+        string[] values = WinSort()[1];
+        foreach(string v in values)
+        {
+            Debug.Log(v);
+            totalPoints += int.Parse(v);
+        }
+        return totalPoints;
+    }
+    /*computer choses to koi-koi based on their score
+     * with a score of 1 they have a slightly higher than 50% to koi-koi
+     * with a score of 11 they still CAN koi-koi, but it's not very likely
+     * with a score of 15 they'll never koi-koi
+     * I could make a better AI, but I don't think it's necessary for now
+     */
+    bool ComputerKoiKoi()
+    {
+        bool koi = (Random.Range(0, 20) + WinTotal() < 14) ? true : false;
+        if (koi) //don't want computer koi-koing if they don't have any cards
+        {
+            int countH = 0;
+            foreach (GameObject c in handP)
+            {
+                if (c == null)
+                {
+                    countH++;
+                }
+            }
+            if (countH == 8)
+            {
+                koi = false;
+            }
+        }
+        return koi;
     }
 }
