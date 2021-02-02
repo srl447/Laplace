@@ -24,14 +24,6 @@ public class TextControl : MonoBehaviour
         mainText.text = targetText;
         Debug.Log("Saying");
         //set elements to appear/dissappear when they change
-        if(backgroundImage.sprite == null)
-        {
-            backgroundImage.color = Color.clear;
-        }
-        else
-        {
-            backgroundImage.color = Color.white;
-        }
         if (rightImage.sprite == null)
         {
             rightImage.color = Color.clear;

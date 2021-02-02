@@ -29,5 +29,6 @@ public class Scene
         left = other.left;
         right = other.right;
         center = other.center;
+        mini = other.mini;
     }
 }

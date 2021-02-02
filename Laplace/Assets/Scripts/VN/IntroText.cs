@@ -5,10 +5,10 @@ using UnityEngine;
 public class IntroText : MonoBehaviour
 {
     TextControl textC;
-    public Scene Intro = new Scene(), Second = new Scene();
+    public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene();
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg, bg2;
+    public Sprite bg, bg2, handSmall, handSmall2;
 
     // Start is called before the first frame update
     void Start()
@@ -18,26 +18,31 @@ public class IntroText : MonoBehaviour
             "YARGHHRHRRHH:Modayaal",
         "Suddenly infinity entered my mind.:::I",
         "The same as it did every morning.::A",
-        "I need my morning ethanol:::N",
-        "I can make it:::I"
 
+        };
+        Intro2.textBody = new string[]
+        {
+            "I need my morning ethanol:::N",
+            "I can make it:::I"
         };
         Second.textBody = new string[]
         {
+            "Why does it always make confetti?",
+            "whatever...",
             "*GLUG*:Modayaal:::I",
             "*GLUG*::A",
             "*GLUG*::A"
         };
-        Intro.nextScene = Second;
+        Intro.nextScene = Intro2;
+        Intro2.nextScene = Second;
         Intro.background = bg;
+        Intro2.background = bg2;
         Second.background = bg2;
+        Intro2.mini = handSmall;
+        Second.mini = handSmall2;
         textC = TextControl.instance;
         current = Intro;
-        textC.backgroundImage.sprite = current.background;
-        textC.leftImage.sprite = current.left;
-        textC.rightImage.sprite = current.right;
-        textC.miniImage.sprite = current.mini;
-        textC.centerImage.sprite = current.center;
+        Sync();
     }
 
 
@@ -53,8 +58,7 @@ public class IntroText : MonoBehaviour
                     if(current.nextScene != null)
                     {
                         current = current.nextScene;
-                        textC.backgroundImage.sprite = current.background;
-                        count = 0;
+                        Sync();
                     }
                     return;
                 }
@@ -73,5 +77,15 @@ public class IntroText : MonoBehaviour
         bool a = (part.Length >= 3 && part[2] == "A") ? true : false;
         string style = (part.Length >= 4) ? part[3] : "";
         textC.Say(text,a,speaker, style);
+    }
+
+    void Sync()
+    {
+        textC.backgroundImage.sprite = current.background;
+        textC.leftImage.sprite = current.left;
+        textC.rightImage.sprite = current.right;
+        textC.miniImage.sprite = current.mini;
+        textC.centerImage.sprite = current.center;
+        count = 0;
     }
 }
