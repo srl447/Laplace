@@ -16,83 +16,17 @@ public class Dealer : MonoBehaviour
     ArrayList[] pileC = { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() }; //cards collected by the computer
     Queue deck = new Queue(); // deck of cards
     int turn = 0;
+    bool group = false; //only turns true when there's a group of 3 of a suit on the table
     void Start()
     {
         Shuffle(); //shuffle the deck
-        /*
-         *   Deal out cards two at a time to each players hand and the table
-         *      That's how Koi-Koi works
-         *   TODO: Move to a coroutine and animate it
-         *   TODO: Decide a "dealer" and deal out cards accordingly
-         *      Maybe I can just cheat and always have the player deal
-         *   TODO: Check for multiples of a suit and act accordingly
-         *       This means either ending the game and awarding 6 points to either player for a full suit
-         *       or bunching up 3 of the same suit that are on the table
-         *       or reshuffling if a full suit ends up on the table 
-         *           technically I could catch this and make sure it never happens which will probably be easier
-         */
-        for (int i = 0; i < 8;i+=2) 
-        {
-            handP[i] = (GameObject) deck.Dequeue();
-            handP[i].GetComponent<Card>().zone = 2;
-            handP[i+1] = (GameObject)deck.Dequeue();
-            handP[i+1].GetComponent<Card>().zone = 2;
-            handC[i] = (GameObject)deck.Dequeue();
-            handC[i].GetComponent<Card>().zone = 3;
-            handC[i+1] = (GameObject)deck.Dequeue();
-            handC[i+1].GetComponent<Card>().zone = 3;
-            table.Add(deck.Dequeue());
-            table.Add(deck.Dequeue());
-        }
-        foreach(GameObject setCard in table)
-        {
-            setCard.GetComponent<Card>().zone = 4;
-        }
-        for (int i = 0; i < 8; i++)
-        {
-            handP[i].transform.position = new Vector3(-6f + i*1.5f, -3.3f, handP[i].transform.position.z);
-            handP[i].GetComponent<Card>().faceUp = true;
-            handC[i].transform.position = new Vector3(-6f + i * 1.5f, 3.3f, handC[i].transform.position.z);
-            TableLayout();
-        }
-        turn = 1;
-        //Checking to see if someone won based on collecting a full suit in hand
-        int[] suitCount = new int[12];
-        for (int i = 0; i < 4; i++)
-        {
-            foreach (GameObject card in handC)
-            {
-                suitCount[card.GetComponent<Card>().suit - 1]++;
-            }
-        }
-        for (int i = 0; i < 12; i++)
-        {
-            if (suitCount[i] == 4)
-            {
-                winCons.Add("Full Suit:6");
-                turn = 4;
-            }
-        }
-        suitCount = new int[12];
-        for (int i = 0; i < 4; i++)
-        {
-            foreach (GameObject card in handP)
-            {
-                suitCount[card.GetComponent<Card>().suit - 1]++;
-            }
-        }
-        for (int i = 0; i < 12; i++)
-        {
-            if (suitCount[i] == 4)
-            {
-                winCons.Add("Full Suit:6");
-                turn = 3;
-            }
-        }
+        StartCoroutine(Deal()); //deal the cards
+        
     }
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(turn);
         CheckEnd(); //makes sure the table, deck, hands, etc aren't empty
         //should this be a switch case? is that more efficient?
         if (turn == 1)
@@ -135,14 +69,110 @@ public class Dealer : MonoBehaviour
         for (int i = 0; i < 48; i++) //create each card in the deck
         {
             GameObject newCard = Instantiate(cards[i]) as GameObject;
-            newCard.transform.position = new Vector3(-10f + (.005f * i), 0f, 0);
+            newCard.transform.position = new Vector3(-8f + (.005f * i), 0f, 0);
             newCard.GetComponent<Card>().zone = 1;
             deck.Enqueue(newCard);
         }
     }
 
+    IEnumerator Deal()
+    {
+        /*
+         *   Deal out cards two at a time to each players hand and the table
+         *      That's how Koi-Koi works
+         *   TODO: Animate This
+         *   TODO: Decide a "dealer" and deal out cards accordingly
+         *      Maybe I can just cheat and always have the player deal
+         */
+        group = false;
+        for (int i = 0; i < 8; i += 2)
+        {
+            handP[i] = (GameObject)deck.Dequeue();
+            handP[i].GetComponent<Card>().zone = 2;
+            handP[i + 1] = (GameObject)deck.Dequeue();
+            handP[i + 1].GetComponent<Card>().zone = 2;
+            handC[i] = (GameObject)deck.Dequeue();
+            handC[i].GetComponent<Card>().zone = 3;
+            handC[i + 1] = (GameObject)deck.Dequeue();
+            handC[i + 1].GetComponent<Card>().zone = 3;
+            table.Add(deck.Dequeue());
+            table.Add(deck.Dequeue());
+        }
+        foreach (GameObject setCard in table)
+        {
+            setCard.GetComponent<Card>().zone = 4;
+        }
+        for (int i = 0; i < 8; i++)
+        {
+            handP[i].transform.position = new Vector3(-6f + i * 1.5f, -3.3f, handP[i].transform.position.z);
+            handP[i].GetComponent<Card>().faceUp = true;
+            yield return new WaitForEndOfFrame();
+            handC[i].transform.position = new Vector3(-6f + i * 1.5f, 3.3f, handC[i].transform.position.z);
+            yield return new WaitForEndOfFrame();
+
+        }
+        turn = 1;
+        //Checking to see if someone won based on collecting a full suit in hand
+        int[] suitCount = new int[12];
+        foreach (GameObject card in handC) //Computer
+        {
+            suitCount[card.GetComponent<Card>().suit - 1]++;
+        }
+        for (int i = 0; i < 12; i++)
+        {
+            if (suitCount[i] == 4)
+            {
+                winCons.Add("Full Suit:6");
+                turn = 4;
+            }
+        }
+        suitCount = new int[12];
+        foreach (GameObject card in handP) //Player
+        {
+            suitCount[card.GetComponent<Card>().suit - 1]++;
+        }
+        for (int i = 0; i < 12; i++)
+        {
+            if (suitCount[i] == 4)
+            {
+                winCons.Add("Full Suit:6");
+                Debug.Log(i);
+                turn = 3;
+            }
+        }
+        //Group same suit on table
+        suitCount = new int[12];
+        foreach (GameObject card in table)
+        {
+            suitCount[card.GetComponent<Card>().suit - 1]++;
+        }
+        for (int i = 0; i < 12; i++)
+        {
+            if (suitCount[i] == 4)
+            {
+                //TODO: Reshuffling for full suit on table
+            }
+            else if (suitCount[i] == 3)
+            {
+                group = true;
+                foreach (GameObject card in table)
+                {
+                    ArrayList suitGroup = new ArrayList();
+                    if (card.GetComponent<Card>().suit == i)
+                    {
+                        suitGroup.Add(card);
+                        table.Remove(card);
+                    }
+                    table.Add(suitGroup);
+                }
+            }
+        }
+        TableLayout(); //finally lay the table out
+    }
+
     /*
      * TODO:Choosing between multiple cards
+     *    this should be urgent
      */
     void PlayerTurn() // what occurs when it's the player's turn
     {
@@ -181,10 +211,6 @@ public class Dealer : MonoBehaviour
             }
         }
     }
-
-    /*
-     * 
-     */
     void ComputerTurn() //what occurs when it's the computer's turn
     {
         bool match = false;
@@ -313,13 +339,33 @@ public class Dealer : MonoBehaviour
             nextCard.GetComponent<Card>().faceUp = true;
             if (i % 2 == 0)
             {
-                nextCard.transform.position = new Vector3(-3f + .75f * i, 1.2f, nextCard.transform.position.z);
+                nextCard.transform.position = new Vector3(-3f + .7f * i, 1.2f, nextCard.transform.position.z);
             }
             else
             {
-                nextCard.transform.position = new Vector3(-3.75f + .75f * i, -1.2f, nextCard.transform.position.z);
+                nextCard.transform.position = new Vector3(-3.75f + .7f * i, -1.2f, nextCard.transform.position.z);
             }
             i++;
+        }
+        if (group)
+        {
+            foreach (ArrayList group in table)
+            {
+                int j = 0;
+                foreach (GameObject nextCard in table)
+                {
+                    nextCard.GetComponent<Card>().faceUp = true;
+                    if (i % 2 == 0)
+                    {
+                        nextCard.transform.position = new Vector3(-3f + (.7f * i) + (.25f * j), 1.2f, nextCard.transform.position.z);
+                    }
+                    else
+                    {
+                        nextCard.transform.position = new Vector3(-3.75f + (.7f * i) + (.25f * j), -1.2f, nextCard.transform.position.z);
+                    }
+                }
+                i++;
+            }
         }
     }
     void PlayerPile() //Arranges cards the player has based on values
@@ -391,24 +437,6 @@ public class Dealer : MonoBehaviour
         {
             bool sake = false, boar = false, deer = false, butterfly = false,
             moon = false, crane = false, blossom = false, rainman = false, phoenix = false;
-            /* this is supposed to count for a suit being a win con, but I don't think that's actually
-             * a win condition
-             * int[] suitCount = new int[12];
-            for (int i = 0; i < 4; i++)
-            {
-                foreach (GameObject card in checkPile[i])
-                {
-                    suitCount[card.GetComponent<Card>().suit - 1]++;
-                }
-            }
-            for(int i = 0; i < 12; i++)
-            {
-                if(suitCount[i] == 4)
-                {
-                    newWin.Add("Full Suit:6");
-                    turn = 3;
-                }
-            }*/
             if (checkPile[2].Count >= 1)
             {
                 if (checkPile[2].Count >= 5)
@@ -576,7 +604,6 @@ public class Dealer : MonoBehaviour
         string[] values = WinSort(winToTotal)[1];
         foreach(string v in values)
         {
-            Debug.Log(v);
             totalPoints += int.Parse(v);
         }
         return totalPoints;
