@@ -6,6 +6,7 @@ public class IntroText : MonoBehaviour
 {
     TextControl textC;
     public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene();
+    public Scene third = new Scene();
     Scene current = new Scene();
     int count = 0;
     public Sprite bg, bg2, handSmall, handSmall2;
@@ -16,8 +17,8 @@ public class IntroText : MonoBehaviour
         Intro.textBody = new string[]
         {
             "YARGHHRHRRHH:Modayaal",
-        "Suddenly infinity entered my mind.:::I",
-        "The same as it did every morning.::A",
+        "Suddenly infinity entered my mind. :::I",
+        "The same as it does every morning.::A",
 
         };
         Intro2.textBody = new string[]
@@ -27,19 +28,39 @@ public class IntroText : MonoBehaviour
         };
         Second.textBody = new string[]
         {
-            "Why does it always make confetti?",
+            "Why does it always make confetti?:::N",
             "whatever...",
-            "*GLUG*:Modayaal:::I",
+            "*GLUG*:Modayaal::I",
             "*GLUG*::A",
             "*GLUG*::A"
         };
         Intro.nextScene = Intro2;
         Intro2.nextScene = Second;
+        Second.nextScene = third;
         Intro.background = bg;
         Intro2.background = bg2;
         Second.background = bg2;
         Intro2.mini = handSmall;
         Second.mini = handSmall2;
+
+        //trying a new style of formatting, hopefully it'll be more legible moving forward
+        third.Set(new string[]
+        { 
+            "Okay yep this stuff is still gross.:::N",
+            "I'll make something better later:::I",
+            "; I always hate the taste of newly conjured stuff anyways.::A",
+            "It's been five seconds, and today is already just as horrible as the last.:::N",
+            "I know I didn't do anything different, but why should I?",
+            "Nothing will change",
+            ". It'll still be fucking boring::A",
+            "Why did I ask to know everything?",
+            "Why did I put this on myself?",
+            "I'd think knowing everything that ever have and will happen down to the exact quark",
+            "would provide some sort of universal enlightenment and give purpose to my life.",
+            "How could I not see how wrong that was?"
+        }, 
+        bg2);
+
         textC = TextControl.instance;
         current = Intro;
         Sync();
@@ -86,6 +107,7 @@ public class IntroText : MonoBehaviour
         textC.rightImage.sprite = current.right;
         textC.miniImage.sprite = current.mini;
         textC.centerImage.sprite = current.center;
-        count = 0;
+        Say(current.textBody[0]);
+        count = 1;
     }
 }
