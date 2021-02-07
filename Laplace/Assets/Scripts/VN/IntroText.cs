@@ -57,7 +57,14 @@ public class IntroText : MonoBehaviour
             "Why did I put this on myself?",
             "I'd think knowing everything that ever have and will happen down to the exact quark",
             "would provide some sort of universal enlightenment and give purpose to my life.",
-            "How could I not see how wrong that was?"
+            "How could I not see how wrong that was? ",
+            "How could I be so ignorant?::A",
+            "How could I think trapping everyone in Gehinnom was worth anything?",
+            "STOP! :::I",
+            "Stop. ::A",
+            "stop stop stop::A",
+            "That's enough brain.",
+            "We do this every morning, and I need to stop it."
         }, 
         bg2);
 
