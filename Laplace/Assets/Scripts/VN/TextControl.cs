@@ -89,6 +89,13 @@ public class TextControl : MonoBehaviour
         speaking = null;
     }
 
+    //allows you to skip to the end of the text instead of having it print char by char
+    bool hurry = false;
+    public void HurrySpeaking()
+    {
+        hurry = true;
+    }
+
     public bool isSpeaking {get{return speaking != null;}}
     public bool waitForInput = false;
 
@@ -99,15 +106,24 @@ public class TextControl : MonoBehaviour
         textBox.SetActive(true);
         targetText = inText;
         if (!additive)
+        {
             mainText.text = "";
+        }
         else
+        {
             targetText = mainText.text + targetText;
+        }
         speakerName.text = DetermineSpeaker(speaker);
         waitForInput = false;
 
         while(mainText.text != targetText)
         {
             mainText.text += targetText[mainText.text.Length];
+            if (hurry) //recieving input from HurrySpeaking()
+            {
+                mainText.text = targetText;
+                hurry = false;
+            }
             yield return new WaitForEndOfFrame();
         }
 

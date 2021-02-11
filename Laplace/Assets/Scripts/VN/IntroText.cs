@@ -94,6 +94,10 @@ public class IntroText : MonoBehaviour
                 Say(current.textBody[count]);
                 count++;
             }
+            else if(textC.isSpeaking)
+            {
+                textC.HurrySpeaking();
+            }
         }
         
     }
