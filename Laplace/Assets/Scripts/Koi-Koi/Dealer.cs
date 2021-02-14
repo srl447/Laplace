@@ -12,10 +12,10 @@ public class Dealer : MonoBehaviour
     public GameObject[] cards, handP, handC; //all the cards, player and computer hands
     ArrayList table = new ArrayList(); //cards on the table
     ArrayList winCons = new ArrayList(); //List of conditions won
-    ArrayList[] pileP = { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() }; //cards collected by the player
-    ArrayList[] pileC = { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() }; //cards collected by the computer
+    public ArrayList[] pileP = { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() }; //cards collected by the player
+    public ArrayList[] pileC = { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() }; //cards collected by the computer
     Queue deck = new Queue(); // deck of cards
-    int turn = 0;
+    public int turn = 0;
     bool group = false; //only turns true when there's a group of 3 of a suit on the table
     void Start()
     {
@@ -26,7 +26,6 @@ public class Dealer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(turn);
         CheckEnd(); //makes sure the table, deck, hands, etc aren't empty
         //should this be a switch case? is that more efficient?
         if (turn == 1)
@@ -136,7 +135,6 @@ public class Dealer : MonoBehaviour
             if (suitCount[i] == 4)
             {
                 winCons.Add("Full Suit:6");
-                Debug.Log(i);
                 turn = 3;
             }
         }
@@ -173,6 +171,9 @@ public class Dealer : MonoBehaviour
     /*
      * TODO:Choosing between multiple cards
      *    this should be urgent
+     * TODO: If three of a suit is on the table, you should get all 4 by playing the final card
+     *    it doesn't work rn I got lucky somehow 
+     *    this needs to happen for player, computer, and nextdeck
      */
     void PlayerTurn() // what occurs when it's the player's turn
     {
@@ -224,10 +225,10 @@ public class Dealer : MonoBehaviour
                     {
                         int pileN = CardSort(lookCard);
                         pileC[pileN].Add(lookCard);
-                        lookCard.GetComponent<Card>().zone = 5;
+                        lookCard.GetComponent<Card>().zone = 6;
                         pileN = CardSort(handC[i]);
                         pileC[pileN].Add(handC[i]);
-                        handC[i].GetComponent<Card>().zone = 5;
+                        handC[i].GetComponent<Card>().zone = 6;
                         table.Remove(lookCard);
                         handC[i] = null;
                         ComputerPile();
@@ -281,10 +282,10 @@ public class Dealer : MonoBehaviour
             {
                 int pileN = CardSort(lookCard);
                 correctPile[pileN].Add(lookCard);
-                lookCard.GetComponent<Card>().zone = 5;
+                lookCard.GetComponent<Card>().zone = 4 + turn;
                 pileN = CardSort(nextCard);
                 correctPile[pileN].Add(nextCard);
-                nextCard.GetComponent<Card>().zone = 5;
+                nextCard.GetComponent<Card>().zone = 4 + turn;
                 if (turn == 1)
                 {
                     PlayerPile();
@@ -334,6 +335,8 @@ public class Dealer : MonoBehaviour
     void TableLayout() //Arranges the cards on the table
     {
         int i = 0;
+        //Something is broken here for when there's 3 cards of a suit?
+        //TODO: Actually figure out how to fix this shit lol 
         foreach (GameObject nextCard in table)
         {
             nextCard.GetComponent<Card>().faceUp = true;

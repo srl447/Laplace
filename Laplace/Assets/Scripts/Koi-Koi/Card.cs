@@ -18,12 +18,19 @@ public class Card : MonoBehaviour
      * 5:Player's Pile
      * 6:Computer's Pile
      */
+
+    public GameObject shade;
+    public Dealer deal;
+    ArrayList tempCards = new ArrayList();
     public bool faceUp, selected, hover;
     public Sprite front, back;
     void Start()
     {
         //this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         //this.GetComponent<Rigidbody2D>().simulated = true;
+        GameObject dealer = GameObject.Find("Dealer");
+        deal = dealer.GetComponent<Dealer>();
+        shade = GameObject.Find("Shade");
         Destroy(this.GetComponent<Rigidbody2D>());
     }
 
@@ -46,9 +53,53 @@ public class Card : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Cursor" && zone == 2)
+        if(collision.gameObject.tag == "Cursor")
         {
-            hover = true;
+            if (zone == 2)
+            {
+                hover = true;
+            }
+            else if (zone == 5 && tempCards.Count == 0 && deal.turn < 3)
+            {
+                int count = 0;
+                int count2 = 0;
+                shade.GetComponent<SpriteRenderer>().enabled = true;
+                foreach (ArrayList pile in deal.pileP)
+                {
+                    foreach (GameObject card in pile)
+                    {
+                        GameObject newCard = Instantiate(card) as GameObject;
+                        newCard.transform.position = new Vector3(-7.2f + (count*(2f-(count/13))), 3.2f - count2*2.2f, -1.1f);
+                        tempCards.Add(newCard);
+                        count++;
+                    }
+                    count = 0;
+                    count2++;
+                }
+            }
+            else if (zone == 6 && tempCards.Count == 0 && deal.turn < 3)
+            {
+                int count = 0;
+                int count2 = 0;
+                shade.GetComponent<SpriteRenderer>().enabled = true;
+                foreach (ArrayList pile in deal.pileC)
+                {
+                    foreach (GameObject card in pile)
+                    {
+                        GameObject newCard = Instantiate(card) as GameObject;
+                        newCard.transform.position = new Vector3(-7.2f + (count * (2f - (count / 13))), 3.2f - count2 * 2.2f, -1.1f);
+                        tempCards.Add(newCard);
+                        count++;
+                        if (count > 10)
+                        {
+                            count2++;
+                            count = 0;
+                        }
+                    }
+                    count = 0;
+                    count2++;
+                }
+            }
         }
         else
         {
@@ -58,9 +109,21 @@ public class Card : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Cursor" && zone == 2)
+        if (collision.gameObject.tag == "Cursor")
         {
-            hover = false;
+            if (zone == 2)
+            {
+                hover = false;
+            }
+            else if(zone == 5 || zone == 6)
+            {
+                shade.GetComponent<SpriteRenderer>().enabled = false;
+                foreach (GameObject card in tempCards)
+                {
+                    Destroy(card);
+                }
+                tempCards.Clear();
+            }
         }
     }
 }
