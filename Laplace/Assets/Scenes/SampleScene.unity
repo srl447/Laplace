@@ -490,6 +490,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   turn: 0
+  koiB: {fileID: 2018622237}
+  stopB: {fileID: 481397389}
   winUI: {fileID: 163791588}
   koiButton: {fileID: 2018622235}
   stopButton: {fileID: 481397387}

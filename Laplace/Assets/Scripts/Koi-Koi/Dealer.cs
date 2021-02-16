@@ -6,21 +6,26 @@ using UnityEngine.UI;
 public class Dealer : MonoBehaviour
 {
     /*
-     * TODO: Calling Koi-koi
-     * TODO: Pile checking on hover or making the cards smaller or something
-     */
+     * TODO: Multiple Rounds
+     *   this entials like destorying all the cards redealing and having an overall score for both players
+     * TODO: TODOs listed below
+     */ 
     // Start is called before the first frame update
     public GameObject[] cards, handP, handC; //all the cards, player and computer hands
     ArrayList table = new ArrayList(); //cards on the table
-    ArrayList winCons = new ArrayList(); //List of conditions won
+    ArrayList winConsP = new ArrayList(), winConsC = new ArrayList(); //List of conditions won
     public ArrayList[] pileP = { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() }; //cards collected by the player
     public ArrayList[] pileC = { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() }; //cards collected by the computer
     Queue deck = new Queue(); // deck of cards
     public int turn = 0;
     bool group = false; //only turns true when there's a group of 3 of a suit on the table
-    bool winOn = false;
+    bool winOn = false; //checks if the win UI is turned on
+    bool koiCall = false;
+    public Button koiB, stopB; //buttons for the win screen
     void Start()
     {
+        koiB.onClick.AddListener(koiClick);
+        stopB.onClick.AddListener(stopClick);
         Shuffle(); //shuffle the deck
         StartCoroutine(Deal()); //deal the cards
         
@@ -29,29 +34,38 @@ public class Dealer : MonoBehaviour
     void Update()
     {
         CheckEnd(); //makes sure the table, deck, hands, etc aren't empty
-        //should this be a switch case? is that more efficient?
-        if (turn == 1)
+        switch(turn) //runs different stuff depending on whose turn
         {
-            PlayerTurn();
-        }
-        else if (turn == 2)
-        {
-            ComputerTurn();
-        }
-        else if (!winOn && (turn == 3 || turn == 4))
-        {
-            //TODO: Player Koi-Koi options and winnig and such
-            winOn = true;
-            StartCoroutine(WinUI());
-        }
-        else if (turn == 5)
-        {
-            //TODO:What happens when the deck. hands, table runs out of cards and such
+            case 1:
+                PlayerTurn();
+                break;
+            case 2:
+                ComputerTurn();
+                break;
+            case 3:
+                if (!winOn)
+                {
+                    winOn = true;
+                    StartCoroutine(WinUI(winConsP));
+                }
+                break;
+            case 4:
+                if (!winOn)
+                {
+                    winOn = true;
+                    StartCoroutine(WinUI(winConsC));
+                }
+                break;
+            case 5:
+                //TODO:What happens when the deck. hands, table runs out of cards and such
+                break;
         }
     }
 
+
     void Shuffle() //shuffles the deck
     {
+        koiCall = false; //no one's called koi koi yet
         GameObject[] shuffle = (GameObject[])cards.Clone(); //clone a list of all cards
         deck.Clear(); //clear the queue *note: probably need to destroy all previous cards as well
         for (int i = 0; i < 48; i++)  //swaps each card in the deck with a random one
@@ -75,7 +89,7 @@ public class Dealer : MonoBehaviour
         /*
          *   Deal out cards two at a time to each players hand and the table
          *      That's how Koi-Koi works
-         *   TODO: Animate This
+         *   TODO: Animate This better
          *   TODO: Decide a "dealer" and deal out cards accordingly
          *      Maybe I can just cheat and always have the player deal
          */
@@ -117,7 +131,7 @@ public class Dealer : MonoBehaviour
         {
             if (suitCount[i] == 4)
             {
-                winCons.Add("Full Suit:6");
+                winConsC.Add("Full Suit:6");
                 turn = 4;
             }
         }
@@ -130,7 +144,7 @@ public class Dealer : MonoBehaviour
         {
             if (suitCount[i] == 4)
             {
-                winCons.Add("Full Suit:6");
+                winConsP.Add("Full Suit:6");
                 turn = 3;
             }
         }
@@ -146,6 +160,7 @@ public class Dealer : MonoBehaviour
             {
                 //TODO: Reshuffling for full suit on table
             }
+            //This still is broken I need to figure out how to fix
             else if (suitCount[i] == 3)
             {
                 group = true;
@@ -400,7 +415,6 @@ public class Dealer : MonoBehaviour
 
     /*
      * TODO: Making Sake Trash Optional
-     * TODO: All of 1 Month
      * TODO: Winning does something
      */
     void CheckEnd() //checks to see if one of the end game conditions has happened
@@ -415,7 +429,9 @@ public class Dealer : MonoBehaviour
                  *  the computer able to deal
                  */
                 int countH = 0;
-                foreach (GameObject c in handP)
+                //makes sure the computer hand is empty cause that means the computer took it's final turn
+                //this is weird but it ends up working I think?
+                foreach (GameObject c in handC)
                 {
                     if (c == null)
                     {
@@ -480,8 +496,8 @@ public class Dealer : MonoBehaviour
                  *  I could also do none of this and it wouldn't have a major impact, so this
                  *  should be saved for later
                  */
-                int sak = sake ? 1 : 0; //wth C# why isn't bools 0/1
-                newWin.Add("Trash:" + (checkPile[0].Count - (9 + sak)));
+                int sak = sake ? 1 : 0; //wtf C# why isn't bools 0/1
+                newWin.Add("Trash:" + (checkPile[0].Count + sak - 9));
             }
             if (checkPile[1].Count >= 3)
             {
@@ -575,11 +591,21 @@ public class Dealer : MonoBehaviour
                     newWin.Add("Flower Viewing:5");
                 }
             }
-            if (WinTotal(newWin) > WinTotal(winCons))
+            if(turn == 1)
             {
-                turn = (checkPile == pileP) ? 3 : 4;
-                winCons = newWin;
-                Debug.Log(winCons[0]);
+                if (WinTotal(newWin) > WinTotal(winConsP))
+                {
+                    turn = 3;
+                    winConsP = newWin;
+                }
+            }
+            else if(turn == 2)
+            {
+                if (WinTotal(newWin) > WinTotal(winConsC))
+                {
+                    turn = 4;
+                    winConsC = newWin;
+                }
             }
         }
     }
@@ -609,6 +635,10 @@ public class Dealer : MonoBehaviour
         {
             totalPoints += int.Parse(v);
         }
+        if(koiCall) //double the points if someone's called koi-koi
+        {
+            totalPoints = totalPoints * 2;
+        }
         return totalPoints;
     }
     /*computer choses to koi-koi based on their score
@@ -619,7 +649,7 @@ public class Dealer : MonoBehaviour
      */
     bool ComputerKoiKoi()
     {
-        bool koi = (Random.Range(0, 20) + WinTotal(winCons) < 14) ? true : false;
+        bool koi = (Random.Range(0, 20) + WinTotal(winConsC) < 14) ? true : false;
         if (koi) //don't want computer koi-koing if they don't have any cards
         {
             int countH = 0;
@@ -638,29 +668,47 @@ public class Dealer : MonoBehaviour
         return koi;
     }
 
+    //winning UI coroutine
     public GameObject winUI, koiButton, stopButton;
     public Text winText, totalText;
-    IEnumerator WinUI()
+    IEnumerator WinUI(ArrayList winCons)
     {
         winUI.SetActive(true);
         winText.text = "";
         totalText.text = "";
         yield return new WaitForEndOfFrame();
+        //displays win conditions
         string[][] wins = WinSort(winCons);
         for(int i = 0; i < wins[0].Length; i++)
         {
-            winText.text += wins[0][i] + "                     " + wins[1][i];
+            winText.text += wins[0][i] + "                     " + wins[1][i] + "\n";
             yield return new WaitForSecondsRealtime(.3f);
         }
+        //display total points
         totalText.text = WinTotal(winCons).ToString();
         yield return new WaitForSecondsRealtime(.3f);
-        if (turn == 3)
+        //different win things based on who won
+        if (turn == 3) //player
         {
-            koiButton.SetActive(true);
-            stopButton.SetActive(true);
-            //TODO:Buttons doing something
+            int countH = 0;
+            foreach (GameObject c in handP)
+            {
+                if (c == null)
+                {
+                    countH++;
+                }
+            }
+            if (countH < 8)
+            {
+                koiButton.SetActive(true);
+                stopButton.SetActive(true);
+            }
+            else
+            {
+                //TODO: Player winning after running out of cards
+            }
         }
-        if (turn == 4)
+        if (turn == 4) //computer
         {
             yield return new WaitForSecondsRealtime(.3f);
             if(ComputerKoiKoi())
@@ -668,11 +716,27 @@ public class Dealer : MonoBehaviour
                 turn = 1;
                 winUI.SetActive(false);
                 winOn = false;
+                koiCall = true;
             }
             else
             {
                 //TODO: Computer Winning
             }
         }
+    }
+    //koi-koi button function
+    void koiClick()
+    {
+        turn = 2;
+        koiButton.SetActive(false);
+        stopButton.SetActive(false);
+        winUI.SetActive(false);
+        winOn = false;
+        koiCall = true;
+    }
+    //stop button function
+    void stopClick()
+    {
+        //TODO: Player winning
     }
 }
