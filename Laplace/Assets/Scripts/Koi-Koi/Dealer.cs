@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dealer : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Dealer : MonoBehaviour
     Queue deck = new Queue(); // deck of cards
     public int turn = 0;
     bool group = false; //only turns true when there's a group of 3 of a suit on the table
+    bool winOn = false;
     void Start()
     {
         Shuffle(); //shuffle the deck
@@ -36,17 +38,11 @@ public class Dealer : MonoBehaviour
         {
             ComputerTurn();
         }
-        else if (turn == 3)
+        else if (!winOn && (turn == 3 || turn == 4))
         {
             //TODO: Player Koi-Koi options and winnig and such
-        }
-        else if (turn == 4)
-        {
-            if(ComputerKoiKoi())
-            {
-                turn = 1;
-            }
-            //TODO:Computer winning 
+            winOn = true;
+            StartCoroutine(WinUI());
         }
         else if (turn == 5)
         {
@@ -153,16 +149,20 @@ public class Dealer : MonoBehaviour
             else if (suitCount[i] == 3)
             {
                 group = true;
+                ArrayList suitGroup = new ArrayList();
+                Debug.Log(suitCount[i]);
+                Debug.Log(i);
                 foreach (GameObject card in table)
                 {
-                    ArrayList suitGroup = new ArrayList();
+                    Debug.Log(suitGroup.Count);
                     if (card.GetComponent<Card>().suit == i)
                     {
                         suitGroup.Add(card);
                         table.Remove(card);
                     }
-                    table.Add(suitGroup);
+                    Debug.Log(suitGroup.Count);
                 }
+                table.Add(suitGroup);
             }
         }
         TableLayout(); //finally lay the table out
@@ -636,5 +636,43 @@ public class Dealer : MonoBehaviour
             }
         }
         return koi;
+    }
+
+    public GameObject winUI, koiButton, stopButton;
+    public Text winText, totalText;
+    IEnumerator WinUI()
+    {
+        winUI.SetActive(true);
+        winText.text = "";
+        totalText.text = "";
+        yield return new WaitForEndOfFrame();
+        string[][] wins = WinSort(winCons);
+        for(int i = 0; i < wins[0].Length; i++)
+        {
+            winText.text += wins[0][i] + "                     " + wins[1][i];
+            yield return new WaitForSecondsRealtime(.3f);
+        }
+        totalText.text = WinTotal(winCons).ToString();
+        yield return new WaitForSecondsRealtime(.3f);
+        if (turn == 3)
+        {
+            koiButton.SetActive(true);
+            stopButton.SetActive(true);
+            //TODO:Buttons doing something
+        }
+        if (turn == 4)
+        {
+            yield return new WaitForSecondsRealtime(.3f);
+            if(ComputerKoiKoi())
+            {
+                turn = 1;
+                winUI.SetActive(false);
+                winOn = false;
+            }
+            else
+            {
+                //TODO: Computer Winning
+            }
+        }
     }
 }
