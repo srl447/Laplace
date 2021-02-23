@@ -161,22 +161,31 @@ public class Dealer : MonoBehaviour
                 //TODO: Reshuffling for full suit on table
             }
             //This still is broken I need to figure out how to fix
+            //potentially fixed i forgot +1
+            //it did not fix this
             else if (suitCount[i] == 3)
             {
                 group = true;
                 ArrayList suitGroup = new ArrayList();
                 Debug.Log(suitCount[i]);
-                Debug.Log(i);
+                Debug.Log(i+1);
                 foreach (GameObject card in table)
                 {
                     Debug.Log(suitGroup.Count);
-                    if (card.GetComponent<Card>().suit == i)
+                    if (card.GetComponent<Card>().suit == i+1)
                     {
                         suitGroup.Add(card);
-                        table.Remove(card);
+                        //table.Remove(card);
                     }
                     Debug.Log(suitGroup.Count);
                 }
+                //Desparate times calls for desparate measures
+                foreach(GameObject card in suitGroup) 
+                {
+                    table.Remove(card);
+                }
+                suitGroup.Add(i + 1); //adds in the suit for easy access
+                Debug.Log("Suit Grouped");
                 table.Add(suitGroup);
             }
         }
@@ -190,18 +199,63 @@ public class Dealer : MonoBehaviour
      *    it doesn't work rn I got lucky somehow 
      *    this needs to happen for player, computer, and nextdeck
      */
+    GameObject[] matchingCards = new GameObject[2];
+    int selIndex;
     void PlayerTurn() // what occurs when it's the player's turn
     {
-        for (int i = 0; i < handP.Length; i++)
+        if (matchingCards[1] == null)
         {
-            if (handP[i] != null && handP[i].GetComponent<Card>().selected)
+            for (int i = 0; i < handP.Length; i++)
             {
-                bool match = false;
-                handP[i].GetComponent<Card>().selected = false;
-                foreach (GameObject lookCard in table)
+                if (handP[i] != null && handP[i].GetComponent<Card>().selected) //looking for matches
                 {
-                    if (lookCard.GetComponent<Card>().suit == handP[i].GetComponent<Card>().suit)
+                    handP[i].GetComponent<Card>().selected = false;
+                    selIndex = i;
+                    int count = 0;
+                    if (group)
                     {
+                        foreach (ArrayList group in table)
+                        {
+                            if ((int)group[3] == handP[i].GetComponent<Card>().suit)
+                            {
+                                foreach (GameObject lookCard in group)
+                                {
+                                    int pileN = CardSort(lookCard);
+                                    pileP[pileN].Add(lookCard);
+                                    lookCard.GetComponent<Card>().zone = 5;
+                                    pileN = CardSort(handP[i]);
+                                    pileP[pileN].Add(handP[i]);
+                                    handP[i].GetComponent<Card>().zone = 5;
+                                    table.Remove(lookCard);
+                                    handP[i] = null;
+                                    PlayerPile();
+                                    NextDeck();
+                                    CheckEnd();
+                                    if (turn == 1)
+                                    {
+                                        turn = 2;
+                                    }
+                                }
+                                table.Remove(group); //this might break things?
+                                break;
+                            }
+                        }
+                    }
+                    foreach (GameObject lookCard in table) //figuring out which cards match
+                    {
+                        if (count == 2) //there can only be 2 possible matches maximum
+                        {
+                            break;
+                        }
+                        if (lookCard.GetComponent<Card>().suit == handP[i].GetComponent<Card>().suit)
+                        {
+                            matchingCards[count] = lookCard;
+                            count++;
+                        }
+                    }
+                    if (count == 1) //if there's only one match, just do the match
+                    {
+                        GameObject lookCard = matchingCards[0];
                         int pileN = CardSort(lookCard);
                         pileP[pileN].Add(lookCard);
                         lookCard.GetComponent<Card>().zone = 5;
@@ -211,19 +265,54 @@ public class Dealer : MonoBehaviour
                         table.Remove(lookCard);
                         handP[i] = null;
                         PlayerPile();
-                        match = true;
-                        break;
+                        NextDeck();
+                        CheckEnd();
+                        if (turn == 1)
+                        {
+                            turn = 2;
+                        }
                     }
+                    else if (count == 0) //if there's no match, add the card to the table
+                    {
+                        table.Add(handP[i]);
+                        handP[i] = null;
+                        NextDeck();
+                        CheckEnd();
+                        if (turn == 1)
+                        {
+                            turn = 2;
+                        }
+                    }
+                    break;
                 }
-                if(!match)
+            }
+        }
+        else //selecting a card between 2
+        {
+            for(int i = 0; i < 2; i++)
+            {
+                if(matchingCards[i].GetComponent<Card>().selectedDouble)
                 {
-                    table.Add(handP[i]);
-                    handP[i] = null;
+                    GameObject lookCard = matchingCards[i];
+                    lookCard.GetComponent<Card>().selectedDouble = false;
+                    int pileN = CardSort(lookCard);
+                    pileP[pileN].Add(lookCard);
+                    lookCard.GetComponent<Card>().zone = 5;
+                    pileN = CardSort(handP[selIndex]);
+                    pileP[pileN].Add(handP[selIndex]);
+                    handP[selIndex].GetComponent<Card>().zone = 5;
+                    table.Remove(lookCard);
+                    handP[selIndex] = null;
+                    matchingCards = new GameObject[2];
+                    PlayerPile();
+                    NextDeck();
+                    CheckEnd();
+                    if (turn == 1)
+                    {
+                        turn = 2;
+                    }
+                    break;
                 }
-                NextDeck();
-                CheckEnd();
-                if(turn == 1)
-                    turn = 2;
             }
         }
     }
@@ -234,6 +323,35 @@ public class Dealer : MonoBehaviour
         {
             if(handC[i] != null)
             {
+                if (group)
+                {
+                    foreach (ArrayList group in table)
+                    {
+                        if ((int)group[3] == handC[i].GetComponent<Card>().suit)
+                        {
+                            foreach (GameObject lookCard in group)
+                            {
+                                int pileN = CardSort(lookCard);
+                                pileC[pileN].Add(lookCard);
+                                lookCard.GetComponent<Card>().zone = 6;
+                                pileN = CardSort(handC[i]);
+                                pileC[pileN].Add(handC[i]);
+                                handC[i].GetComponent<Card>().zone = 6;
+                                table.Remove(lookCard);
+                                handC[i] = null;
+                                ComputerPile();
+                                NextDeck();
+                                CheckEnd();
+                                if (turn == 2)
+                                {
+                                    turn = 1;
+                                }
+                            }
+                            table.Remove(group); //this might break things?
+                            break;
+                        }
+                    }
+                }
                 foreach (GameObject lookCard in table)
                 {
                     if (lookCard.GetComponent<Card>().suit == handC[i].GetComponent<Card>().suit)
@@ -370,7 +488,7 @@ public class Dealer : MonoBehaviour
             foreach (ArrayList group in table)
             {
                 int j = 0;
-                foreach (GameObject nextCard in table)
+                foreach (GameObject nextCard in group)
                 {
                     nextCard.GetComponent<Card>().faceUp = true;
                     if (i % 2 == 0)
@@ -381,6 +499,7 @@ public class Dealer : MonoBehaviour
                     {
                         nextCard.transform.position = new Vector3(-3.75f + (.7f * i) + (.25f * j), -1.2f, nextCard.transform.position.z);
                     }
+                    j++;
                 }
                 i++;
             }

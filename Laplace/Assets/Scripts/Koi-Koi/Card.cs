@@ -22,7 +22,7 @@ public class Card : MonoBehaviour
     public GameObject shade;
     public Dealer deal;
     ArrayList tempCards = new ArrayList();
-    public bool faceUp, selected, hover;
+    public bool faceUp, selected, hover, selectedDouble;
     public Sprite front, back;
     void Start()
     {
@@ -47,7 +47,19 @@ public class Card : MonoBehaviour
         }
         if (hover && Input.GetMouseButtonDown(0))
         {
-            selected = true;
+            switch (zone)
+            {
+                case 2:
+                    selected = true;
+                    break;
+                case 4:
+                    selectedDouble = true;
+                    break;
+            }
+        }
+        else if (!hover)
+        {
+            selectedDouble = false;
         }
     }
 
@@ -55,7 +67,7 @@ public class Card : MonoBehaviour
     {
         if(collision.gameObject.tag == "Cursor")
         {
-            if (zone == 2)
+            if (zone == 2 || zone == 4)
             {
                 hover = true;
             }
