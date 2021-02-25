@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IntroText : MonoBehaviour
 {
@@ -87,6 +88,10 @@ public class IntroText : MonoBehaviour
                     {
                         current = current.nextScene;
                         Sync();
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(1);
                     }
                     return;
                 }

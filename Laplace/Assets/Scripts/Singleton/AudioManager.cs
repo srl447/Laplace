@@ -13,6 +13,7 @@ public class AudioManager : Singleton<AudioManager>
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = bgm;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void PlayOneShot(AudioClip clipToPlay)
