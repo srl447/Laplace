@@ -11,6 +11,7 @@ public class TextControl : MonoBehaviour
     void Awake()
     {
         instance = this;
+        logText.text = "";
     }
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class TextControl : MonoBehaviour
     public void Say(string speech, bool additive = false, string speaker = "", string style = "")
     {
         StopSpeaking();
+        logText.text += speakerName.text ="\n" + mainText.text +"\n \n";
         mainText.text = targetText;
         Debug.Log("Saying");
         //set elements to appear/dissappear when they change
@@ -145,6 +147,20 @@ public class TextControl : MonoBehaviour
         }
         return speaker;
     }
+
+    //log button function
+    public void LogClick()
+    {
+        if(logBox.activeSelf)
+        {
+            logBox.SetActive(false);
+        }
+        else
+        {
+            logBox.SetActive(true);
+        }
+    }
+
     [System.Serializable] //allows for recreation of class when needed
     public class Elements
     {
@@ -152,14 +168,18 @@ public class TextControl : MonoBehaviour
          * Contains all the elements of the visual novel
          */
 
-        public GameObject textBox;
+        public GameObject textBox, logBox;
         public Text speakerName;
         public Text mainText;
         public Image backgroundImage, leftImage, rightImage, centerImage, miniImage;
+
+        public Button logButton;
+        public Text logText;
     }
 
     //So there's no need to reference elements every time
     public GameObject textBox { get { return elements.textBox; } }
+    public GameObject logBox { get { return elements.logBox; } }
     public Text speakerName { get { return elements.speakerName; } }
     public Text mainText { get { return elements.mainText; } }
     public Image backgroundImage { get { return elements.backgroundImage; } }
@@ -167,6 +187,9 @@ public class TextControl : MonoBehaviour
     public Image rightImage { get { return elements.rightImage; } }
     public Image centerImage { get { return elements.centerImage; } }
     public Image miniImage { get { return elements.miniImage; } }
+
+    public Text logText { get { return elements.logText; } }
+    public Button logButton { get { return elements.logButton; } }
 
 }
 
