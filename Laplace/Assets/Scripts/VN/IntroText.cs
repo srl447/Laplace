@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class IntroText : MonoBehaviour
 {
     TextControl textC;
-    public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene();
-    public Scene third = new Scene();
+    public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(),
+        third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(),
+        fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene();
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg, bg2, handSmall, handSmall2;
+    public Sprite bg, bg2, handSmall, handSmall2, furfur,
+        fufurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +69,70 @@ public class IntroText : MonoBehaviour
             "That's enough brain.",
             "We do this every morning, and I need to stop it."
         }, 
+        bg2, fourth);
+
+        fourth.Set(new string[]
+        {
+            "*KNOCK* :The Door::I"
+        },
+        bg2, fourth2);
+        fourth.mini = doorSmall1;
+
+        fourth2.Set(new string[]
+        {
+            "*KNOCK* ::A"
+        },
+        bg2, fourth3);
+        fourth2.mini = doorSmall2;
+
+        fourth3.Set(new string[]
+        {
+            "*KNOCK* ::A",
+        },
+        bg2, fourth4);
+        fourth3.mini = doorSmall3;
+
+        fourth4.Set(new string[]
+        {
+            "What? :Modayaal::N",
+            "Why? ::A",
+            "Who?::A",
+            "Whatever.",
+            "COME INNN",
+        },
+        bg2, fifth);
+        fourth4.mini = doorSmall4;
+
+        fifth.Set(new string[]
+        {
+            "Don't tell me you forgot your best pal was coming over.:Furfur",
+            "How could I? You come over almost every day:Modayaal",
+
+        },
+        bg2, sixth);
+        fifth.center = furfur;
+
+        //TODO: Need Happy Furfur
+        sixth.Set(new string[]
+        {
+            "And that's cause I love you so much:Furfur",
+            "yeah loves bugging me:Modayaal::I",
+        },
+        bg2, seven);
+        sixth.center = fufurH;
+
+        seven.Set(new string[]
+        {
+            "What was that?:Furfur::N",
+            "I didn't even say anything!!!:Modayaal",
+            "Anyways, you good bud?: Furfur",
+            "????:Modayal",
+            "fair:Furfur",
+            " fair::A",
+            "You want a drink?:Modayaal"
+        },
         bg2);
+        seven.center = furfur;
 
         textC = TextControl.instance;
         current = Intro;
