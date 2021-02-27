@@ -12,6 +12,8 @@ public class TextControl : MonoBehaviour
     {
         instance = this;
         logText.text = "";
+        mainText.text = "";
+        speakerName.text = "";
     }
     // Start is called before the first frame update
     void Start()
@@ -22,8 +24,7 @@ public class TextControl : MonoBehaviour
     public void Say(string speech, bool additive = false, string speaker = "", string style = "")
     {
         StopSpeaking();
-        //Needs to remove the "speaker main text" entry through check or bool
-        //Also, needs to increase the viewport size to hold more text
+        viewportContent.sizeDelta += Vector2.up * 100;
         logText.text += speakerName.text + "\n" + mainText.text +"\n \n";
         mainText.text = targetText;
         Debug.Log("Saying");
@@ -177,11 +178,11 @@ public class TextControl : MonoBehaviour
 
         public Button logButton;
         public Text logText;
+        public RectTransform viewportContent;
     }
 
     //So there's no need to reference elements every time
     public GameObject textBox { get { return elements.textBox; } }
-    public GameObject logBox { get { return elements.logBox; } }
     public Text speakerName { get { return elements.speakerName; } }
     public Text mainText { get { return elements.mainText; } }
     public Image backgroundImage { get { return elements.backgroundImage; } }
@@ -190,8 +191,11 @@ public class TextControl : MonoBehaviour
     public Image centerImage { get { return elements.centerImage; } }
     public Image miniImage { get { return elements.miniImage; } }
 
+    //Log Ones
     public Text logText { get { return elements.logText; } }
     public Button logButton { get { return elements.logButton; } }
+    public GameObject logBox { get { return elements.logBox; } }
+    public RectTransform viewportContent { get { return elements.viewportContent; } }
 
 }
 
