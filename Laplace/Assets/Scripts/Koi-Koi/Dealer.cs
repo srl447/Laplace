@@ -23,6 +23,7 @@ public class Dealer : MonoBehaviour
     bool koiCall = false;
     public Button koiB, stopB; //buttons for the win screen
     GameObject[] suitGroup1 = new GameObject[3], suitGroup2 = new GameObject[3]; //suit groups
+    public int scoreP, scoreC; //scores for player, computer
     void Start()
     {
         koiB.onClick.AddListener(koiClick);
@@ -935,6 +936,7 @@ public class Dealer : MonoBehaviour
             }
             else
             {
+                scoreC = WinTotal(winConsC);
                 //TODO: Computer Winning
             }
         }
@@ -953,5 +955,7 @@ public class Dealer : MonoBehaviour
     void stopClick()
     {
         //TODO: Player winning
+        scoreP = WinTotal(winConsP);
+
     }
 }
