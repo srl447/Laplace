@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Singleton\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Singleton\GameManager.cs" />
     <Compile Include="Assets\Scripts\Singleton\Singleton.cs" />
+    <Compile Include="Assets\Scripts\VN\CantClickZone.cs" />
     <Compile Include="Assets\Scripts\VN\IntroText.cs" />
     <Compile Include="Assets\Scripts\VN\Scene.cs" />
     <Compile Include="Assets\Scripts\VN\TextControl.cs" />

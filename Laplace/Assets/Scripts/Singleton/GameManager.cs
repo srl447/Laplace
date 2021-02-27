@@ -7,6 +7,9 @@ public class GameManager : Singleton<GameManager>
 {
     // Start is called before the first frame update
     public string opponent = "furfur";
+    public bool canClick = true;
+
+    public KeyCode main;
 
     private void Awake()
     {

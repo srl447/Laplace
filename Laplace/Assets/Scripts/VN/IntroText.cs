@@ -143,7 +143,7 @@ public class IntroText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(GameManager.Instance.canClick && Input.GetKeyDown(GameManager.Instance.main))
         {
             if(!textC.isSpeaking || textC.waitForInput)
             {

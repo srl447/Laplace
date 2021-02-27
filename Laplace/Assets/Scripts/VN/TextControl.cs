@@ -22,7 +22,9 @@ public class TextControl : MonoBehaviour
     public void Say(string speech, bool additive = false, string speaker = "", string style = "")
     {
         StopSpeaking();
-        logText.text += speakerName.text ="\n" + mainText.text +"\n \n";
+        //Needs to remove the "speaker main text" entry through check or bool
+        //Also, needs to increase the viewport size to hold more text
+        logText.text += speakerName.text + "\n" + mainText.text +"\n \n";
         mainText.text = targetText;
         Debug.Log("Saying");
         //set elements to appear/dissappear when they change
