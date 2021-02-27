@@ -63,9 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Data.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Card.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Cursor.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Dealer.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Singleton\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Singleton\GameManager.cs" />
     <Compile Include="Assets\Scripts\Singleton\Singleton.cs" />

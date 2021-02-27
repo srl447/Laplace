@@ -9,6 +9,8 @@ public class IntroText : MonoBehaviour
     public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(),
         third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(),
         fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene();
+
+    Scene[] sceneProgess;
     Scene current = new Scene();
     int count = 0;
     public Sprite bg, bg2, handSmall, handSmall2, furfur,
@@ -17,6 +19,10 @@ public class IntroText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Progress used for saving to skip to most recent chunk of text
+        sceneProgess = new Scene[] { Intro, Intro2, Second, third, fourth, fourth2, fourth3, fourth4, fifth, sixth, seven };
+
+        //Note: Put speaker name at the beginning of each scene so there's a speaker name when loading 
         Intro.textBody = new string[]
         {
             "YARGHHRHRRHH:Modayaal",
@@ -26,12 +32,12 @@ public class IntroText : MonoBehaviour
         };
         Intro2.textBody = new string[]
         {
-            "I need my morning ethanol:::N",
+            "I need my morning ethanol:Modayaal::N",
             "I can make it:::I"
         };
         Second.textBody = new string[]
         {
-            "Why does it always make confetti?:::N",
+            "Why does it always make confetti?:Modayaal::N",
             "whatever...",
             "*GLUG*:Modayaal::I",
             "*GLUG*::A",
@@ -49,7 +55,7 @@ public class IntroText : MonoBehaviour
         //trying a new style of formatting, hopefully it'll be more legible moving forward
         third.Set(new string[]
         { 
-            "Okay yep this stuff is still gross.:::N",
+            "Okay yep this stuff is still gross.:Modayaal::N",
             "I'll make something better later:::I",
             "; I always hate the taste of newly conjured stuff anyways.::A",
             "It's been five seconds, and today is already just as horrible as the last.:::N",
@@ -80,14 +86,14 @@ public class IntroText : MonoBehaviour
 
         fourth2.Set(new string[]
         {
-            "*KNOCK* ::A"
+            "*KNOCK* :The Door:A"
         },
         bg2, fourth3);
         fourth2.mini = doorSmall2;
 
         fourth3.Set(new string[]
         {
-            "*KNOCK* ::A",
+            "*KNOCK* :The Door:A",
         },
         bg2, fourth4);
         fourth3.mini = doorSmall3;
@@ -135,7 +141,7 @@ public class IntroText : MonoBehaviour
         seven.center = furfur;
 
         textC = TextControl.instance;
-        current = Intro;
+        current = sceneProgess[GameManager.Instance.progress];
         Sync();
     }
 
@@ -152,10 +158,12 @@ public class IntroText : MonoBehaviour
                     if(current.nextScene != null)
                     {
                         current = current.nextScene;
+                        GameManager.Instance.progress++;
                         Sync();
                     }
                     else
                     {
+                        GameManager.Instance.progress = 0;
                         SceneManager.LoadScene(1);
                     }
                     return;
