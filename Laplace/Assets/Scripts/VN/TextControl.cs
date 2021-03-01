@@ -27,7 +27,6 @@ public class TextControl : MonoBehaviour
         viewportContent.sizeDelta += Vector2.up * 100;
         logText.text += speakerName.text + "\n" + mainText.text +"\n \n";
         mainText.text = targetText;
-        Debug.Log("Saying");
         //set elements to appear/dissappear when they change
         if (rightImage.sprite == null)
         {

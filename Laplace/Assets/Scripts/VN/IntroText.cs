@@ -164,7 +164,7 @@ public class IntroText : MonoBehaviour
                     else
                     {
                         GameManager.Instance.progress = 0;
-                        SceneManager.LoadScene(1);
+                        SceneManager.LoadScene(2); //First Koi-Koi scene
                     }
                     return;
                 }

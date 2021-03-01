@@ -37,7 +37,6 @@ namespace Patterns
                     {
                         Debug.LogError("There is more than one " + typeof(T).Name + " in the scene.");
                     }
-
                     //      If there are none, create a new GameObject, adds the component with Singleton Pattern, and does not show object in hierarchy
                     //
                     if (_instance == null)
