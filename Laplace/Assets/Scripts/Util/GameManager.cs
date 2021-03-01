@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public string opponent = "furfur";
+    public string opponent = "Furfur";
     public bool canClick = true;
     public int progress = 0;
     public int score = 0;

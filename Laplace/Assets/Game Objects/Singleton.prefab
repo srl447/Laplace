@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c7462969961d7478421a5a49521c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opponent: furfur
+  opponent: Furfur
   canClick: 1
   progress: 0
   score: 0
   main: 323
+  alt: 0
 --- !u!82 &8423463661752670577
 AudioSource:
   m_ObjectHideFlags: 0

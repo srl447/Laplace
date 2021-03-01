@@ -24,12 +24,15 @@ public class Dealer : MonoBehaviour
     public Button koiB, stopB; //buttons for the win screen
     GameObject[] suitGroup1 = new GameObject[3], suitGroup2 = new GameObject[3]; //suit groups
     public int scoreP, scoreC; //scores for player, computer
+
+    public Text playerScore, computerScore;
     void Start()
     {
         koiB.onClick.AddListener(koiClick);
         stopB.onClick.AddListener(stopClick);
         Shuffle(); //shuffle the deck
         StartCoroutine(Deal()); //deal the cards
+        computerScore.text = GameManager.Instance.opponent + ": 0";
         
     }
     // Update is called once per frame
@@ -160,7 +163,14 @@ public class Dealer : MonoBehaviour
         {
             if (suitCount[i] == 4)
             {
-                //TODO: Reshuffling for full suit on table
+                Card[] allCards = FindObjectsOfType<Card>();
+                foreach (Card oneCard in allCards)
+                {
+                    Destroy(oneCard.gameObject);
+                }
+                Shuffle();
+                StartCoroutine(Deal());
+                break;
             }
             else if (suitCount[i] == 3)
             {
@@ -187,9 +197,13 @@ public class Dealer : MonoBehaviour
                 {
                     suitGroup2 = suitGroup;
                 }
-                Debug.Log("Suit Grouped");;
             }
         }
+        //Please make the UI stop showing up
+        winUI.SetActive(false);
+        koiButton.SetActive(false);
+        stopButton.SetActive(false);
+        winOn = false;
         TableLayout(); //finally lay the table out
     }
 
@@ -270,7 +284,6 @@ public class Dealer : MonoBehaviour
                             count++;
                         }
                     }
-                    Debug.Log(count);
                     if (count == 1) //if there's only one match, just do the match
                     {
                         GameObject lookCard = matchingCards[0];
@@ -554,11 +567,11 @@ public class Dealer : MonoBehaviour
             nextCard.GetComponent<Card>().faceUp = true;
             if (i % 2 == 0)
             {
-                nextCard.transform.position = new Vector3(-3f + .7f * i, 1.2f, nextCard.transform.position.z);
+                nextCard.transform.position = new Vector3(-4f + .7f * i, 1.2f, nextCard.transform.position.z);
             }
             else
             {
-                nextCard.transform.position = new Vector3(-3.75f + .7f * i, -1.2f, nextCard.transform.position.z);
+                nextCard.transform.position = new Vector3(-4.75f + .7f * i, -1.2f, nextCard.transform.position.z);
             }
             i++;
         }
@@ -921,7 +934,9 @@ public class Dealer : MonoBehaviour
             }
             else
             {
-                //TODO: Player winning after running out of cards
+                scoreP += WinTotal(winConsP);
+                playerScore.text = "Modayaal: " + scoreP;
+                RoundAdvance();
             }
         }
         if (turn == 4) //computer
@@ -936,8 +951,9 @@ public class Dealer : MonoBehaviour
             }
             else
             {
-                scoreC = WinTotal(winConsC);
-                //TODO: Computer Winning
+                scoreC += WinTotal(winConsC);
+                computerScore.text = GameManager.Instance.opponent + ": " + scoreC;
+                RoundAdvance();
             }
         }
     }
@@ -954,8 +970,37 @@ public class Dealer : MonoBehaviour
     //stop button function
     void stopClick()
     {
-        //TODO: Player winning
-        scoreP = WinTotal(winConsP);
+        scoreP += WinTotal(winConsP);
+        playerScore.text = "Modayaal: " + scoreP;
+        RoundAdvance();
 
+    }
+
+    //Advances to rounds 2+
+    void RoundAdvance()
+    {
+        //turn off the winning UI
+        winUI.SetActive(false);
+        koiButton.SetActive(false);
+        stopButton.SetActive(false);
+        winOn = false;
+
+        //Delete all cards
+        Card[] allCards = FindObjectsOfType<Card>();
+        foreach (Card oneCard in allCards)
+        {
+            Destroy(oneCard.gameObject);
+        }
+        //Reset variables
+        winConsC = new List<string>();
+        winConsP = new List<string>();
+        table = new ArrayList();
+        pileP = new ArrayList[] { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() };
+        pileC = new ArrayList[] { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() };
+
+        //Deal a new game
+        Shuffle();
+        StartCoroutine(Deal());
+        GameManager.Instance.progress++;
     }
 }
