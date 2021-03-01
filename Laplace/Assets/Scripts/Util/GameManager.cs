@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int progress = 0;
     public int score = 0;
 
-    public KeyCode main;
+    public KeyCode main, alt;
 
     private void Awake()
     {

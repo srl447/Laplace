@@ -115,10 +115,10 @@ public class Dealer : MonoBehaviour
         }
         for (int i = 0; i < 8; i++)
         {
-            handP[i].transform.position = new Vector3(-6f + i * 1.5f, -3.3f, handP[i].transform.position.z);
+            handP[i].transform.position = new Vector3(-7f + i * 1.5f, -3.3f, handP[i].transform.position.z);
             handP[i].GetComponent<Card>().faceUp = true;
             yield return new WaitForEndOfFrame();
-            handC[i].transform.position = new Vector3(-6f + i * 1.5f, 3.3f, handC[i].transform.position.z);
+            handC[i].transform.position = new Vector3(-7f + i * 1.5f, 3.3f, handC[i].transform.position.z);
             yield return new WaitForEndOfFrame();
 
         }
@@ -572,11 +572,11 @@ public class Dealer : MonoBehaviour
                     nextCard.GetComponent<Card>().faceUp = true;
                     if (i % 2 == 0)
                     {
-                        nextCard.transform.position = new Vector3(-3f + (.7f * i) + (.25f * j), 1.2f, nextCard.transform.position.z + j * .001f);
+                        nextCard.transform.position = new Vector3(-4f + (.7f * i) + (.25f * j), 1.2f, nextCard.transform.position.z + j * .001f);
                     }
                     else
                     {
-                        nextCard.transform.position = new Vector3(-3.75f + (.7f * i) + (.25f * j), -1.2f, nextCard.transform.position.z + j * .001f);
+                        nextCard.transform.position = new Vector3(-4.75f + (.7f * i) + (.25f * j), -1.2f, nextCard.transform.position.z + j * .001f);
                     }
                     j++;
                 }
@@ -590,11 +590,11 @@ public class Dealer : MonoBehaviour
                     nextCard.GetComponent<Card>().faceUp = true;
                     if (i % 2 == 0)
                     {
-                        nextCard.transform.position = new Vector3(-3f + (.7f * i) + (.25f * j), 1.2f, nextCard.transform.position.z);
+                        nextCard.transform.position = new Vector3(-4f + (.7f * i) + (.25f * j), 1.2f, nextCard.transform.position.z);
                     }
                     else
                     {
-                        nextCard.transform.position = new Vector3(-3.75f + (.7f * i) + (.25f * j), -1.2f, nextCard.transform.position.z);
+                        nextCard.transform.position = new Vector3(-4.75f + (.7f * i) + (.25f * j), -1.2f, nextCard.transform.position.z);
                     }
                     j++;
                 }
@@ -609,7 +609,7 @@ public class Dealer : MonoBehaviour
             int count = 0;
             foreach (GameObject card in pileP[i])
             {
-                card.transform.position = new Vector3(7f + i * 1.5f, -3f - count, 0f - count * .01f);
+                card.transform.position = new Vector3(5.6f + i * 0.85f, -3f - count*.1f, 0f - count * .01f);
                 card.GetComponent<Card>().faceUp = true;
                 count++;
             }
@@ -622,7 +622,7 @@ public class Dealer : MonoBehaviour
             int count = 0;
             foreach (GameObject card in pileC[i])
             {
-                card.transform.position = new Vector3(7f + i * 1.5f, 3f + count, 0f + count * .01f);
+                card.transform.position = new Vector3(5.6f + i * 0.85f, 3f + count * .1f, 0f - count * .01f);
                 card.GetComponent<Card>().faceUp = true; //cards won are always face up
                 count++;
             }

@@ -31,7 +31,7 @@ public class Card : MonoBehaviour
         GameObject dealer = GameObject.Find("Dealer");
         deal = dealer.GetComponent<Dealer>();
         shade = GameObject.Find("Shade");
-        Destroy(this.GetComponent<Rigidbody2D>());
+        Destroy(this.GetComponent<Rigidbody2D>()); //I'm to lazy to change 48 prefabs I should've used a generic card prefab 
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class Card : MonoBehaviour
         {
             this.GetComponent<SpriteRenderer>().sprite = back;
         }
-        if (hover && Input.GetMouseButtonDown(0))
+        if (GameManager.Instance.canClick && hover && (Input.GetKeyDown(GameManager.Instance.main) || Input.GetKeyDown(GameManager.Instance.alt)))
         {
             switch (zone)
             {
