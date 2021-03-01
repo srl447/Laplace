@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Util\Data.cs" />
     <Compile Include="Assets\Scripts\Util\GameManager.cs" />
     <Compile Include="Assets\Scripts\Util\MenuStartButton.cs" />
+    <Compile Include="Assets\Scripts\Util\OptionMenu.cs" />
     <Compile Include="Assets\Scripts\Util\SaveLoadButtons.cs" />
     <Compile Include="Assets\Scripts\Util\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Util\Singleton\AudioManager.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\VN\IntroText.cs" />
     <Compile Include="Assets\Scripts\VN\Scene.cs" />
     <Compile Include="Assets\Scripts\VN\TextControl.cs" />
+    <None Include="Assets\Typefaces\README.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

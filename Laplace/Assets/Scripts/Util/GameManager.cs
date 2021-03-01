@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //update settings
+        OptionMenu oM = FindObjectOfType<OptionMenu>();;
+        oM.PullSettings();
+        oM.gameObject.SetActive(false);
     }
     void Start()
     {
