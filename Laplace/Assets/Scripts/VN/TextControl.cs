@@ -97,7 +97,7 @@ public class TextControl : MonoBehaviour
                 mainText.color = sherbet;
                 speakerName.color = sherbet;
             }
-            else
+            else if (speaker == "Modayaal")
             {
                 mainText.color = Color.white;
                 speakerName.color = Color.white;

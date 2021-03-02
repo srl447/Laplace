@@ -8,19 +8,22 @@ public class IntroText : MonoBehaviour
     TextControl textC;
     public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(),
         third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(),
-        fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene();
+        fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene(),
+        nine = new Scene(), ten = new Scene(), eleven = new Scene(), twelve = new Scene(), thirteen = new Scene();
 
     Scene[] sceneProgess;
     Scene current = new Scene();
     int count = 0;
     public Sprite bg, bg2, handSmall, handSmall2, furfur,
-        fufurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4;
+        fufurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4,
+        shotGlass1, shotGlass2;
 
     // Start is called before the first frame update
     void Start()
     {
         //Progress used for saving to skip to most recent chunk of text
-        sceneProgess = new Scene[] { Intro, Intro2, Second, third, fourth, fourth2, fourth3, fourth4, fifth, sixth, seven, eight};
+        sceneProgess = new Scene[] { Intro, Intro2, Second, third, fourth, fourth2, fourth3, fourth4, fifth, sixth, 
+            seven, eight, nine, ten, eleven, twelve, thirteen};
 
         //Note: Put speaker name at the beginning of each scene so there's a speaker name when loading 
         Intro.textBody = new string[]
@@ -57,8 +60,8 @@ public class IntroText : MonoBehaviour
         { 
             "Okay yep this stuff is still gross.:Modayaal::N",
             "I'll make something better later:::I",
-            "; I always hate the taste of newly conjured stuff anyways.::A",
-            "It's been five seconds, and today is already just as horrible as the last.:::N",
+            "; I always hate the taste of newly conjured stuff anyways.:Modayaal:A",
+            "It's been five seconds, and today is already just as horrible as the last.:Modayaal::N",
             "I know I didn't do anything different, but why should I?",
             "Nothing will change",
             ". It'll still be fucking boring::A",
@@ -141,7 +144,6 @@ public class IntroText : MonoBehaviour
             "One day you're gonna ask me for something that isn't conjured,:Modayaal",
             "and it's gonna blow your mind",
             "Yeah but I'm so close like we're already on the Cat's Life tour:Furfur",
-            "Fine:Modayaal"
         },
         bg2, eight);
         seven.center = furfur;
@@ -149,13 +151,27 @@ public class IntroText : MonoBehaviour
         //TODO: Split this up and create art assests as needed
         eight.Set(new string[]
         {
-            "ugh:Modayaal::I",
+            "Fine:Modayaal",
+            "ugh:Modayaal::I"
+        },
+        bg2, nine);
+        eight.mini = shotGlass1;
+
+        nine.Set(new string[]
+        {
             "Here ya go.:::N",
             "You're the best bud:Furfur",
             "You know ",
             "you don't have to make confetti everytime right?::A",
             "ever since you told me to do it with confetti:Modayaal",
             "I can't make it without it",
+        },
+        bg2, ten);
+        nine.mini = shotGlass2;
+        nine.center = furfur;
+
+        ten.Set(new string[]
+        {
             "Sooooooo:Furfur",
             "I may have invited some others over...",
             "I already told Berith:Modayaal",
@@ -179,11 +195,9 @@ public class IntroText : MonoBehaviour
             "Of course number 2 who are you:Modayaal",
             "*Pouring Noise*:Liquids::I",
             "*GLUG*:Modayaal"
-
-
         },
         bg2);
-        eight.center = fufurH;
+        ten.center = fufurH;
 
         textC = TextControl.instance;
         current = sceneProgess[GameManager.Instance.progress];
