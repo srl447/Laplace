@@ -11,6 +11,8 @@ public class OptionMenu : MonoBehaviour
     public Font[] typefaces;
     public Dropdown typefaceDropdown;
 
+    public Toggle colorToggle;
+
     private void Awake()
     {
         PullSettings();
@@ -64,10 +66,23 @@ public class OptionMenu : MonoBehaviour
     {
         fontSlider.value = PlayerPrefs.GetInt("Font Size");
         typefaceDropdown.value = PlayerPrefs.GetInt("Typeface");
+        colorToggle.isOn = PlayerPrefs.GetInt("Text Color") == 1;
     }
 
     public void SetCanClick()
     {
         GameManager.Instance.canClick = true;
+    }
+
+    public void TextColorBool()
+    {
+        if(colorToggle.isOn)
+        {
+            PlayerPrefs.SetInt("Text Color", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Text Color", 0);
+        }
     }
 }

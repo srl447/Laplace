@@ -20,7 +20,6 @@ public class CantClickZone : MonoBehaviour
     {
         if(collision.gameObject.tag == "Cursor")
         {
-            Debug.Log("collided");
             GameManager.Instance.canClick = false;
         }
     }

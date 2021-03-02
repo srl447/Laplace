@@ -21,6 +21,9 @@ public class TextControl : MonoBehaviour
 
     }
 
+    //Colors for Text
+    Color lightBlue = new Color(.693f, 1f, .964f, 1);
+    Color sherbet = new Color(1, .582f, .394f, 1);
     public void Say(string speech, bool additive = false, string speaker = "", string style = "")
     {
         StopSpeaking();
@@ -80,6 +83,32 @@ public class TextControl : MonoBehaviour
                 mainText.fontStyle = FontStyle.Normal;
             }
         }
+
+        //speaker color
+        if (PlayerPrefs.GetInt("Text Color") == 1)
+        {
+            if(mainText.fontStyle == FontStyle.Italic)
+            {
+                mainText.color = lightBlue;
+                speakerName.color = lightBlue;
+            }
+            else if(speaker == "Furfur")
+            {
+                mainText.color = sherbet;
+                speakerName.color = sherbet;
+            }
+            else
+            {
+                mainText.color = Color.white;
+                speakerName.color = Color.white;
+            }
+        }
+        else
+        {
+            mainText.color = Color.white;
+            speakerName.color = Color.white;
+        }
+
         speaking = StartCoroutine(Speaking(speech, additive, speaker));
 
     }
