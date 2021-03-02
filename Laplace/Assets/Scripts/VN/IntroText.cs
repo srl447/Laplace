@@ -145,12 +145,45 @@ public class IntroText : MonoBehaviour
         },
         bg2, eight);
         seven.center = furfur;
-
+        
+        //TODO: Split this up and create art assests as needed
         eight.Set(new string[]
         {
-            "ugh:Modayaal::I"
+            "ugh:Modayaal::I",
+            "Here ya go.:::N",
+            "You're the best bud:Furfur",
+            "You know ",
+            "you don't have to make confetti everytime right?::A",
+            "ever since you told me to do it with confetti:Modayaal",
+            "I can't make it without it",
+            "Sooooooo:Furfur",
+            "I may have invited some others over...",
+            "I already told Berith:Modayaal",
+            "I can't make a non-existent Quick and the Curious movie better than they can",
+            "No no no :Furfur",
+            "It's Azazel and Abyzou::A",
+            "fuck Furfur:Modayaal",
+            "they hate being trapped here... ",
+            "WHY would you bring them here::A",
+            "That's EXACTLY why!:Furfur",
+            "it's something shared to bond over",
+            "UGHHGHGHG:Modayaal",
+            "You need something to spice up your life,:Furfur",
+            "and you won't even let me zap you with my straight baby ray",
+            "I'm not a baby AND I'm agender how would that even work:Modayaal",
+            "We won't know unless we try!:Furfur",
+            "I'm going to go make a Corpse Reviver:Modayaal",
+            "You owe me a game of Koi-koi, ",
+            "go set it up.",
+            "Corpse Reviver No. 2?:Furfur",
+            "Of course number 2 who are you:Modayaal",
+            "*Pouring Noise*:Liquids::I",
+            "*GLUG*:Modayaal"
+
+
         },
         bg2);
+        eight.center = fufurH;
 
         textC = TextControl.instance;
         current = sceneProgess[GameManager.Instance.progress];
