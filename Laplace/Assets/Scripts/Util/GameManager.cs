@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public string opponent = "Furfur";
     public bool canClick = true;
     public int progress = 0;
-    public int score = 0;
+    public int scoreP = 0, scoreC = 0;
 
     public KeyCode main, alt;
 
@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         OptionMenu oM = FindObjectOfType<OptionMenu>();;
         oM.PullSettings();
         oM.gameObject.SetActive(false);
+        Instance.canClick = true;
     }
     void Start()
     {
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public int GetSceneNumber()
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(data.sceneNumber);
         opponent = data.opponentName;
         progress = data.progressIndex;
-        score = data.score;
+        scoreP = data.scoreP;
+        scoreC = data.scoreC;
     }
 }

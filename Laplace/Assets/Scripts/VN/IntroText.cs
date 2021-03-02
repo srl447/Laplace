@@ -8,7 +8,7 @@ public class IntroText : MonoBehaviour
     TextControl textC;
     public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(),
         third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(),
-        fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene();
+        fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene();
 
     Scene[] sceneProgess;
     Scene current = new Scene();
@@ -20,7 +20,7 @@ public class IntroText : MonoBehaviour
     void Start()
     {
         //Progress used for saving to skip to most recent chunk of text
-        sceneProgess = new Scene[] { Intro, Intro2, Second, third, fourth, fourth2, fourth3, fourth4, fifth, sixth, seven };
+        sceneProgess = new Scene[] { Intro, Intro2, Second, third, fourth, fourth2, fourth3, fourth4, fifth, sixth, seven, eight};
 
         //Note: Put speaker name at the beginning of each scene so there's a speaker name when loading 
         Intro.textBody = new string[]
@@ -135,10 +135,22 @@ public class IntroText : MonoBehaviour
             "????:Modayal",
             "fair:Furfur",
             " fair::A",
-            "You want a drink?:Modayaal"
+            "You want a drink?:Modayaal",
+            "You know I'm on the Blom Blamilton routine:Furfur",
+            "Gimme the next shot",
+            "One day you're gonna ask me for something that isn't conjured,:Modayaal",
+            "and it's gonna blow your mind",
+            "Yeah but I'm so close like we're already on the Cat's Life tour:Furfur",
+            "Fine:Modayaal"
+        },
+        bg2, eight);
+        seven.center = furfur;
+
+        eight.Set(new string[]
+        {
+            "ugh:Modayaal::I"
         },
         bg2);
-        seven.center = furfur;
 
         textC = TextControl.instance;
         current = sceneProgess[GameManager.Instance.progress];

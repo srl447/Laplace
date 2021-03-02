@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Dealer : MonoBehaviour
 {
@@ -28,11 +29,14 @@ public class Dealer : MonoBehaviour
     public Text playerScore, computerScore;
     void Start()
     {
+        scoreP = GameManager.Instance.scoreP;
+        scoreC = GameManager.Instance.scoreC;
         koiB.onClick.AddListener(koiClick);
         stopB.onClick.AddListener(stopClick);
         Shuffle(); //shuffle the deck
         StartCoroutine(Deal()); //deal the cards
-        computerScore.text = GameManager.Instance.opponent + ": 0";
+        computerScore.text = GameManager.Instance.opponent + ": " + scoreC;
+        playerScore.text = GameManager.Instance.opponent + ": " + scoreP;
         
     }
     // Update is called once per frame
@@ -953,6 +957,7 @@ public class Dealer : MonoBehaviour
             {
                 scoreC += WinTotal(winConsC);
                 computerScore.text = GameManager.Instance.opponent + ": " + scoreC;
+                GameManager.Instance.scoreC = scoreC;
                 RoundAdvance();
             }
         }
@@ -972,6 +977,7 @@ public class Dealer : MonoBehaviour
     {
         scoreP += WinTotal(winConsP);
         playerScore.text = "Modayaal: " + scoreP;
+        GameManager.Instance.scoreP = scoreP;
         RoundAdvance();
 
     }
@@ -998,9 +1004,22 @@ public class Dealer : MonoBehaviour
         pileP = new ArrayList[] { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() };
         pileC = new ArrayList[] { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() };
 
-        //Deal a new game
-        Shuffle();
-        StartCoroutine(Deal());
-        GameManager.Instance.progress++;
+        //Deal a new game if there hasn't been 3 rounds
+        if (GameManager.Instance.progress < 2)
+        {
+            Shuffle();
+            StartCoroutine(Deal());
+            GameManager.Instance.progress++;
+        }
+        else if (GameManager.Instance.opponent == "Furfur")
+        {
+            GameManager.Instance.progress = 0;
+            GameManager.Instance.scoreC = 0; 
+            GameManager.Instance.scoreP = 0;
+            //Sends back to the main menu
+            //TODO: Create next scene and load that instead
+            SceneManager.LoadScene(0);
+        }
+        //TODO: load scenes for different opponents when I write them
     }
 }

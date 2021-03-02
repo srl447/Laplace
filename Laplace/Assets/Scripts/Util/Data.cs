@@ -9,13 +9,14 @@ public class Data
     public int sceneNumber;
     public int progressIndex;
     public string opponentName;
-    public int score;
+    public int scoreP, scoreC;
 
     public Data(GameManager game)
     {
         sceneNumber = game.GetSceneNumber();
         progressIndex = game.progress;
         opponentName = game.opponent;
-        score = game.score;
+        scoreP = game.scoreP;
+        scoreC = game.scoreC;
     }
 }

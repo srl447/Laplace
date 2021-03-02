@@ -16,6 +16,10 @@ public class OptionMenu : MonoBehaviour
         PullSettings();
     }
 
+    private void Update()
+    {
+        GameManager.Instance.canClick = false;
+    }
     public void UpdateFonts()
     {
         int fontSize = (int) fontSlider.value;
@@ -31,6 +35,7 @@ public class OptionMenu : MonoBehaviour
     {
         Text[] allText = FindObjectsOfType<Text>();
         int chosenTypeface = typefaceDropdown.value;
+        //Open Dyslexic is much bigger, so I need to shrink it
         if (chosenTypeface == 2)
         {
             foreach (Text t in allText)
@@ -39,6 +44,7 @@ public class OptionMenu : MonoBehaviour
                 t.fontSize = fontSize;
             }
         }
+        //this checks if it used to be Open Dyslexic, so I readjust the size if needed
         else if (PlayerPrefs.GetInt("Typeface") == 2)
         {
             foreach (Text t in allText)
@@ -58,5 +64,10 @@ public class OptionMenu : MonoBehaviour
     {
         fontSlider.value = PlayerPrefs.GetInt("Font Size");
         typefaceDropdown.value = PlayerPrefs.GetInt("Typeface");
+    }
+
+    public void SetCanClick()
+    {
+        GameManager.Instance.canClick = true;
     }
 }
