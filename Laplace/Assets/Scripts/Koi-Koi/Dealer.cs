@@ -9,6 +9,10 @@ public class Dealer : MonoBehaviour
     /*
      * TODO: Multiple Rounds
      *   this entials like destorying all the cards redealing and having an overall score for both players
+     * TODO: Fix starting win condition
+     *   You win with 4 sets of pairs 
+     *   You can also claim 4 of a kind at any point in the game
+     *   You can also caim 4 of a kind if you have 3 of a kind and the match is on the table
      * TODO: TODOs listed below
      */ 
     // Start is called before the first frame update
@@ -36,7 +40,7 @@ public class Dealer : MonoBehaviour
         Shuffle(); //shuffle the deck
         StartCoroutine(Deal()); //deal the cards
         computerScore.text = GameManager.Instance.opponent + ": " + scoreC;
-        playerScore.text = GameManager.Instance.opponent + ": " + scoreP;
+        playerScore.text = "Modayaal: " + scoreP;
         
     }
     // Update is called once per frame
