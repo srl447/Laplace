@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Koi-Koi\Cursor.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Dealer.cs" />
     <Compile Include="Assets\Scripts\Util\Data.cs" />
+    <Compile Include="Assets\Scripts\Util\FadeIn.cs" />
     <Compile Include="Assets\Scripts\Util\GameManager.cs" />
     <Compile Include="Assets\Scripts\Util\MenuStartButton.cs" />
     <Compile Include="Assets\Scripts\Util\OptionMenu.cs" />

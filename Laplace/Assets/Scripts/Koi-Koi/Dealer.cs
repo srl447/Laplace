@@ -98,6 +98,14 @@ public class Dealer : MonoBehaviour
         }
     }
 
+    //Restarts a coroutine
+    //Needed to redeal when 4 of a suit are on the table
+    void RestartCoroutine(IEnumerator coroutineToRestart)
+    {
+        StopCoroutine(coroutineToRestart);
+        StartCoroutine(coroutineToRestart);
+    }
+
     IEnumerator Deal()
     {
         /*
@@ -125,6 +133,15 @@ public class Dealer : MonoBehaviour
         {
             setCard.GetComponent<Card>().zone = 4;
         }
+
+        //wait for fade in
+        for (int i = 0; i < 5; i++)
+        {
+            yield
+                return new WaitForEndOfFrame();
+        }
+
+        //dealing cards animation
         for (int i = 0; i < 8; i+=2)
         {
             Debug.Log(handP[i].transform.position);
@@ -204,7 +221,7 @@ public class Dealer : MonoBehaviour
                     Destroy(oneCard.gameObject);
                 }
                 Shuffle();
-                StartCoroutine(Deal());
+                RestartCoroutine(Deal());
                 break;
             }
             else if (suitCount[i] == 3)
