@@ -70,7 +70,8 @@ public class Dealer : MonoBehaviour
                 }
                 break;
             case 5:
-                //TODO:What happens when the deck. hands, table runs out of cards and such
+                turn = 0;
+                RoundAdvance();
                 break;
         }
     }
@@ -124,12 +125,38 @@ public class Dealer : MonoBehaviour
         {
             setCard.GetComponent<Card>().zone = 4;
         }
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 8; i+=2)
         {
-            handP[i].transform.position = new Vector3(-7f + i * 1.5f, -3.3f, handP[i].transform.position.z);
+            Debug.Log(handP[i].transform.position);
             handP[i].GetComponent<Card>().faceUp = true;
+            handP[i+1].GetComponent<Card>().faceUp = true;
+            for(int j = 0; j < 5; j++)
+            {
+                handP[i].transform.position = new Vector3
+                    (Mathf.Lerp(handP[i].transform.position.x, -7f + i * 1.5f, .25f),
+                    Mathf.Lerp(handP[i].transform.position.y, -3.3f, .25f), handP[i].transform.position.z);
+                handP[i+1].transform.position = new Vector3
+                    (Mathf.Lerp(handP[i+1].transform.position.x, -7f + (i+1) * 1.5f, .25f),
+                    Mathf.Lerp(handP[i+1].transform.position.y, -3.3f, .25f), handP[i+1].transform.position.z);
+                yield return new WaitForEndOfFrame();
+                Debug.Log(handP[i].transform.position);
+            }
+            handP[i].transform.position = new Vector3(-7f + i * 1.5f, -3.3f, handP[i].transform.position.z);
+            handP[i+1].transform.position = new Vector3(-7f + (i+1) * 1.5f, -3.3f, handP[i+1].transform.position.z);
+
             yield return new WaitForEndOfFrame();
+            for (int j = 0; j < 5; j++)
+            {
+                handC[i].transform.position = new Vector3
+                    (Mathf.Lerp(handC[i].transform.position.x, -7f + i * 1.5f, .25f),
+                    Mathf.Lerp(handC[i].transform.position.y, 3.3f, .25f), handC[i].transform.position.z);
+                handC[i + 1].transform.position = new Vector3
+                    (Mathf.Lerp(handC[i + 1].transform.position.x, -7f + (i + 1) * 1.5f, .25f),
+                    Mathf.Lerp(handC[i + 1].transform.position.y, 3.3f, .25f), handC[i + 1].transform.position.z);
+                yield return new WaitForEndOfFrame();
+            }
             handC[i].transform.position = new Vector3(-7f + i * 1.5f, 3.3f, handC[i].transform.position.z);
+            handC[i+1].transform.position = new Vector3(-7f + (i+1) * 1.5f, 3.3f, handC[i].transform.position.z);
             yield return new WaitForEndOfFrame();
 
         }
