@@ -15,7 +15,7 @@ public class IntroText : MonoBehaviour
     Scene current = new Scene();
     int count = 0;
     public Sprite bg, bg2, handSmall, handSmall2, furfur,
-        fufurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4,
+        furfurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4,
         shotGlass1, shotGlass2;
 
     // Start is called before the first frame update
@@ -24,6 +24,9 @@ public class IntroText : MonoBehaviour
         //Progress used for saving to skip to most recent chunk of text
         sceneProgess = new Scene[] { Intro, Intro2, Second, third, fourth, fourth2, fourth3, fourth4, fifth, sixth, 
             seven, eight, nine, ten, eleven, twelve, thirteen};
+
+        //setup next opponent
+        GameManager.Instance.opponent = "Furfur";
 
         //Note: Put speaker name at the beginning of each scene so there's a speaker name when loading 
         Intro.textBody = new string[]
@@ -128,7 +131,7 @@ public class IntroText : MonoBehaviour
             "yeah loves bugging me:Modayaal::I",
         },
         bg2, seven);
-        sixth.center = fufurH;
+        sixth.center = furfurH;
 
         seven.Set(new string[]
         {
@@ -197,7 +200,7 @@ public class IntroText : MonoBehaviour
             "*GLUG*:Modayaal"
         },
         bg2);
-        ten.center = fufurH;
+        ten.center = furfurH;
 
         textC = TextControl.instance;
         current = sceneProgess[GameManager.Instance.progress];

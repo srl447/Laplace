@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public KeyCode main, alt;
 
+    public bool tempCardsShow = false;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);

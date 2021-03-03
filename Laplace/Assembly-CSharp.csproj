@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Util\Singleton\Singleton.cs" />
     <Compile Include="Assets\Scripts\VN\CantClickZone.cs" />
     <Compile Include="Assets\Scripts\VN\IntroText.cs" />
+    <Compile Include="Assets\Scripts\VN\PostFurfurScene.cs" />
     <Compile Include="Assets\Scripts\VN\Scene.cs" />
     <Compile Include="Assets\Scripts\VN\TextControl.cs" />
     <None Include="Assets\Typefaces\README.txt" />

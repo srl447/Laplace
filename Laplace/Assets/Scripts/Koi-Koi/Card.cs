@@ -71,45 +71,52 @@ public class Card : MonoBehaviour
             {
                 hover = true;
             }
-            else if (zone == 5 && tempCards.Count == 0 && deal.turn < 3)
+            else if (!GameManager.Instance.tempCardsShow)
             {
-                int count = 0;
-                int count2 = 0;
-                shade.GetComponent<SpriteRenderer>().enabled = true;
-                foreach (ArrayList pile in deal.pileP)
+                if (zone == 5 && tempCards.Count == 0 && deal.turn < 3)
                 {
-                    foreach (GameObject card in pile)
+                    int count = 0;
+                    int count2 = 0;
+                    shade.GetComponent<SpriteRenderer>().enabled = true;
+                    GameManager.Instance.tempCardsShow = true;
+                    foreach (ArrayList pile in deal.pileP)
                     {
-                        GameObject newCard = Instantiate(card) as GameObject;
-                        newCard.transform.position = new Vector3(-7.2f + (count*(2f-(count/13))), 3.2f - count2*2.2f, -1.1f);
-                        tempCards.Add(newCard);
-                        count++;
-                    }
-                    count = 0;
-                    count2++;
-                }
-            }
-            else if (zone == 6 && tempCards.Count == 0 && deal.turn < 3)
-            {
-                int count = 0;
-                int count2 = 0;
-                shade.GetComponent<SpriteRenderer>().enabled = true;
-                foreach (ArrayList pile in deal.pileC)
-                {
-                    foreach (GameObject card in pile)
-                    {
-                        GameObject newCard = Instantiate(card) as GameObject;
-                        newCard.transform.position = new Vector3(-7.2f + (count * (2f - (count / 13))), 3.2f - count2 * 2.2f, -1.1f);
-                        tempCards.Add(newCard);
-                        count++;
-                        if (count > 10)
+                        foreach (GameObject card in pile)
                         {
-                            count2++;
-                            count = 0;
+                            GameObject newCard = Instantiate(card) as GameObject;
+                            Destroy(newCard.GetComponent<Card>());
+                            newCard.transform.position = new Vector3(-7.2f + (count * (2f - (count / 13))), 3.2f - count2 * 2.2f, -1.1f);
+                            tempCards.Add(newCard);
+                            count++;
                         }
+                        count = 0;
+                        count2++;
                     }
-                    count = 0;
-                    count2++;
+                }
+                else if (zone == 6 && tempCards.Count == 0 && deal.turn < 3)
+                {
+                    int count = 0;
+                    int count2 = 0;
+                    shade.GetComponent<SpriteRenderer>().enabled = true;
+                    GameManager.Instance.tempCardsShow = true;
+                    foreach (ArrayList pile in deal.pileC)
+                    {
+                        foreach (GameObject card in pile)
+                        {
+                            GameObject newCard = Instantiate(card) as GameObject;
+                            Destroy(newCard.GetComponent<Card>());
+                            newCard.transform.position = new Vector3(-7.2f + (count * (2f - (count / 13))), 3.2f - count2 * 2.2f, -1.1f);
+                            tempCards.Add(newCard);
+                            count++;
+                            if (count > 10)
+                            {
+                                count2++;
+                                count = 0;
+                            }
+                        }
+                        count = 0;
+                        count2++;
+                    }
                 }
             }
         }
@@ -127,9 +134,10 @@ public class Card : MonoBehaviour
             {
                 hover = false;
             }
-            else if(zone == 5 || zone == 6)
+            else if(tempCards.Count > 0 && (zone == 5 || zone == 6))
             {
                 shade.GetComponent<SpriteRenderer>().enabled = false;
+                GameManager.Instance.tempCardsShow = false;
                 foreach (GameObject card in tempCards)
                 {
                     Destroy(card);
