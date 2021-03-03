@@ -13,6 +13,11 @@ public class Dealer : MonoBehaviour
      *   You win with 4 sets of pairs 
      *   You can also claim 4 of a kind at any point in the game
      *   You can also caim 4 of a kind if you have 3 of a kind and the match is on the table
+     * TODO: Fix Scoring
+     *   Koi-koi might only double score if your opponent called koikoi and not if you did
+     *   Score doubled if above 7
+     *   Do these stack? Why is it so hard to find out rules
+     *      It's hard because there's no set rules and people play with house rules and such
      * TODO: TODOs listed below
      */ 
     // Start is called before the first frame update
@@ -821,10 +826,6 @@ public class Dealer : MonoBehaviour
                     newWin.Add("Blue Poetry Tanzaku:5");
                 }
             }
-            if (checkPile[3].Count == 5)
-            {
-                newWin.Add("Five Lights:20");
-            }
             if(checkPile[3].Count >= 1)
             {
                 foreach(GameObject card in checkPile[3])
@@ -848,7 +849,11 @@ public class Dealer : MonoBehaviour
                             break;
                     }
                 }
-                if(moon && crane && blossom)
+                if (checkPile[3].Count == 5)
+                {
+                    newWin.Add("Five Lights:20");
+                }
+                else if (moon && crane && blossom)
                 {
                     if(phoenix)
                     {
@@ -1061,13 +1066,42 @@ public class Dealer : MonoBehaviour
         }
         else if (GameManager.Instance.opponent == "Furfur")
         {
-            GameManager.Instance.progress = 0;
-            GameManager.Instance.scoreC = 0; 
-            GameManager.Instance.scoreP = 0;
-            //Sends back to the main menu
-            //TODO: Create next scene and load that instead
-            SceneManager.LoadScene(0);
+            StartCoroutine(NextScene());
         }
         //TODO: load scenes for different opponents when I write them
+    }
+
+    public Image fade;
+    IEnumerator NextScene()
+    {
+        //Reset Variables
+        GameManager.Instance.progress = 0;
+        GameManager.Instance.scoreC = 0;
+        GameManager.Instance.scoreP = 0;
+
+        //Fade Out
+        yield return new WaitForEndOfFrame();
+        for (int i = 0; i < 4; i++)
+        {
+            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Lerp(fade.color.a, 1, .25f));
+            yield return new WaitForEndOfFrame();
+        }
+        fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, 1);
+        fade.gameObject.SetActive(false);
+
+        //Select which scene to go to
+        if (GameManager.Instance.opponent == "Furfur")
+        {
+            SceneManager.LoadScene(3);
+        }
+        else if (GameManager.Instance.opponent == "Azazel")
+        {
+
+        }
+        else if (GameManager.Instance.opponent == "Abyzou")
+        {
+
+        }
+
     }
 }
