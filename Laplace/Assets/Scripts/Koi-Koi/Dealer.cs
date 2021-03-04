@@ -58,7 +58,10 @@ public class Dealer : MonoBehaviour
                 PlayerTurn();
                 break;
             case 2:
-                ComputerTurn();
+                if (!compTurnOn)
+                {
+                    StartCoroutine(ComputerTurn());
+                }
                 break;
             case 3:
                 if (!winOn)
@@ -149,7 +152,6 @@ public class Dealer : MonoBehaviour
         //dealing cards animation
         for (int i = 0; i < 8; i+=2)
         {
-            Debug.Log(handP[i].transform.position);
             handP[i].GetComponent<Card>().faceUp = true;
             handP[i+1].GetComponent<Card>().faceUp = true;
             for(int j = 0; j < 5; j++)
@@ -161,7 +163,6 @@ public class Dealer : MonoBehaviour
                     (Mathf.Lerp(handP[i+1].transform.position.x, -7f + (i+1) * 1.5f, .25f),
                     Mathf.Lerp(handP[i+1].transform.position.y, -3.3f, .25f), handP[i+1].transform.position.z);
                 yield return new WaitForEndOfFrame();
-                Debug.Log(handP[i].transform.position);
             }
             handP[i].transform.position = new Vector3(-7f + i * 1.5f, -3.3f, handP[i].transform.position.z);
             handP[i+1].transform.position = new Vector3(-7f + (i+1) * 1.5f, -3.3f, handP[i+1].transform.position.z);
@@ -404,8 +405,12 @@ public class Dealer : MonoBehaviour
             }
         }
     }
-    void ComputerTurn() //what occurs when it's the computer's turn
+
+    bool compTurnOn = false; //so the coroutine only runs one at a time
+    IEnumerator ComputerTurn() //what occurs when it's the computer's turn
     {
+        compTurnOn = true;
+        yield return new WaitForSecondsRealtime(Random.Range(1, 6));
         bool match = false;
         for(int i = 0; i < 8; i++)
         {
@@ -432,6 +437,7 @@ public class Dealer : MonoBehaviour
                         {
                             turn = 1;
                         }
+                        compTurnOn = false;
                         break;
                     }
                     else if (suitGroup2[0] != null && suitGroup2[0].GetComponent<Card>().suit == handC[i].GetComponent<Card>().suit)
@@ -453,6 +459,7 @@ public class Dealer : MonoBehaviour
                         {
                             turn = 1;
                         }
+                        compTurnOn = false;
                         break;
                     }
                 }
@@ -481,6 +488,7 @@ public class Dealer : MonoBehaviour
                     {
                         turn = 1;
                     }
+                    compTurnOn = false;
                     break;
                 }
             }
@@ -496,7 +504,10 @@ public class Dealer : MonoBehaviour
                     NextDeck();
                     CheckEnd();
                     if (turn == 2)
+                    {
                         turn = 1;
+                    }
+                    compTurnOn = false;
                     break;
                 }
             }
@@ -624,11 +635,11 @@ public class Dealer : MonoBehaviour
             nextCard.GetComponent<Card>().faceUp = true;
             if (i % 2 == 0)
             {
-                nextCard.transform.position = new Vector3(-4f + .7f * i, 1.2f, nextCard.transform.position.z);
+                StartCoroutine(MoveCard(nextCard, new Vector3(-4f + .7f * i, 1.2f, nextCard.transform.position.z)));
             }
             else
             {
-                nextCard.transform.position = new Vector3(-4.75f + .7f * i, -1.2f, nextCard.transform.position.z);
+                StartCoroutine(MoveCard(nextCard, new Vector3(-4.75f + .7f * i, -1.2f, nextCard.transform.position.z)));
             }
             i++;
         }
@@ -642,11 +653,11 @@ public class Dealer : MonoBehaviour
                     nextCard.GetComponent<Card>().faceUp = true;
                     if (i % 2 == 0)
                     {
-                        nextCard.transform.position = new Vector3(-4f + (.7f * i) + (.25f * j), 1.2f, nextCard.transform.position.z + j * .001f);
+                        StartCoroutine(MoveCard(nextCard, new Vector3(-4f + (.7f * i) + (.25f * j), 1.2f, nextCard.transform.position.z + j * .001f)));
                     }
                     else
                     {
-                        nextCard.transform.position = new Vector3(-4.75f + (.7f * i) + (.25f * j), -1.2f, nextCard.transform.position.z + j * .001f);
+                        StartCoroutine(MoveCard(nextCard, new Vector3(-4.75f + (.7f * i) + (.25f * j), -1.2f, nextCard.transform.position.z + j * .001f)));
                     }
                     j++;
                 }
@@ -660,15 +671,14 @@ public class Dealer : MonoBehaviour
                     nextCard.GetComponent<Card>().faceUp = true;
                     if (i % 2 == 0)
                     {
-                        nextCard.transform.position = new Vector3(-4f + (.7f * i) + (.25f * j), 1.2f, nextCard.transform.position.z);
+                        StartCoroutine(MoveCard(nextCard, new Vector3(-4f + (.7f * i) + (.25f * j), 1.2f, nextCard.transform.position.z)));
                     }
                     else
                     {
-                        nextCard.transform.position = new Vector3(-4.75f + (.7f * i) + (.25f * j), -1.2f, nextCard.transform.position.z);
+                        StartCoroutine(MoveCard(nextCard, new Vector3(-4.75f + (.7f * i) + (.25f * j), -1.2f, nextCard.transform.position.z)));
                     }
                     j++;
                 }
-                i++;
             }
         }
     }
@@ -679,7 +689,10 @@ public class Dealer : MonoBehaviour
             int count = 0;
             foreach (GameObject card in pileP[i])
             {
-                card.transform.position = new Vector3(5.6f + i * 0.85f, -3f - count*.1f, 0f - count * .01f);
+                if (card.transform.position != new Vector3(5.6f + i * 0.85f, -3f - count * .1f, 0f - count * .01f))
+                {
+                    StartCoroutine(MoveCard(card, new Vector3(5.6f + i * 0.85f, -3f - count * .1f, 0f - count * .01f)));
+                }
                 card.GetComponent<Card>().faceUp = true;
                 count++;
             }
@@ -692,7 +705,10 @@ public class Dealer : MonoBehaviour
             int count = 0;
             foreach (GameObject card in pileC[i])
             {
-                card.transform.position = new Vector3(5.6f + i * 0.85f, 3f + count * .1f, 0f - count * .01f);
+                if (card.transform.position != new Vector3(5.6f + i * 0.85f, 3f - count * .1f, 0f - count * .01f))
+                {
+                    StartCoroutine(MoveCard(card, new Vector3(5.6f + i * 0.85f, 3f - count * .1f, 0f - count * .01f)));
+                }
                 card.GetComponent<Card>().faceUp = true; //cards won are always face up
                 count++;
             }
@@ -1092,6 +1108,7 @@ public class Dealer : MonoBehaviour
         //Select which scene to go to
         if (GameManager.Instance.opponent == "Furfur")
         {
+            GameManager.Instance.progress = 0;
             SceneManager.LoadScene(3);
         }
         else if (GameManager.Instance.opponent == "Azazel")
@@ -1103,5 +1120,29 @@ public class Dealer : MonoBehaviour
 
         }
 
+    }
+
+    //Lerps Card from one point to another
+    IEnumerator MoveCard(GameObject card, Vector3 location)
+    {
+        yield return new WaitForEndOfFrame();
+        Transform cardT = card.transform;
+        for (int i = 0; i < 5; i++)
+        {
+            try
+            {
+                card.transform.position = new Vector3(
+                    Mathf.Lerp(cardT.position.x, location.x, .2f), Mathf.Lerp(cardT.position.y, location.y, .2f), cardT.position.z);
+            }
+            catch
+            {
+                i = 5;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        if (cardT != null)
+        {
+            cardT.position = location;
+        }
     }
 }

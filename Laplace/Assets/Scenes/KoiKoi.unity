@@ -674,6 +674,7 @@ MonoBehaviour:
   stopButton: {fileID: 481397387}
   winText: {fileID: 1401903992}
   totalText: {fileID: 1311646970}
+  fade: {fileID: 253227756}
 --- !u!1 &481397387
 GameObject:
   m_ObjectHideFlags: 0
