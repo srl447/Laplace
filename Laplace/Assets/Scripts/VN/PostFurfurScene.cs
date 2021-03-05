@@ -22,9 +22,6 @@ public class PostFurfurScene : MonoBehaviour
         //setup next opponent
         GameManager.Instance.opponent = "Azazel";
 
-        //Progress used for saving to skip to most recent chunk of text
-        sceneProgess = new Scene[] { one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen};
-
         //Note: Put speaker name at the beginning of each scene so there's a speaker name when loading 
         one.Set(new string[]
         {
@@ -41,7 +38,12 @@ public class PostFurfurScene : MonoBehaviour
         two.center = furfur;
 
         textC = TextControl.instance;
-        current = sceneProgess[GameManager.Instance.progress];
+        current = one;
+        //loads progress
+        for (int i = 0; i < GameManager.Instance.progress; i++)
+        {
+            current = current.nextScene;
+        }
         Sync();
     }
 

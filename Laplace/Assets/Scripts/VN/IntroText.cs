@@ -20,11 +20,7 @@ public class IntroText : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        //Progress used for saving to skip to most recent chunk of text
-        sceneProgess = new Scene[] { Intro, Intro2, Second, third, fourth, fourth2, fourth3, fourth4, fifth, sixth, 
-            seven, eight, nine, ten, eleven, twelve, thirteen};
-
+    { 
         //setup next opponent
         GameManager.Instance.opponent = "Furfur";
 
@@ -203,7 +199,12 @@ public class IntroText : MonoBehaviour
         ten.center = furfurH;
 
         textC = TextControl.instance;
-        current = sceneProgess[GameManager.Instance.progress];
+        current = Intro;
+        //loads progress
+        for(int i = 0; i < GameManager.Instance.progress; i++)
+        {
+            current = current.nextScene;
+        }
         Sync();
     }
 

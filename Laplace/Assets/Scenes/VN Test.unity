@@ -2508,7 +2508,7 @@ MonoBehaviour:
   handSmall: {fileID: 21300000, guid: 2dbe79c8efc680e419984557da97f0e8, type: 3}
   handSmall2: {fileID: 21300000, guid: a32c5c661147e4e4bbceb56bf8f79a11, type: 3}
   furfur: {fileID: 21300000, guid: 0767aa2c858d68b4897b02b47ff872b8, type: 3}
-  furfurH: {fileID: 0}
+  furfurH: {fileID: 21300000, guid: 108ba565d0fcb0f4ebc45190802c68a6, type: 3}
   doorSmall1: {fileID: 21300000, guid: 03d14fbb0eaac0443b1dc8ccdc648026, type: 3}
   doorSmall2: {fileID: 21300000, guid: 2448939f721a07344bc4105901831f91, type: 3}
   doorSmall3: {fileID: 21300000, guid: e7648b0b8d4f2d747a3ee823e62e36aa, type: 3}
