@@ -45,12 +45,28 @@ public class Card : MonoBehaviour
         {
             this.GetComponent<SpriteRenderer>().sprite = back;
         }
-        if (GameManager.Instance.canClick && hover && (Input.GetKeyDown(GameManager.Instance.main) || Input.GetKeyDown(GameManager.Instance.alt)))
+        if (deal.turn == 1 && GameManager.Instance.canClick && hover && (Input.GetKeyDown(GameManager.Instance.main) || Input.GetKeyDown(GameManager.Instance.alt)))
         {
+            bool canSelect = true;
+            for(int i = 0; i < 8; i++)
+            {
+                if(deal.handP[i] != null && deal.handP[i].GetComponent<Card>().selected)
+                {
+                    canSelect = false;
+                    break;
+                }
+            }
             switch (zone)
             {
                 case 2:
-                    selected = true;
+                    if (!selected && canSelect)
+                    {
+                        selected = true;
+                    }
+                    else
+                    {
+                        selected = false;
+                    }
                     break;
                 case 4:
                     selectedDouble = true;

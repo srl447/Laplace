@@ -30,7 +30,7 @@ public class Dealer : MonoBehaviour
     public int turn = 0;
     bool group = false; //only turns true when there's a group of 3 of a suit on the table
     bool winOn = false; //checks if the win UI is turned on
-    bool koiCall = false;
+    bool koiCallP = false, koiCallC = false;
     public Button koiB, stopB; //buttons for the win screen
     GameObject[] suitGroup1 = new GameObject[3], suitGroup2 = new GameObject[3]; //suit groups
     public int scoreP, scoreC; //scores for player, computer
@@ -67,14 +67,14 @@ public class Dealer : MonoBehaviour
                 if (!winOn)
                 {
                     winOn = true;
-                    StartCoroutine(WinUI(winConsP));
+                    StartCoroutine(WinUI(winConsP, koiCallP));
                 }
                 break;
             case 4:
                 if (!winOn)
                 {
                     winOn = true;
-                    StartCoroutine(WinUI(winConsC));
+                    StartCoroutine(WinUI(winConsC, koiCallC));
                 }
                 break;
             case 5:
@@ -87,7 +87,8 @@ public class Dealer : MonoBehaviour
 
     void Shuffle() //shuffles the deck
     {
-        koiCall = false; //no one's called koi koi yet
+        koiCallC = false;
+        koiCallP = false; //no one's called koi koi yet
         GameObject[] shuffle = (GameObject[])cards.Clone(); //clone a list of all cards
         deck.Clear(); //clear the queue *note: probably need to destroy all previous cards as well
         for (int i = 0; i < 48; i++)  //swaps each card in the deck with a random one
@@ -108,9 +109,10 @@ public class Dealer : MonoBehaviour
 
     //Restarts a coroutine
     //Needed to redeal when 4 of a suit are on the table
-    void RestartCoroutine(IEnumerator coroutineToRestart)
+    IEnumerator RestartCoroutine(IEnumerator coroutineToRestart)
     {
         StopCoroutine(coroutineToRestart);
+        yield return new WaitForEndOfFrame();
         StartCoroutine(coroutineToRestart);
     }
 
@@ -123,6 +125,7 @@ public class Dealer : MonoBehaviour
          *   TODO: Decide a "dealer" and deal out cards accordingly
          *      Maybe I can just cheat and always have the player deal
          */
+
         group = false;
         for (int i = 0; i < 8; i += 2)
         {
@@ -192,10 +195,23 @@ public class Dealer : MonoBehaviour
         }
         for (int i = 0; i < 12; i++)
         {
-            if (suitCount[i] == 4)
+            int doubleCount = 0;
+            if (suitCount[i] == 2)
+            {
+                doubleCount++;
+            }
+            else if (suitCount[i] == 4)
             {
                 winConsC.Add("Full Suit:6");
                 turn = 4;
+                break;
+            }
+
+            if (doubleCount == 4)
+            {
+                winConsC.Add("Joined Hand: 6");
+                turn = 4;
+                break;
             }
         }
         suitCount = new int[12];
@@ -205,11 +221,25 @@ public class Dealer : MonoBehaviour
         }
         for (int i = 0; i < 12; i++)
         {
-            if (suitCount[i] == 4)
+            int doubleCount = 0;
+            if(suitCount[i] == 2)
+            {
+                doubleCount++;
+            }
+            else if (suitCount[i] == 4)
             {
                 winConsP.Add("Full Suit:6");
                 turn = 3;
+                break;
             }
+            
+            if(doubleCount == 4)
+            {
+                winConsP.Add("Sticky: 6");
+                turn = 3;
+                break;
+            }
+            
         }
         //Group same suit on table
         suitCount = new int[12];
@@ -257,11 +287,6 @@ public class Dealer : MonoBehaviour
                 }
             }
         }
-        //Please make the UI stop showing up
-        winUI.SetActive(false);
-        koiButton.SetActive(false);
-        stopButton.SetActive(false);
-        winOn = false;
         TableLayout(); //finally lay the table out
     }
 
@@ -722,6 +747,7 @@ public class Dealer : MonoBehaviour
     void CheckEnd() //checks to see if one of the end game conditions has happened
     {
         ArrayList[] checkPile = null;
+        bool checkKoi = false;
         List<string> newWin = new List<string>();
         switch(turn)
         {
@@ -745,9 +771,11 @@ public class Dealer : MonoBehaviour
                     turn = 5;
                 }
                 checkPile = pileP;
+                checkKoi = koiCallP;
                 break;
             case 2:
                 checkPile = pileC;
+                checkKoi = koiCallC;
                 break;
         }
         if (deck.Count == 0 || table.Count == 0) //checks if table or deck is empty
@@ -895,7 +923,7 @@ public class Dealer : MonoBehaviour
             }
             if(turn == 1)
             {
-                if (WinTotal(newWin) > WinTotal(winConsP))
+                if (WinTotal(newWin, checkKoi) > WinTotal(winConsP, koiCallP))
                 {
                     turn = 3;
                     winConsP = newWin;
@@ -903,7 +931,7 @@ public class Dealer : MonoBehaviour
             }
             else if(turn == 2)
             {
-                if (WinTotal(newWin) > WinTotal(winConsC))
+                if (WinTotal(newWin, checkKoi) > WinTotal(winConsC, koiCallC))
                 {
                     turn = 4;
                     winConsC = newWin;
@@ -929,7 +957,7 @@ public class Dealer : MonoBehaviour
         }
         return new string[2][] {names, values};
     }
-    int WinTotal(List<string> winToTotal) //gives a total point value for the current winCons using WinSort()
+    int WinTotal(List<string> winToTotal, bool koikoi) //gives a total point value for the current winCons using WinSort()
     {
         int totalPoints = 0;
         string[] values = WinSort(winToTotal)[1];
@@ -937,7 +965,7 @@ public class Dealer : MonoBehaviour
         {
             totalPoints += int.Parse(v);
         }
-        if(koiCall) //double the points if someone's called koi-koi
+        if(totalPoints > 7 || koikoi) //double the points if needed
         {
             totalPoints = totalPoints * 2;
         }
@@ -951,7 +979,7 @@ public class Dealer : MonoBehaviour
      */
     bool ComputerKoiKoi()
     {
-        bool koi = (Random.Range(0, 20) + WinTotal(winConsC) < 14) ? true : false;
+        bool koi = (Random.Range(0, 20) + WinTotal(winConsC, koiCallC) < 14) ? true : false;
         if (koi) //don't want computer koi-koing if they don't have any cards
         {
             int countH = 0;
@@ -973,7 +1001,7 @@ public class Dealer : MonoBehaviour
     //winning UI coroutine
     public GameObject winUI, koiButton, stopButton;
     public Text winText, totalText;
-    IEnumerator WinUI(List<string> winCons)
+    IEnumerator WinUI(List<string> winCons, bool koikoi)
     {
         winUI.SetActive(true);
         winText.text = "";
@@ -987,7 +1015,7 @@ public class Dealer : MonoBehaviour
             yield return new WaitForSecondsRealtime(.3f);
         }
         //display total points
-        totalText.text = WinTotal(winCons).ToString();
+        totalText.text = WinTotal(winCons, koikoi).ToString();
         yield return new WaitForSecondsRealtime(.3f);
         //different win things based on who won
         if (turn == 3) //player
@@ -1007,7 +1035,7 @@ public class Dealer : MonoBehaviour
             }
             else
             {
-                scoreP += WinTotal(winConsP);
+                scoreP += WinTotal(winConsP, koiCallP);
                 playerScore.text = "Modayaal: " + scoreP;
                 RoundAdvance();
             }
@@ -1020,11 +1048,11 @@ public class Dealer : MonoBehaviour
                 turn = 1;
                 winUI.SetActive(false);
                 winOn = false;
-                koiCall = true;
+                koiCallC = true;
             }
             else
             {
-                scoreC += WinTotal(winConsC);
+                scoreC += WinTotal(winConsC, koiCallC);
                 computerScore.text = GameManager.Instance.opponent + ": " + scoreC;
                 GameManager.Instance.scoreC = scoreC;
                 RoundAdvance();
@@ -1039,12 +1067,12 @@ public class Dealer : MonoBehaviour
         stopButton.SetActive(false);
         winUI.SetActive(false);
         winOn = false;
-        koiCall = true;
+        koiCallP = true;
     }
     //stop button function
     void stopClick()
     {
-        scoreP += WinTotal(winConsP);
+        scoreP += WinTotal(winConsP, koiCallP);
         playerScore.text = "Modayaal: " + scoreP;
         GameManager.Instance.scoreP = scoreP;
         RoundAdvance();
@@ -1126,7 +1154,11 @@ public class Dealer : MonoBehaviour
     IEnumerator MoveCard(GameObject card, Vector3 location)
     {
         yield return new WaitForEndOfFrame();
-        Transform cardT = card.transform;
+        Transform cardT =  null;
+        if (card != null)
+        {
+            cardT = card.transform;
+        }
         for (int i = 0; i < 5; i++)
         {
             try
