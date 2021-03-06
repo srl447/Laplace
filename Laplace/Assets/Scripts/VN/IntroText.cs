@@ -9,7 +9,7 @@ public class IntroText : MonoBehaviour
     TextControl textC;
     public Compendium comp;
     public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(),
-        third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(),
+        third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(), seven2 = new Scene(),
         fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene(),
         nine = new Scene(), ten = new Scene(), eleven = new Scene(), twelve = new Scene(), thirteen = new Scene();
 
@@ -140,15 +140,22 @@ public class IntroText : MonoBehaviour
             "????:Modayal",
             "fair:Furfur",
             " fair::A",
-            "You want a drink?:Modayaal",
+            "You want a drink?:Modayaal"
+        },
+        bg2, seven2);
+        seven.center = furfur;
+
+        seven2.Set(new string[]
+        {
             "You know I'm on the Blom Blamilton routine:Furfur",
             "Gimme the next shot",
             "One day you're gonna ask me for something that isn't conjured,:Modayaal",
             "and it's gonna blow your mind",
-            "Yeah but I'm so close like we're already on the Cat's Life tour:Furfur",
+            "Yeah but I'm so close like we're already on the Cat's Life tour:Furfur"
         },
         bg2, eight);
-        seven.center = furfur;
+        seven2.center = furfurH;
+        seven2.compendiumEntry = "Blom Blamilton";
         
         //TODO: Split this up and create art assests as needed
         eight.Set(new string[]

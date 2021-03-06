@@ -72,7 +72,11 @@ public class Compendium : MonoBehaviour
             "even the most wicked people won't stay here for more than a year. Souls atone for their sins here, but " +
             "they still get the Sabbath off. \nGehinomm is described as on fire. \nPictured: Valley of Hinomm c. 1900");
 
-        Debug.Log(PlayerPrefs.GetString("Compendium"));
+        compendiumImage.Add("Blom Blamilton", allSprites[3]);
+        compendiumText.Add("Blom Blamilton",
+            "Bassist for the band Bombersmith. Furfur is currently taking every single shot he's ever had. " +
+            "He's already up to Bombersmith's tour of their 1997 album Cat's Life.");
+
     }
 
     public void Update()
@@ -91,10 +95,11 @@ public class Compendium : MonoBehaviour
             buttonValues.Add(newEntry);
             PlayerPrefs.SetString("Compendium", PlayerPrefs.GetString("Compendium") + ":" + newEntry);
             GameObject newButton = Instantiate(menuButton) as GameObject;
+            newButton.transform.SetParent(buttonContent.transform);
             newButton.GetComponentInChildren<Text>().text = newEntry;
-            newButton.transform.position -= Vector3.up * 40 * buttonCount;
+            newButton.transform.localScale = new Vector3(1, 1, 1);
+            newButton.transform.position = new Vector3(menuButton.transform.position.x, menuButton.transform.position.y - 40 * buttonCount, 0);
             buttonCount++;
-            Debug.Log(newButton.transform.position);
         }
     }
 
