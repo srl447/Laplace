@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PostFurfurScene : MonoBehaviour
 {
     TextControl textC;
+    public Compendium comp;
     public Scene one = new Scene(), two = new Scene(),
         three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(),
         seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(), 
@@ -72,6 +74,14 @@ public class PostFurfurScene : MonoBehaviour
                 }
 
                 Say(current.textBody[count]);
+                if (current.sound != null)
+                {
+                    AudioManager.Instance.PlayOneShot(current.sound);
+                }
+                if (current.compendiumEntry != null)
+                {
+                    StartCoroutine(AddCompendiumEntry(current.compendiumEntry));
+                }
                 count++;
             }
             else if (textC.isSpeaking)
@@ -100,6 +110,28 @@ public class PostFurfurScene : MonoBehaviour
         textC.centerImage.sprite = current.center;
         Say(current.textBody[0]);
         count = 1;
+    }
+
+    public GameObject compAdd;
+    IEnumerator AddCompendiumEntry(string entry)
+    {
+        if (!comp.buttonValues.Contains(entry))
+        {
+            comp.Add(entry);
+            Vector3 originalP = compAdd.transform.position;
+            Text fade = compAdd.GetComponent<Text>();
+            fade.color = Color.white;
+            fade.text = entry + " added to Compendium";
+            yield return new WaitForSecondsRealtime(1);
+            for (int i = 0; i < 6; i++)
+            {
+                fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Lerp(fade.color.a, 0, .18f));
+                compAdd.transform.position += Vector3.up / 6;
+                yield return new WaitForEndOfFrame();
+            }
+            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, 0);
+            compAdd.transform.position = originalP;
+        }
     }
 }
 

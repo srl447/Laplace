@@ -6,6 +6,8 @@ public class Scene
 {
     public string[] textBody;
     public Sprite background, left, right, center, mini;
+    public AudioClip sound;
+    public string compendiumEntry;
     public Scene nextScene;
 
     public Scene(string[] textBodyI = null, Sprite backgroundI = null, Scene nextSceneI = null, Sprite leftI = null,

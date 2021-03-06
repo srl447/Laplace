@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class IntroText : MonoBehaviour
 {
     TextControl textC;
+    public Compendium comp;
     public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(),
         third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(),
         fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene(),
@@ -78,6 +80,7 @@ public class IntroText : MonoBehaviour
             "We do this every morning, and I need to stop it."
         }, 
         bg2, fourth);
+        third.compendiumEntry = "Gehinomm";
 
         fourth.Set(new string[]
         {
@@ -233,6 +236,14 @@ public class IntroText : MonoBehaviour
                 }
 
                 Say(current.textBody[count]);
+                if (current.sound != null)
+                {
+                    AudioManager.Instance.PlayOneShot(current.sound);
+                }
+                if (current.compendiumEntry != null)
+                {
+                    StartCoroutine(AddCompendiumEntry(current.compendiumEntry));
+                }
                 count++;
             }
             else if(textC.isSpeaking)
@@ -261,5 +272,27 @@ public class IntroText : MonoBehaviour
         textC.centerImage.sprite = current.center;
         Say(current.textBody[0]);
         count = 1;
+    }
+
+    public GameObject compAdd;
+    IEnumerator AddCompendiumEntry(string entry)
+    {
+        if (!comp.buttonValues.Contains(entry))
+        {
+            comp.Add(entry);
+            Vector3 originalP = compAdd.transform.position;
+            Text fade = compAdd.GetComponent<Text>();
+            fade.color = Color.white;
+            fade.text = entry + " added to Compendium";
+            yield return new WaitForSecondsRealtime(1);
+            for (int i = 0; i < 6; i++)
+            {
+                fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Lerp(fade.color.a, 0, .18f));
+                compAdd.transform.position += Vector3.up / 6;
+                yield return new WaitForEndOfFrame();
+            }
+            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, 0);
+            compAdd.transform.position = originalP;
+        }
     }
 }

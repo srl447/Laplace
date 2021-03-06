@@ -174,7 +174,7 @@ public class TextControl : MonoBehaviour
         string speaker = speakerName.text;
         if(s!= "" && s != speakerName.text)
         {
-            speaker = (s.ToLower().Contains("narrator")) ? "" : s;
+            speaker = s.ToLower().Contains("narrator") ? "" : s;
         }
         return speaker;
     }
