@@ -2859,6 +2859,8 @@ MonoBehaviour:
   doorSmall4: {fileID: 21300000, guid: ef7cadbb4f5784d43b0bb0c237664a2e, type: 3}
   shotGlass1: {fileID: 21300000, guid: b59cf51e10e1c7d45ba0ad8e4420fe35, type: 3}
   shotGlass2: {fileID: 21300000, guid: 7c96d658052796b45ba143bea63d58d2, type: 3}
+  corpseRaiser1: {fileID: 21300000, guid: 3fedbcb27f29a2f4ab35b39605dcabdd, type: 3}
+  corpseRaiser2: {fileID: 21300000, guid: 55aa37b3bae7aa44a95e37f77b20e894, type: 3}
   compAdd: {fileID: 232675049}
 --- !u!114 &1915700712
 MonoBehaviour:

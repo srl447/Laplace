@@ -209,7 +209,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1fdb787d24d1ed04a9a240d84e0bcc07, type: 3}
   - {fileID: 21300000, guid: 2dbe79c8efc680e419984557da97f0e8, type: 3}
   - {fileID: 21300000, guid: b28f9e19b25d08b4eb04980ce79af942, type: 3}
-  - {fileID: 21300000, guid: 108ba565d0fcb0f4ebc45190802c68a6, type: 3}
+  - {fileID: 21300000, guid: 59f054e81e72cc14fab62497ca822342, type: 3}
+  - {fileID: 21300000, guid: 4af0a99ef2fcdb24298f2fe7b8c74bc6, type: 3}
+  - {fileID: 21300000, guid: 0767aa2c858d68b4897b02b47ff872b8, type: 3}
   buttonContent: {fileID: 3512649422389436732}
 --- !u!1 &3512649420801536322
 GameObject:

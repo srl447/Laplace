@@ -13,12 +13,11 @@ public class IntroText : MonoBehaviour
         fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene(),
         nine = new Scene(), ten = new Scene(), eleven = new Scene(), twelve = new Scene(), thirteen = new Scene();
 
-    Scene[] sceneProgess;
     Scene current = new Scene();
     int count = 0;
     public Sprite bg, bg2, handSmall, handSmall2, furfur,
         furfurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4,
-        shotGlass1, shotGlass2;
+        shotGlass1, shotGlass2, corpseRaiser1, corpseRaiser2;
 
     // Start is called before the first frame update
     void Start()
@@ -122,6 +121,7 @@ public class IntroText : MonoBehaviour
         },
         bg2, sixth);
         fifth.center = furfur;
+        fifth.compendiumEntry = "Furfur";
 
         //TODO: Need Happy Furfur
         sixth.Set(new string[]
@@ -201,12 +201,37 @@ public class IntroText : MonoBehaviour
             "You owe me a game of Koi-koi, ",
             "go set it up.",
             "Corpse Reviver No. 2?:Furfur",
-            "Of course number 2 who are you:Modayaal",
+            "Of course number 2 who are you:Modayaal"
+        },
+        bg2, eleven);
+        ten.center = furfurH;
+
+        eleven.Set(new string[]
+        {
             "*Pouring Noise*:Liquids::I",
-            "*GLUG*:Modayaal"
+            "And... :Modayaal::N"
+        }, 
+        bg2, twelve);
+        eleven.mini = corpseRaiser1;
+        eleven.compendiumEntry = "Corpse Reviver No. 2";
+
+        twelve.Set(new string[]
+        {
+            "done!:Modayaal:A:N",
+            "this way it won't have any of that rank conjured taste"
+        },
+        bg2, thirteen);
+        twelve.mini = corpseRaiser2;
+
+        thirteen.Set(new string[]
+        {
+            "*Sipping Noises*:Modayaal::I",
+            "aaaahhhh:Modayaal::N",
+            "time to go kick his ass"
         },
         bg2);
-        ten.center = furfurH;
+        thirteen.mini = shotGlass1;
+
 
         textC = TextControl.instance;
         current = Intro;

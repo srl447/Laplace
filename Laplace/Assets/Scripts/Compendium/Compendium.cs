@@ -25,13 +25,15 @@ public class Compendium : MonoBehaviour
         string[] values = PlayerPrefs.GetString("Compendium").Split(':');
         foreach(string s in values)
         {
-            if (s != "")
+            if (s != "" && !buttonValues.Contains(s))
             {
                 buttonValues.Add(s);
                 GameObject newButton = Instantiate(menuButton) as GameObject;
                 newButton.transform.SetParent(buttonContent.transform);
                 newButton.GetComponentInChildren<Text>().text = s;
                 newButton.transform.localScale = new Vector3(1, 1, 1);
+                //TODO: Adjust for screen size
+                //  I can probably take the distance between the two default buttons and use that if needed
                 newButton.transform.position = new Vector3(menuButton.transform.position.x, menuButton.transform.position.y - 40 * buttonCount,0);
                 buttonCount++;
             }
@@ -76,6 +78,23 @@ public class Compendium : MonoBehaviour
         compendiumText.Add("Blom Blamilton",
             "Bassist for the band Bombersmith. Furfur is currently taking every single shot he's ever had. " +
             "He's already up to Bombersmith's tour of their 1997 album Cat's Life.");
+
+        compendiumImage.Add("Corpse Reviver No. 2", allSprites[4]);
+        compendiumText.Add("Corpse Reviver No. 2",
+            "Created with gin, freshly squeezed lemon juice, curaçao, some brand name wine, and a bit of absinthe. " +
+            "Usually garnished with a lemon or orange slice. Corpse Revivers are a family of cocktail originating in the " +
+            "1800s and dranken to cure hangovers." +
+            "Apparently four of these quickly will unrevive the corpse, so make 5 just in case");
+
+        compendiumImage.Add("Furfur", allSprites[5]);
+        compendiumText.Add("Furfur",
+            "The Earl of Hell, Furfur, he rules 26 legions of spirits according to Arc Goetia in the " +
+            "Lesser Keys of Solomon. He's a liar that will only answer truthfully if you enter a pact with him. " +
+            "His element is fire despite the fact that he controls thunder, lightning, storms, and hurricanes. He'll " +
+            "reveal the secrets of the planet to you if you're loyal. He can cause love between a man and a woman, which, " +
+            "not gonna lie, kinda straight. He just kills people he doesn't like, so you don't have to worry about forcibly becoming " +
+            "straight at least. He used to zap babies with the straight ray occasionally, which isn't cool. You can summon him on leap " +
+            "days, neat.");
 
     }
 
