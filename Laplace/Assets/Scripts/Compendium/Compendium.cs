@@ -7,7 +7,8 @@ public class Compendium : MonoBehaviour
 {
     public Text textBox;
     public Image image;
-    public GameObject menuButton;
+    public GameObject menuButton, refButton;
+    float distance;
 
     Dictionary<string, string> compendiumText = new Dictionary<string, string>();
     Dictionary<string, Sprite> compendiumImage = new Dictionary<string, Sprite>();
@@ -21,6 +22,10 @@ public class Compendium : MonoBehaviour
 
     private void Start()
     {
+
+        //finds the distance the buttons need to be spaced based on screen size
+        distance = refButton.transform.position.y - menuButton.transform.position.y;
+
         //Loads previous data and creates buttons
         string[] values = PlayerPrefs.GetString("Compendium").Split(':');
         foreach(string s in values)
@@ -32,9 +37,7 @@ public class Compendium : MonoBehaviour
                 newButton.transform.SetParent(buttonContent.transform);
                 newButton.GetComponentInChildren<Text>().text = s;
                 newButton.transform.localScale = new Vector3(1, 1, 1);
-                //TODO: Adjust for screen size
-                //  I can probably take the distance between the two default buttons and use that if needed
-                newButton.transform.position = new Vector3(menuButton.transform.position.x, menuButton.transform.position.y - 40 * buttonCount,0);
+                newButton.transform.position = new Vector3(menuButton.transform.position.x, menuButton.transform.position.y - distance * buttonCount,0);
                 buttonCount++;
             }
         }
@@ -95,6 +98,9 @@ public class Compendium : MonoBehaviour
             "not gonna lie, kinda straight. He just kills people he doesn't like, so you don't have to worry about forcibly becoming " +
             "straight at least. He used to zap babies with the straight ray occasionally, which isn't cool. You can summon him on leap " +
             "days, neat.");
+
+        //hides itself to start
+        gameObject.SetActive(false);
 
     }
 

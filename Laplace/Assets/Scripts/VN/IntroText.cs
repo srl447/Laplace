@@ -19,6 +19,8 @@ public class IntroText : MonoBehaviour
         furfurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4,
         shotGlass1, shotGlass2, corpseRaiser1, corpseRaiser2;
 
+    public AudioClip knock;
+
     // Start is called before the first frame update
     void Start()
     { 
@@ -87,6 +89,7 @@ public class IntroText : MonoBehaviour
         },
         bg2, fourth2);
         fourth.mini = doorSmall1;
+        fourth.sound = knock;
 
         fourth2.Set(new string[]
         {
@@ -94,6 +97,7 @@ public class IntroText : MonoBehaviour
         },
         bg2, fourth3);
         fourth2.mini = doorSmall2;
+        fourth2.sound = knock;
 
         fourth3.Set(new string[]
         {
@@ -101,6 +105,7 @@ public class IntroText : MonoBehaviour
         },
         bg2, fourth4);
         fourth3.mini = doorSmall3;
+        fourth3.sound = knock;
 
         fourth4.Set(new string[]
         {
@@ -268,14 +273,6 @@ public class IntroText : MonoBehaviour
                 }
 
                 Say(current.textBody[count]);
-                if (current.sound != null)
-                {
-                    AudioManager.Instance.PlayOneShot(current.sound);
-                }
-                if (current.compendiumEntry != null)
-                {
-                    StartCoroutine(AddCompendiumEntry(current.compendiumEntry));
-                }
                 count++;
             }
             else if(textC.isSpeaking)
@@ -303,6 +300,14 @@ public class IntroText : MonoBehaviour
         textC.miniImage.sprite = current.mini;
         textC.centerImage.sprite = current.center;
         Say(current.textBody[0]);
+        if (current.sound != null)
+        {
+            AudioManager.Instance.PlayOneShot(current.sound);
+        }
+        if (current.compendiumEntry != null)
+        {
+            StartCoroutine(AddCompendiumEntry(current.compendiumEntry));
+        }
         count = 1;
     }
 

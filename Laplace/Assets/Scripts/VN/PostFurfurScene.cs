@@ -74,14 +74,6 @@ public class PostFurfurScene : MonoBehaviour
                 }
 
                 Say(current.textBody[count]);
-                if (current.sound != null)
-                {
-                    AudioManager.Instance.PlayOneShot(current.sound);
-                }
-                if (current.compendiumEntry != null)
-                {
-                    StartCoroutine(AddCompendiumEntry(current.compendiumEntry));
-                }
                 count++;
             }
             else if (textC.isSpeaking)
@@ -109,6 +101,14 @@ public class PostFurfurScene : MonoBehaviour
         textC.miniImage.sprite = current.mini;
         textC.centerImage.sprite = current.center;
         Say(current.textBody[0]);
+        if (current.sound != null)
+        {
+            AudioManager.Instance.PlayOneShot(current.sound);
+        }
+        if (current.compendiumEntry != null)
+        {
+            StartCoroutine(AddCompendiumEntry(current.compendiumEntry));
+        }
         count = 1;
     }
 
