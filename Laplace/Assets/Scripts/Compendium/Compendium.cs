@@ -98,11 +98,19 @@ public class Compendium : MonoBehaviour
             "reveal the secrets of the planet to you if you're loyal. He can cause love between a man and a woman, which, " +
             "not gonna lie, kinda straight. He just kills people he doesn't like, so you don't have to worry about forcibly becoming " +
             "straight at least. He used to zap babies with the straight ray occasionally, which isn't cool. You can summon him on leap " +
-            "days, neat.");
+            "days, neat. Nowadays, Furfur is much chiller thanks to the realizations removal from Earth brought. ");
 
         compendiumImage.Add("Furfur's Joke", allSprites[6]);
         compendiumText.Add("Furfur's Joke",
             "The joke is that F is a labial fricative");
+
+        compendiumImage.Add("Amon", allSprites[7]);
+        compendiumText.Add("Amon",
+            "Amon is the Grand Marquis of Hell according to The Lesser Keys of Solomon. He has a serpent's tail, a wolf's body, and " +
+            "a raven's head. He's the strongest of the 72 demons, and genuinely a good guy. He can help stop conflicts of all kinds: " +
+            "from friendship spats to fullblown wars. Kinda makes you wish Modayaal made their deal after the 20th century because " +
+            "this poor guy can no longer help humans. He can breathe fire, but I'm not sure how this helped solve any conflicts." +
+            "\n\nThis depiction is from the 1863 edition of Dictionnaire Infernal");
 
         //hides itself to start
         gameObject.SetActive(false);

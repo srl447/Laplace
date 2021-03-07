@@ -53,9 +53,24 @@ public class PostFurfurScene : MonoBehaviour
             "Maybe I should drink more: Modayaal"
 
         },
-        bg);
+        bg, four);
         three.center = furfurH;
-        three.compendiumEntry = "Furfur's Joke";
+        three.compendiumEntry = "Amon";
+
+        four.Set(new string[]
+        {
+            "Where do you fall on the vote tomorrow?:Furfur",
+            "shaddupp:Modayaal",
+            "I'm wrenching conversation out of you kicking and screaming bruh:Fufur",
+            "It's good for you!",
+            "fineee:Modayaal",
+            "what are they even voting on?",
+            "Whether to put more or less fire around Namaah Theater Square:Furfur",
+            "why would I care I don't leave my house:Modayaal"
+        },
+        bg);
+        four.center = furfur;
+        four.compendiumEntry = "Furfur's Joke";
 
 
         textC = TextControl.instance;
