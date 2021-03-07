@@ -7,7 +7,7 @@ using UnityEngine;
 public class AudioManager : Singleton<AudioManager>
 {
     public AudioSource audioSource;
-    public int sfxVolume = 1;
+    public float sfxVolume = 1;
     public AudioClip bgm;
     void Awake()
     {

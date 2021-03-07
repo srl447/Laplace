@@ -17,11 +17,11 @@ public class IntroText : MonoBehaviour
 
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg, bg2, handSmall, handSmall2, furfur,
+    public Sprite bg, bg2, handSmall, handSmall2, furfur, furfurEww,
         furfurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4,
         shotGlass1, shotGlass2, corpseRaiser1, corpseRaiser2;
 
-    public AudioClip knock;
+    public AudioClip knock, pour, spitTake;
 
     // Start is called before the first frame update
     void Start()
@@ -130,7 +130,6 @@ public class IntroText : MonoBehaviour
         fifth.center = furfur;
         fifth.compendiumEntry = "Furfur";
 
-        //TODO: Need Happy Furfur
         sixth.Set(new string[]
         {
             "And that's cause I love you so much:Furfur",
@@ -192,7 +191,7 @@ public class IntroText : MonoBehaviour
             "Bottom's up!::A"
         },
         bg2, nine3);
-        nine.center = furfur;
+        nine2.center = furfur;
 
         nine3.Set(new string[]
         {
@@ -202,6 +201,8 @@ public class IntroText : MonoBehaviour
             "I can't wait?:Furfur"
         },
         bg2, ten);
+        nine3.center = furfurEww;
+        nine3.sound = spitTake;
 
         ten.Set(new string[]
         {
@@ -238,6 +239,7 @@ public class IntroText : MonoBehaviour
         bg2, twelve);
         eleven.mini = corpseRaiser1;
         eleven.compendiumEntry = "Corpse Reviver No. 2";
+        eleven.sound = pour;
 
         twelve.Set(new string[]
         {

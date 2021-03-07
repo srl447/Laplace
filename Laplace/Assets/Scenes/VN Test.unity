@@ -737,6 +737,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8423463661752670576, guid: 49f2fd8628f40814bb3dada02da0b81a,
+        type: 3}
+      propertyPath: bgm
+      value: 
+      objectReference: {fileID: 8300000, guid: 908a11cef060f5b4bbee48935390e068, type: 3}
+    - target: {fileID: 8423463661752670576, guid: 49f2fd8628f40814bb3dada02da0b81a,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1668536279}
+    - target: {fileID: 8423463661752670577, guid: 49f2fd8628f40814bb3dada02da0b81a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 908a11cef060f5b4bbee48935390e068, type: 3}
     - target: {fileID: 8423463661752670579, guid: 49f2fd8628f40814bb3dada02da0b81a,
         type: 3}
       propertyPath: m_Name
@@ -2378,6 +2393,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660076229}
   m_CullTransparentMesh: 0
+--- !u!82 &1668536279 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8423463661752670577, guid: 49f2fd8628f40814bb3dada02da0b81a,
+    type: 3}
+  m_PrefabInstance: {fileID: 478997371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1701402498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,6 +2873,7 @@ MonoBehaviour:
   handSmall: {fileID: 21300000, guid: 2dbe79c8efc680e419984557da97f0e8, type: 3}
   handSmall2: {fileID: 21300000, guid: a32c5c661147e4e4bbceb56bf8f79a11, type: 3}
   furfur: {fileID: 21300000, guid: 0767aa2c858d68b4897b02b47ff872b8, type: 3}
+  furfurEww: {fileID: 21300000, guid: 88ef281ec1fffca4dae2525d2f03cc32, type: 3}
   furfurH: {fileID: 21300000, guid: 108ba565d0fcb0f4ebc45190802c68a6, type: 3}
   doorSmall1: {fileID: 21300000, guid: 03d14fbb0eaac0443b1dc8ccdc648026, type: 3}
   doorSmall2: {fileID: 21300000, guid: 2448939f721a07344bc4105901831f91, type: 3}
@@ -2862,6 +2884,8 @@ MonoBehaviour:
   corpseRaiser1: {fileID: 21300000, guid: 3fedbcb27f29a2f4ab35b39605dcabdd, type: 3}
   corpseRaiser2: {fileID: 21300000, guid: 55aa37b3bae7aa44a95e37f77b20e894, type: 3}
   knock: {fileID: 8300000, guid: 008078e60647f9c4080146ac5c10ce5c, type: 3}
+  pour: {fileID: 8300000, guid: 045276536cd8dd44fa905cec0e9f5253, type: 3}
+  spitTake: {fileID: 8300000, guid: 3725ea208eb4db542a91c78be9932c6c, type: 3}
   compAdd: {fileID: 232675049}
 --- !u!114 &1915700712
 MonoBehaviour:
@@ -3421,6 +3445,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3512649421057329013, guid: dc138e09e362ae345a9cec994256f04a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000045776367
       objectReference: {fileID: 0}
     - target: {fileID: 3512649421099464050, guid: dc138e09e362ae345a9cec994256f04a,
         type: 3}

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OptionMenu : MonoBehaviour
 {
     public Text[] textToUpdate;
-    public Slider fontSlider;
+    public Slider fontSlider, musicSlider, soundSlider;
 
     public Font[] typefaces;
     public Dropdown typefaceDropdown;
@@ -66,7 +66,9 @@ public class OptionMenu : MonoBehaviour
     {
         fontSlider.value = PlayerPrefs.GetInt("Font Size");
         typefaceDropdown.value = PlayerPrefs.GetInt("Typeface");
-        colorToggle.isOn = PlayerPrefs.GetInt("Text Color") == 1;
+        colorToggle.isOn = PlayerPrefs.GetInt("Text Color") == 1; //because you can't store bools
+        musicSlider.value = PlayerPrefs.GetFloat("Music Volume");
+        soundSlider.value = PlayerPrefs.GetFloat("Sound Volume");
     }
 
     public void SetCanClick()
@@ -84,5 +86,19 @@ public class OptionMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt("Text Color", 0);
         }
+    }
+
+    public void UpdateMusic()
+    {
+        float musicLevel = musicSlider.value;
+        PlayerPrefs.SetFloat("Music Volume", musicLevel);
+        AudioManager.Instance.audioSource.volume = musicLevel;
+    }
+
+    public void UpdateSFX()
+    {
+        float soundLevel = soundSlider.value;
+        PlayerPrefs.SetFloat("Sound Volume", soundLevel);
+        AudioManager.Instance.sfxVolume = soundLevel;
     }
 }
