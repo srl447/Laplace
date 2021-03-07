@@ -8,7 +8,9 @@ public class IntroText : MonoBehaviour
 {
     TextControl textC;
     public Compendium comp;
-    public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(),
+
+    //I'm sorry for this
+    public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(), nine2 = new Scene(), nine3 = new Scene(),
         third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(), seven2 = new Scene(),
         fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene(),
         nine = new Scene(), ten = new Scene(), eleven = new Scene(), twelve = new Scene(), thirteen = new Scene();
@@ -156,7 +158,7 @@ public class IntroText : MonoBehaviour
             "Gimme the next shot",
             "One day you're gonna ask me for something that isn't conjured,:Modayaal",
             "and it's gonna blow your mind",
-            "Yeah but I'm so close like we're already on the Cat's Life tour:Furfur"
+            "Yeah but I'm so close like we're already on the Temporary Staycation tour:Furfur"
         },
         bg2, eight);
         seven2.center = furfurH;
@@ -180,9 +182,26 @@ public class IntroText : MonoBehaviour
             "ever since you told me to do it with confetti:Modayaal",
             "I can't make it without it",
         },
-        bg2, ten);
+        bg2, nine2);
         nine.mini = shotGlass2;
         nine.center = furfur;
+
+        nine2.Set(new string[]
+        {
+            "Well...:Furfur",
+            "Bottom's up!::A"
+        },
+        bg2, nine3);
+        nine.center = furfur;
+
+        nine3.Set(new string[]
+        {
+            "BLeCH:Furfur",
+            "really what was this dude drinking",
+            "Hey next up is the tour where they just drank carrot juice:Modayaal",
+            "I can't wait?:Furfur"
+        },
+        bg2, ten);
 
         ten.Set(new string[]
         {
@@ -209,7 +228,7 @@ public class IntroText : MonoBehaviour
             "Of course number 2 who are you:Modayaal"
         },
         bg2, eleven);
-        ten.center = furfurH;
+        ten.center = furfur;
 
         eleven.Set(new string[]
         {

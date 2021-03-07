@@ -19,7 +19,8 @@ public class Card : MonoBehaviour
      * 6:Computer's Pile
      */
 
-    public GameObject shade;
+    public GameObject shade; //the semi-opaque black background when hovering over won cards
+    GameObject highlight = null;
     public Dealer deal;
     ArrayList tempCards = new ArrayList();
     public bool faceUp, selected, hover, selectedDouble;
@@ -37,6 +38,7 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //shows the face
         if (faceUp)
         {
             this.GetComponent<SpriteRenderer>().sprite = front;
@@ -45,6 +47,28 @@ public class Card : MonoBehaviour
         {
             this.GetComponent<SpriteRenderer>().sprite = back;
         }
+
+        //create border
+        if(selected && highlight == null)
+        {
+            highlight = Instantiate(gameObject) as GameObject;
+            //don't want any weird interactions
+            Destroy(highlight.GetComponent<Card>());
+            Destroy(highlight.GetComponent<BoxCollider2D>());
+
+            //Essentially a black shadow or border
+            highlight.GetComponent<SpriteRenderer>().color = Color.black;
+            highlight.transform.position = new Vector3(highlight.transform.position.x, highlight.transform.position.y, highlight.transform.position.z + .01f);
+            highlight.transform.localScale = highlight.transform.localScale * 1.2f;
+
+        }
+
+        if(highlight != null && (selected == false || zone != 2))
+        {
+            Destroy(highlight);
+        }
+
+
         if (deal.turn == 1 && GameManager.Instance.canClick && hover && (Input.GetKeyDown(GameManager.Instance.main) || Input.GetKeyDown(GameManager.Instance.alt)))
         {
             bool canSelect = true;

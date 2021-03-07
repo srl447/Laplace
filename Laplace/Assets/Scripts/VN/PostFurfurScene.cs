@@ -29,15 +29,34 @@ public class PostFurfurScene : MonoBehaviour
         {
             "Hey ya know?:Furfur",
             "Why do you always get to go first?"
-        }
-        , bg, two);
+        },
+        bg, two);
         one.center = furfurH;
 
         two.Set(new string[]
         {
-            "Why do you come over every day?:Modayaal"
-        }, bg);
+            "Why do you come over every day?:Modayaal",
+            "Hey:Furfur",
+            "hi???...:Modayaal",
+            "Wanna hear a joke?:Furfur",
+            "probably not but you're gonna say it anyways"
+        }, 
+        bg, three);
         two.center = furfur;
+
+        three.Set(new string[]
+        {
+            "Amon can't send his condolences:Furfur",
+            "I have access to infinite knowledge of the universe,:Modayaal",
+            "and even I can't comprehend how that's a joke::A",
+            "Maybe you should drink less:Furfur",
+            "Maybe I should drink more: Modayaal"
+
+        },
+        bg);
+        three.center = furfurH;
+        three.compendiumEntry = "Furfur's Joke";
+
 
         textC = TextControl.instance;
         current = one;

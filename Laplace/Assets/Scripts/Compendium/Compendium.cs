@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Compendium : MonoBehaviour
 {
-    public Text textBox;
+    public Text textBox, titleBox;
     public Image image;
     public GameObject menuButton, refButton;
     float distance;
@@ -58,7 +58,7 @@ public class Compendium : MonoBehaviour
             "properties are irrevesible, Laplace's Demon could not possibly predict the past. \n \nLaplace originally described " +
             "this as an intelligence. I don't know who first called it a demon, but they were a bit of a dick. Demon's have " +
             "sentience, so it kinda sucks to have infinite procesing power and knowledge of the universe." +
-            "\nPortrait by Johann Ernst Heinsius");
+            "\n\nPortrait by Johann Ernst Heinsius");
 
         Select("Laplace's Demon");//loads up something to show to start
 
@@ -80,7 +80,8 @@ public class Compendium : MonoBehaviour
         compendiumImage.Add("Blom Blamilton", allSprites[3]);
         compendiumText.Add("Blom Blamilton",
             "Bassist for the band Bombersmith. Furfur is currently taking every single shot he's ever had. " +
-            "He's already up to Bombersmith's tour of their 1997 album Cat's Life.");
+            "He's already up to Bombersmith's tour of their 1987 album Temporary Staycation. The band's next " +
+            "tour, Drain, was drug free, so they only drank carrot juice.");
 
         compendiumImage.Add("Corpse Reviver No. 2", allSprites[4]);
         compendiumText.Add("Corpse Reviver No. 2",
@@ -98,6 +99,10 @@ public class Compendium : MonoBehaviour
             "not gonna lie, kinda straight. He just kills people he doesn't like, so you don't have to worry about forcibly becoming " +
             "straight at least. He used to zap babies with the straight ray occasionally, which isn't cool. You can summon him on leap " +
             "days, neat.");
+
+        compendiumImage.Add("Furfur's Joke", allSprites[6]);
+        compendiumText.Add("Furfur's Joke",
+            "The joke is that F is a labial fricative");
 
         //hides itself to start
         gameObject.SetActive(false);
@@ -123,7 +128,7 @@ public class Compendium : MonoBehaviour
             newButton.transform.SetParent(buttonContent.transform);
             newButton.GetComponentInChildren<Text>().text = newEntry;
             newButton.transform.localScale = new Vector3(1, 1, 1);
-            newButton.transform.position = new Vector3(menuButton.transform.position.x, menuButton.transform.position.y - 40 * buttonCount, 0);
+            newButton.transform.position = new Vector3(menuButton.transform.position.x, menuButton.transform.position.y - distance * buttonCount, 0);
             buttonCount++;
         }
     }
@@ -132,6 +137,7 @@ public class Compendium : MonoBehaviour
     public void Select(string key)
     {
         textBox.text = compendiumText[key];
+        titleBox.text = key;
         image.sprite = compendiumImage[key];
     }
 
