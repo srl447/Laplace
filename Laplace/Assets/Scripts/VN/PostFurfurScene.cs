@@ -36,10 +36,11 @@ public class PostFurfurScene : MonoBehaviour
         two.Set(new string[]
         {
             "Why do you come over every day?:Modayaal",
+            "You know the reasonn:Furfur",
             "Hey:Furfur",
             "hi???...:Modayaal",
             "Wanna hear a joke?:Furfur",
-            "probably not but you're gonna say it anyways"
+            "probably not but you're gonna say it anyways:Modayaal"
         }, 
         bg, three);
         two.center = furfur;
@@ -47,10 +48,10 @@ public class PostFurfurScene : MonoBehaviour
         three.Set(new string[]
         {
             "Amon can't send his condolences:Furfur",
-            "I have access to infinite knowledge of the universe,:Modayaal",
+            "I have access to infinite knowledge of the universe, :Modayaal",
             "and even I can't comprehend how that's a joke::A",
             "Maybe you should drink less:Furfur",
-            "Maybe I should drink more: Modayaal"
+            "Maybe I should drink more:Modayaal"
 
         },
         bg, four);
@@ -61,7 +62,7 @@ public class PostFurfurScene : MonoBehaviour
         {
             "Where do you fall on the vote tomorrow?:Furfur",
             "shaddupp:Modayaal",
-            "I'm wrenching conversation out of you kicking and screaming bruh:Fufur",
+            "I'm wrenching conversation out of you kicking and screaming bruh:Furfur",
             "It's good for you!",
             "fineee:Modayaal",
             "what are they even voting on?",

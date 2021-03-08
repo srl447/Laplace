@@ -102,7 +102,7 @@ public class Compendium : MonoBehaviour
 
         compendiumImage.Add("Furfur's Joke", allSprites[6]);
         compendiumText.Add("Furfur's Joke",
-            "The joke is that F is a labial fricative");
+            "The joke is that F is a labial fricative.");
 
         compendiumImage.Add("Amon", allSprites[7]);
         compendiumText.Add("Amon",
