@@ -57,9 +57,9 @@ public class Card : MonoBehaviour
             Destroy(highlight.GetComponent<BoxCollider2D>());
 
             //Essentially a black shadow or border
-            highlight.GetComponent<SpriteRenderer>().color = Color.black;
+            highlight.GetComponent<SpriteRenderer>().color = new Color(0,0,0,.6f);
             highlight.transform.position = new Vector3(highlight.transform.position.x, highlight.transform.position.y, highlight.transform.position.z + .01f);
-            highlight.transform.localScale = highlight.transform.localScale * 1.2f;
+            highlight.transform.localScale = highlight.transform.localScale * 1.1f;
 
         }
 

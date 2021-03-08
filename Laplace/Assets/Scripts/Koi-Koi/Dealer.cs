@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class Dealer : MonoBehaviour
 {
     /*
-     * TODO: Multiple Rounds
-     *   this entials like destorying all the cards redealing and having an overall score for both players
      * TODO: Fix starting win condition
      *   You win with 4 sets of pairs 
      *   You can also claim 4 of a kind at any point in the game
@@ -20,7 +18,6 @@ public class Dealer : MonoBehaviour
      *      It's hard because there's no set rules and people play with house rules and such
      * TODO: TODOs listed below
      */ 
-    // Start is called before the first frame update
     public GameObject[] cards, handP, handC; //all the cards, player and computer hands
     ArrayList table = new ArrayList(); //cards on the table
     List<string> winConsP = new List<string>(), winConsC = new List<string>(); //List of conditions won
@@ -36,12 +33,14 @@ public class Dealer : MonoBehaviour
     public int scoreP, scoreC; //scores for player, computer
 
     public Text playerScore, computerScore;
+    public Image koiType, stopType;
+    // Start is called before the first frame update
     void Start()
     {
         scoreP = GameManager.Instance.scoreP;
         scoreC = GameManager.Instance.scoreC;
-        koiB.onClick.AddListener(koiClick);
-        stopB.onClick.AddListener(stopClick);
+        koiB.onClick.AddListener(KoiClick);
+        stopB.onClick.AddListener(StopClick);
         Shuffle(); //shuffle the deck
         StartCoroutine(Deal()); //deal the cards
         computerScore.text = GameManager.Instance.opponent + ": " + scoreC;
@@ -66,15 +65,23 @@ public class Dealer : MonoBehaviour
             case 3:
                 if (!winOn)
                 {
-                    winOn = true;
                     StartCoroutine(WinUI(winConsP, koiCallP));
+                    winOn = true;
+                }
+                if (!winUI.activeSelf)
+                {
+                    winOn = false;
                 }
                 break;
             case 4:
                 if (!winOn)
                 {
-                    winOn = true;
                     StartCoroutine(WinUI(winConsC, koiCallC));
+                    winOn = true;
+                }
+                if(!winUI.activeSelf)
+                {
+                    winOn = false;
                 }
                 break;
             case 5:
@@ -83,7 +90,6 @@ public class Dealer : MonoBehaviour
                 break;
         }
     }
-
 
     void Shuffle() //shuffles the deck
     {
@@ -435,7 +441,7 @@ public class Dealer : MonoBehaviour
     IEnumerator ComputerTurn() //what occurs when it's the computer's turn
     {
         compTurnOn = true;
-        yield return new WaitForSecondsRealtime(Random.Range(1, 6));
+        yield return new WaitForSecondsRealtime(Random.Range(1, 4));
         bool match = false;
         for(int i = 0; i < 8; i++)
         {
@@ -1035,9 +1041,10 @@ public class Dealer : MonoBehaviour
             }
             else
             {
-                scoreP += WinTotal(winConsP, koiCallP);
+                scoreP += WinTotal(winConsP, koiCallC);
                 playerScore.text = "Modayaal: " + scoreP;
-                RoundAdvance();
+                GameManager.Instance.scoreP = scoreP;
+                StartCoroutine(TextZoom(turn, false));
             }
         }
         if (turn == 4) //computer
@@ -1045,49 +1052,87 @@ public class Dealer : MonoBehaviour
             yield return new WaitForSecondsRealtime(.3f);
             if(ComputerKoiKoi())
             {
-                turn = 1;
-                winUI.SetActive(false);
-                winOn = false;
-                koiCallC = true;
+                StartCoroutine(TextZoom(turn, true));
             }
             else
             {
-                scoreC += WinTotal(winConsC, koiCallC);
+                scoreC += WinTotal(winConsC, koiCallP);
                 computerScore.text = GameManager.Instance.opponent + ": " + scoreC;
                 GameManager.Instance.scoreC = scoreC;
-                RoundAdvance();
+                StartCoroutine(TextZoom(turn, false));
             }
         }
     }
     //koi-koi button function
-    void koiClick()
+    public void KoiClick()
     {
-        turn = 2;
+        StartCoroutine(TextZoom(turn, true));
+    }
+    //What happens when someone koikois
+    IEnumerator TextZoom(int pTurn, bool toKoi)
+    {
+        Image textZoom;
+        if (toKoi)
+        {
+            textZoom = koiType;
+        }
+        else 
+        {
+            textZoom = stopType;
+        }
+        Transform kT = textZoom.transform;
+        Vector3 oPos = kT.position;
+        Vector3 oSize = kT.localScale;
+        kT.position += Vector3.up;
+        kT.localScale += (Vector3.up + Vector3.right) * 10;
+        float lerpSpeed = .12f;
+        for (int i = 0; i < 8; i++)
+        {
+            kT.position = new Vector3(Mathf.Lerp(kT.position.x, oPos.x, lerpSpeed), Mathf.Lerp(kT.position.y, oPos.y, lerpSpeed), oPos.z);
+            kT.localScale = new Vector3(Mathf.Lerp(kT.localScale.x, oSize.x, lerpSpeed), Mathf.Lerp(kT.localScale.y, oSize.y, lerpSpeed), oSize.z);
+            textZoom.color = new Color(1, 1, 1, Mathf.Lerp(koiType.color.a, 1, lerpSpeed));
+            yield return new WaitForEndOfFrame();
+        }
+        kT.position = oPos;
+        kT.localScale = oSize;
+        textZoom.color = Color.white;
+        yield return new WaitForSecondsRealtime(1.2f);
+        //turn off winning UI
+        textZoom.color = Color.clear;
         koiButton.SetActive(false);
         stopButton.SetActive(false);
         winUI.SetActive(false);
         winOn = false;
-        koiCallP = true;
+        if (toKoi)
+        {
+            if (pTurn == 3)
+            {
+                turn = 2;
+                koiCallP = true;
+            }
+            else if (pTurn == 4)
+            {
+                turn = 1;
+                koiCallC = true;
+            }
+        }
+        else
+        {
+            RoundAdvance();
+        }
     }
     //stop button function
-    void stopClick()
+    public void StopClick()
     {
-        scoreP += WinTotal(winConsP, koiCallP);
+        scoreP += WinTotal(winConsP, koiCallC);
         playerScore.text = "Modayaal: " + scoreP;
         GameManager.Instance.scoreP = scoreP;
-        RoundAdvance();
-
+        StartCoroutine(TextZoom(turn, false));
     }
 
     //Advances to rounds 2+
     void RoundAdvance()
     {
-        //turn off the winning UI
-        winUI.SetActive(false);
-        koiButton.SetActive(false);
-        stopButton.SetActive(false);
-        winOn = false;
-
         //Delete all cards
         Card[] allCards = FindObjectsOfType<Card>();
         foreach (Card oneCard in allCards)
@@ -1104,6 +1149,7 @@ public class Dealer : MonoBehaviour
         //Deal a new game if there hasn't been 3 rounds
         if (GameManager.Instance.progress < 2)
         {
+            turn = 0;
             Shuffle();
             StartCoroutine(Deal());
             GameManager.Instance.progress++;
@@ -1124,19 +1170,20 @@ public class Dealer : MonoBehaviour
         GameManager.Instance.scoreP = 0;
 
         //Fade Out
+        fade.gameObject.SetActive(true);
         yield return new WaitForEndOfFrame();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
             fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Lerp(fade.color.a, 1, .25f));
             yield return new WaitForEndOfFrame();
         }
         fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, 1);
-        fade.gameObject.SetActive(false);
+        yield return new WaitForEndOfFrame();
 
         //Select which scene to go to
         if (GameManager.Instance.opponent == "Furfur")
         {
-            GameManager.Instance.progress = 0;
+            GameManager.Instance.progress = 0; //for some reason the progress goes up so reset it again just to be safe
             SceneManager.LoadScene(3);
         }
         else if (GameManager.Instance.opponent == "Azazel")
