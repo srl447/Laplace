@@ -719,17 +719,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3512649420747640828, guid: dc138e09e362ae345a9cec994256f04a,
-        type: 3}
-      propertyPath: allSprites.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3512649420747640828, guid: dc138e09e362ae345a9cec994256f04a,
-        type: 3}
-      propertyPath: allSprites.Array.data[7]
-      value: 
-      objectReference: {fileID: 21300000, guid: 67e86209e1616cd4daf2fca6bca94718,
-        type: 3}
     - target: {fileID: 3512649420801536323, guid: dc138e09e362ae345a9cec994256f04a,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -743,7 +732,7 @@ PrefabInstance:
     - target: {fileID: 3512649421057329013, guid: dc138e09e362ae345a9cec994256f04a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: 0.00036621094
       objectReference: {fileID: 0}
     - target: {fileID: 3512649421099464050, guid: dc138e09e362ae345a9cec994256f04a,
         type: 3}
@@ -839,6 +828,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3512649422363271725, guid: dc138e09e362ae345a9cec994256f04a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.758606
       objectReference: {fileID: 0}
     - target: {fileID: 3512649422602421772, guid: dc138e09e362ae345a9cec994256f04a,
         type: 3}
@@ -1462,6 +1456,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1992180405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3512649421057329011, guid: dc138e09e362ae345a9cec994256f04a,
+    type: 3}
+  m_PrefabInstance: {fileID: 836994821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2068088195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,6 +1781,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6236842204356014749, guid: 7e7cd04f1947ed2438e977b6c39d5481,
+        type: 3}
+      propertyPath: textToUpdate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6236842204356014749, guid: 7e7cd04f1947ed2438e977b6c39d5481,
+        type: 3}
+      propertyPath: textToUpdate.Array.data[0]
+      value: 
+      objectReference: {fileID: 1992180405}
     - target: {fileID: 6236842204849882308, guid: 7e7cd04f1947ed2438e977b6c39d5481,
         type: 3}
       propertyPath: m_AnchorMax.x

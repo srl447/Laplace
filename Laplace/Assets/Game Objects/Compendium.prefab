@@ -294,6 +294,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0767aa2c858d68b4897b02b47ff872b8, type: 3}
   - {fileID: 21300000, guid: 108ba565d0fcb0f4ebc45190802c68a6, type: 3}
   - {fileID: 21300000, guid: 67e86209e1616cd4daf2fca6bca94718, type: 3}
+  - {fileID: 21300000, guid: 62989ef470cf79948b391fb7e02d2231, type: 3}
+  - {fileID: 21300000, guid: 1077b6d79c9783c4e9e26e106d9662c8, type: 3}
   buttonContent: {fileID: 3512649422389436732}
 --- !u!1 &3512649420801536322
 GameObject:
@@ -454,7 +456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00050273805, y: 0.0009765625}
+  m_AnchoredPosition: {x: 0.00050273805, y: 0.00090026855}
   m_SizeDelta: {x: 348.243, y: 89.84401}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3512649421057329010
@@ -948,8 +950,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000005722046}
-  m_SizeDelta: {x: 156.28946, y: 70.07507}
+  m_AnchoredPosition: {x: 1.199997, y: -0.000005722046}
+  m_SizeDelta: {x: 223.16159, y: 70.07507}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3512649421330260486
 CanvasRenderer:
@@ -989,7 +991,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Modayaal
 --- !u!1 &3512649421476287953
@@ -1693,8 +1695,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000005722046}
-  m_SizeDelta: {x: 156.28946, y: 70.07507}
+  m_AnchoredPosition: {x: 2.33, y: -0.000005722046}
+  m_SizeDelta: {x: 232.4169, y: 70.07507}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3512649421789717265
 CanvasRenderer:
@@ -1734,7 +1736,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Laplace's Demon
 --- !u!1 &3512649421810315737

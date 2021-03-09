@@ -13,7 +13,8 @@ public class IntroText : MonoBehaviour
     public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(), nine2 = new Scene(), nine3 = new Scene(),
         third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(), seven2 = new Scene(),
         fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene(),
-        nine = new Scene(), ten = new Scene(), eleven = new Scene(), twelve = new Scene(), thirteen = new Scene();
+        nine = new Scene(), ten = new Scene(), eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(),
+        nine4 = new Scene();
 
     Scene current = new Scene();
     int count = 0;
@@ -200,15 +201,22 @@ public class IntroText : MonoBehaviour
             "Hey next up is the tour where they just drank carrot juice:Modayaal",
             "I can't wait?:Furfur"
         },
-        bg2, ten);
+        bg2, nine4);
         nine3.center = furfurEww;
         nine3.sound = spitTake;
 
-        ten.Set(new string[]
+        nine4.Set(new string[]
         {
             "Sooooooo:Furfur",
             "I may have invited some others over...",
-            "I already told Berith:Modayaal",
+            "I already told Bael:Modayaal"
+        },
+        bg2, ten);
+        nine4.center = furfurH;
+        nine4.compendiumEntry = "Bael";
+
+        ten.Set(new string[]
+        {
             "I can't make a non-existent Quick and the Curious movie better than they can",
             "No no no :Furfur",
             "It's Azazel and Abyzou::A",
@@ -230,6 +238,7 @@ public class IntroText : MonoBehaviour
         },
         bg2, eleven);
         ten.center = furfur;
+        ten.compendiumEntry = "The Quick and the Curious";
 
         eleven.Set(new string[]
         {

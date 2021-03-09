@@ -112,6 +112,22 @@ public class Compendium : MonoBehaviour
             "this poor guy can no longer help humans. He can breathe fire, but I'm not sure how this helped solve any conflicts." +
             "\n\nThis depiction is from the 1863 edition of Dictionnaire Infernal");
 
+        compendiumImage.Add("Bael", allSprites[8]);
+        compendiumText.Add("Bael",
+            "Bael (Ba'al) means \"Ruler\" in many semetic languages. Many demons have Ba'al prefixes such as Ba'al Berith or Beelzebub. " +
+            "Because of this, there's definitely some confusion (at least to me) around exactly who Bael is. They sometimes get lumped " +
+            "into another demon, and sometimes they stand alone.\nWell here they're definitely they're own person. They might be the only " +
+            "demon who likes the Quick and the Curious movies, and they've taken up local politics. They have the power of popularity, " +
+            "but they don't even need it. Who wouldn't agree with a spider that has a human, cat, and toad head all at once. They even get " +
+            "three votes! They also have the power of invisibility, which seems like the exact opposite of the power of popularity. I'm " +
+            "not sure if that's a really good, or a really bad combo.\n\nThis depiction is from the 1818 edition of Dictionnaire Infernal");
+
+        compendiumImage.Add("The Quick and the Curious", allSprites[9]);
+        compendiumText.Add("The Quick and the Curious",
+            "Despite the infinite multiverse that exists, there's only 19 meaninfully distinct Quick and the Curious movies. The fact " +
+            "that this contradicts Schrödinger equation fascinates many of our shedim physicists: much more so than the actual plots of " +
+            "any of the films.");
+
         //hides itself to start
         gameObject.SetActive(false);
 
