@@ -692,7 +692,10 @@ MonoBehaviour:
   stopButton: {fileID: 481397387}
   winText: {fileID: 1401903992}
   totalText: {fileID: 1311646970}
+  winTextSound: {fileID: 8300000, guid: b599b0e01fda40b438389c5b4bfcd7f4, type: 3}
+  totalSound: {fileID: 8300000, guid: 5d1a4e1ae7e55874299c080d958f91ea, type: 3}
   fade: {fileID: 253227756}
+  dealSound: {fileID: 8300000, guid: 91e1b1eabc4c13140afaed9a8ecf4c18, type: 3}
 --- !u!1 &481397387
 GameObject:
   m_ObjectHideFlags: 0

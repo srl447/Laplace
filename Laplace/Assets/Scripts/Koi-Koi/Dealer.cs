@@ -34,6 +34,8 @@ public class Dealer : MonoBehaviour
 
     public Text playerScore, computerScore;
     public Image koiType, stopType;
+
+    public AudioClip[] cardNoise;
     // Start is called before the first frame update
     void Start()
     {
@@ -173,6 +175,7 @@ public class Dealer : MonoBehaviour
                     Mathf.Lerp(handP[i+1].transform.position.y, -3.3f, .25f), handP[i+1].transform.position.z);
                 yield return new WaitForEndOfFrame();
             }
+            PlayCardNoise();
             handP[i].transform.position = new Vector3(-7f + i * 1.5f, -3.3f, handP[i].transform.position.z);
             handP[i+1].transform.position = new Vector3(-7f + (i+1) * 1.5f, -3.3f, handP[i+1].transform.position.z);
 
@@ -187,6 +190,7 @@ public class Dealer : MonoBehaviour
                     Mathf.Lerp(handC[i + 1].transform.position.y, 3.3f, .25f), handC[i + 1].transform.position.z);
                 yield return new WaitForEndOfFrame();
             }
+            PlayCardNoise();
             handC[i].transform.position = new Vector3(-7f + i * 1.5f, 3.3f, handC[i].transform.position.z);
             handC[i+1].transform.position = new Vector3(-7f + (i+1) * 1.5f, 3.3f, handC[i].transform.position.z);
             yield return new WaitForEndOfFrame();
@@ -1007,6 +1011,7 @@ public class Dealer : MonoBehaviour
     //winning UI coroutine
     public GameObject winUI, koiButton, stopButton;
     public Text winText, totalText;
+    public AudioClip winTextSound, totalSound;
     IEnumerator WinUI(List<string> winCons, bool koikoi)
     {
         winUI.SetActive(true);
@@ -1017,10 +1022,12 @@ public class Dealer : MonoBehaviour
         string[][] wins = WinSort(winCons);
         for(int i = 0; i < wins[0].Length; i++)
         {
+            AudioManager.Instance.PlayOneShot(winTextSound);
             winText.text += wins[0][i] + "                     " + wins[1][i] + "\n";
             yield return new WaitForSecondsRealtime(.3f);
         }
         //display total points
+        AudioManager.Instance.PlayOneShot(totalSound);
         totalText.text = WinTotal(winCons, koikoi).ToString();
         yield return new WaitForSecondsRealtime(.3f);
         //different win things based on who won
@@ -1219,9 +1226,15 @@ public class Dealer : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
+        PlayCardNoise();
         if (cardT != null)
         {
             cardT.position = location;
         }
+    }
+
+    void PlayCardNoise()
+    {
+        AudioManager.Instance.PlayOneShot(cardNoise[(int)Mathf.Floor(Random.Range(0, cardNoise.Length - .01f))]);
     }
 }
