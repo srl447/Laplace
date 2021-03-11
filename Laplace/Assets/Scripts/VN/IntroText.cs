@@ -34,8 +34,8 @@ public class IntroText : MonoBehaviour
         Intro.textBody = new string[]
         {
             "YARGHHRHRRHH:Modayaal",
-        "Suddenly infinity entered my mind. :::I",
-        "The same as it does every morning.::A",
+            "Suddenly infinity entered my mind. :::I",
+            "The same as it does every morning.::A",
 
         };
         Intro2.textBody = new string[]

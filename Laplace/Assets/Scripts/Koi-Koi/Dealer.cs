@@ -34,6 +34,7 @@ public class Dealer : MonoBehaviour
 
     public Text playerScore, computerScore;
     public Image koiType, stopType;
+    public AudioClip typeNoise;
 
     public AudioClip[] cardNoise;
     // Start is called before the first frame update
@@ -1092,6 +1093,7 @@ public class Dealer : MonoBehaviour
         Vector3 oSize = kT.localScale;
         kT.position += Vector3.up;
         kT.localScale += (Vector3.up + Vector3.right) * 10;
+        AudioManager.Instance.PlayOneShot(typeNoise);
         float lerpSpeed = .12f;
         for (int i = 0; i < 8; i++)
         {

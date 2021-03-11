@@ -37,11 +37,13 @@ public class PostFurfurScene : MonoBehaviour
         {
             "Why do you come over every day?:Modayaal",
             "You know the reasonn:Furfur",
-            "Hey:Furfur",
+            ";)",
+            "Hey! :Furfur",
+            "Hey!::A",
             "hi???...:Modayaal",
             "Wanna hear a joke?:Furfur",
             "probably not but you're gonna say it anyways:Modayaal"
-        }, 
+        },
         bg, three);
         two.center = furfur;
 
@@ -72,6 +74,63 @@ public class PostFurfurScene : MonoBehaviour
         bg);
         four.center = furfur;
         four.compendiumEntry = "Furfur's Joke";
+
+        five.Set(new string[]
+        {
+            "Who doesn't love more fire?:Furfur",
+            "Less fire more fire :Modayaal",
+            "it's all the same::A",
+            "It gives us a reason to go out and talk.:Furfur",
+            "It's all in good fun!",
+            "I don't even remember what fun is:Modayaal",
+            "It's been over 200 years after all:::I",
+            "So you're telling me we keep playing Koi-Koi for nothinggg:Furfur",
+            "no we play it cause it's better than nothing:Modayaal",
+            "I know, I know, :Furfur",
+            "I'm just being::A",
+            "coy::A",
+            "shaddUPPP:Modayaal",
+            "If you wanna talk we can talk:Furfur",
+            "I can stop joking",
+            "for a bit at least::A",
+            "ugh Idunno :Modayaal",
+            "it's just:Modayaal",
+            "How did you stop feeling horrible ",
+            "about the bad things you've done?::A",
+            "Well all the people I've killed would've died ten times over by now:Furfur",
+            "that helps",
+            "I still did those terrible things, but ",
+            "I don't do them anymore::A",
+            "It's all I can do really",
+            "I can't just change the past to not have murder people or zapped some babies",
+            "I just do my best to do good as I can now",
+            "Just hanging out and helping around Gehinomm",
+            "I think makes me",
+            ", at least::A",
+            ", feel like I'm doing better",
+            "I can't do that everyone hates me here:Modayaal",
+            "Oh nobody hates you here Modey:Furfur",
+            "you trucked up big, but tons of us have",
+            "it's not all bad, and we all make the most of it",
+            "iunno:Modayaal",
+            "There's no rush:Furfur",
+            "no one's dying anytime soon",
+            ", probably.::A",
+            "!!:Modayaal",
+            "okay okay:Furfur",
+            "You want ice cream buddy?",
+            "I can make Bourban flavored",
+            "I'll make you a deal:Modayaal",
+            "Just make vanilla but mix it with the Bourban I got",
+            "and you gotta have some to",
+            "OH I am insulted:Furfur",
+            "That you'd think I'd ever pass up a chance to eat ice cream"
+
+
+
+        },
+        bg);
+        five.center = furfurH;
 
 
         textC = TextControl.instance;

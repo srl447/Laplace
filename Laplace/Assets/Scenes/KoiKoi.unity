@@ -687,6 +687,20 @@ MonoBehaviour:
   computerScore: {fileID: 654365946}
   koiType: {fileID: 1006750641}
   stopType: {fileID: 533078815}
+  typeNoise: {fileID: 8300000, guid: b6f41ed6c73e36d46a1c3d4e2798b686, type: 3}
+  cardNoise:
+  - {fileID: 8300000, guid: 8f8d9f58d1651b847af806cc5a0e94a7, type: 3}
+  - {fileID: 8300000, guid: 398d60d9a82056344941f0065d4575af, type: 3}
+  - {fileID: 8300000, guid: 72ca281ee7fa42743b375510cd4275df, type: 3}
+  - {fileID: 8300000, guid: c44cb104f05d9d040b28b7b028c8d8a7, type: 3}
+  - {fileID: 8300000, guid: f3f0d57a3e336164ba0734ef7dcb93a8, type: 3}
+  - {fileID: 8300000, guid: f1d6b86838327524086acfb17b2072e9, type: 3}
+  - {fileID: 8300000, guid: 3364a523c184444478da92545b9e2dac, type: 3}
+  - {fileID: 8300000, guid: 6273e51c2007eda429af622b296f5dc8, type: 3}
+  - {fileID: 8300000, guid: d0fc8b20e82477f4491749d134bf88dd, type: 3}
+  - {fileID: 8300000, guid: 06df3ad6118e8d94bae48c865d011c41, type: 3}
+  - {fileID: 8300000, guid: 16c7b45cbdf61b64280cdacfa4764bfb, type: 3}
+  - {fileID: 8300000, guid: 91e1b1eabc4c13140afaed9a8ecf4c18, type: 3}
   winUI: {fileID: 163791588}
   koiButton: {fileID: 2018622235}
   stopButton: {fileID: 481397387}
@@ -695,7 +709,6 @@ MonoBehaviour:
   winTextSound: {fileID: 8300000, guid: b599b0e01fda40b438389c5b4bfcd7f4, type: 3}
   totalSound: {fileID: 8300000, guid: 5d1a4e1ae7e55874299c080d958f91ea, type: 3}
   fade: {fileID: 253227756}
-  dealSound: {fileID: 8300000, guid: 91e1b1eabc4c13140afaed9a8ecf4c18, type: 3}
 --- !u!1 &481397387
 GameObject:
   m_ObjectHideFlags: 0
