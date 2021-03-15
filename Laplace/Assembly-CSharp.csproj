@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Util\MenuStartButton.cs" />
     <Compile Include="Assets\Scripts\Util\OptionMenu.cs" />
     <Compile Include="Assets\Scripts\Util\Quitting.cs" />
+    <Compile Include="Assets\Scripts\Util\RulesUI.cs" />
     <Compile Include="Assets\Scripts\Util\SaveLoadButtons.cs" />
     <Compile Include="Assets\Scripts\Util\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Util\Singleton\AudioManager.cs" />
