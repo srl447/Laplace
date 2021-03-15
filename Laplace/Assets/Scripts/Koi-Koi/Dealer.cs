@@ -753,7 +753,6 @@ public class Dealer : MonoBehaviour
 
     /*
      * TODO: Making Sake Trash Optional
-     * TODO: Winning does something
      */
     void CheckEnd() //checks to see if one of the end game conditions has happened
     {
@@ -838,7 +837,7 @@ public class Dealer : MonoBehaviour
                  *  should be saved for later
                  */
                 int sak = sake ? 1 : 0; //wtf C# why isn't bools 0/1
-                newWin.Add("Trash:" + (checkPile[0].Count + sak - 9));
+                newWin.Add("Dregs:" + (checkPile[0].Count + sak - 9));
             }
             if (checkPile[1].Count >= 3)
             {

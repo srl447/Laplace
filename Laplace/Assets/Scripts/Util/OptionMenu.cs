@@ -15,6 +15,10 @@ public class OptionMenu : MonoBehaviour
 
     private void Awake()
     {
+        if(PlayerPrefs.GetInt("Text Color") == 0)
+        {
+            PlayerPrefs.SetInt("Text Color", 1);
+        }
         PullSettings();
     }
 
@@ -84,7 +88,7 @@ public class OptionMenu : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("Text Color", 0);
+            PlayerPrefs.SetInt("Text Color", 2);
         }
     }
 
