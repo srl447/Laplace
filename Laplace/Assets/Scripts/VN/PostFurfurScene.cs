@@ -8,15 +8,18 @@ public class PostFurfurScene : MonoBehaviour
 {
     TextControl textC;
     public Compendium comp;
-    public Scene one = new Scene(), two = new Scene(),
+    public Scene one = new Scene(), two = new Scene(), three2 = new Scene(),
         three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(),
         seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(), 
-        eleven = new Scene(), twelve = new Scene(), thirteen = new Scene();
+        eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene(),
+        fifteen = new Scene(), sixteen = new Scene(), seventeen = new Scene(), eighteen = new Scene(),
+        nineteen = new Scene(), twenty = new Scene(), twentyone = new Scene(), twentytwo = new Scene();
 
     Scene[] sceneProgess;
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg, furfur, furfurH, azazel, abyzou;
+    public Sprite bg, furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou,
+        counter, iceCream1, iceCream2, iceCream3;
 
     // Start is called before the first frame update
     void Start()
@@ -53,15 +56,25 @@ public class PostFurfurScene : MonoBehaviour
             "I have access to infinite knowledge of the universe, :Modayaal",
             "and even I can't comprehend how that's a joke::A",
             "Maybe you should drink less:Furfur",
-            "Maybe I should drink more:Modayaal"
+            "Maybe I should drink more :Modayaal"
 
         },
-        bg, four);
+        bg, three2);
         three.center = furfurH;
         three.compendiumEntry = "Amon";
 
+        three2.Set(new string[]
+        {
+            "and even I can't comprehend how that's a joke:Modayaal:A"
+        },
+        bg, four);
+        three2.center = furfurWow;
+        three2.compendiumEntry = "Furfur's Joke";
+
         four.Set(new string[]
         {
+            "Maybe you should drink less:Furfur",
+            "Maybe I should drink more:Modayaal",
             "Where do you fall on the vote tomorrow?:Furfur",
             "shaddupp:Modayaal",
             "I'm wrenching conversation out of you kicking and screaming bruh:Furfur",
@@ -71,33 +84,62 @@ public class PostFurfurScene : MonoBehaviour
             "Whether to put more or less fire around Namaah Theater Square:Furfur",
             "why would I care I don't leave my house:Modayaal"
         },
-        bg);
+        bg, five);
         four.center = furfur;
-        four.compendiumEntry = "Furfur's Joke";
 
         five.Set(new string[]
         {
             "Who doesn't love more fire?:Furfur",
             "Less fire more fire :Modayaal",
-            "it's all the same::A",
+            "it's all the same::A"
+        },
+        bg, six);
+        five.center = furfurH;
+
+        six.Set(new string[]
+        {
             "It gives us a reason to go out and talk.:Furfur",
-            "It's all in good fun!",
+            "It's all in good fun!"
+        },
+        bg, seven);
+        six.center = furfur;
+
+        seven.Set(new string[]
+        {
             "I don't even remember what fun is:Modayaal",
             "It's been over 200 years after all:::I",
             "So you're telling me we keep playing Koi-Koi for nothinggg:Furfur::N",
             "no we play it cause it's better than nothing:Modayaal",
             "I know, I know, :Furfur",
-            "I'm just being::A",
-            "coy::A",
-            "shaddUPPP:Modayaal",
+            "I'm just being ::A"
+        },
+        bg, eight);
+        seven.center = furfurDis;
+
+        eight.Set(new string[]
+        {
+            "coy:Furfur:A",
+            "shaddUPPP:Modayaal"
+        },
+        bg, nine);
+        eight.center = furfurH;
+
+        nine.Set(new string[]
+        {
             "If you wanna talk we can talk:Furfur",
             "I can stop joking",
-            "for a bit at least::A",
+            "for a bit at least ::A",
             "ugh Idunno :Modayaal",
             "it's just:Modayaal",
             "How did you stop feeling horrible ",
             "about the bad things you've done?::A",
-            "Well all the people I've killed would've died ten times over by now:Furfur",
+            "Well all the people I've killed would've died ten times over by now:Furfur"
+        },
+        bg, ten);
+        nine.center = furfur;
+
+        ten.Set(new string[]
+        {
             "that helps",
             "I still did those terrible things, but ",
             "I don't do them anymore::A",
@@ -107,32 +149,106 @@ public class PostFurfurScene : MonoBehaviour
             "I just do my best to do good as I can now",
             "Just hanging out and helping around Gehinomm",
             "I think makes me",
-            ", at least::A",
-            ", feel like I'm doing better",
+            ", at least::A"
+        },
+        bg, eleven);
+        ten.center = furfurDis;
+
+        eleven.Set(new string[]
+        {
+            ", feel like I'm doing better:Furfur:A",
             "I can't do that everyone hates me here:Modayaal",
             "Oh nobody hates you here Modey:Furfur",
             "you trucked up big, but tons of us have",
             "it's not all bad, and we all make the most of it",
-            "iunno:Modayaal",
+            "iunno:Modayaal"
+        },
+        bg, twelve);
+        eleven.center = furfur;
+
+        twelve.Set(new string[]
+        {
             "There's no rush:Furfur",
-            "no one's dying anytime soon",
+            "no one's dying anytime soon"
+        },
+        bg, thirteen);
+        twelve.center = furfurH;
+
+        thirteen.Set(new string[]
+        {
             ", probably.::A",
             "!!:Modayaal",
-            "okay okay:Furfur",
+            "okay okay:Furfur"
+        },
+        bg, fourteen);
+        thirteen.center = furfurDis;
+
+        fourteen.Set(new string[]
+        {
             "You want ice cream buddy?",
-            "I can make Bourban flavored",
+            "I can make Bourban flavored"
+        },
+        bg, fifteen);
+        fourteen.center = furfurH;
+
+        fifteen.Set(new string[]
+        {
             "I'll make you a deal:Modayaal",
             "Just make vanilla but mix it with the Bourban I got",
             "and you gotta have some to",
-            "oh I am inSULTED:Furfur",
+        },
+        bg, sixteen);
+        fifteen.center = furfur;
+
+        sixteen.Set(new string[]
+        {
+            "oh I am inSULTED:Furfur"
+        },
+        bg, seventeen);
+        sixteen.center = furfurWow;
+
+        seventeen.Set(new string[]
+        {
             "That you'd think I'd ever pass up a chance to eat ice cream",
             "and I'd never pass up more booze:Modayaal",
             "my heads pounding like big:::I",
-            "okay so this:Furfur::N",
-            "and I add this",
-            "aaaaaaand",
-            "done::A",
+        },
+        bg, seventeen);
+        sixteen.center = furfurH;
+
+        seventeen.Set(new string[]
+        {
+            "okay so :Furfur::N"
+        },
+        bg, eighteen);
+        seventeen.mini = counter;
+
+        eighteen.Set(new string[]
+        {
+            "this:Furfur:A"
+        },
+        bg, nineteen);
+        eighteen.mini = iceCream1;
+
+        nineteen.Set(new string[]
+        {
+            "and I add this:Furfur",
+            "aaaaaaand ",
+        },
+        bg, twenty);
+        nineteen.mini = iceCream2;
+
+        twenty.Set(new string[]
+        {
+            "done:Furfur:A",
             "Bourban ice cream for you and some for me",
+        },
+        bg, twentyone);
+        twenty.mini = iceCream3;
+         
+
+        seventeen.Set(new string[]
+        {
             "Hopefully this'll make knowing everything at once bearable:Modayaal",
             "or else I'll need to get more ethanol",
             "okay",

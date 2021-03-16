@@ -2920,6 +2920,7 @@ MonoBehaviour:
   comp: {fileID: 1756483522}
   bg: {fileID: 21300000, guid: 32bd2059d8e8cf244a36ad61061eb14a, type: 3}
   bg2: {fileID: 21300000, guid: cc834055f1fd17f4382b15b7d43fa452, type: 3}
+  bg3: {fileID: 21300000, guid: 3c7bc605597dae540bfb15fc8b46cecb, type: 3}
   handSmall: {fileID: 21300000, guid: 2dbe79c8efc680e419984557da97f0e8, type: 3}
   handSmall2: {fileID: 21300000, guid: a32c5c661147e4e4bbceb56bf8f79a11, type: 3}
   furfur: {fileID: 21300000, guid: 0767aa2c858d68b4897b02b47ff872b8, type: 3}
@@ -3504,7 +3505,7 @@ PrefabInstance:
     - target: {fileID: 3512649421057329013, guid: dc138e09e362ae345a9cec994256f04a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000579834
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3512649421099464050, guid: dc138e09e362ae345a9cec994256f04a,
         type: 3}

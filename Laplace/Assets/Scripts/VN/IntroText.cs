@@ -14,11 +14,11 @@ public class IntroText : MonoBehaviour
         third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(), seven2 = new Scene(),
         fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene(),
         nine = new Scene(), ten = new Scene(), eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(),
-        nine4 = new Scene();
+        nine4 = new Scene(), fourteen = new Scene();
 
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg, bg2, handSmall, handSmall2, furfur, furfurEww,
+    public Sprite bg, bg2, bg3, handSmall, handSmall2, furfur, furfurEww,
         furfurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4,
         shotGlass1, shotGlass2, corpseRaiser1, corpseRaiser2;
 
@@ -262,10 +262,16 @@ public class IntroText : MonoBehaviour
         {
             "*Sipping Noises*:Modayaal::I",
             "aaaahhhh:Modayaal::N",
-            "time to go kick his ass"
         },
-        bg2);
+        bg2, fourteen);
         thirteen.mini = shotGlass1;
+
+        fourteen.Set(new string[]
+        {
+            "time to go kick his ass:Modayaal::I"
+        },
+        bg3);
+        fourteen.center = furfur;
 
 
         textC = TextControl.instance;
