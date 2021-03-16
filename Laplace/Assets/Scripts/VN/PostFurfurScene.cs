@@ -9,7 +9,7 @@ public class PostFurfurScene : MonoBehaviour
     TextControl textC;
     public Compendium comp;
     public Scene one = new Scene(), two = new Scene(), three2 = new Scene(),
-        three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(),
+        three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(), sixteen2 = new Scene(),
         seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(), 
         eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene(),
         fifteen = new Scene(), sixteen = new Scene(), seventeen = new Scene(), eighteen = new Scene(),
@@ -17,7 +17,7 @@ public class PostFurfurScene : MonoBehaviour
         twentyThree = new Scene(), twentyFour = new Scene(), twentyFive = new Scene(), twentySix = new Scene(),
         twentySeven = new Scene(), twentyEight = new Scene(), twentyNine = new Scene(), thirty = new Scene(),
         thirtyOne = new Scene(), thirtyTwo = new Scene(), thirtyThree = new Scene(), thirtyFour = new Scene(),
-        thirtyFive = new Scene(), thirtySix = new Scene(), thirtySeven = new Scene(), thirtyEight = new Scene();
+        thirtyFive = new Scene(), thirtySix = new Scene(), thirtySeven = new Scene();
 
     Scene[] sceneProgess;
     Scene current = new Scene();
@@ -60,9 +60,6 @@ public class PostFurfurScene : MonoBehaviour
         {
             "Amon can't send his condolences:Furfur",
             "I have access to infinite knowledge of the universe, :Modayaal",
-            "and even I can't comprehend how that's a joke::A",
-            "Maybe you should drink less:Furfur",
-            "Maybe I should drink more :Modayaal"
 
         },
         bg, three2);
@@ -210,17 +207,17 @@ public class PostFurfurScene : MonoBehaviour
         {
             "oh I am inSULTED:Furfur"
         },
-        bg, seventeen);
+        bg, sixteen2);
         sixteen.center = furfurWow;
 
-        seventeen.Set(new string[]
+        sixteen2.Set(new string[]
         {
             "That you'd think I'd ever pass up a chance to eat ice cream",
             "and I'd never pass up more booze:Modayaal",
             "my heads pounding like big:::I",
         },
         bg, seventeen);
-        sixteen.center = furfurH;
+        sixteen2.center = furfurH;
 
         seventeen.Set(new string[]
         {
@@ -381,19 +378,50 @@ public class PostFurfurScene : MonoBehaviour
             "does anyone want a drink?:Modayaal"
         },
         bg2, thirtyFive);
-        thirtyThree.left = abyzou;
-        thirtyThree.right = furfurH;
+        thirtyFour.left = abyzou;
+        thirtyFour.right = furfurH;
 
         thirtyFive.Set(new string[]
         {
             "Oh I can just conjur anything myself:Azazel",
             "I pregamed before I got here:Abyzou",
             "Well I hate newly conjured alcohol:Modayaal",
-            "so I got a lot of aged stuff if you ever want"
+            "so I got a lot of aged stuff if you ever want",
+            "Maybe I'll take you up on that in a bit:Azazel",
+            "well do you want to play Koi-Koi?:Modayaal",
+            "Why would I ever want to do that?:Abyzou",
+            "We can play dreidel"
         },
         bg2, thirtySix);
         thirtyFive.left = abyzou;
         thirtyFive.right = azazel;
+
+        thirtySix.Set(new string[]
+        {
+            "Well Koi-Koi is basically the only thing we ever do:Furfur",
+            "and its already set up:Modayaal",
+            "but you'd be happy to set up anything right...:Furfur",
+            "oh:Modayaal",
+            " ... of course::A"
+        },
+        bg, thirtySeven);
+        thirtySix.left = abyzou;
+        thirtySix.right = azazel;
+
+        thirtySeven.Set(new string[]
+        {
+            "Actually :Azazel",
+            "I'd like to try Koi-Koi::A",
+            "I've never played before",
+            "How do you play?",
+            "It's kinda like a mix of mah-jongg and go fish:Modayaal",
+            "if that makes sense",
+            "well I suppose there's no better way to learn than playing:Azazel",
+            "and no better way to start than by starting"
+        },
+        bg);
+        thirtySeven.left = azazelF;
+        thirtySeven.right = furfur;
 
         textC = TextControl.instance;
         current = one;
