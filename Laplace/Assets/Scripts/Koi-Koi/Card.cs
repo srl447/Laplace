@@ -111,9 +111,9 @@ public class Card : MonoBehaviour
             {
                 hover = true;
             }
-            else if (!GameManager.Instance.tempCardsShow)
+            else if (!GameManager.Instance.tempCardsShow && transform.position.x > 5.5f && tempCards.Count == 0 && deal.turn < 3)
             {
-                if (zone == 5 && tempCards.Count == 0 && deal.turn < 3)
+                if (zone == 5)
                 {
                     int count = 0;
                     int count2 = 0;
@@ -133,7 +133,7 @@ public class Card : MonoBehaviour
                         count2++;
                     }
                 }
-                else if (zone == 6 && tempCards.Count == 0 && deal.turn < 3)
+                else if (zone == 6)
                 {
                     int count = 0;
                     int count2 = 0;

@@ -388,8 +388,9 @@ public class Dealer : MonoBehaviour
                         pileP[pileN].Add(handP[i]);
                         handP[i].GetComponent<Card>().zone = 5;
                         table.Remove(lookCard);
+                        StartCoroutine(MoveCard(handP[i], lookCard, PlayerPileLocation(handP[i]), PlayerPileLocation(lookCard)));
                         handP[i] = null;
-                        PlayerPile();
+                        //PlayerPile();
                         NextDeck();
                         CheckEnd();
                         if (turn == 1)
@@ -401,6 +402,7 @@ public class Dealer : MonoBehaviour
                     {
                         table.Add(handP[i]);
                         handP[i] = null;
+                        TableLayout();
                         NextDeck();
                         CheckEnd();
                         if (turn == 1)
@@ -427,9 +429,10 @@ public class Dealer : MonoBehaviour
                     pileP[pileN].Add(handP[selIndex]);
                     handP[selIndex].GetComponent<Card>().zone = 5;
                     table.Remove(lookCard);
-                    handP[selIndex] = null;
                     matchingCards = new GameObject[2];
-                    PlayerPile();
+                    StartCoroutine(MoveCard(handP[selIndex], lookCard, PlayerPileLocation(handP[selIndex]), PlayerPileLocation(lookCard)));
+                    handP[selIndex] = null;
+                    //PlayerPile();
                     NextDeck();
                     CheckEnd();
                     if (turn == 1)
@@ -446,7 +449,7 @@ public class Dealer : MonoBehaviour
     IEnumerator ComputerTurn() //what occurs when it's the computer's turn
     {
         compTurnOn = true;
-        yield return new WaitForSecondsRealtime(Random.Range(1, 4));
+        yield return new WaitForSecondsRealtime(Random.Range(1.5f, 4));
         bool match = false;
         for(int i = 0; i < 8; i++)
         {
@@ -510,8 +513,9 @@ public class Dealer : MonoBehaviour
                         pileC[pileN].Add(handC[i]);
                         handC[i].GetComponent<Card>().zone = 6;
                         table.Remove(lookCard);
+                        StartCoroutine(MoveCard(handC[i], lookCard, ComputerPileLocation(handC[i]), ComputerPileLocation(lookCard)));
                         handC[i] = null;
-                        ComputerPile();
+                        //ComputerPile();
                         match = true;
                         break;
                     }
@@ -588,6 +592,7 @@ public class Dealer : MonoBehaviour
                     ComputerPile();
                 }
                 match = true;
+                TableLayout();
             }
             else if (suitGroup2[0] != null && suitGroup2[0].GetComponent<Card>().suit == nextCard.GetComponent<Card>().suit)
             {
@@ -609,6 +614,7 @@ public class Dealer : MonoBehaviour
                     ComputerPile();
                 }
                 match = true;
+                TableLayout();
             }
         }
         foreach (GameObject lookCard in table)
@@ -623,11 +629,11 @@ public class Dealer : MonoBehaviour
                 nextCard.GetComponent<Card>().zone = 4 + turn;
                 if (turn == 1)
                 {
-                    PlayerPile();
+                    StartCoroutine(MoveCard(nextCard, lookCard, PlayerPileLocation(nextCard), PlayerPileLocation(lookCard), true));
                 }
                 else
                 {
-                    ComputerPile();
+                    StartCoroutine(MoveCard(nextCard, lookCard, ComputerPileLocation(nextCard), ComputerPileLocation(lookCard), true));
                 }
                 match = true;
                 table.Remove(lookCard);
@@ -637,8 +643,9 @@ public class Dealer : MonoBehaviour
         if (!match)
         {
             table.Add(nextCard);
+            TableLayout();
         }
-        TableLayout();
+        //TableLayout();
     }
 
     int CardSort(GameObject lookCard) //puts the card in 1 of 4 piles based on value
@@ -734,6 +741,23 @@ public class Dealer : MonoBehaviour
             }
         }
     }
+
+    Vector3 PlayerPileLocation(GameObject cardToLocate)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            int count = 0;
+            foreach (GameObject card in pileP[i])
+            {
+                if (card == cardToLocate)
+                {
+                    return new Vector3(5.6f + i * 0.85f, -3f - count * .1f, 0f - count * .01f);
+                }
+                count++;
+            }
+        }
+        return Vector3.zero;
+    }
     void ComputerPile() //Arranges cards the computer has based on value
     {
         for (int i = 0; i < 4; i++)
@@ -749,6 +773,22 @@ public class Dealer : MonoBehaviour
                 count++;
             }
         }
+    }
+    Vector3 ComputerPileLocation(GameObject cardToLocate)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            int count = 0;
+            foreach (GameObject card in pileC[i])
+            {
+                if (card == cardToLocate)
+                {
+                    return new Vector3(5.6f + i * 0.85f, 3f - count * .1f, 0f - count * .01f);
+                }
+                count++;
+            }
+        }
+        return Vector3.zero;
     }
 
     /*
@@ -1231,6 +1271,72 @@ public class Dealer : MonoBehaviour
         if (cardT != null)
         {
             cardT.position = location;
+        }
+    }
+
+    IEnumerator MoveCard(GameObject card1, GameObject card2, Vector3 location1, Vector3 location2, bool pause = false)
+    {
+        yield return new WaitForEndOfFrame();
+        if(pause)
+        {
+            yield return new WaitForSecondsRealtime(.5f);
+        }
+        Transform cardT1 = null, cardT2 =  null;
+        if (card1 != null && card2 != null)
+        {
+            card1.GetComponent<Card>().faceUp = true;
+            card2.GetComponent<Card>().faceUp = true;
+            cardT1 = card1.transform;
+            cardT2 = card2.transform;
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            try
+            {
+                card1.transform.position = new Vector3(
+                    Mathf.Lerp(cardT1.position.x, cardT2.position.x, .2f), Mathf.Lerp(cardT1.position.y, cardT2.position.y, .2f), cardT1.position.z);
+            }
+            catch
+            {
+                i = 5;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        PlayCardNoise();
+        if(cardT1 != null && cardT2 != null)
+        {
+            cardT1.position = cardT2.position - new Vector3(0, .2f, .01f);
+        }
+        yield return new WaitForSecondsRealtime(.25f);
+        for (int i = 0; i < 5; i++)
+        {
+            try
+            {
+                card1.transform.position = new Vector3(
+                    Mathf.Lerp(cardT1.position.x, location1.x, .2f), Mathf.Lerp(cardT1.position.y, location1.y, .2f), cardT1.position.z);
+                card2.transform.position = new Vector3(
+                    Mathf.Lerp(cardT2.position.x, location2.x, .2f), Mathf.Lerp(cardT2.position.y, location2.y, .2f), cardT2.position.z);
+            }
+            catch
+            {
+                i = 5;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        PlayCardNoise();
+        if (cardT1 != null && cardT2 != null)
+        {
+            cardT1.position = location1;
+            cardT2.position = location2;
+        }
+        else
+        {
+            PlayerPile();
+            ComputerPile();
+        }
+        if(pause)
+        {
+            TableLayout();
         }
     }
 
