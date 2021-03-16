@@ -13,13 +13,19 @@ public class PostFurfurScene : MonoBehaviour
         seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(), 
         eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene(),
         fifteen = new Scene(), sixteen = new Scene(), seventeen = new Scene(), eighteen = new Scene(),
-        nineteen = new Scene(), twenty = new Scene(), twentyone = new Scene(), twentytwo = new Scene();
+        nineteen = new Scene(), twenty = new Scene(), twentyone = new Scene(), twentytwo = new Scene(),
+        twentyThree = new Scene(), twentyFour = new Scene(), twentyFive = new Scene(), twentySix = new Scene(),
+        twentySeven = new Scene(), twentyEight = new Scene(), twentyNine = new Scene(), thirty = new Scene(),
+        thirtyOne = new Scene(), thirtyTwo = new Scene(), thirtyThree = new Scene(), thirtyFour = new Scene(),
+        thirtyFive = new Scene(), thirtySix = new Scene(), thirtySeven = new Scene(), thirtyEight = new Scene();
 
     Scene[] sceneProgess;
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg, furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou,
-        counter, iceCream1, iceCream2, iceCream3;
+    public Sprite bg, bg2, furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou,
+        counter, iceCream1, iceCream2, iceCream3, door;
+
+    public AudioClip knock;
 
     // Start is called before the first frame update
     void Start()
@@ -242,56 +248,152 @@ public class PostFurfurScene : MonoBehaviour
         {
             "done:Furfur:A",
             "Bourban ice cream for you and some for me",
+            "So you make bubbles when conjuring now?:Modayaal",
+            "I like to mix it up:Furfur",
+            "maybe now you'll make bubbles instead too!"
         },
         bg, twentyone);
         twenty.mini = iceCream3;
-         
 
-        seventeen.Set(new string[]
+        twentyone.Set(new string[]
         {
-            "Hopefully this'll make knowing everything at once bearable:Modayaal",
+            "well hopefully this'll make knowing everything at once bearable:Modayaal",
             "or else I'll need to get more ethanol",
             "okay",
             "what should I do?",
             "about what?:Furfur",
             "like helping people?:Modayaal",
             "well there's lots of ways:Furfur",
-            "maybe you can start by making that movie for Bael",
-            "even if it doesn't exist::A",
+            "maybe you can start by making that movie for Bael "
+        },
+        bg, twentytwo);
+        twentyone.center = furfur;
+
+        twentytwo.Set(new string[]
+        {
+            "even if it doesn't exist :Furfur:A",
             "but I don't like themmmm:Modayaal",
             "you could just make one you like!:Furfur",
             "find the way to help without making you live in even more pain",
+        },
+        bg, twentyThree);
+        twentytwo.center = furfurH;
+
+        twentyThree.Set(new string[]
+        {
             "Also just take today seriously",
             "I mean it that I think it's good that you actually talk to Azazel and Abyzou",
             "what do I do?:Modayaal",
-            "just be your usual self:Furfur",
-            "the one you try and hide under that tough exterior",
-            "the one who says yes to ice cream",
-            "be welcoming and actually listen to their troubles",
+            "just be your usual self:Furfur"
+        },
+        bg, twentyFour);
+        twentyThree.center = furfur;
+
+        twentyFour.Set(new string[]
+        {
+            "the one you try and hide under that tough exterior:Furfur",
+            "the one who says yes to ice cream"
+        },
+        bg, twentyFive);
+        twentyFour.center = furfurH;
+
+        twentyFive.Set(new string[]
+        {
+            "be welcoming and actually listen to their troubles:Furfur",
             "play games with them because it's fun to play games",
             ", not just because you're bored::A",
             "if you can actually help them",
             ", then help them::A",
             "you're the only person who can create litterally anything",
-            "I think you can do more than you think",
-            "I can't imagine the massive crisis knowing everything brought you",
-            "or just how much that hurts",
-            "but I do know that I believe in you",
+            "I think you can do more than you think"
+        },
+        bg, twentySix);
+        twentyFive.center = furfur;
+
+        twentySix.Set(new string[]
+        {
+            "I can't imagine the massive crisis knowing everything brought you:Furfur",
+            "or just how much that hurts"
+        },
+        bg, twentySeven);
+        twentySix.center = furfurDis;
+
+        twentySeven.Set(new string[]
+        {
+            "but I do know that I believe in you:Furfur",
             "I'm here everyday because I know you're worth it",
-            "and can make Gehinomm better for everyone",
-            "You're cute you know that:Modayaal",
+            "and can make Gehinomm better for everyone"
+        },
+        bg, twentyEight);
+        twentySeven.center = furfurH;
+
+        twentyEight.Set(new string[]
+        {
+            "You're cute you know that:Modayaal"
+        },
+        bg, twentyNine);
+        twentyEight.center = furfurWow;
+
+        twentyNine.Set(new string[]
+        {
             "Fuck yeah buddy:Furfur",
             "When are Azazel and Abyzou getting here?:Modayaal",
-            "Oh I'd say:Furfur",
-            "*KNOCK*:The Door::I",
-            "now:Furfur::N",
-
-
-
+            "Oh I'd say:Furfur"
         },
-        bg);
-        five.center = furfurH;
+        bg, thirty);
+        twentyNine.center = furfurH;
 
+        thirty.Set(new string[]
+        {
+            "*KNOCK*:The Door::I"
+        },
+        bg2, thirtyOne);
+        thirty.mini = door;
+        thirty.sound = knock;
+
+        thirtyOne.Set(new string[]
+        {
+            "now:Furfur::N",
+        },
+        bg, thirtyTwo);
+        thirtyOne.center = furfurH;
+
+        thirtyTwo.Set(new string[]
+        {
+            "Greetings!:Azazel"
+        },
+        bg2, thirtyThree);
+        thirtyTwo.center = azazelF;
+
+        thirtyThree.Set(new string[]
+        {
+            "hmph:Abyzou"
+        },
+        bg2, thirtyFour);
+        thirtyThree.left = abyzou;
+        thirtyThree.right = azazel;
+
+        thirtyFour.Set(new string[]
+        {
+            "Hello hello hello!:Furfur",
+            "      hi:Modayaal",
+            "I'm glad y'all found your way here fine:Furfur",
+            "does anyone want a drink?:Modayaal"
+        },
+        bg2, thirtyFive);
+        thirtyThree.left = abyzou;
+        thirtyThree.right = furfurH;
+
+        thirtyFive.Set(new string[]
+        {
+            "Oh I can just conjur anything myself:Azazel",
+            "I pregamed before I got here:Abyzou",
+            "Well I hate newly conjured alcohol:Modayaal",
+            "so I got a lot of aged stuff if you ever want"
+        },
+        bg2, thirtySix);
+        thirtyFive.left = abyzou;
+        thirtyFive.right = azazel;
 
         textC = TextControl.instance;
         current = one;
