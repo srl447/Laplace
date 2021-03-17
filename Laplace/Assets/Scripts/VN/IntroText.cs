@@ -14,11 +14,11 @@ public class IntroText : MonoBehaviour
         third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(), seven2 = new Scene(),
         fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene(),
         nine = new Scene(), ten = new Scene(), eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(),
-        nine4 = new Scene(), fourteen = new Scene();
+        nine4 = new Scene(), fourteen = new Scene(), ten2 = new Scene(), ten3 = new Scene();
 
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg, bg2, bg3, handSmall, handSmall2, furfur, furfurEww,
+    public Sprite bg, bg2, bg3, handSmall, handSmall2, furfur, furfurEww, furfurWow,
         furfurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4,
         shotGlass1, shotGlass2, corpseRaiser1, corpseRaiser2;
 
@@ -231,14 +231,28 @@ public class IntroText : MonoBehaviour
             "I'm not a baby AND I'm agender how would that even work:Modayaal",
             "We won't know unless we try!:Furfur",
             "I'm going to go make a Corpse Reviver:Modayaal",
-            "You owe me a game of Koi-koi, ",
-            "go set it up.",
-            "Corpse Reviver No. 2?:Furfur",
-            "Of course number 2 who are you:Modayaal"
         },
-        bg2, eleven);
+        bg2, ten2);
         ten.center = furfur;
         ten.compendiumEntry = "The Quick and the Curious";
+
+        ten2.Set(new string[]
+        {
+            "You owe me a game of Koi-Koi, ",
+            "go set it up."
+        },
+        bg2, ten3);
+        ten2.compendiumEntry = "Koi-Koi";
+        ten2.center = furfurWow;
+
+        ten3.Set(new string[]
+        {
+            "Corpse Reviver No. 2?:Furfur",
+            "Of course number 2 who are you:Modayaal"
+        }, 
+        bg2, eleven);
+        ten3.compendiumEntry = "Corpse Reviver No. 2";
+        ten3.center = furfurH;
 
         eleven.Set(new string[]
         {
@@ -247,7 +261,6 @@ public class IntroText : MonoBehaviour
         }, 
         bg2, twelve);
         eleven.mini = corpseRaiser1;
-        eleven.compendiumEntry = "Corpse Reviver No. 2";
         eleven.sound = pour;
 
         twelve.Set(new string[]

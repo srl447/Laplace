@@ -151,6 +151,31 @@ public class Compendium : MonoBehaviour
             "card sets called yaku, players can scream Koi-Koi if they wish to risk their luck and get another. \n\nKoi-koi has just the " +
             "combination of luck and skill that hits Modayaal's sweetspot for enjoying a game, so they tend to play it a lot");
 
+        compendiumImage.Add("Azazel", allSprites[12]);
+        compendiumText.Add("Azazel",
+            "Father of all shedim, participant in the scapegoat rite, husband to Namaah, it's Azazel! Every Yom Kippur, two goats" +
+            "are prepared. One, a sin offering to Yaweh. The other, sent to the forest for Azazel. There in the forest we meet our " +
+            "Azazel. He's a good demon who consumes the sins of all of humanity every Yom Kippur. He fell in love with Namaah, who birthed his children, " +
+            "the first shedim. Namaah was human, and thus died millenia ago. Azazel continues living his life in Gehinomm, only wishing " +
+            "he could continue participating in the scapegoat rite for humanity. Festering sin is never a good thing.");
+
+        compendiumImage.Add("Abyzou", allSprites[13]);
+        compendiumText.Add("Abyzou",
+            "Abyzou has the power to make a person unpregnant. She cannot have kids of her own and her emotions bioled for decades like a raging tempest. " +
+            "One day she accidentally let her frustration out and vanished a pregnant person's child. In horror and guilt, she ran as long as she could. " +
+            "Eventually she was found by King Solomon and punished for her crime by having her serpant hair tied to a statue for her to hang in pain. After long enough, " +
+            "her hair gave out and she managed to escape. She now has come to terms with not being able to bear children, but still wishes to form a family. She fell in love " +
+            "many women on earth, but has never raised children there. Stuck in Gehinomm, she wishes to return to earth to help people who no longer wish to be pregnant," +
+            " similar to performing abortions, and hopes to finally form a family of her own. Unfortunately, it doesn't seem like an escape from Gehinomm will ever come to be. ");
+
+        compendiumImage.Add("Mah-Jongg", allSprites[14]);
+        compendiumText.Add("Mah-Jongg",
+            "Mah-Jongg is an 18th-Century Chinese game that Jews have long been associated with. The game became popular with Jewish-American Immigrants " +
+            "during the early 1900s. Jewish women formed the National Mah-Jongg League (NMJL) in 1937 in order to standarize a ruleset to use. " +
+            "The game also has another connection because of the many Jewish refugees that sought sanctum in Shanghai during WWII, thanks to " +
+            "the sacrifices of Ho Feng-Shan." +
+            "\n\nPhoto and Mah-Jongg set from certified Jewish woman and my grandma, Judy Goldwasser ");
+
         //hides itself to start
         gameObject.SetActive(false);
 
@@ -192,5 +217,10 @@ public class Compendium : MonoBehaviour
     {
         gameObject.SetActive(false);
         GameManager.Instance.canClick = true;
+    }
+
+    public void AlphabeticalSort()
+    {
+        //GameObject[] allButtons = FindObjectOfTypeInChildren
     }
 }

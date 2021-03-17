@@ -361,6 +361,7 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg2, thirtyThree);
         thirtyTwo.center = azazelF;
+        thirtyTwo.compendiumEntry = "Azazel";
 
         thirtyThree.Set(new string[]
         {
@@ -369,6 +370,7 @@ public class PostFurfurScene : MonoBehaviour
         bg2, thirtyFour);
         thirtyThree.left = abyzou;
         thirtyThree.right = azazel;
+        thirtyThree.compendiumEntry = "Abyzou";
 
         thirtyFour.Set(new string[]
         {
@@ -399,14 +401,15 @@ public class PostFurfurScene : MonoBehaviour
         thirtySix.Set(new string[]
         {
             "Well Koi-Koi is basically the only thing we ever do:Furfur",
-            "and its already set up:Modayaal",
+            "and the Hanafuda's already out:Modayaal",
             "but you'd be happy to set up anything right...:Furfur",
             "oh:Modayaal",
             " ... of course::A"
         },
         bg, thirtySeven);
         thirtySix.left = abyzou;
-        thirtySix.right = azazel;
+        thirtySix.right = furfur;
+        thirtySix.compendiumEntry = "Hanafuda";
 
         thirtySeven.Set(new string[]
         {
