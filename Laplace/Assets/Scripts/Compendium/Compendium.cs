@@ -8,6 +8,7 @@ public class Compendium : MonoBehaviour
     public Text textBox, titleBox;
     public Image image;
     public GameObject menuButton, refButton;
+    Dropdown sortDrop;
     float distance;
 
     Dictionary<string, string> compendiumText = new Dictionary<string, string>();
@@ -22,6 +23,7 @@ public class Compendium : MonoBehaviour
 
     private void Start()
     {
+        sortDrop = GetComponentInChildren<Dropdown>();
 
         //finds the distance the buttons need to be spaced based on screen size
         distance = refButton.transform.position.y - menuButton.transform.position.y;
@@ -41,6 +43,8 @@ public class Compendium : MonoBehaviour
                 buttonCount++;
             }
         }
+        buttonValues.Add("Laplace's Demon");
+        buttonValues.Add("Modayaal");
 
         //All the entries
         compendiumImage.Add("Laplace's Demon", allSprites[0]);
@@ -219,8 +223,90 @@ public class Compendium : MonoBehaviour
         GameManager.Instance.canClick = true;
     }
 
+    public void ChooseSort()
+    {
+        switch(sortDrop.value)
+        {
+            case 0:
+                OldestSort();
+                break;
+            case 1:
+                NewestSort();
+                break;
+            case 2:
+                AlphabeticalSort();
+                break;
+        }
+    }
+
     public void AlphabeticalSort()
     {
-        //GameObject[] allButtons = FindObjectOfTypeInChildren
+        Button[] allButtons = GetComponentsInChildren<Button>();
+        buttonValues.Sort();
+        for(int i = 0; i < allButtons.Length; i++)
+        {
+            if (allButtons[i].GetComponentInChildren<Text>().text != "Close")
+            {
+                allButtons[i].GetComponentInChildren<Text>().text = buttonValues[i];
+            }
+        }
+
+    }
+
+    public void NewestSort()
+    {
+        Button[] allButtons = GetComponentsInChildren<Button>();
+        string[] values = PlayerPrefs.GetString("Compendium").Split(':');
+        List<string> tempValues = new List<string>();
+        foreach (string s in values)
+        {
+            if (s != "" && !tempValues.Contains(s))
+            {
+                tempValues.Add(s);
+            }
+        }
+        for (int i = tempValues.Count - 1, j = 0; i > -1; i--, j++)
+        {
+            if (allButtons[i].GetComponentInChildren<Text>().text != "Close")
+            {
+                allButtons[j].GetComponentInChildren<Text>().text = tempValues[i];
+            }
+            else
+            {
+                i++;
+            }
+            
+        }
+        allButtons[allButtons.Length - 3].GetComponentInChildren<Text>().text = "Modayaal";
+        allButtons[allButtons.Length - 2].GetComponentInChildren<Text>().text = "Laplace's Demon";
+    }
+
+    public void OldestSort()
+    {
+        Button[] allButtons = GetComponentsInChildren<Button>();
+        string[] values = PlayerPrefs.GetString("Compendium").Split(':');
+        List<string> tempValues = new List<string>();
+        foreach (string s in values)
+        {
+            if (s != "" && !tempValues.Contains(s))
+            {
+                tempValues.Add(s);
+            }
+        }
+        allButtons[0].GetComponentInChildren<Text>().text = "Laplace's Demon";
+        allButtons[1].GetComponentInChildren<Text>().text = "Modayaal";
+        for (int i = 2, j = 0; j < tempValues.Count; i++, j++)
+        {
+            if (allButtons[i].GetComponentInChildren<Text>().text != "Close")
+            {
+                allButtons[i].GetComponentInChildren<Text>().text = tempValues[j];
+            }
+            else
+            {
+                j--;
+            }
+        }
+        
+        
     }
 }
