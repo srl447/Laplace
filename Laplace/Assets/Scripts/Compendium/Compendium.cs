@@ -180,6 +180,13 @@ public class Compendium : MonoBehaviour
             "the sacrifices of Ho Feng-Shan." +
             "\n\nPhoto and Mah-Jongg set from certified Jewish woman and my grandma, Judy Goldwasser ");
 
+        compendiumImage.Add("Fireball Valley", allSprites[15]);
+        compendiumText.Add("Fireball Valley",
+            "\"Gather all your adventuring friends as you embark to ... Fireball Valley. Every turn each player advances closer to a cave that probably contains treasure " +
+            "I don't know no one's ever made it stop asking. What I do know, is your between many active volcanoes. Dodge falling rocks, molten lava, and, of course, fireballs on your " +
+            "great trek. Play to see if anyone will make it out alive..\" \n-The Box from Fireball Vally \n\n Fireball Valley is a board game that involves an elaborate board where players have fun " +
+            "with plastic and gravity.");
+
         //hides itself to start
         gameObject.SetActive(false);
 
@@ -223,6 +230,7 @@ public class Compendium : MonoBehaviour
         GameManager.Instance.canClick = true;
     }
 
+    //Sorting functions
     public void ChooseSort()
     {
         switch(sortDrop.value)

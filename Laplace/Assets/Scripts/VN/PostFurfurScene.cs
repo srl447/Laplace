@@ -19,7 +19,6 @@ public class PostFurfurScene : MonoBehaviour
         thirtyOne = new Scene(), thirtyTwo = new Scene(), thirtyThree = new Scene(), thirtyFour = new Scene(),
         thirtyFive = new Scene(), thirtySix = new Scene(), thirtySeven = new Scene();
 
-    Scene[] sceneProgess;
     Scene current = new Scene();
     int count = 0;
     public Sprite bg, bg2, furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou,
@@ -143,7 +142,7 @@ public class PostFurfurScene : MonoBehaviour
 
         ten.Set(new string[]
         {
-            "that helps",
+            "that helps:Furfur",
             "I still did those terrible things, but ",
             "I don't do them anymore::A",
             "that doesn't make it okay",
@@ -179,7 +178,7 @@ public class PostFurfurScene : MonoBehaviour
 
         thirteen.Set(new string[]
         {
-            ", probably.::A",
+            ", probably.:Furfur:A",
             "!!:Modayaal",
             "okay okay:Furfur"
         },
@@ -188,7 +187,7 @@ public class PostFurfurScene : MonoBehaviour
 
         fourteen.Set(new string[]
         {
-            "You want ice cream buddy?",
+            "You want ice cream buddy?:Furfur",
             "I can make Bourban flavored"
         },
         bg, fifteen);
@@ -212,7 +211,7 @@ public class PostFurfurScene : MonoBehaviour
 
         sixteen2.Set(new string[]
         {
-            "That you'd think I'd ever pass up a chance to eat ice cream",
+            "That you'd think I'd ever pass up a chance to eat ice cream:Furfur",
             "and I'd never pass up more booze:Modayaal",
             "my heads pounding like big:::I",
         },
@@ -278,7 +277,7 @@ public class PostFurfurScene : MonoBehaviour
 
         twentyThree.Set(new string[]
         {
-            "Also just take today seriously",
+            "Also just take today seriously:Furfur",
             "I mean it that I think it's good that you actually talk to Azazel and Abyzou",
             "what do I do?:Modayaal",
             "just be your usual self:Furfur"
@@ -423,6 +422,7 @@ public class PostFurfurScene : MonoBehaviour
             "and no better way to start than by starting"
         },
         bg);
+        thirtySeven.compendiumEntry = "Mah-Jongg";
         thirtySeven.left = azazelF;
         thirtySeven.right = furfur;
 
@@ -509,7 +509,7 @@ public class PostFurfurScene : MonoBehaviour
             Text fade = compAdd.GetComponent<Text>();
             fade.color = Color.white;
             fade.text = entry + " added to Compendium";
-            yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSecondsRealtime(3);
             for (int i = 0; i < 6; i++)
             {
                 fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Lerp(fade.color.a, 0, .18f));

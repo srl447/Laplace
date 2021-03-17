@@ -355,6 +355,7 @@ public class IntroText : MonoBehaviour
         }
         if (current.compendiumEntry != null)
         {
+            StopCoroutine(AddCompendiumEntry(""));
             StartCoroutine(AddCompendiumEntry(current.compendiumEntry));
         }
         count = 1;
@@ -370,7 +371,7 @@ public class IntroText : MonoBehaviour
             Text fade = compAdd.GetComponent<Text>();
             fade.color = Color.white;
             fade.text = entry + " added to Compendium";
-            yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSecondsRealtime(3);
             for (int i = 0; i < 6; i++)
             {
                 fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Lerp(fade.color.a, 0, .18f));

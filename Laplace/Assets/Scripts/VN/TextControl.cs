@@ -24,6 +24,9 @@ public class TextControl : MonoBehaviour
     //Colors for Text
     Color lightBlue = new Color(.693f, 1f, .964f, 1);
     Color sherbet = new Color(1, .582f, .394f, 1);
+    Color celadon = new Color(.65f, 1f, .71f);
+    Color purple = new Color(.92f, .66f, 1f);
+
     public void Say(string speech, bool additive = false, string speaker = "", string style = "")
     {
         StopSpeaking();
@@ -96,6 +99,16 @@ public class TextControl : MonoBehaviour
             {
                 mainText.color = sherbet;
                 speakerName.color = sherbet;
+            }
+            else if(speaker == "Abyzou")
+            {
+                mainText.color = celadon;
+                speakerName.color = celadon;
+            }
+            else if(speaker == "Azazel")
+            {
+                mainText.color = purple;
+                speakerName.color = purple;
             }
             else if (speaker == "Modayaal")
             {
