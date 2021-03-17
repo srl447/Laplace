@@ -128,6 +128,29 @@ public class Compendium : MonoBehaviour
             "that this contradicts Schrödinger equation fascinates many of our shedim physicists: much more so than the actual plots of " +
             "any of the films.");
 
+        compendiumImage.Add("Hanafuda", allSprites[10]);
+        compendiumText.Add("Hanafuda",
+            "Hanafuda (Flower Cards) originated in Japan durinng the Edo period as a result of a ban on gambling and the western playing cards brought " +
+            "to Japan by the Portuguese. People could gamble using Hanafuda because the art disguised the true purpose of the cards. " +
+            "Whenever authorities caught onto a deck being used for gambling, a new design would take its place cyclically. " +
+            "Hana in Hanafuda being a homonym  (or hana-nym eh? eh?) for both Nose and Flower helped keep the gambling a secret, since gamblers could simply" +
+            "tap their nose if they wanted to play a game using hanafuda. Hanafuda was legalized after western playing cards became leagilized in 1885 " +
+            "and Maeda Kihei realized that Hanafuda wasn't technically illegal anymore. He went on to start the first Hanafuda " +
+            "shop after proving his theory that Hanafuda was not illegal. " +
+            "\n\nThe inspiration for Hanafuda and many games played with these decks come from picture matching games " +
+            "of the Heian period. Kai-ōi was a large inspirtation, which involved matching two half-shells. " +
+            "Hana-awase is an early mixture of Portuguese playing cards's suits and Kai-awase, shell matching competitions. " +
+            "These decks contained significantly more cards than the later hanafuda ones. " +
+            "\n\nMany different regional variants of decks and rules exist, but the most common deck to see is the Hachihachi-bana variant. " +
+            "This deck contains 12 suits of 4 cards each. The suits each represent a month of the year and flora found during it." +
+            "\n\nDepicted: 18th Century Designer shells used to play Kai-ōi from the Portland Art Museum");
+
+        compendiumImage.Add("Koi-Koi", allSprites[11]);
+        compendiumText.Add("Koi-Koi",
+            "An image matching game played with hanafuda. Koi-Koi means Come On in Japanese, which is a main mechanic of the game. After collecting " +
+            "card sets called yaku, players can scream Koi-Koi if they wish to risk their luck and get another. \n\nKoi-koi has just the " +
+            "combination of luck and skill that hits Modayaal's sweetspot for enjoying a game, so they tend to play it a lot");
+
         //hides itself to start
         gameObject.SetActive(false);
 

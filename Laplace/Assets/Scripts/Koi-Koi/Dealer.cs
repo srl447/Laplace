@@ -883,7 +883,7 @@ public class Dealer : MonoBehaviour
             {
                 if (checkPile[1].Count >= 5)
                 {
-                    newWin.Add("Tanzaku:" + (checkPile[0].Count - 4));
+                    newWin.Add("Tanzaku:" + (checkPile[1].Count - 4));
                 }
                 //poetry tanzaku counting
                 int poetryTanzaku = 0, blueTanzaku = 0;
@@ -1210,6 +1210,7 @@ public class Dealer : MonoBehaviour
     }
 
     public Image fade;
+    public GameObject loadingText;
     IEnumerator NextScene()
     {
         //Reset Variables
@@ -1226,6 +1227,8 @@ public class Dealer : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, 1);
+        yield return new WaitForEndOfFrame();
+        loadingText.SetActive(true);
         yield return new WaitForEndOfFrame();
 
         //Select which scene to go to
@@ -1293,8 +1296,9 @@ public class Dealer : MonoBehaviour
         {
             try
             {
-                card1.transform.position = new Vector3(
+                cardT1.position = new Vector3(
                     Mathf.Lerp(cardT1.position.x, cardT2.position.x, .2f), Mathf.Lerp(cardT1.position.y, cardT2.position.y, .2f), cardT1.position.z);
+                cardT1.localEulerAngles = new Vector3(0, 0, Mathf.Lerp(cardT1.localEulerAngles.z,300,.2f));
             }
             catch
             {
@@ -1305,16 +1309,19 @@ public class Dealer : MonoBehaviour
         PlayCardNoise();
         if(cardT1 != null && cardT2 != null)
         {
+            cardT2.position = cardT2.position - new Vector3(0, 0, .01f);
             cardT1.position = cardT2.position - new Vector3(0, .2f, .01f);
+            cardT1.localEulerAngles = new Vector3(0, 0, 300);
         }
         yield return new WaitForSecondsRealtime(.25f);
         for (int i = 0; i < 5; i++)
         {
             try
             {
-                card1.transform.position = new Vector3(
+                cardT1.position = new Vector3(
                     Mathf.Lerp(cardT1.position.x, location1.x, .2f), Mathf.Lerp(cardT1.position.y, location1.y, .2f), cardT1.position.z);
-                card2.transform.position = new Vector3(
+                cardT1.localEulerAngles = new Vector3(0, 0, Mathf.Lerp(cardT1.localEulerAngles.z, 0, .2f));
+                cardT2.position = new Vector3(
                     Mathf.Lerp(cardT2.position.x, location2.x, .2f), Mathf.Lerp(cardT2.position.y, location2.y, .2f), cardT2.position.z);
             }
             catch
@@ -1327,6 +1334,7 @@ public class Dealer : MonoBehaviour
         if (cardT1 != null && cardT2 != null)
         {
             cardT1.position = location1;
+            cardT1.localEulerAngles = Vector3.zero;
             cardT2.position = location2;
         }
         else
