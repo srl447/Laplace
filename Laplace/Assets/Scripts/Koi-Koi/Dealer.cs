@@ -945,22 +945,22 @@ public class Dealer : MonoBehaviour
                 }
                 if (checkPile[3].Count == 5)
                 {
-                    newWin.Add("Five Lights:20");
+                    newWin.Add("Five Brights:20");
                 }
                 else if (moon && crane && blossom)
                 {
                     if(phoenix)
                     {
-                        newWin.Add("Four Lights:10");
+                        newWin.Add("Four Brights:10");
                     }
                     else
                     {
-                        newWin.Add("Three Lights:6");
+                        newWin.Add("Three Brights:6");
                     }
                 }
                 else if(rainman && crane && blossom && phoenix)
                 {
-                    newWin.Add("Rainy Four Lights:8");
+                    newWin.Add("Rainy Four Brights:8");
                 }
                 if (sake && moon)
                 {

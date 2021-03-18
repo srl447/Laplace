@@ -416,9 +416,9 @@ public class PostFurfurScene : MonoBehaviour
             "I'd like to try Koi-Koi::A",
             "I've never played before",
             "How do you play?",
-            "It's kinda like a mix of mah-jongg and go fish:Modayaal",
+            "It's kinda like a mix of Mah-Jongg and Go Fish:Modayaal",
             "if that makes sense",
-            "well I suppose there's no better way to learn than playing:Azazel",
+            "well I suppose there's no better way to learn than by playing:Azazel",
             "and no better way to start than by starting"
         },
         bg);

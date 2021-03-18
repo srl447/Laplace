@@ -23,6 +23,8 @@ public class PostAzazelScene : MonoBehaviour
     int count = 0;
     public Sprite bg, furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou, abyzouTsu;
 
+    public AudioClip spitTake;
+
     void Start()
     {
         //setup next opponent
@@ -48,7 +50,7 @@ public class PostAzazelScene : MonoBehaviour
             "well you got that right Modey?:Furfur",
             "you don't remember the Chanukah party?:Modayaal",
         },
-        bg,three);
+        bg, three);
         two.left = abyzou;
         two.right = furfur;
 
@@ -84,8 +86,101 @@ public class PostAzazelScene : MonoBehaviour
             "I don't want to be alone with anyone, but I know I should help:Modayaal::I",
             "No I can make good on my own:Abyzou::N"
         },
-        bg);
+        bg, six);
         five.center = abyzou;
+
+        six.Set(new string[]
+        {
+            "Next time I'm sure you can help bud:Furfur",
+            "You got all eternity",
+            "but eternity goes by so quick:Modayaal::I",
+        },
+        bg, seven);
+        six.center = furfur;
+
+        seven.Set(new string[]
+        {
+            "You know I think I'll take you up on that drink now:Azazel",
+            "yeah hit me with another too!:Furfur",
+            "You actually want the carrot juice?:Modayaal",
+            "ehhhh I don't want it but I also don't wanna skip it:Furfur",
+            "What do you want Azazel?:Modayaal",
+            "Oh an old fashioned would be great:Azazel"
+        },
+        bg, eight);
+        seven.left = azazelF;
+        seven.right = furfurH;
+
+        eight.Set(new string[]
+        {
+            "so:Modayaal",
+        },
+        bg, nine);
+
+        nine.Set(new string[]
+        {
+            "there we go:Modayaal"
+        },
+        bg, ten);
+
+        ten.Set(new string[]
+        {
+            "and for Furfur:Modayaal"
+        },
+        bg, eleven);
+
+        eleven.Set(new string[]
+        {
+            "What?:Modayaal",
+            "Even when I try I still get confetti:::I",
+            "And now there's a bubble wand in his carrot juice",
+            "Well it's his fault anyways"
+        },
+        bg, twelve);
+
+        twelve.Set(new string[]
+        {
+            "Here you are:Modayaal::N",
+            "thank you very much:Azazel",
+            "don't mind if I do:Furfur"
+        },
+        bg, thirteen);
+        twelve.left = azazelF;
+        twelve.right = furfur;
+
+        thirteen.Set(new string[]
+        {
+            "BLECHHHH:Furfur",
+            "Carrot Juice and a bubble wand?",
+            "what a bad combo",
+            "that's on you bud:Modayaal",
+            "did this guy ever take a good shot?:Furfur"
+        },
+        bg, fourteen);
+        thirteen.center = furfurEww;
+        thirteen.sound = spitTake;
+
+        fourteen.Set(new string[]
+        {
+            "What are you even drinking?:Azazel",
+            "Every shot Blom Blamilton ever took:Furfur",
+            "it made sense a few years ago",
+            "but this guy is the only one who can make it",
+            "yeah if you need anything I gotchu:Modayaal",
+            "I can get you some scapegoat meat from after I fucked up",
+            "I don't know if it'd be the same:Azazel",
+            "I didn't partake in the scapegoat rite because I love the taste of sinful goat",
+            "I did it because I wanted to help out humanity as best I could",
+            "mrmrmrmrmrmrrm:Modayaal",
+            "Ahh don't worry:Azazel",
+            "I'm not blaming you",
+            "I know you didn't know this would happen",
+            "yeah but it's still my fault:Modayaal",
+            "That's a healthy outlook"
+        },
+        bg);
+        fourteen.left = azazelF;
+        fourteen.right = furfurDis;
 
         textC = TextControl.instance;
         current = one;
@@ -115,6 +210,7 @@ public class PostAzazelScene : MonoBehaviour
                     else
                     {
                         GameManager.Instance.progress = 0;
+                        //TODO: replace with dreidel scene
                         SceneManager.LoadScene(2); // Koi-Koi scene
                     }
                     return;
