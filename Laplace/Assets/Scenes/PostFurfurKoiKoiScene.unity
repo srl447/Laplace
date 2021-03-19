@@ -2886,7 +2886,7 @@ MonoBehaviour:
   furfurWow: {fileID: 21300000, guid: 6f9dd84db23bc99459397043ba7bcf03, type: 3}
   azazel: {fileID: 21300000, guid: 10b1b5d9f448f0a408db296e7120cda3, type: 3}
   azazelF: {fileID: 21300000, guid: ca3d7e9455ea41d4ca795d0c295ffdcd, type: 3}
-  abyzou: {fileID: 21300000, guid: 2c7ae42c85c131c4e818661ca029bb99, type: 3}
+  abyzou: {fileID: 21300000, guid: 5a19b85b527966a4fa01dc8d8f7d1d0a, type: 3}
   counter: {fileID: 21300000, guid: b59cf51e10e1c7d45ba0ad8e4420fe35, type: 3}
   iceCream1: {fileID: 21300000, guid: 50d516a16c8903f43b38febe516ccd7a, type: 3}
   iceCream2: {fileID: 21300000, guid: a5ffca8f1bf1e6f46894b11bbf7a4b7d, type: 3}
@@ -3387,7 +3387,7 @@ PrefabInstance:
     - target: {fileID: 3512649421057329013, guid: dc138e09e362ae345a9cec994256f04a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.004180908
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3512649421099464050, guid: dc138e09e362ae345a9cec994256f04a,
         type: 3}

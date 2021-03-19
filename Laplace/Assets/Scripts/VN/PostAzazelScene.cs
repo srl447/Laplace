@@ -211,7 +211,7 @@ public class PostAzazelScene : MonoBehaviour
                     {
                         GameManager.Instance.progress = 0;
                         //TODO: replace with dreidel scene
-                        SceneManager.LoadScene(2); // Koi-Koi scene
+                        SceneManager.LoadScene(5); // Dreidel scene
                     }
                     return;
                 }
