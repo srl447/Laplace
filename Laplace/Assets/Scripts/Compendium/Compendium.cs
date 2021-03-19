@@ -147,7 +147,7 @@ public class Compendium : MonoBehaviour
             "These decks contained significantly more cards than the later hanafuda ones. " +
             "\n\nMany different regional variants of decks and rules exist, but the most common deck to see is the Hachihachi-bana variant. " +
             "This deck contains 12 suits of 4 cards each. The suits each represent a month of the year and flora found during it." +
-            "\n\nDepicted: 18th Century Designer shells used to play Kai-ōi from the Portland Art Museum");
+            "\n\nDepicted: 19th Century Designer shells used to play Kai-ōi from the Portland Art Museum");
 
         compendiumImage.Add("Koi-Koi", allSprites[11]);
         compendiumText.Add("Koi-Koi",
@@ -174,7 +174,7 @@ public class Compendium : MonoBehaviour
 
         compendiumImage.Add("Mah-Jongg", allSprites[14]);
         compendiumText.Add("Mah-Jongg",
-            "Mah-Jongg is an 18th-Century Chinese game that Jews have long been associated with. The game became popular with Jewish-American Immigrants " +
+            "Mah-Jongg is an 19th-Century Chinese game that Jews have long been associated with. The game became popular with Jewish-American Immigrants " +
             "during the early 1900s. Jewish women formed the National Mah-Jongg League (NMJL) in 1937 in order to standarize a ruleset to use. " +
             "The game also has another connection because of the many Jewish refugees that sought sanctum in Shanghai during WWII, thanks to " +
             "the sacrifices of Ho Feng-Shan." +
