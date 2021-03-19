@@ -66,6 +66,8 @@
     <Compile Include="Assets\Scripts\Compendium\Compendium.cs" />
     <Compile Include="Assets\Scripts\Compendium\CompendiumButton.cs" />
     <Compile Include="Assets\Scripts\Compendium\ContentResize.cs" />
+    <Compile Include="Assets\Scripts\Dreidel\DreidelController.cs" />
+    <Compile Include="Assets\Scripts\Dreidel\SpinImage.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Card.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Cursor.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Dealer.cs" />

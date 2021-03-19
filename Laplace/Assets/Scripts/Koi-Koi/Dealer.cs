@@ -1349,6 +1349,7 @@ public class Dealer : MonoBehaviour
         }
     }
 
+    //yeah this one plays the card noises
     void PlayCardNoise()
     {
         AudioManager.Instance.PlayOneShot(cardNoise[(int)Mathf.Floor(Random.Range(0, cardNoise.Length - .01f))]);
