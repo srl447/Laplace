@@ -16,7 +16,7 @@ public class DreidelController : MonoBehaviour
      * 3 - Azazel
      */
 
-    public GameObject spinImage, spinButtonObject;
+    public GameObject spinImage, spinButtonObject, eatButtonObject;
     public Image dreidel;
     public Sprite gimmel, hay, nun, shin;
     public Text modayaalText, furfurText, abyzouText, azazelText, potText;
@@ -41,8 +41,26 @@ public class DreidelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //others eating
+        if(Random.Range(0, 5000) > 4998 && abyzouScore > 0)
+        {
+            abyzouScore--;
+            SetScores();
+        }
+        else if (Random.Range(0, 4500) > 4498 && furfurScore > 0)
+        {
+            furfurScore--;
+            SetScores();
+        }
+        else if (Random.Range(0, 10000) > 9998 && azazelScore > 0)
+        {
+            azazelScore--;
+            SetScores();
+        }
+
+
         //refill the pot
-        if(pot == 0)
+        if (pot == 0)
         {
             if(abyzouScore > 0)
             {
@@ -127,6 +145,10 @@ public class DreidelController : MonoBehaviour
         {
             spinButtonObject.SetActive(true);
         }
+
+
+        //Eatting Button
+        eatButtonObject.SetActive(modayaalScore >= 1);
     }
 
     void SetScores()
@@ -139,12 +161,18 @@ public class DreidelController : MonoBehaviour
     }
 
     //what happens when the player presses the spin button
-    public void spinButton()
+    public void SpinButton()
     {
         modayaalScore--;
         pot++;
         StartCoroutine(Spin());
         spinButtonObject.SetActive(false);
+    }
+
+    public void EatButton()
+    {
+        modayaalScore--;
+        SetScores();
     }
 
     //generic spin function
@@ -203,18 +231,38 @@ public class DreidelController : MonoBehaviour
         {
             case 0:
                 modayaalScore += modifier;
+                if(modayaalScore < 0) //this is just incase they get shin on their last turn
+                {
+                    modayaalScore = 0;
+                    pot--;
+                }
                 turn++;
                 break;
             case 1:
                 abyzouScore += modifier;
+                if (abyzouScore < 0)
+                {
+                    abyzouScore = 0;
+                    pot--;
+                }
                 turn++;
                 break;
             case 2:
                 furfurScore += modifier;
+                if (furfurScore < 0)
+                {
+                    furfurScore = 0;
+                    pot--;
+                }
                 turn++;
                 break;
             case 3:
                 azazelScore += modifier;
+                if (azazelScore < 0)
+                {
+                    azazelScore = 0;
+                    pot--;
+                }
                 turn = 0;
                 break;
         }
