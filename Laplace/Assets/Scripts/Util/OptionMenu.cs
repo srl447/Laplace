@@ -25,6 +25,10 @@ public class OptionMenu : MonoBehaviour
     private void Update()
     {
         GameManager.Instance.canClick = false;
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameObject.SetActive(false);
+        }
     }
     public void UpdateFonts()
     {

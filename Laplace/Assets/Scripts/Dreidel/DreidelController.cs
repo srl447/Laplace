@@ -20,6 +20,8 @@ public class DreidelController : MonoBehaviour
     public Image dreidel;
     public Sprite gimmel, hay, nun, shin;
     public Text modayaalText, furfurText, abyzouText, azazelText, potText;
+    public AudioClip[] spinNoises;
+    public AudioClip dropNoise;
 
     bool turnHappening = false;
 
@@ -185,6 +187,7 @@ public class DreidelController : MonoBehaviour
         Vector2 oSize = spinImageRT.sizeDelta;
         float lerpSpeed = .1f;
         spinImageRT.sizeDelta = new Vector2(32, 28);
+        AudioManager.Instance.PlayOneShot(spinNoises[Mathf.FloorToInt(Random.Range(0, spinNoises.Length - .0001f))]);
         for (int i = 0; i < 9; i++)
         {
             spinImageRT.sizeDelta = new Vector2(Mathf.Lerp(spinImageRT.sizeDelta.x, oSize.x*1.2f, lerpSpeed), Mathf.Lerp(spinImageRT.sizeDelta.y, oSize.y*1.2f, lerpSpeed));
@@ -227,6 +230,7 @@ public class DreidelController : MonoBehaviour
 
         }
         spinImage.SetActive(false);
+        AudioManager.Instance.PlayOneShot(dropNoise);
         switch (turn)
         {
             case 0:
