@@ -69,8 +69,8 @@
     <Compile Include="Assets\Scripts\Dreidel\DreidelController.cs" />
     <Compile Include="Assets\Scripts\Dreidel\SpinImage.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Card.cs" />
-    <Compile Include="Assets\Scripts\Koi-Koi\Cursor.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Dealer.cs" />
+    <Compile Include="Assets\Scripts\Util\Cursor.cs" />
     <Compile Include="Assets\Scripts\Util\Data.cs" />
     <Compile Include="Assets\Scripts\Util\FadeIn.cs" />
     <Compile Include="Assets\Scripts\Util\GameManager.cs" />
@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Util\RulesUI.cs" />
     <Compile Include="Assets\Scripts\Util\SaveLoadButtons.cs" />
     <Compile Include="Assets\Scripts\Util\SaveSystem.cs" />
+    <Compile Include="Assets\Scripts\Util\ScreenShake.cs" />
     <Compile Include="Assets\Scripts\Util\Singleton\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Util\Singleton\Singleton.cs" />
     <Compile Include="Assets\Scripts\Util\WinUIHide.cs" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DreidelController : MonoBehaviour
 {
@@ -17,13 +18,14 @@ public class DreidelController : MonoBehaviour
      */
 
     public GameObject spinImage, spinButtonObject, eatButtonObject;
-    public Image dreidel;
+    public Image dreidel, fade;
     public Sprite gimmel, hay, nun, shin;
-    public Text modayaalText, furfurText, abyzouText, azazelText, potText;
+    public Text modayaalText, furfurText, abyzouText, azazelText, potText, resultText;
     public AudioClip[] spinNoises;
     public AudioClip dropNoise;
 
     bool turnHappening = false;
+    int turnCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -115,14 +117,14 @@ public class DreidelController : MonoBehaviour
             case 3:
                 if (azazelScore == 0)
                 {
-                    turn++;
+                    turn = 0;
                     outCount++;
                 }
                 break;
         }
-        if(outCount == 3)
+        if(outCount >= 3 || turnCount > 12)
         {
-            //TODO: Ending
+            StartCoroutine(Ending());
         }
 
         //starting next turn
@@ -140,7 +142,6 @@ public class DreidelController : MonoBehaviour
                     azazelScore--;
                     break;
             }
-            pot++;
             StartCoroutine(Spin());
         }
         else if(!turnHappening && turn == 0)
@@ -166,7 +167,6 @@ public class DreidelController : MonoBehaviour
     public void SpinButton()
     {
         modayaalScore--;
-        pot++;
         StartCoroutine(Spin());
         spinButtonObject.SetActive(false);
     }
@@ -180,6 +180,8 @@ public class DreidelController : MonoBehaviour
     //generic spin function
     public IEnumerator Spin()
     {
+        pot++;
+        turnCount++;
         turnHappening = true;
         SetScores();
         spinImage.SetActive(true);
@@ -209,23 +211,27 @@ public class DreidelController : MonoBehaviour
          *  2 - hay
          *  3 - gimmel
          */
-        switch(result)
+        switch (result)
         {
             case 0:
                 dreidel.sprite = shin;
                 modifier = -1;
+                resultText.text = "Shin.... -1 :(";
                 SetScores();
                 break;
             case 1:
                 dreidel.sprite = nun;
+                resultText.text = "Nun";
                 break;
             case 2:
                 dreidel.sprite = hay;
                 modifier = Mathf.CeilToInt(pot / 2);
+                resultText.text = "Hey! +" + modifier + "!";
                 break;
             case 3:
                 dreidel.sprite = gimmel;
                 modifier = pot;
+                resultText.text = "Gimmel!!! +" + modifier + "!!!";
                 break;
 
         }
@@ -272,11 +278,49 @@ public class DreidelController : MonoBehaviour
         }
         pot -= modifier;
         SetScores();
+        resultText.gameObject.SetActive(true);
+        Transform rTT = resultText.gameObject.transform;
+        Vector3 oScale = rTT.localScale, oPos = rTT.position;
+        Color oColor = resultText.color;
+        if (result == 3 || result == 2)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                rTT.localScale += Vector3.one / (8 - result);
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        yield return new WaitForSecondsRealtime(1);
+        for (int i = 0; i < 10; i++)
+        {
+            rTT.position += Vector3.up / 10;
+            resultText.color = new Color(resultText.color.r, resultText.color.g, resultText.color.b, Mathf.Lerp(resultText.color.a, 0, .14f));
+            yield return new WaitForEndOfFrame();
+        }
+        resultText.color = Color.clear;
         yield return new WaitForSecondsRealtime(1.8f);
+        rTT.localScale = oScale;
+        rTT.position = oPos;
+        resultText.color = oColor;
+        resultText.gameObject.SetActive(false);
         turnHappening = false;
 
 
     }
+
+    //what happens after enough turns or only one person has gelt
+    IEnumerator Ending() 
+    {
+        fade.gameObject.SetActive(true);
+        yield return new WaitForEndOfFrame();
+        for(int i = 0; i < 5; i++)
+        {
+            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Lerp(fade.color.a, 1, .3f));
+        }
+        fade.color = Color.black;
+        SceneManager.LoadScene(6); //post dreidel scene
+    }
+
 
 
 }

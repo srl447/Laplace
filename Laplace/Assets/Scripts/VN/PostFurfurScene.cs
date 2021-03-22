@@ -24,7 +24,7 @@ public class PostFurfurScene : MonoBehaviour
     public Sprite bg, bg2, furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou,
         counter, iceCream1, iceCream2, iceCream3, door;
 
-    public AudioClip knock;
+    public AudioClip knock, pour;
 
     // Start is called before the first frame update
     void Start()
@@ -239,6 +239,7 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg, twenty);
         nineteen.mini = iceCream2;
+        nineteen.sound = pour;
 
         twenty.Set(new string[]
         {

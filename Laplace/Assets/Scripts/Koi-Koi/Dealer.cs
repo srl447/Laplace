@@ -1144,6 +1144,7 @@ public class Dealer : MonoBehaviour
         kT.position = oPos;
         kT.localScale = oSize;
         textZoom.color = Color.white;
+        ScreenShake.shakeStrength = 10f;
         yield return new WaitForSecondsRealtime(1.2f);
         //turn off winning UI
         textZoom.color = Color.clear;
