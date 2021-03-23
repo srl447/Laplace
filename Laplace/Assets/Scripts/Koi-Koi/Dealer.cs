@@ -1203,7 +1203,7 @@ public class Dealer : MonoBehaviour
             StartCoroutine(Deal());
             GameManager.Instance.progress++;
         }
-        else if (GameManager.Instance.opponent == "Furfur")
+        else
         {
             StartCoroutine(NextScene());
         }

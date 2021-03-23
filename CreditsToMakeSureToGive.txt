@@ -16,3 +16,5 @@ Playtesters:
 Paul
 Leon
 Ro
+Sekai
+Andy

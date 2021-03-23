@@ -8,7 +8,7 @@ public class PostAzazelScene : MonoBehaviour
 {
     TextControl textC;
     public Compendium comp;
-    public Scene one = new Scene(), two = new Scene(),
+    public Scene one = new Scene(), two = new Scene(), one2 = new Scene(),
         three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(),
         seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(),
         eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene(),
@@ -41,10 +41,19 @@ public class PostAzazelScene : MonoBehaviour
             "652 days ago we played Fireball Valley",
             "Yeah but you only wanted to do it once for the spectacle:Furfur"
         },
-        bg, two);
+        bg, one2);
         one.left = azazelF;
         one.right = furfur;
-        one.compendiumEntry = "Fireball Valley";
+
+        one2.Set(new string[]
+        {
+            "652 days ago we played Fireball Valley",
+            "Yeah but you only wanted to do it once for the spectacle:Furfur"
+        },
+        bg, two);
+        one2.left = azazelF;
+        one2.right = furfurDis;
+        one2.compendiumEntry = "Fireball Valley";
 
         two.Set(new string[]
         {
@@ -77,6 +86,7 @@ public class PostAzazelScene : MonoBehaviour
         },
         bg, five);
         four.center = abyzouTsu;
+        four.compendiumEntry = "Dreidel";
 
         five.Set(new string[]
         {
@@ -127,6 +137,7 @@ public class PostAzazelScene : MonoBehaviour
         bg, ten);
         nine.sound = pour;
         nine.mini = oldFashion;
+        nine.compendiumEntry = "Old Fashioned";
 
         ten.Set(new string[]
         {
@@ -209,6 +220,7 @@ public class PostAzazelScene : MonoBehaviour
             "Thank you for your understanding!"
         },
         bgBlank, seventeen);
+        sixteen.compendiumEntry = "Entropy";
 
         seventeen.Set(new string[]
         {
@@ -269,10 +281,56 @@ public class PostAzazelScene : MonoBehaviour
 
         twentyFour.Set(new string[]
         {
-            "what are you doinng here..?."
+            "what are you doinng here..?.:Modayaal",
+            "what is this place:Abyzou",
+            "I like to pretend it doesn't exist:Modayaal",
+            "This house is leprous:Abyzou",
+            "I just hope the tzaraath will go away if I abandoned it:Modayaal",
+            "There's no dreidels here",
+            "; we should go::A",
+            "I feel like :Abyzou",
+            "it begs me to stay:Abyzou:A",
+            "I can assure you I'm not:Modayaal",
+            "I'm so sorry:Abyzou",
+            "It's only my fault:Modayaal",
+            "we need to go before the exits ebbs "
         },
-        bgHallway3);
+        bgHallway3, twentyFive);
         twentyFour.center = abyzouScared;
+        twentyFour.compendiumEntry = "Tzaraath";
+
+        twentyFive.Set(new string[]
+        {
+            "Okay I made a dreidel:Modayaal",
+            "we can go back to the others",
+            "Are you sure you don't wanna talk about that:Abyzou",
+            "I do, but maybe not today:Modayaal"
+        },
+        bgFrontDoor);
+        twentyFive.center = abyzouTsu;
+
+        twentySix.Set(new string[]
+        {
+            "Welcome back you two:Furfur",
+            "I see you brought the dreidel:Azazel",
+            "Feels like I've been waiting for Forneus:Furfur",
+        },
+        bg, twentySeven);
+        twentySix.left = azazelF;
+        twentySix.right = furfurH;
+        twentySix.compendiumEntry = "Forneus";
+
+        twentySeven.Set(new string[]
+        {
+            "Yeah I just got a little lost:Abyzou",
+            "not a big deal",
+            "well then let's get going:Furfur",
+            "you know I can't wait to eat some gelt"
+        },
+        bg);
+        twentySeven.left = abyzou;
+        twentySeven.right = furfur;
+
 
         textC = TextControl.instance;
         current = one;

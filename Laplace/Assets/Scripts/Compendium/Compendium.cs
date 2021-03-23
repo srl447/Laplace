@@ -121,15 +121,15 @@ public class Compendium : MonoBehaviour
             "Bael (Ba'al) means \"Ruler\" in many semetic languages. Many demons have Ba'al prefixes such as Ba'al Berith or Beelzebub. " +
             "Because of this, there's definitely some confusion (at least to me) around exactly who Bael is. They sometimes get lumped " +
             "into another demon, and sometimes they stand alone.\nWell here they're definitely they're own person. They might be the only " +
-            "demon who likes the Quick and the Curious movies, and they've taken up local politics. They have the power of popularity, " +
+            "demon who likes The Quick and the Curious movies, and they've taken up local politics. They have the power of popularity, " +
             "but they don't even need it. Who wouldn't agree with a spider that has a human, cat, and toad head all at once. They even get " +
             "three votes! They also have the power of invisibility, which seems like the exact opposite of the power of popularity. I'm " +
-            "not sure if that's a really good, or a really bad combo.\n\nThis depiction is from the 1818 edition of Dictionnaire Infernal");
+            "not sure if that's a really good or a really bad combo.\n\nThis depiction is from the 1818 edition of Dictionnaire Infernal");
 
         compendiumImage.Add("The Quick and the Curious", allSprites[9]);
         compendiumText.Add("The Quick and the Curious",
             "Despite the infinite multiverse that exists, there's only 19 meaninfully distinct Quick and the Curious movies. The fact " +
-            "that this contradicts Schrödinger equation fascinates many of our shedim physicists: much more so than the actual plots of " +
+            "that this contradicts Schrödinger's equation fascinates many of our shedim physicists: much more so than the actual plots of " +
             "any of the films.");
 
         compendiumImage.Add("Hanafuda", allSprites[10]);
@@ -187,6 +187,32 @@ public class Compendium : MonoBehaviour
             "great trek. Play to see if anyone will make it out alive..\" \n-The Box from Fireball Vally \n\n Fireball Valley is a board game that involves an elaborate board where players have fun " +
             "with plastic and gravity.");
 
+        compendiumImage.Add("Tzaraath", allSprites[16]);
+        compendiumText.Add("Tzaraath",
+            "Tzaraath are the visual affliction of leprousy. According to the Torah, both houses and clothing can be struck with leprousy. To cure a house of " +
+            "leprousy, first you take out the infected parts. If tzaraath remain, the house must be abandoned since a person is better off without a dwelling than live in " +
+            "one infected. Many intepret this to potentially be metaphorical, but others assume tzaraath is mold.");
+
+        compendiumImage.Add("Entropy", allSprites[17]);
+        compendiumText.Add("Entropy",
+            "Entropy in an isolated system can only increase, not decrease. This is because some physics properties are irreversible. Modayaal does know exactly how to reverse every " +
+            "physical process, but humans only discover the solution to entropy, on average, in the year 2160.");
+
+        compendiumImage.Add("Dreidel", allSprites[18]);
+        compendiumText.Add("Dreidel",
+            "During the Seleucid Empire's rule of Judea, Jewish children would use dreidels as a guise for studying Torah. Dreidels looked like simple teetotums to any unsuspecting " +
+            "Seleucid guards. Owning a Torah was a capitol offense, so hiding their study was required.");
+
+        compendiumImage.Add("Old Fashioned", allSprites[19]);
+        compendiumText.Add("Old Fashioned",
+            "An 19th Century cocktail composed of a sugar cube, a dash or two of bitters, and Bourbon or rye whisky and garnished with a cherry, orange slice, or both.");
+
+        compendiumImage.Add("Forneus", allSprites[20]);
+        compendiumText.Add("Forneus",
+            "In an inverted Tokyo, Decarabia perilessly waited for his friend Forneus. Little did he know, a high schooler had murdered Forneus shortly after his arrival. " +
+            "No one in Gehinomm knows what happens to Forneus and little is understood about how the events of that day transpired. Decarabia has since gained acclaim for his play " +
+            "Waiting Forneus.");
+
         //hides itself to start
         gameObject.SetActive(false);
 
@@ -213,6 +239,7 @@ public class Compendium : MonoBehaviour
             newButton.transform.localScale = new Vector3(1, 1, 1);
             newButton.transform.position = new Vector3(menuButton.transform.position.x, menuButton.transform.position.y - distance * buttonCount, 0);
             buttonCount++;
+            ChooseSort();
         }
     }
 
