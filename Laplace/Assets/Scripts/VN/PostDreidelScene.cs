@@ -40,10 +40,50 @@ public class PostDreidelScene : MonoBehaviour
             "That's why I always advocate for it:Abyzou",
             "it's basically an excuse to play with tops and eat chocolate",
             "Thank you all for playing with me",
-            "If you want to do anything else just mention it:Modayaal"
+            "If you want anything else just mention it:Modayaal",
+            "well not that you can give me:Abyzou",
+            "I'm sorry.:Modayaal",
+            "that really doesn't cut it:Abyzou",
+            "you need to do better",
+            "I will:Modayaal",
+            "You haven't until now:Abyzou",
+            "I gotta start somewhere right?:Modayaal",
+            "Just go beg Yaweh to revert everything:Abyzou",
+            "like do everything you can to revert this situation",
+            "I have begged and pleaded:Modayaal",
+            "I think the earth doesn't want us",
+            "or maybe isn't prepared for us",
+            "Also so many of us really do love it here:Furfur",
+            "we couldn't get to Gehinomm before and it's kinda a utopia",
+            "infinite space and resources and it's filled with fire!",
+            "yeah but I love that dang humanity so much:Abyzou",
+            "If I could just open up a clinic and help those who need me",
+            "I feel like it's my purpose",
+            "here anyone can just have kids or not at will",
+            "so I feel like I'm worthless"
         });
         one.left = abyzou;
         one.right = furfur;
+
+        two.Set(new string[]
+        {
+            "Abyzou:Azazel",
+            "you're anything but worthless",
+            "you're my treasured friend and that is priceless",
+            "look I can tell every infinite future that both exists and doesn't:Modayaal",
+            "and I can't even help steer people to the good ones",
+            "we're in this together",
+            "we can just be us",
+            "and maybe that's okay",
+            "That's more than okay:Azazel",
+            "I've gotten by just fine even though I can no longer perform the scapegoat rite",
+            "and you know ",
+            "it's probably better without the pugnent sin that used to emanate from me::A",
+            "just look for the bright side",
+            "that's not so easy:Abyzou",
+        });
+        one.left = abyzouTsu;
+        one.right = azazel;
 
 
         textC = TextControl.instance;
