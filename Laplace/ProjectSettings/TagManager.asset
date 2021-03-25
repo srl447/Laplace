@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Cursor
   - Card
+  - Fish
+  - BadFish
+  - BigFish
   layers:
   - Default
   - TransparentFX
