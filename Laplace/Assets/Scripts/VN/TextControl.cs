@@ -32,6 +32,7 @@ public class TextControl : MonoBehaviour
         StopSpeaking();
         viewportContent.sizeDelta += Vector2.up * 100;
         logText.text += speakerName.text + "\n" + mainText.text +"\n \n";
+        logText.gameObject.GetComponent<RectTransform>().sizeDelta += new Vector2(0, 400);
         mainText.text = targetText;
         //set elements to appear/dissappear when they change
         if (rightImage.sprite == null)

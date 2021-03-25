@@ -57,7 +57,8 @@ public class PostDreidelScene : MonoBehaviour
             "I feel like it's my purpose",
             "here anyone can just have kids or not at will",
             "so I feel like I'm worthless"
-        });
+        },
+        bg, two);
         one.left = abyzou;
         one.right = furfur;
 
@@ -90,7 +91,8 @@ public class PostDreidelScene : MonoBehaviour
             "yeah:Modayaal",
             "being around eachother is call of celebration :Azazel",
             "not moping::A"
-        });
+        },
+        bg);
         one.left = abyzouTsu;
         one.right = azazel;
 
@@ -123,7 +125,7 @@ public class PostDreidelScene : MonoBehaviour
                     else
                     {
                         GameManager.Instance.progress = 0;
-                        SceneManager.LoadScene(7); 
+                        SceneManager.LoadScene(0); //TODO: Make Scene 7
                     }
                     return;
                 }

@@ -167,15 +167,15 @@ public class Compendium : MonoBehaviour
         compendiumText.Add("Abyzou",
             "Abyzou has the power to make a person unpregnant. She cannot have kids of her own and her emotions bioled for decades like a raging tempest. " +
             "One day she accidentally let her frustration out and vanished a pregnant person's child. In horror and guilt, she ran as long as she could. " +
-            "Eventually she was found by King Solomon and punished for her crime by having her serpant hair tied to a statue for her to hang in pain. After long enough, " +
+            "Eventually, King Solomon found her and punished for her crime. He tied her serpant hair to a statue for her to hang in pain. After long enough, " +
             "her hair gave out and she managed to escape. She now has come to terms with not being able to bear children, but still wishes to form a family. She fell in love " +
             "many women on earth, but has never raised children there. Stuck in Gehinomm, she wishes to return to earth to help people who no longer wish to be pregnant," +
             " similar to performing abortions, and hopes to finally form a family of her own. Unfortunately, it doesn't seem like an escape from Gehinomm will ever come to be. ");
 
         compendiumImage.Add("Mah-Jongg", allSprites[14]);
         compendiumText.Add("Mah-Jongg",
-            "Mah-Jongg is an 19th-Century Chinese game that Jews have long been associated with. The game became popular with Jewish-American Immigrants " +
-            "during the early 1900s. Jewish women formed the National Mah-Jongg League (NMJL) in 1937 in order to standarize a ruleset to use. " +
+            "Mah-Jongg is an 19th-Century Chinese game that Jews have long been associated with. The game became popular with Jewish, American Immigrants " +
+            "during the early 1900s. Jewish-American women formed the National Mah-Jongg League (NMJL) in 1937 in order to standarize one ruleset to use. " +
             "The game also has another connection because of the many Jewish refugees that sought sanctum in Shanghai during WWII, thanks to " +
             "the sacrifices of Ho Feng-Shan." +
             "\n\nPhoto and Mah-Jongg set from certified Jewish woman and my grandma, Judy Goldwasser ");
@@ -183,8 +183,8 @@ public class Compendium : MonoBehaviour
         compendiumImage.Add("Fireball Valley", allSprites[15]);
         compendiumText.Add("Fireball Valley",
             "\"Gather all your adventuring friends as you embark to ... Fireball Valley. Every turn each player advances closer to a cave that probably contains treasure " +
-            "I don't know no one's ever made it stop asking. What I do know, is your between many active volcanoes. Dodge falling rocks, molten lava, and, of course, fireballs on your " +
-            "great trek. Play to see if anyone will make it out alive..\" \n-The Box from Fireball Vally \n\n Fireball Valley is a board game that involves an elaborate board where players have fun " +
+            "I don't know no one's ever made it stop asking. What I do know is you're between many active volcanoes. Dodge falling rocks, molten lava, and, of course, fireballs on your " +
+            "great trek. Play to see if anyone will make it out alive..\" \n-The Box from Fireball Valley \n\n Fireball Valley is a board game that involves an elaborate board where players have fun " +
             "with plastic and gravity.");
 
         compendiumImage.Add("Tzaraath", allSprites[16]);
