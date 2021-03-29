@@ -22,7 +22,7 @@ public class PostDreidelScene : MonoBehaviour
     Scene current = new Scene();
     int count = 0;
     public Sprite bg,
-        furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou, abyzouTsu;
+        furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, azazelFlex, abyzou, abyzouTsu;
 
     public AudioClip spitTake, pour;
 
@@ -92,10 +92,51 @@ public class PostDreidelScene : MonoBehaviour
             "being around eachother is call of celebration :Azazel",
             "not moping::A"
         },
-        bg);
-        one.left = abyzouTsu;
-        one.right = azazel;
+        bg, three);
+        two.left = abyzouTsu;
+        two.right = azazel;
 
+        three.Set(new string[] 
+        {
+            "I believe in all of you!:Azazel"
+        },
+        bg, four);
+        three.left = abyzou;
+        three.right = azazelFlex;
+
+        four.Set(new string[]
+        {
+            "You know Modey:Furfur",
+            "we just gotta figure out what you wanna do",
+            "brainstorm sesh",
+            "What about Abyzou?:Azazel",
+            "I mean she and I can hit up the clubs later"
+        },
+        bg, five);
+        four.left = azazelF;
+        four.right = furfur;
+
+        five.Set(new string[]
+        {
+            "and you think I'd want to with you:Abyzou",
+            "owch!:Furfur"
+        },
+        bg, six);
+        five.left = abyzou;
+        five.right = furfurWow;
+
+        six.Set(new string[]
+        {
+            "but if I knew what I wanted to do:Modayaal",
+            "I'd do it",
+            "all I do know is I want my head to stop splitting",
+            "but nothing really fixes that",
+            "that's why you gotta find the things that make it a bit more bareable:Furfur",
+            "like gambling?:Modayaal",
+            "don't know the outcome of randomness",
+            "I mean yeah, but...:Furfur",
+            "you also don't know the outcome of socializing with people!:Furfur"
+        });
 
         textC = TextControl.instance;
         current = one;

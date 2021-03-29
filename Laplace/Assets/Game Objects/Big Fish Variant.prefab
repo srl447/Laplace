@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1324013979020116531, guid: 404899292cd74b54383dbe87c97362af,
         type: 3}
       propertyPath: m_Name
-      value: Big Fish
+      value: Big Fish Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1324013979020116531, guid: 404899292cd74b54383dbe87c97362af,
         type: 3}
@@ -19,18 +19,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1324013979020116541, guid: 404899292cd74b54383dbe87c97362af,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d985237c72da2ba47ac4ca9a2ebd7d1b,
+        type: 3}
+    - target: {fileID: 1324013979020116541, guid: 404899292cd74b54383dbe87c97362af,
+        type: 3}
       propertyPath: m_Color.b
-      value: 0.0705882
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1324013979020116541, guid: 404899292cd74b54383dbe87c97362af,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.43145752
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1324013979020116541, guid: 404899292cd74b54383dbe87c97362af,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.98039216
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1324013979020116542, guid: 404899292cd74b54383dbe87c97362af,
         type: 3}
@@ -96,6 +102,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324013979020116543, guid: 404899292cd74b54383dbe87c97362af,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324013979020116543, guid: 404899292cd74b54383dbe87c97362af,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404899292cd74b54383dbe87c97362af, type: 3}
