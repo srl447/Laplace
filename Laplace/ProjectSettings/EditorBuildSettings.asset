@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dreidel.unity
     guid: 8ccad1f031cdd7a4981bd5f8bbfc7cd0
+  - enabled: 1
+    path: Assets/Scenes/PostDreidelScene.unity
+    guid: 76da5dc3b5f61ea4d95339b1b06f893a
   m_configObjects: {}

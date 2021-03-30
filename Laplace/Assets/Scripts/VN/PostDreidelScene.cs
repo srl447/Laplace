@@ -8,7 +8,7 @@ public class PostDreidelScene : MonoBehaviour
 {
     TextControl textC;
     public Compendium comp;
-    public Scene one = new Scene(), two = new Scene(),
+    public Scene one = new Scene(), two = new Scene(), one2 = new Scene(),
         three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(),
         seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(),
         eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene(),
@@ -52,6 +52,17 @@ public class PostDreidelScene : MonoBehaviour
             "Also so many of us really do love it here:Furfur",
             "we couldn't get to Gehinomm before and it's kinda a utopia",
             "infinite space and resources and it's filled with fire!",
+            "I mean, ",
+        },
+        bg, one2);
+        one.left = abyzou;
+        one.right = furfur;
+
+        one2.Set(new string[]
+        {
+            "The dybbuk won't stop going on about::A",
+            "how happy they are never hearing about a Rabbi's daughter again",
+            "here is just so much better for so many people",
             "yeah but I love that dang humanity so much:Abyzou",
             "If I could just open up a clinic and help those who need me",
             "I feel like it's my purpose",
@@ -59,8 +70,9 @@ public class PostDreidelScene : MonoBehaviour
             "so I feel like I'm worthless"
         },
         bg, two);
-        one.left = abyzou;
-        one.right = furfur;
+        one2.left = abyzouTsu;
+        one2.right = furfurH;
+        one2.compendiumEntry = "Dybbuk";
 
         two.Set(new string[]
         {
@@ -135,8 +147,169 @@ public class PostDreidelScene : MonoBehaviour
             "like gambling?:Modayaal",
             "don't know the outcome of randomness",
             "I mean yeah, but...:Furfur",
-            "you also don't know the outcome of socializing with people!:Furfur"
+            "you also don't know the outcome of socializing with people!:Furfur",
+            "There's tons of stuff around that people put on:Azazel"
+        },
+        bg, seven);
+        six.left = azazelF;
+        six.right = furfur;
+
+        seven.Set(new string[]
+        {
+            "The annual Purim reanactment is coming up:Azazel",
+            "I don't know if that's quiet for me:Modayaal"
+        },
+        bg, eight);
+        seven.left = azazelFlex;
+        seven.right = furfur;
+        seven.compendiumEntry = "Purim";
+
+        eight.Set(new string[]
+        {
+            "What about like running a library:Furfur",
+            "You can make every single book ever",
+            "I mean that would only take an instance:Modayaal",
+            "Librarians do a lot more than just know books Modey:Furfur",
+            "Have you ever tried making, like, a pet?:Abyzou",
+            "Aby you know we can't make life:Furfur",
+            "don't call me Aby:Abyzou"
+        },
+        bg);
+        eight.left = abyzou;
+        eight.right = furfurH;
+
+        nine.Set(new string[]
+        {
+            "but yeah the life we makes aren't even close to the worst golem attempts:Modayaal",
+            "Modayaal your house is alive:Abyzou",
+            "and?:Modayaal",
+            "I don't think anyone else's is:Abyzou",
+        },
+        bg, ten);
+        nine.center = abyzou;
+        nine.compendiumEntry = "Golem";
+
+        ten.Set(new string[]
+        {
+            "I think I saw Asmodai's house run away once:Furfur",
+            "what?:Abyzou",
+            "fuck iunno:Furfur",
+            "well I don't want my house to be alive:Modayaal",
+            "it just is",
+            "Well still why don't you try making a dog:Abyzou",
+            "couldn't hurt",
+            "fine:Modayaal"
+        },
+        bg, eleven);
+        ten.left = abyzou;
+        ten.right = furfurDis;
+        ten.compendiumEntry = "Asmodai";
+
+        eleven.Set(new string[]
+        {
+            "there ya go:Modayaal",
+            "well it's certainly animate:Furfur",
+            "what is it doing though:Azazel",
+            "well :Modayaal",
+            "I think it's just playing through what happened::A",
+            "from the moment I referenced to summon it",
+            "Wait this is a specific dog?:Furfur",
+            "Yeah the objectively cutest dog ever:Modyaaal",
+            "Marbles who Granny Lake cared for in 2201",
+            "well now what do we do with it it's just trying to eat the air:Furfur"
         });
+        eleven.left = azazel;
+        eleven.right = furfur;
+
+        twelve.Set(new string[]
+        {
+            "yeah it's kinda creeping me out:Abyzou",
+            "I really don't want to think about it anymore:Modayaal",
+            "like is it real is it fake?",
+            "aaa"
+        },
+        bg, thirteen);
+        twelve.left = abyzou;
+        twelve.right = furfur;
+
+        thirteen.Set(new string[]
+        {
+            "*pumf*:The Dog::I",
+            "what???:Furfur",
+            "aaa:Modayaal",
+            "why did it turn into confetti:Azazel",
+            "I just wanted it gone:Modayaal"
+
+        },
+        bg, fourteen);
+        thirteen.left = azazel;
+        thirteen.right = furfur;
+
+        fourteen.Set(new string[]
+        {
+            "so like your brain powered it?:Furfur",
+            "bruh you're a computer",
+            "I mean no:Modayaal",
+            "this is great though:Furfur",
+            "you can just run the whole Purim reenactment yourself",
+            "I think that takes the fun out of it:Azazel",
+        },
+        bg, fifteen);
+        fourteen.left = azazel;
+        fourteen.right = furfur;
+
+        fifteen.Set(new string[]
+        {
+             "I dunno bro I wanna groger confetti Haman:Furfur",
+             "well I'm sure if Modayaal wants we can do both:Azazel",
+             "but Purim's the one time I get to shitfaced:Modayaal",
+             "I didn't know today was Purim:Furfur",
+             "and yesterday",
+             "and the day before that",
+             "we get it your funny:Modayaal",
+             "although honestly that gives me an idea",
+             "cause I was thinking a lot of theater has been lost since I can't really recreate it",
+             "maybe that's an avenue I can explore"
+        },
+        bg, sixteen);
+        fifteen.left = azazel;
+        fifteen.right = furfur;
+        fifteen.compendiumEntry = "Groger";
+
+        sixteen.Set(new string[]
+        {
+            "Finally I get to see Medically Brunette as it was intended:Furfur",
+            "so as a movie?:Modayaal",
+            "it has the soul of theater even in the film:Furfur",
+            "You can show us future theater then too right?:Abyzou",
+            "yeah actually one of my favorite times in theater is the 2500s postprepostpostism movement"
+        },
+        bg, seventeen);
+        sixteen.left = abyzou;
+        sixteen.right = furfur;
+        sixteen.compendiumEntry = "Medically Brunette";
+
+        seventeen.Set(new string[]
+        {
+            "I could set up a replica of the New Nyce Grand Community Theater:Modayaal",
+            "and then just run plays",
+            "if this really works how we think it does",
+            "I mean there's literal no harm in trying",
+            "we can just cast away anything you don't need:Furfur",
+            "or better yet"
+        },
+        bg, eighteen);
+        seventeen.center = furfur;
+        seventeen.compendiumEntry = "New Nyce";
+
+        eighteen.Set(new string[]
+        {
+            "we can set it on fire!:Furfur",
+            "I do like fire:Azazel"
+        },
+        bg);
+
+        
 
         textC = TextControl.instance;
         current = one;

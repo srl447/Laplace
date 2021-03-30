@@ -213,6 +213,49 @@ public class Compendium : MonoBehaviour
             "No one in Gehinomm knows what happens to Forneus and little is understood about how the events of that day transpired. Decarabia has since gained acclaim for his play " +
             "Waiting Forneus.");
 
+        compendiumImage.Add("Asmodai", allSprites[21]);
+        compendiumText.Add("Asmodai",
+            "Asmodai and King Solomon had many misadventures. Asmodai once traded places with King Solomon when they threw Solomon 400 leagues away from Jerusalem. " +
+            "When Solomon finally walked back, Asmodai interacted with the locals, played with some bricks, was questioned, and then fled." +
+            "\n\nThis depiction is from the 1863 edition of Dictionnaire Infernal");
+
+        compendiumImage.Add("Golem", allSprites[22]);
+        compendiumText.Add("Golem",
+            "A clay man created brought to life through writing emet, meaning truth, into it's forehead. " +
+            "It can subsequently be killed by removing the aleph in emet, turning the word into met, meaning dead. " +
+            "\nMy last name, Leiman, is the spanish version of Leymman, which translates from Yiddish into clay man. Don't go around erasing my forehead now");
+
+        compendiumImage.Add("Dybbuk", allSprites[23]);
+        compendiumText.Add("Dybbuk",
+            "Possesion spirits that make the men they posses fall in love with women and sometimes men. The cure for one is to talk to a Rabbi, which, I dunno, kinda feels " +
+            "like it's the one Jewish joke we always tell. Like the Rabbi will talk so much that the Dybbuk will not want to stay. Don't get me wrong, I love the joke and think it's kinda perfect");
+
+        compendiumImage.Add("Purim", allSprites[24]);
+        compendiumText.Add("Purim",
+            "Often known as the Jewish holiday where you put on plays and get drunk, Purim celebrates the victory of the Jews over Haman. Haman, a viceroy to King Ahasuerus of the " +
+            "Achaemenid Empire, plotted to kill all the Jews because Mordecai, a Jewish townsman, refused to bow to him. " +
+            "Mordecai had early bested an reigcide attempt, and the king throws him a banquet. Esther, a candidate for future queen and " +
+            "Mordecai's niece, reveals she's Jewish and Haman wants to kill her people, so the king calls off the genicide Haman scheduled and kills Haman. " +
+            "After that, they threw a huge feast and party which is why this holiday is known for it's festive drinking. Apparently they also then killed 75,000 enemies of the Jews, " +
+            "which I guess they left out of my Hebrew school play.");
+
+        compendiumImage.Add("Medically Brunette", allSprites[25]);
+        compendiumText.Add("MedicallyBrunette",
+            "One girl, burdened by the lack of stereotypes about her hair color, defies the odds and gets into medical school. She's then forced by circumstance to replace " +
+            "the doctor she was shadowing in her residency and perform brain surgery on the spot. Thanks to her deep understanding of hair care, she successfully completes the surgery, " +
+            "saving the day.");
+
+        compendiumImage.Add("Groger", allSprites[26]);
+        compendiumText.Add("Groger",
+            "A jewish toy that makes a grating sound. Children would arm these during Purim reanactment plays and blast noise whenever Haman's name was said");
+
+        compendiumImage.Add("New Nyce", allSprites[27]);
+        compendiumText.Add("New Nyce",
+            "Hundreds of years after the fall of New York City, a new New York City rises from its ashes as New NYC. The problem was, no one remembered what NYC stood for. " +
+            "After several decades of colloquially reffering to NYC as Nyce, not knowing it was an abbreviation, the city officially changed it's name to New Nyce. New Nyce coincidentally " +
+            "also had a plentiful theater scene spanning from productions staring hundreds of actors on stage at once to a one person production " +
+            "which lasted 20 years.");
+
         //hides itself to start
         gameObject.SetActive(false);
 
