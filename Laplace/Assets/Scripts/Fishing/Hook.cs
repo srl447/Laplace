@@ -9,9 +9,9 @@ public class Hook : MonoBehaviour
     int score = 0;
     int health = 3;
     public Text scoreText;
+
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -19,19 +19,19 @@ public class Hook : MonoBehaviour
     {
         Vector3 pos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0); //get the x and y value
         pos = Camera.main.ScreenToWorldPoint(pos); //convert them to unity space
-        transform.position = new Vector3(transform.position.x, pos.y, 0);
+        transform.position = new Vector3(transform.position.x, pos.y, -1);
 
         if (fishHooked != null)
         {
             fishHooked.transform.position = transform.position; //attaches fish to hook
 
-            if(transform.position.y > 4)//removes fish
+            if(transform.position.y > 3)//removes fish
             {
                 if(fishHooked.tag == "Fish")
                 {
                     ScoreUpdate(1);
                 }
-                else if (fishHooked.tag == "BigFish")
+                else if (fishHooked.tag == "Untagged")
                 {
                     ScoreUpdate(5);
                 }
