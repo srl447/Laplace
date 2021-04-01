@@ -223,7 +223,8 @@ public class Compendium : MonoBehaviour
         compendiumText.Add("Golem",
             "A clay man created brought to life through writing emet, meaning truth, into it's forehead. " +
             "It can subsequently be killed by removing the aleph in emet, turning the word into met, meaning dead. " +
-            "\nMy last name, Leiman, is the spanish version of Leymman, which translates from Yiddish into clay man. Don't go around erasing my forehead now");
+            "\nMy last name, Leiman, is the spanish version of Leymman, which translates from Yiddish into clay man. Don't go around erasing my forehead now" +
+            "\n\nDepicted: Hebrew transcription of emet");
 
         compendiumImage.Add("Dybbuk", allSprites[23]);
         compendiumText.Add("Dybbuk",
@@ -237,7 +238,8 @@ public class Compendium : MonoBehaviour
             "Mordecai had early bested an reigcide attempt, and the king throws him a banquet. Esther, a candidate for future queen and " +
             "Mordecai's niece, reveals she's Jewish and Haman wants to kill her people, so the king calls off the genicide Haman scheduled and kills Haman. " +
             "After that, they threw a huge feast and party which is why this holiday is known for it's festive drinking. Apparently they also then killed 75,000 enemies of the Jews, " +
-            "which I guess they left out of my Hebrew school play.");
+            "which I guess they left out of my Hebrew school play." +
+            "\n\nDepicted:Esther Megillah from the Minneapolis Institute of Arts");
 
         compendiumImage.Add("Medically Brunette", allSprites[25]);
         compendiumText.Add("MedicallyBrunette",
@@ -247,7 +249,8 @@ public class Compendium : MonoBehaviour
 
         compendiumImage.Add("Groger", allSprites[26]);
         compendiumText.Add("Groger",
-            "A jewish toy that makes a grating sound. Children would arm these during Purim reanactment plays and blast noise whenever Haman's name was said");
+            "A jewish toy that makes a grating sound. Children would arm these during Purim reanactment plays and blast noise whenever Haman's name was said" +
+            "\n\nDepicted: 20th Century Groger from the Minneapolis Institute of Arts");
 
         compendiumImage.Add("New Nyce", allSprites[27]);
         compendiumText.Add("New Nyce",
@@ -255,6 +258,10 @@ public class Compendium : MonoBehaviour
             "After several decades of colloquially reffering to NYC as Nyce, not knowing it was an abbreviation, the city officially changed it's name to New Nyce. New Nyce coincidentally " +
             "also had a plentiful theater scene spanning from productions staring hundreds of actors on stage at once to a one person production " +
             "which lasted 20 years.");
+
+        compendiumImage.Add("Marbles", allSprites[28]);
+        compendiumText.Add("Marbles",
+            "I just want to apologize. Modayaal claimed Marbles was the cutest dog ever, but I can assure you that your dog is indeed the cutest of all time, not Marbles.");
 
         //hides itself to start
         gameObject.SetActive(false);

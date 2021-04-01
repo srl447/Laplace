@@ -21,7 +21,7 @@ public class PostDreidelScene : MonoBehaviour
 
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg,
+    public Sprite bg, dog1, dog2, dog3,
         furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, azazelFlex, abyzou, abyzouTsu;
 
     public AudioClip spitTake, pour;
@@ -220,6 +220,7 @@ public class PostDreidelScene : MonoBehaviour
         });
         eleven.left = azazel;
         eleven.right = furfur;
+        eleven.mini = dog1;
 
         twelve.Set(new string[]
         {
@@ -231,6 +232,8 @@ public class PostDreidelScene : MonoBehaviour
         bg, thirteen);
         twelve.left = abyzou;
         twelve.right = furfur;
+        twelve.mini = dog2;
+        twelve.compendiumEntry = "Marbles";
 
         thirteen.Set(new string[]
         {
@@ -244,6 +247,7 @@ public class PostDreidelScene : MonoBehaviour
         bg, fourteen);
         thirteen.left = azazel;
         thirteen.right = furfur;
+        thirteen.mini = dog3;
 
         fourteen.Set(new string[]
         {
@@ -339,7 +343,7 @@ public class PostDreidelScene : MonoBehaviour
                     else
                     {
                         GameManager.Instance.progress = 0;
-                        SceneManager.LoadScene(0); //TODO: Make Scene 7
+                        SceneManager.LoadScene(2); //Koi-koi scene
                     }
                     return;
                 }

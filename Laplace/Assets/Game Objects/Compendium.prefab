@@ -703,12 +703,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 43c4e71c343be4846a0bba424db325d6, type: 3}
   - {fileID: 21300000, guid: afa97af4b58f4724092eea987a5ff00c, type: 3}
   - {fileID: 21300000, guid: bfbdf8f89e48ec44592663be4ecad494, type: 3}
+  - {fileID: 21300000, guid: 540102f275169174083bd0702805051b, type: 3}
   - {fileID: 21300000, guid: 2dbe79c8efc680e419984557da97f0e8, type: 3}
+  - {fileID: 21300000, guid: a230fc947dc7ad74ba1fbda64432aa2c, type: 3}
   - {fileID: 21300000, guid: 2dbe79c8efc680e419984557da97f0e8, type: 3}
-  - {fileID: 21300000, guid: 2dbe79c8efc680e419984557da97f0e8, type: 3}
-  - {fileID: 21300000, guid: 2dbe79c8efc680e419984557da97f0e8, type: 3}
-  - {fileID: 21300000, guid: 2dbe79c8efc680e419984557da97f0e8, type: 3}
-  - {fileID: 21300000, guid: 2dbe79c8efc680e419984557da97f0e8, type: 3}
+  - {fileID: 21300000, guid: 82ad741b080253c4f838e672d0f69692, type: 3}
+  - {fileID: 21300000, guid: 52bf97a3ecdcf724daf841b52aa6c51c, type: 3}
+  - {fileID: 21300000, guid: c90c7a556567aa24683761e433caaaae, type: 3}
   buttonContent: {fileID: 3512649422389436732}
 --- !u!1 &3512649420801536322
 GameObject:
@@ -2655,7 +2656,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

@@ -1179,6 +1179,8 @@ public class Dealer : MonoBehaviour
         StartCoroutine(TextZoom(turn, false));
     }
 
+    public GameObject endingPanel;
+    public Text endingNameText, endingScoreText;
     //Advances to rounds 2+
     void RoundAdvance()
     {
@@ -1205,13 +1207,28 @@ public class Dealer : MonoBehaviour
         }
         else
         {
-            StartCoroutine(NextScene());
+            endingPanel.SetActive(true);
+            if(scoreP < scoreC)
+            {
+                endingNameText.text = GameManager.Instance.opponent + " Wins!";
+                endingScoreText.text = scoreC.ToString();
+            }
+            else
+            {
+                endingNameText.text = "Modayaal Wins!";
+                endingScoreText.text = scoreP.ToString();
+            }
         }
         //TODO: load scenes for different opponents when I write them
     }
 
     public Image fade;
     public GameObject loadingText;
+
+    public void ContinueButton()
+    {
+        StartCoroutine(NextScene());
+    }
     IEnumerator NextScene()
     {
         //Reset Variables

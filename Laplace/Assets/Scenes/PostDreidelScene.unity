@@ -2878,6 +2878,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comp: {fileID: 2101231616}
   bg: {fileID: 21300000, guid: 3c7bc605597dae540bfb15fc8b46cecb, type: 3}
+  dog1: {fileID: 21300000, guid: 16bb8b133eb8c3b4a9478b43b97e9c89, type: 3}
+  dog2: {fileID: 21300000, guid: e8904007593af9d4fa55b84a4510ad7a, type: 3}
+  dog3: {fileID: 21300000, guid: 33e16b2b3ac45ce42b176d9ad7bc95bb, type: 3}
   furfur: {fileID: 21300000, guid: 0767aa2c858d68b4897b02b47ff872b8, type: 3}
   furfurH: {fileID: 21300000, guid: 108ba565d0fcb0f4ebc45190802c68a6, type: 3}
   furfurEww: {fileID: 21300000, guid: 88ef281ec1fffca4dae2525d2f03cc32, type: 3}
@@ -2885,6 +2888,7 @@ MonoBehaviour:
   furfurWow: {fileID: 21300000, guid: 6f9dd84db23bc99459397043ba7bcf03, type: 3}
   azazel: {fileID: 21300000, guid: 10b1b5d9f448f0a408db296e7120cda3, type: 3}
   azazelF: {fileID: 21300000, guid: ca3d7e9455ea41d4ca795d0c295ffdcd, type: 3}
+  azazelFlex: {fileID: 21300000, guid: 2dcc3cb1374d4c6439b36e50e88fe2c0, type: 3}
   abyzou: {fileID: 21300000, guid: 5a19b85b527966a4fa01dc8d8f7d1d0a, type: 3}
   abyzouTsu: {fileID: 21300000, guid: c99befe29b77be24a8ec1f844469df7d, type: 3}
   spitTake: {fileID: 8300000, guid: 3725ea208eb4db542a91c78be9932c6c, type: 3}
