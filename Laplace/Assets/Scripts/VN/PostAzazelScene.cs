@@ -69,7 +69,7 @@ public class PostAzazelScene : MonoBehaviour
         {
             "I may have had a few too many:Furfur",
             "All you did was come over with a giant box of dreidels :Modayaal",
-            "and then pass out::A",
+            "and then pass out ::A",
             "Fuck yeah!:Furfur"
         },
         bg, four);

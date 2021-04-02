@@ -184,8 +184,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157402351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -371.289, y: -293.32, z: 0}
-  m_LocalScale: {x: 17.361721, y: -5.0592947, z: 1}
+  m_LocalPosition: {x: -400.1, y: -318.3, z: 0}
+  m_LocalScale: {x: 25.84143, y: -15.378409, z: 1}
   m_Children: []
   m_Father: {fileID: 337588895}
   m_RootOrder: 3
@@ -2645,7 +2645,7 @@ PrefabInstance:
     - target: {fileID: 6236842204356014749, guid: 7e7cd04f1947ed2438e977b6c39d5481,
         type: 3}
       propertyPath: textToUpdate.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6236842204356014749, guid: 7e7cd04f1947ed2438e977b6c39d5481,
         type: 3}
@@ -2657,6 +2657,11 @@ PrefabInstance:
       propertyPath: textToUpdate.Array.data[1]
       value: 
       objectReference: {fileID: 1962748305}
+    - target: {fileID: 6236842204356014749, guid: 7e7cd04f1947ed2438e977b6c39d5481,
+        type: 3}
+      propertyPath: textToUpdate.Array.data[2]
+      value: 
+      objectReference: {fileID: 2101231617}
     - target: {fileID: 6236842204849882308, guid: 7e7cd04f1947ed2438e977b6c39d5481,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -3523,5 +3528,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0280304a6cf2e2a4f8ccbff7dbb71ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2101231617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3512649421057329011, guid: dc138e09e362ae345a9cec994256f04a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2101231613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

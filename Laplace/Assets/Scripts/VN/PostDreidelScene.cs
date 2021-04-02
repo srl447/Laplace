@@ -60,7 +60,7 @@ public class PostDreidelScene : MonoBehaviour
 
         one2.Set(new string[]
         {
-            "The dybbuk won't stop going on about::A",
+            "The dybbuk won't stop going on about ::A",
             "how happy they are never hearing about a Rabbi's daughter again",
             "here is just so much better for so many people",
             "yeah but I love that dang humanity so much:Abyzou",
@@ -87,7 +87,7 @@ public class PostDreidelScene : MonoBehaviour
             "That's more than okay:Azazel",
             "I've gotten by just fine even though I can no longer perform the scapegoat rite",
             "and you know ",
-            "it's probably better without the pugnent sin that used to emanate from me::A",
+            "it's probably better without the pugnent sin that used to emanate from me ::A",
             "just look for the bright side",
             "that's not so easy:Abyzou",
             "you can say that again:Modayaal",
@@ -97,7 +97,7 @@ public class PostDreidelScene : MonoBehaviour
             "and Abyzou",
             "There's tons of great women out there",
             "you can still fall in love here",
-            "it doesn't have to be on earth::A",
+            "it doesn't have to be on earth ::A",
             "yeah but:Abyzou",
             "yeah",
             "yeah:Modayaal",
@@ -211,7 +211,7 @@ public class PostDreidelScene : MonoBehaviour
             "well it's certainly animate:Furfur",
             "what is it doing though:Azazel",
             "well :Modayaal",
-            "I think it's just playing through what happened::A",
+            "I think it's just playing through what happened ::A",
             "from the moment I referenced to summon it",
             "Wait this is a specific dog?:Furfur",
             "Yeah the objectively cutest dog ever:Modyaaal",
@@ -309,9 +309,35 @@ public class PostDreidelScene : MonoBehaviour
         eighteen.Set(new string[]
         {
             "we can set it on fire!:Furfur",
-            "I do like fire:Azazel"
+            "I do like fire:Azazel",
+            "Should we head out right now?:Furfur",
+            "I think I've done a lot today:Modayaal",
+            "baby steps right?",
+            "but I think I'd be ready to give it a try tomorrow?",
+            "Sounds like a plan to me:Furfur",
+            "There's no harm in going at your own pace:Azazel",
+            "So what did y'all want to do with the rest of today?:Furfur",
+            "play Dreidel again?"
         },
-        bg);
+        bg, nineteen);
+        eighteen.left = azazelF;
+        eighteen.right = furfurH;
+
+        nineteen.Set(new string[]
+        {
+            "I think I'm gelted out:Abyzou",
+            "but I think I'm the only one",
+            "who didn't get to play Koi-Koi",
+            "eyy?:Furfur",
+            "Abyzou's got a soft spot now?",
+            "willing to play games?",
+            "shut up:Abyzou",
+            "that's what I'm sayinnnn:Modayaal",
+            "but hey",
+            "ummm",
+            "let's play"
+        });
+        nineteen.left = abyzou;
 
         
 

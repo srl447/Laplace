@@ -199,10 +199,12 @@ public class TextControl : MonoBehaviour
         if(logBox.activeSelf)
         {
             logBox.SetActive(false);
+            GameManager.Instance.canClick = true;
         }
         else
         {
             logBox.SetActive(true);
+            GameManager.Instance.canClick = false;
         }
     }
 
