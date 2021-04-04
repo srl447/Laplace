@@ -682,7 +682,7 @@ MonoBehaviour:
   buttonValues: []
   allSprites:
   - {fileID: 21300000, guid: 1fdb787d24d1ed04a9a240d84e0bcc07, type: 3}
-  - {fileID: 21300000, guid: 2dbe79c8efc680e419984557da97f0e8, type: 3}
+  - {fileID: 21300000, guid: 891541e0f20a34341a1e280f1ddd3358, type: 3}
   - {fileID: 21300000, guid: b28f9e19b25d08b4eb04980ce79af942, type: 3}
   - {fileID: 21300000, guid: 59f054e81e72cc14fab62497ca822342, type: 3}
   - {fileID: 21300000, guid: 4af0a99ef2fcdb24298f2fe7b8c74bc6, type: 3}

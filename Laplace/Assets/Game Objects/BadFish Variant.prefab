@@ -17,6 +17,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: BadFish
       objectReference: {fileID: 0}
+    - target: {fileID: 1324013979020116540, guid: 404899292cd74b54383dbe87c97362af,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324013979020116540, guid: 404899292cd74b54383dbe87c97362af,
+        type: 3}
+      propertyPath: animType
+      value: Random Pulse
+      objectReference: {fileID: 0}
     - target: {fileID: 1324013979020116541, guid: 404899292cd74b54383dbe87c97362af,
         type: 3}
       propertyPath: m_Sprite
@@ -61,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 1324013979020116542, guid: 404899292cd74b54383dbe87c97362af,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.36835393
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1324013979020116542, guid: 404899292cd74b54383dbe87c97362af,
         type: 3}
