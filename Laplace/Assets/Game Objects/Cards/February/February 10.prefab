@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a8cce089c8fca8d419aca4a9af80188d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 15dc4aff0f66ca741980fbf72de94785, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,8 +98,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: 2
   value: 10
+  zone: 0
+  shade: {fileID: 0}
+  deal: {fileID: 0}
   faceUp: 0
-  front: {fileID: 21300000, guid: a8cce089c8fca8d419aca4a9af80188d, type: 3}
+  selected: 0
+  hover: 0
+  selectedDouble: 0
+  front: {fileID: 21300000, guid: 15dc4aff0f66ca741980fbf72de94785, type: 3}
   back: {fileID: 21300000, guid: 34bd5dc8718ed7c4faf5039cd45fd9e0, type: 3}
 --- !u!50 &6912819580687345514
 Rigidbody2D:
