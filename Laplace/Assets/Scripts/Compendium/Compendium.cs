@@ -83,7 +83,7 @@ public class Compendium : MonoBehaviour
 
         compendiumImage.Add("Blom Blamilton", allSprites[3]);
         compendiumText.Add("Blom Blamilton",
-            "Bassist for the band Bombersmith. Furfur is currently taking every single shot he's ever had. " +
+            "Bassist for the band Bombersmith. Furfur is currently taking every single shot Blom has ever had in chronological order. " +
             "He's already up to Bombersmith's tour of their 1987 album Temporary Staycation. The band's next " +
             "tour, Drain, was drug free, so they only drank carrot juice.");
 
@@ -106,6 +106,7 @@ public class Compendium : MonoBehaviour
 
         compendiumImage.Add("Furfur's Joke", allSprites[6]);
         compendiumText.Add("Furfur's Joke",
+            "\"Amon can't send his condolensces\"" +
             "The joke is that F is a labial fricative.");
 
         compendiumImage.Add("Amon", allSprites[7]);
@@ -113,14 +114,14 @@ public class Compendium : MonoBehaviour
             "Amon is the Grand Marquis of Hell according to The Lesser Keys of Solomon. He has a serpent's tail, a wolf's body, and " +
             "a raven's head. He's the strongest of the 72 demons, and genuinely a good guy. He can help stop conflicts of all kinds: " +
             "from friendship spats to fullblown wars. Kinda makes you wish Modayaal made their deal after the 20th century because " +
-            "this poor guy can no longer help humans. He can breathe fire, but I'm not sure how this helped solve any conflicts." +
+            "this poor guy can no longer help humans. He can breathe fire, but I'm not sure how this helped solve any conflicts. " +
             "\n\nThis depiction is from the 1863 edition of Dictionnaire Infernal");
 
         compendiumImage.Add("Bael", allSprites[8]);
         compendiumText.Add("Bael",
             "Bael (Ba'al) means \"Ruler\" in many semetic languages. Many demons have Ba'al prefixes such as Ba'al Berith or Beelzebub. " +
             "Because of this, there's definitely some confusion (at least to me) around exactly who Bael is. They sometimes get lumped " +
-            "into another demon, and sometimes they stand alone.\nWell here they're definitely they're own person. They might be the only " +
+            "into another demon, and sometimes they stand alone.\nWell here they're definitely their own person. They might be the only " +
             "demon who likes The Quick and the Curious movies, and they've taken up local politics. They have the power of popularity, " +
             "but they don't even need it. Who wouldn't agree with a spider that has a human, cat, and toad head all at once. They even get " +
             "three votes! They also have the power of invisibility, which seems like the exact opposite of the power of popularity. I'm " +
@@ -137,7 +138,7 @@ public class Compendium : MonoBehaviour
             "Hanafuda (Flower Cards) originated in Japan durinng the Edo period as a result of a ban on gambling and the western playing cards brought " +
             "to Japan by the Portuguese. People could gamble using Hanafuda because the art disguised the true purpose of the cards. " +
             "Whenever authorities caught onto a deck being used for gambling, a new design would take its place cyclically. " +
-            "Hana in Hanafuda being a homonym  (or hana-nym eh? eh?) for both Nose and Flower helped keep the gambling a secret, since gamblers could simply" +
+            "Hana in Hanafuda being a homonym  (or hana-nym eh? eh?) for both Nose and Flower helped keep the gambling a secret, since gamblers could simply " +
             "tap their nose if they wanted to play a game using hanafuda. Hanafuda was legalized after western playing cards became leagilized in 1885 " +
             "and Maeda Kihei realized that Hanafuda wasn't technically illegal anymore. He went on to start the first Hanafuda " +
             "shop after proving his theory that Hanafuda was not illegal. " +
@@ -146,18 +147,18 @@ public class Compendium : MonoBehaviour
             "Hana-awase is an early mixture of Portuguese playing cards's suits and Kai-awase, shell matching competitions. " +
             "These decks contained significantly more cards than the later hanafuda ones. " +
             "\n\nMany different regional variants of decks and rules exist, but the most common deck to see is the Hachihachi-bana variant. " +
-            "This deck contains 12 suits of 4 cards each. The suits each represent a month of the year and flora found during it." +
-            "\n\nDepicted: 19th Century Designer shells used to play Kai-ōi from the Portland Art Museum");
+            "This deck contains 12 suits of 4 cards each. The suits each represent a month of the year and flora found during it. " +
+            "\n\nDepicted: 19th Century Designer shells used to play Kai-ōi from the Portland Art Museum ");
 
         compendiumImage.Add("Koi-Koi", allSprites[11]);
         compendiumText.Add("Koi-Koi",
             "An image matching game played with hanafuda. Koi-Koi means Come On in Japanese, which is a main mechanic of the game. After collecting " +
             "card sets called yaku, players can scream Koi-Koi if they wish to risk their luck and get another. \n\nKoi-koi has just the " +
-            "combination of luck and skill that hits Modayaal's sweetspot for enjoying a game, so they tend to play it a lot");
+            "combination of luck and skill that hits Modayaal's sweetspot for enjoying a game, so they tend to play it a lot ");
 
         compendiumImage.Add("Azazel", allSprites[12]);
         compendiumText.Add("Azazel",
-            "Father of all shedim, participant in the scapegoat rite, husband to Namaah, it's Azazel! Every Yom Kippur, two goats" +
+            "Father of all shedim, participant in the scapegoat rite, husband to Namaah, it's Azazel! Every Yom Kippur, two goats " +
             "are prepared. One, a sin offering to Yaweh. The other, sent to the forest for Azazel. There in the forest we meet our " +
             "Azazel. He's a good demon who consumes the sins of all of humanity every Yom Kippur. He fell in love with Namaah, who birthed his children, " +
             "the first shedim. Namaah was human, and thus died millenia ago. Azazel continues living his life in Gehinomm, only wishing " +
@@ -169,7 +170,7 @@ public class Compendium : MonoBehaviour
             "One day she accidentally let her frustration out and vanished a pregnant person's child. In horror and guilt, she ran as long as she could. " +
             "Eventually, King Solomon found her and punished for her crime. He tied her serpant hair to a statue for her to hang in pain. After long enough, " +
             "her hair gave out and she managed to escape. She now has come to terms with not being able to bear children, but still wishes to form a family. She fell in love " +
-            "many women on earth, but has never raised children there. Stuck in Gehinomm, she wishes to return to earth to help people who no longer wish to be pregnant," +
+            "many women on earth, but has never raised children there. Stuck in Gehinomm, she wishes to return to earth to help people who no longer wish to be pregnant, " +
             " similar to performing abortions, and hopes to finally form a family of her own. Unfortunately, it doesn't seem like an escape from Gehinomm will ever come to be. ");
 
         compendiumImage.Add("Mah-Jongg", allSprites[14]);
@@ -216,20 +217,20 @@ public class Compendium : MonoBehaviour
         compendiumImage.Add("Asmodai", allSprites[21]);
         compendiumText.Add("Asmodai",
             "Asmodai and King Solomon had many misadventures. Asmodai once traded places with King Solomon when they threw Solomon 400 leagues away from Jerusalem. " +
-            "When Solomon finally walked back, Asmodai interacted with the locals, played with some bricks, was questioned, and then fled." +
-            "\n\nThis depiction is from the 1863 edition of Dictionnaire Infernal");
+            "When Solomon finally walked back, Asmodai interacted with the locals, played with some bricks, was questioned, and then fled. " +
+            "\n\nThis depiction is from the 1863 edition of Dictionnaire Infernal ");
 
         compendiumImage.Add("Golem", allSprites[22]);
         compendiumText.Add("Golem",
             "A clay man created brought to life through writing emet, meaning truth, into it's forehead. " +
             "It can subsequently be killed by removing the aleph in emet, turning the word into met, meaning dead. " +
-            "\nMy last name, Leiman, is the spanish version of Leymman, which translates from Yiddish into clay man. Don't go around erasing my forehead now" +
+            "\nMy last name, Leiman, is the spanish version of Leymman, which translates from Yiddish into clay man. Don't go around erasing my forehead now. " +
             "\n\nDepicted: Hebrew transcription of emet");
 
         compendiumImage.Add("Dybbuk", allSprites[23]);
         compendiumText.Add("Dybbuk",
             "Possesion spirits that make the men they posses fall in love with women and sometimes men. The cure for one is to talk to a Rabbi, which, I dunno, kinda feels " +
-            "like it's the one Jewish joke we always tell. Like the Rabbi will talk so much that the Dybbuk will not want to stay. Don't get me wrong, I love the joke and think it's kinda perfect");
+            "like it's the one Jewish joke we always tell. Like the Rabbi will talk so much that the Dybbuk will not want to stay. Don't get me wrong, I love the joke and think it's kinda perfect ");
 
         compendiumImage.Add("Purim", allSprites[24]);
         compendiumText.Add("Purim",
@@ -238,7 +239,7 @@ public class Compendium : MonoBehaviour
             "Mordecai had early bested an reigcide attempt, and the king throws him a banquet. Esther, a candidate for future queen and " +
             "Mordecai's niece, reveals she's Jewish and Haman wants to kill her people, so the king calls off the genicide Haman scheduled and kills Haman. " +
             "After that, they threw a huge feast and party which is why this holiday is known for it's festive drinking. Apparently they also then killed 75,000 enemies of the Jews, " +
-            "which I guess they left out of my Hebrew school play." +
+            "which I guess they left out of my Hebrew school play. " +
             "\n\nDepicted:Esther Megillah from the Minneapolis Institute of Arts");
 
         compendiumImage.Add("Medically Brunette", allSprites[25]);
@@ -249,7 +250,7 @@ public class Compendium : MonoBehaviour
 
         compendiumImage.Add("Groger", allSprites[26]);
         compendiumText.Add("Groger",
-            "A jewish toy that makes a grating sound. Children would arm these during Purim reanactment plays and blast noise whenever Haman's name was said" +
+            "A jewish toy that makes a grating sound. Children would arm these during Purim reanactment plays and blast noise whenever Haman's name was said " +
             "\n\nDepicted: 20th Century Groger from the Minneapolis Institute of Arts");
 
         compendiumImage.Add("New Nyce", allSprites[27]);
@@ -261,7 +262,7 @@ public class Compendium : MonoBehaviour
 
         compendiumImage.Add("Marbles", allSprites[28]);
         compendiumText.Add("Marbles",
-            "I just want to apologize. Modayaal claimed Marbles was the cutest dog ever, but I can assure you that your dog is indeed the cutest of all time, not Marbles.");
+            "I just want to apologize. Modayaal claimed Marbles was the cutest dog ever, but I can assure you that your dog is indeed the cutest of all time, not Marbles. ");
 
         //hides itself to start
         gameObject.SetActive(false);
