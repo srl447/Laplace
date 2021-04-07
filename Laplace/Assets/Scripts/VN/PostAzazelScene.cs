@@ -369,15 +369,18 @@ public class PostAzazelScene : MonoBehaviour
         }
     }
 
+    public GameObject autoArrow;
     public void AutoButton()
     {
         if(auto)
         {
             auto = false;
+            autoArrow.SetActive(false);
         }
         else
         {
             auto = true;
+            autoArrow.SetActive(true);
         }
     }
     void Advance()
