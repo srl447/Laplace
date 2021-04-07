@@ -437,40 +437,69 @@ public class PostFurfurScene : MonoBehaviour
         Sync();
     }
 
-
-    // Update is called once per frame
+    int autoCount = 0;
+    public bool auto = false;
     void Update()
     {
+        if (auto && textC.waitForInput)
+        {
+            if (autoCount > 240)
+            {
+                Advance();
+                autoCount = 0;
+            }
+            autoCount++;
+        }
+
         if (GameManager.Instance.canClick && (Input.GetKeyDown(GameManager.Instance.main) || Input.GetKeyDown(GameManager.Instance.alt)))
         {
             if (!textC.isSpeaking || textC.waitForInput)
             {
-                if (count >= current.textBody.Length)
-                {
-                    if (current.nextScene != null)
-                    {
-                        current = current.nextScene;
-                        GameManager.Instance.progress++;
-                        Sync();
-                    }
-                    else
-                    {
-                        GameManager.Instance.progress = 0;
-                        SceneManager.LoadScene(2); // Koi-Koi scene
-                    }
-                    return;
-                }
-
-                Say(current.textBody[count]);
-                count++;
+                Advance();
             }
             else if (textC.isSpeaking)
             {
                 textC.HurrySpeaking();
             }
         }
-
     }
+
+    public GameObject autoArrow;
+    public void AutoButton()
+    {
+        if (auto)
+        {
+            auto = false;
+            autoArrow.SetActive(false);
+        }
+        else
+        {
+            auto = true;
+            autoArrow.SetActive(true);
+        }
+    }
+    void Advance()
+    {
+        if (count >= current.textBody.Length)
+        {
+            if (current.nextScene != null)
+            {
+                current = current.nextScene;
+                GameManager.Instance.progress++;
+                Sync();
+            }
+            else
+            {
+                GameManager.Instance.progress = 0;
+                SceneManager.LoadScene(2); // KoiKoi Scene
+            }
+            return;
+        }
+
+        Say(current.textBody[count]);
+        count++;
+    }
+
     void Say(string s)
     {
         string[] part = s.Split(':');

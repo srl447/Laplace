@@ -14,6 +14,6 @@ public class AutoArrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rT.localEulerAngles += Vector3.forward;
+        rT.localEulerAngles += Vector3.forward/2;
     }
 }

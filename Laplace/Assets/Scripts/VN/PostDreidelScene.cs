@@ -352,9 +352,9 @@ public class PostDreidelScene : MonoBehaviour
         Sync();
 
     }
+
     int autoCount = 0;
     public bool auto = false;
-
     void Update()
     {
         if (auto && textC.waitForInput)
