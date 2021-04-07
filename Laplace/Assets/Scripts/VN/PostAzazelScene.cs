@@ -23,7 +23,7 @@ public class PostAzazelScene : MonoBehaviour
     int count = 0;
     public Sprite bg, bgBlank, bgFrontDoor, bgHallway1, bgHallway2, bgHallway3,
         furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou, abyzouTsu, abyzouScared,
-        counter, oldFashion, carrotJuice1, carrotJuice2, scaryDoor, modayaalZoom;
+        counter, oldFashion, carrotJuice1, carrotJuice2, scaryDoor, modayaalZoom, azazelFlex;
 
     public AudioClip spitTake, pour;
 
@@ -38,8 +38,6 @@ public class PostAzazelScene : MonoBehaviour
             "Well that was quiet enjoyable!:Azazel",
             "Yeah we play it every day:Furfur",
             "Hey SOMETIMES we play other things:Modayaal",
-            "652 days ago we played Fireball Valley",
-            "Yeah but you only wanted to do it once for the spectacle:Furfur"
         },
         bg, one2);
         one.left = azazelF;
@@ -228,6 +226,7 @@ public class PostAzazelScene : MonoBehaviour
             "It's wild how long it took humanity to figure out such a simple concept:Modayaal"
         },
         bg, eighteen);
+        seventeen.center = azazelFlex;
 
         eighteen.Set(new string[]
         {
@@ -342,38 +341,65 @@ public class PostAzazelScene : MonoBehaviour
         Sync();
     }
 
-    // Update is called once per frame
+    int autoCount = 0;
+    public bool auto = false;
+    
     void Update()
     {
+        if (auto && textC.waitForInput)
+        {
+            if(autoCount > 240)
+            {
+                Advance();
+                autoCount = 0;
+            }
+            autoCount++;
+        }
+
         if (GameManager.Instance.canClick && (Input.GetKeyDown(GameManager.Instance.main) || Input.GetKeyDown(GameManager.Instance.alt)))
         {
             if (!textC.isSpeaking || textC.waitForInput)
             {
-                if (count >= current.textBody.Length)
-                {
-                    if (current.nextScene != null)
-                    {
-                        current = current.nextScene;
-                        GameManager.Instance.progress++;
-                        Sync();
-                    }
-                    else
-                    {
-                        GameManager.Instance.progress = 0;
-                        //TODO: replace with dreidel scene
-                        SceneManager.LoadScene(5); // Dreidel scene
-                    }
-                    return;
-                }
-
-                Say(current.textBody[count]);
-                count++;
+                Advance();
             }
             else if (textC.isSpeaking)
             {
                 textC.HurrySpeaking();
             }
         }
+    }
+
+    public void AutoButton()
+    {
+        if(auto)
+        {
+            auto = false;
+        }
+        else
+        {
+            auto = true;
+        }
+    }
+    void Advance()
+    {
+        if (count >= current.textBody.Length)
+        {
+            if (current.nextScene != null)
+            {
+                current = current.nextScene;
+                GameManager.Instance.progress++;
+                Sync();
+            }
+            else
+            {
+                GameManager.Instance.progress = 0;
+                SceneManager.LoadScene(5); // Dreidel scene
+            }
+            return;
+        }
+
+        Say(current.textBody[count]);
+        count++;
     }
 
     void Say(string s)

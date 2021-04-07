@@ -1262,7 +1262,8 @@ public class Dealer : MonoBehaviour
         }
         else if (GameManager.Instance.opponent == "Abyzou")
         {
-
+            GameManager.Instance.progress = 0; //for some reason the progress goes up so reset it again just to be safe
+            SceneManager.LoadScene(7);
         }
 
     }

@@ -174,7 +174,7 @@ public class PostDreidelScene : MonoBehaviour
             "Aby you know we can't make life:Furfur",
             "don't call me Aby:Abyzou"
         },
-        bg);
+        bg, nine);
         eight.left = abyzou;
         eight.right = furfurH;
 
@@ -217,7 +217,8 @@ public class PostDreidelScene : MonoBehaviour
             "Yeah the objectively cutest dog ever:Modyaaal",
             "Marbles who Granny Lake cared for in 2201",
             "well now what do we do with it it's just trying to eat the air:Furfur"
-        });
+        },
+        bg, twelve);
         eleven.left = azazel;
         eleven.right = furfur;
         eleven.mini = dog1;

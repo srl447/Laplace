@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Hook : MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class Hook : MonoBehaviour
         Vector3 pos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0); //get the x and y value
         pos = Camera.main.ScreenToWorldPoint(pos); //convert them to unity space
         transform.position = new Vector3(transform.position.x, pos.y, -1);
+
+        //return to the main menu
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
 
         if (fishHooked != null)
         {

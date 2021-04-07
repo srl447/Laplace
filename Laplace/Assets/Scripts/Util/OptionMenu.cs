@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OptionMenu : MonoBehaviour
 {
@@ -108,5 +109,10 @@ public class OptionMenu : MonoBehaviour
         float soundLevel = soundSlider.value;
         PlayerPrefs.SetFloat("Sound Volume", soundLevel);
         AudioManager.Instance.sfxVolume = soundLevel;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

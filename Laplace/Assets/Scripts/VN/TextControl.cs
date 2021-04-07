@@ -15,11 +15,6 @@ public class TextControl : MonoBehaviour
         mainText.text = "";
         speakerName.text = "";
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     //Colors for Text
     Color lightBlue = new Color(.693f, 1f, .964f, 1);
