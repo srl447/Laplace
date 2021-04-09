@@ -94,36 +94,37 @@ public class DreidelController : MonoBehaviour
         switch(turn)
         {
             case 0:
-                if(modayaalScore == 0)
+                if(modayaalScore <= 0)
                 {
                     turn++;
                     outCount++;
                 }
                 break;
             case 1:
-                if (abyzouScore == 0)
+                if (abyzouScore <= 0)
                 {
                     turn++;
                     outCount++;
                 }
                 break;
             case 2:
-                if (furfurScore == 0)
+                if (furfurScore <= 0)
                 {
                     turn++;
                     outCount++;
                 }
                 break;
             case 3:
-                if (azazelScore == 0)
+                if (azazelScore <= 0)
                 {
                     turn = 0;
                     outCount++;
                 }
                 break;
         }
-        if(outCount >= 3 || turnCount > 12)
+        if(outCount >= 3 || turnCount > 8)
         {
+            turnHappening = true;
             StartCoroutine(Ending());
         }
 
@@ -311,13 +312,17 @@ public class DreidelController : MonoBehaviour
     //what happens after enough turns or only one person has gelt
     IEnumerator Ending() 
     {
+        turn = 5;
+        StopCoroutine(Spin());
         fade.gameObject.SetActive(true);
         yield return new WaitForEndOfFrame();
         for(int i = 0; i < 5; i++)
         {
             fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Lerp(fade.color.a, 1, .3f));
+            yield return new WaitForEndOfFrame();
         }
         fade.color = Color.black;
+        yield return new WaitForEndOfFrame();
         SceneManager.LoadScene(6); //post dreidel scene
     }
 

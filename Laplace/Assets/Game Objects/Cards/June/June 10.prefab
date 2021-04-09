@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bb9a6697ab74b18428980185b7c9d3e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f23e67ae031843e468e7cb060dc73417, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,8 +98,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suit: 6
   value: 10
+  zone: 0
+  shade: {fileID: 0}
+  deal: {fileID: 0}
   faceUp: 0
-  front: {fileID: 21300000, guid: bb9a6697ab74b18428980185b7c9d3e5, type: 3}
+  selected: 0
+  hover: 0
+  selectedDouble: 0
+  front: {fileID: 21300000, guid: f23e67ae031843e468e7cb060dc73417, type: 3}
   back: {fileID: 21300000, guid: 34bd5dc8718ed7c4faf5039cd45fd9e0, type: 3}
 --- !u!61 &-7384140524046091627
 BoxCollider2D:

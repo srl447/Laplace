@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\VN\AutoArrow.cs" />
     <Compile Include="Assets\Scripts\VN\CantClickZone.cs" />
     <Compile Include="Assets\Scripts\VN\IntroText.cs" />
+    <Compile Include="Assets\Scripts\VN\PostAbyzouScene.cs" />
     <Compile Include="Assets\Scripts\VN\PostAzazelScene.cs" />
     <Compile Include="Assets\Scripts\VN\PostDreidelScene.cs" />
     <Compile Include="Assets\Scripts\VN\PostFurfurScene.cs" />

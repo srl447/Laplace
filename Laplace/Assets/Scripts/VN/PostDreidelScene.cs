@@ -13,11 +13,7 @@ public class PostDreidelScene : MonoBehaviour
         seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(),
         eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene(),
         fifteen = new Scene(), sixteen = new Scene(), seventeen = new Scene(), eighteen = new Scene(),
-        nineteen = new Scene(), twenty = new Scene(), twentyOne = new Scene(), twentyTwo = new Scene(),
-        twentyThree = new Scene(), twentyFour = new Scene(), twentyFive = new Scene(), twentySix = new Scene(),
-        twentySeven = new Scene(), twentyEight = new Scene(), twentyNine = new Scene(), thirty = new Scene(),
-        thirtyOne = new Scene(), thirtyTwo = new Scene(), thirtyThree = new Scene(), thirtyFour = new Scene(),
-        thirtyFive = new Scene(), thirtySix = new Scene(), thirtySeven = new Scene();
+        nineteen = new Scene();
 
     Scene current = new Scene();
     int count = 0;

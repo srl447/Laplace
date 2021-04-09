@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PostDreidelScene.unity
     guid: 76da5dc3b5f61ea4d95339b1b06f893a
   - enabled: 1
+    path: Assets/Scenes/PostAbyzouKoiKoiScene.unity
+    guid: 6332bbe8f9fa10b4eaa8a71de5d7a212
+  - enabled: 1
     path: Assets/Scenes/Fishing.unity
     guid: 1257835cc38263d479ba127da8c8890c
   m_configObjects: {}
