@@ -9,7 +9,7 @@ public class PostAbyzouScene : MonoBehaviour
 
     TextControl textC;
     public Compendium comp;
-    public Scene one = new Scene(), two = new Scene(),
+    public Scene one = new Scene(), two = new Scene(), choice = new Scene(), final1 = new Scene(), final2 = new Scene(),
         three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(),
         seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(),
         eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene(),
@@ -22,12 +22,18 @@ public class PostAbyzouScene : MonoBehaviour
 
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg,
+    public Sprite bg, bg2,
         furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, azazelFlex, abyzou, abyzouTsu;
+
+    public Button choice1, choice2;
 
 
     void Start()
     {
+        //hook up buttons
+        choice1.onClick.AddListener(Choice1);
+        choice2.onClick.AddListener(Choice2);
+
         //Note: Put speaker name at the beginning of each scene so there's a speaker name when loading
 
         one.Set(new string[] 
@@ -41,13 +47,81 @@ public class PostAbyzouScene : MonoBehaviour
 
         two.Set(new string[]
         {
-            "He makes me play every day:Furfur",
-            "that's cause you come over for no reason every day:Modayaal"
+            "They makes me play every day:Furfur",
+            "that's cause you come over for no reason every day:Modayaal",
+            "but... ",
+            "okay::A"
         },
-        bg);
+        bg, three);
         two.left = abyzou;
         two.right = furfurH;
 
+        three.Set(new string[]
+        {
+            "So where does our adventure take us next:Azazel",
+            "I think :Modayaal",
+            "I'm done for today::A",
+            "this has been like :Furfur",
+            "ten times more shit than usual",
+            "Ahh :Azazel",
+            "I understand::A",
+            "I do have an idea tho:Modayaal"
+        },
+        bg, four);
+        three.left = azazelF;
+        three.right = furfur;
+
+        four.Set(new string[]
+        {
+            "which is?:Abyzou",
+            "I think I need to take some time alone:Modayaal",
+            "to think on things",
+            "so to also test out this puppet thing",
+            "I think I'm gonna go make a lake filled with fish",
+            "and just try fishing",
+            "see what happens",
+            "I'd be happy to see that work, :Azazel",
+            "so maybe another night I could join you.",
+            "Fishing was a favorite passtime of mine back in the forest"
+        },
+        bg, five);
+        four.left = abyzou;
+        four.right = azazel;
+
+        five.Set(new string[]
+        {
+            "So is this goodbye?:Furfur",
+            "I think it is:Modayaal"
+        },
+        bg2, choice);
+        five.center = furfurDis;
+
+        choice.Set(new string[]
+        {
+            "What do I say?:Modayaal::I"
+        },
+        bg2, choice);
+
+        final1.Set(new string[]
+        {
+            "bye I guess:Modayaal::N",
+            "ugh",
+            "hmph",
+            "hmmm",
+            "guess I'm alone now::I"
+        },
+        bg2);
+
+        final2.Set(new string[]
+        {
+            "Can't wait to see you all again:Modayaal::N",
+            "okay",
+            "tomorrow things start anew",
+            "hey huh",
+            "I guess that closet is gone now",
+            "well off I go"
+        },
+        bg2);
 
         textC = TextControl.instance;
         current = one;
@@ -63,7 +137,7 @@ public class PostAbyzouScene : MonoBehaviour
     public bool auto = false;
     void Update()
     {
-        if (auto && textC.waitForInput)
+        if (auto && textC.waitForInput && current != choice)
         {
             if (autoCount > 240)
             {
@@ -73,7 +147,12 @@ public class PostAbyzouScene : MonoBehaviour
             autoCount++;
         }
 
-        if (GameManager.Instance.canClick && (Input.GetKeyDown(GameManager.Instance.main) || Input.GetKeyDown(GameManager.Instance.alt)))
+        if(current == choice)
+        {
+            choice1.gameObject.SetActive(true);
+            choice2.gameObject.SetActive(true);
+        }
+        else if (GameManager.Instance.canClick && (Input.GetKeyDown(GameManager.Instance.main) || Input.GetKeyDown(GameManager.Instance.alt)))
         {
             if (!textC.isSpeaking || textC.waitForInput)
             {
@@ -120,6 +199,22 @@ public class PostAbyzouScene : MonoBehaviour
 
         Say(current.textBody[count]);
         count++;
+    }
+
+    void Choice1()
+    {
+        current = final1;
+        choice1.gameObject.SetActive(false);
+        choice2.gameObject.SetActive(false);
+        Sync();
+    }
+
+    void Choice2()
+    {
+        current = final2;
+        choice1.gameObject.SetActive(false);
+        choice2.gameObject.SetActive(false);
+        Sync();
     }
 
     void Say(string s)
