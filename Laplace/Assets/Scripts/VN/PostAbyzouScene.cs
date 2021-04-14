@@ -17,7 +17,7 @@ public class PostAbyzouScene : MonoBehaviour
     Scene current = new Scene();
     int count = 0;
     public Sprite bg, bg2,
-        furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, azazelFlex, abyzou, abyzouTsu;
+        furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, azazelFlex, abyzou, abyzouTsu, abyzouC;
 
     public Button choice1, choice2;
 
@@ -37,7 +37,7 @@ public class PostAbyzouScene : MonoBehaviour
             "We should definitely play again sometime:Abyzou",
         },
         bg, two);
-        one.center = abyzouTsu;
+        one.center = abyzouC;
 
         two.Set(new string[]
         {

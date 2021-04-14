@@ -3429,6 +3429,7 @@ MonoBehaviour:
   azazelFlex: {fileID: 21300000, guid: 2dcc3cb1374d4c6439b36e50e88fe2c0, type: 3}
   abyzou: {fileID: 21300000, guid: 5a19b85b527966a4fa01dc8d8f7d1d0a, type: 3}
   abyzouTsu: {fileID: 21300000, guid: c99befe29b77be24a8ec1f844469df7d, type: 3}
+  abyzouC: {fileID: 21300000, guid: 48930318055170d45ac5bd895adf9ec5, type: 3}
   choice1: {fileID: 912553434}
   choice2: {fileID: 1893164470}
   auto: 0
