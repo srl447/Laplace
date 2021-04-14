@@ -17,17 +17,17 @@ public class FishSpawner : MonoBehaviour
         if (Random.Range(0, 600) < 1)
         {
             GameObject newFish = Instantiate(fish) as GameObject;
-            newFish.transform.position = new Vector3(fish.transform.position.x, Random.Range(-5, 2), 0);
+            newFish.transform.position = new Vector3(fish.transform.position.x, Random.Range(-5, 2), -1.2f);
         }
         else if (Random.Range(0, 1800) < 1)
         {
             GameObject newFish = Instantiate(badFish) as GameObject;
-            newFish.transform.position = new Vector3(fish.transform.position.x, Random.Range(-5, 2), 0);
+            newFish.transform.position = new Vector3(fish.transform.position.x, Random.Range(-5, 2), -1.2f);
         }
         else if (Random.Range(0, 6000) < 1)
         {
             GameObject newFish = Instantiate(bigFish) as GameObject;
-            newFish.transform.position = new Vector3(fish.transform.position.x, Random.Range(-5, 2), 0);
+            newFish.transform.position = new Vector3(fish.transform.position.x, Random.Range(-5, 2), -1.2f);
         }
     }
 }

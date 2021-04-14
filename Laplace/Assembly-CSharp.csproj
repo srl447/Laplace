@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Compendium\ContentResize.cs" />
     <Compile Include="Assets\Scripts\Dreidel\DreidelController.cs" />
     <Compile Include="Assets\Scripts\Dreidel\SpinImage.cs" />
+    <Compile Include="Assets\Scripts\Fishing\Credits.cs" />
     <Compile Include="Assets\Scripts\Fishing\Fish.cs" />
     <Compile Include="Assets\Scripts\Fishing\FishSpawner.cs" />
     <Compile Include="Assets\Scripts\Fishing\Hook.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\Util\Data.cs" />
     <Compile Include="Assets\Scripts\Util\FadeIn.cs" />
     <Compile Include="Assets\Scripts\Util\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Util\GamesMenu.cs" />
     <Compile Include="Assets\Scripts\Util\MenuStartButton.cs" />
     <Compile Include="Assets\Scripts\Util\OptionMenu.cs" />
     <Compile Include="Assets\Scripts\Util\Quitting.cs" />

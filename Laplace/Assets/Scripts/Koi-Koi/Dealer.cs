@@ -1265,6 +1265,16 @@ public class Dealer : MonoBehaviour
             GameManager.Instance.progress = 0; //for some reason the progress goes up so reset it again just to be safe
             SceneManager.LoadScene(7);
         }
+        else if (GameManager.Instance.opponent == "Onoskelis")
+        {
+            GameManager.Instance.progress = 0;
+            SceneManager.LoadScene(0); //Return to the main menu if accessed through games
+        }
+        else
+        {
+            GameManager.Instance.progress = 0;
+            SceneManager.LoadScene(0); //Return to the main menu if somehow something weird happens?
+        }
 
     }
 

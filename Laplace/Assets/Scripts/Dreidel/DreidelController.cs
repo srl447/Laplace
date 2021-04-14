@@ -323,7 +323,14 @@ public class DreidelController : MonoBehaviour
         }
         fade.color = Color.black;
         yield return new WaitForEndOfFrame();
-        SceneManager.LoadScene(6); //post dreidel scene
+        if (GameManager.Instance.opponent == "Onoskelis")
+        {
+            SceneManager.LoadScene(0); //Return to the main menu if came from games
+        }
+        else
+        {
+            SceneManager.LoadScene(6); //post dreidel scene if the player came from the VN. Their opponent is set to Abyzou
+        }
     }
 
 

@@ -118,7 +118,7 @@ public class PostDreidelScene : MonoBehaviour
             "we just gotta figure out what you wanna do",
             "brainstorm sesh",
             "What about Abyzou?:Azazel",
-            "I mean she and I can hit up the clubs later"
+            "I mean she and I can hit up the clubs later:Furfur"
         },
         bg, five);
         four.left = azazelF;
@@ -126,7 +126,7 @@ public class PostDreidelScene : MonoBehaviour
 
         five.Set(new string[]
         {
-            "and you think I'd want to with you:Abyzou",
+            "and you think I'd want to go with you:Abyzou",
             "owch!:Furfur"
         },
         bg, six);
