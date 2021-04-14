@@ -29,6 +29,7 @@ public class Credits : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("Credits Rolled", 1);
         string[] parts  = credits[0].Split(':');
         title.text = parts[0];
         body.text = parts[1];
@@ -43,7 +44,6 @@ public class Credits : MonoBehaviour
             if (index >= credits.Length - 1)
             {
                 SceneManager.LoadScene(0);
-                PlayerPrefs.SetInt("Credits Rolled", 1);
             }
             else
             {
