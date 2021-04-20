@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Fishing\Hook.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Card.cs" />
     <Compile Include="Assets\Scripts\Koi-Koi\Dealer.cs" />
+    <Compile Include="Assets\Scripts\Util\ButtonToggle.cs" />
     <Compile Include="Assets\Scripts\Util\Cursor.cs" />
     <Compile Include="Assets\Scripts\Util\Data.cs" />
     <Compile Include="Assets\Scripts\Util\FadeIn.cs" />

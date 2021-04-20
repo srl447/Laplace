@@ -7,13 +7,20 @@ public class RulesUI : MonoBehaviour
 {
     public Sprite[] winImages;
     public GameObject left, right;
-    int index = 0;
+    public Text pageNumber;
+    int index = 0, finalIndex;
+
+    private void Start()
+    {
+        finalIndex = winImages.Length - 1;
+        UpdatePage();
+    }
 
     public void LeftButton()
     {
         if(index > 0)
         {
-            if(index >= 3)
+            if(index >= finalIndex)
             {
                 right.SetActive(true);
             }
@@ -24,11 +31,12 @@ public class RulesUI : MonoBehaviour
                 left.SetActive(false);
             }
         }
+        UpdatePage();
     }
 
     public void RightButton()
     {
-        if (index < 3)
+        if (index < finalIndex)
         {
             if (index <= 0)
             {
@@ -36,11 +44,17 @@ public class RulesUI : MonoBehaviour
             }
             index++;
             GetComponent<Image>().sprite = winImages[index];
-            if (index >= 3)
+            if (index >= finalIndex)
             {
                 right.SetActive(false);
             }
         }
+        UpdatePage();
+    }
+
+    public void UpdatePage()
+    {
+        pageNumber.text = "Page " + (index + 1) + "/" + winImages.Length;
     }
 
     public void CanClick()
