@@ -20,7 +20,7 @@ public class Hook : MonoBehaviour
     {
         Vector3 pos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0); //get the x and y value
         pos = Camera.main.ScreenToWorldPoint(pos); //convert them to unity space
-        transform.position = new Vector3(transform.position.x, pos.y, -1);
+        transform.position = new Vector3(transform.position.x, pos.y, -.9f);
 
         //return to the main menu
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -65,8 +65,14 @@ public class Hook : MonoBehaviour
             {
                 Destroy(fishHooked);
             }
+            else
+            {
+                fishHooked = collision.gameObject;
+                fishHooked.transform.eulerAngles += new Vector3(0, 0, 90);
+                fishHooked.GetComponent<Fish>().speed = 0;
+            }
             health--;
-            collision.gameObject.tag = "Untagged";
+            collision.gameObject.tag = "Fish";
         }
         else if (collision.gameObject.tag == "BigFish")
         {
