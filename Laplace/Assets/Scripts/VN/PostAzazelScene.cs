@@ -21,7 +21,7 @@ public class PostAzazelScene : MonoBehaviour
 
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg, bgBlank, bgFrontDoor, bgHallway1, bgHallway2, bgHallway3,
+    public Sprite bg, bgBlank, bgFrontDoor, bgHallway1, bgHallway2, bgHallway3, tess,
         furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou, abyzouTsu, abyzouScared,
         counter, oldFashion, carrotJuice1, carrotJuice2, scaryDoor, modayaalZoom, azazelFlex;
 
@@ -219,6 +219,7 @@ public class PostAzazelScene : MonoBehaviour
         },
         bgBlank, seventeen);
         sixteen.compendiumEntry = "Entropy";
+        sixteen.center = tess;
 
         seventeen.Set(new string[]
         {

@@ -3,7 +3,36 @@ guid: 99748b04df5be7345aca7376caaa2faa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - comp: {instanceID: 0}
+  - bg: {instanceID: 0}
+  - bgBlank: {instanceID: 0}
+  - bgFrontDoor: {instanceID: 0}
+  - bgHallway1: {instanceID: 0}
+  - bgHallway2: {instanceID: 0}
+  - bgHallway3: {instanceID: 0}
+  - tess: {fileID: 21300000, guid: 0e75b001afa469248b9713987e78aa16, type: 3}
+  - furfur: {instanceID: 0}
+  - furfurH: {instanceID: 0}
+  - furfurEww: {instanceID: 0}
+  - furfurDis: {instanceID: 0}
+  - furfurWow: {instanceID: 0}
+  - azazel: {instanceID: 0}
+  - azazelF: {instanceID: 0}
+  - abyzou: {instanceID: 0}
+  - abyzouTsu: {instanceID: 0}
+  - abyzouScared: {instanceID: 0}
+  - counter: {instanceID: 0}
+  - oldFashion: {instanceID: 0}
+  - carrotJuice1: {instanceID: 0}
+  - carrotJuice2: {instanceID: 0}
+  - scaryDoor: {instanceID: 0}
+  - modayaalZoom: {instanceID: 0}
+  - azazelFlex: {instanceID: 0}
+  - spitTake: {instanceID: 0}
+  - pour: {instanceID: 0}
+  - autoArrow: {instanceID: 0}
+  - compAdd: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
