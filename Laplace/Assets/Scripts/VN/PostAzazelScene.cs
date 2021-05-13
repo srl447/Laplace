@@ -25,7 +25,7 @@ public class PostAzazelScene : MonoBehaviour
         furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou, abyzouTsu, abyzouScared,
         counter, oldFashion, carrotJuice1, carrotJuice2, scaryDoor, modayaalZoom, azazelFlex;
 
-    public AudioClip spitTake, pour;
+    public AudioClip spitTake, pour, AzazelISuppose;
 
     void Start()
     {
@@ -42,6 +42,7 @@ public class PostAzazelScene : MonoBehaviour
         bg, one2);
         one.left = azazelF;
         one.right = furfur;
+        one.sound = AzazelISuppose;
 
         one2.Set(new string[]
         {
