@@ -3416,7 +3416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f29fba257058342bb86f62d912a78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comp: {fileID: 0}
+  comp: {fileID: 2101231616}
   bg: {fileID: 21300000, guid: 3c7bc605597dae540bfb15fc8b46cecb, type: 3}
   bg2: {fileID: 21300000, guid: cc834055f1fd17f4382b15b7d43fa452, type: 3}
   furfur: {fileID: 21300000, guid: 0767aa2c858d68b4897b02b47ff872b8, type: 3}
@@ -3432,6 +3432,9 @@ MonoBehaviour:
   abyzouC: {fileID: 21300000, guid: 48930318055170d45ac5bd895adf9ec5, type: 3}
   choice1: {fileID: 912553434}
   choice2: {fileID: 1893164470}
+  abyForIt: {fileID: 8300000, guid: 43eb018031a9cb04faf907264aca162e, type: 3}
+  azOkay: {fileID: 8300000, guid: d9083ccd3f7bc9f4dbf60980163a6842, type: 3}
+  azMissDays: {fileID: 8300000, guid: 7cef74739b7f7174e87a1a1c228aafa2, type: 3}
   auto: 0
   autoArrow: {fileID: 1645466490}
   compAdd: {fileID: 1563115799}
@@ -4057,6 +4060,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2101231613}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2101231616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3512649420747640828, guid: dc138e09e362ae345a9cec994256f04a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2101231613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101231615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0280304a6cf2e2a4f8ccbff7dbb71ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2101231617 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3512649421057329011, guid: dc138e09e362ae345a9cec994256f04a,

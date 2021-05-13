@@ -10,7 +10,7 @@ public class PostAbyzouScene : MonoBehaviour
     TextControl textC;
     public Compendium comp;
     public Scene one = new Scene(), two = new Scene(), choice = new Scene(), final1 = new Scene(), final2 = new Scene(),
-        three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(),
+        three = new Scene(), four = new Scene(), four2 = new Scene(), five = new Scene(), six = new Scene(),
         seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(),
         eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene();
 
@@ -21,6 +21,7 @@ public class PostAbyzouScene : MonoBehaviour
 
     public Button choice1, choice2;
 
+    public AudioClip abyForIt, azOkay, azMissDays;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class PostAbyzouScene : MonoBehaviour
         },
         bg, two);
         one.center = abyzouC;
+        one.sound = abyForIt;
 
         two.Set(new string[]
         {
@@ -64,6 +66,7 @@ public class PostAbyzouScene : MonoBehaviour
         bg, four);
         three.left = azazelF;
         three.right = furfur;
+        three.sound = azOkay;
 
         four.Set(new string[]
         {
@@ -75,12 +78,19 @@ public class PostAbyzouScene : MonoBehaviour
             "and just try fishing",
             "see what happens",
             "I'd be happy to see that work, :Azazel",
-            "so maybe another night I could join you.",
-            "Fishing was a favorite passtime of mine back in the forest"
+            "so maybe another night I could join you."
         },
-        bg, five);
+        bg, four2);
         four.left = abyzou;
         four.right = azazel;
+
+        four2.Set(new string[]
+        {
+            "Fishing was a favorite passtime of mine back in the forest.:Azazel"
+        },
+        bg, five);
+        four2.center = azazelFlex;
+        four2.sound = azMissDays;
 
         five.Set(new string[]
         {

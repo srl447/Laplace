@@ -1202,6 +1202,8 @@ MonoBehaviour:
   koiType: {fileID: 1006750641}
   stopType: {fileID: 533078815}
   typeNoise: {fileID: 8300000, guid: b6f41ed6c73e36d46a1c3d4e2798b686, type: 3}
+  abyKoi: {fileID: 8300000, guid: 352b90884aedefb4dbe433d089f7badb, type: 3}
+  azKoi: {fileID: 8300000, guid: 6a2974dd150efac4f8482c1fd37f4144, type: 3}
   cardNoise:
   - {fileID: 8300000, guid: 8f8d9f58d1651b847af806cc5a0e94a7, type: 3}
   - {fileID: 8300000, guid: 398d60d9a82056344941f0065d4575af, type: 3}

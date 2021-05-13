@@ -34,7 +34,7 @@ public class Dealer : MonoBehaviour
 
     public Text playerScore, computerScore;
     public Image koiType, stopType;
-    public AudioClip typeNoise;
+    public AudioClip typeNoise, abyKoi, azKoi;
 
     public AudioClip[] cardNoise;
     // Start is called before the first frame update
@@ -1099,6 +1099,14 @@ public class Dealer : MonoBehaviour
             yield return new WaitForSecondsRealtime(.3f);
             if(ComputerKoiKoi())
             {
+                if(GameManager.Instance.opponent == "Abyzou")
+                {
+                    AudioManager.Instance.PlayOneShot(abyKoi);
+                }
+                else if(GameManager.Instance.opponent == "Azazel")
+                {
+                    AudioManager.Instance.PlayOneShot(azKoi);
+                }
                 StartCoroutine(TextZoom(turn, true));
             }
             else

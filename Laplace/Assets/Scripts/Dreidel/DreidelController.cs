@@ -122,7 +122,7 @@ public class DreidelController : MonoBehaviour
                 }
                 break;
         }
-        if(outCount >= 3 || turnCount > 8)
+        if(outCount >= 3)
         {
             turnHappening = true;
             StartCoroutine(Ending());
@@ -331,6 +331,11 @@ public class DreidelController : MonoBehaviour
         {
             SceneManager.LoadScene(6); //post dreidel scene if the player came from the VN. Their opponent is set to Abyzou
         }
+    }
+
+    public void EndButton()
+    {
+        StartCoroutine(Ending());
     }
 
 

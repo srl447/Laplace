@@ -10,21 +10,21 @@ public class PostFurfurScene : MonoBehaviour
     public Compendium comp;
     public Scene one = new Scene(), two = new Scene(), three2 = new Scene(),
         three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(), sixteen2 = new Scene(),
-        seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(), 
+        seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(),
         eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene(),
         fifteen = new Scene(), sixteen = new Scene(), seventeen = new Scene(), eighteen = new Scene(),
         nineteen = new Scene(), twenty = new Scene(), twentyone = new Scene(), twentytwo = new Scene(),
         twentyThree = new Scene(), twentyFour = new Scene(), twentyFive = new Scene(), twentySix = new Scene(),
         twentySeven = new Scene(), twentyEight = new Scene(), twentyNine = new Scene(), thirty = new Scene(),
         thirtyOne = new Scene(), thirtyTwo = new Scene(), thirtyThree = new Scene(), thirtyFour = new Scene(),
-        thirtyFive = new Scene(), thirtySix = new Scene(), thirtySeven = new Scene();
+        thirtyFive = new Scene(), thirtyFive2 = new Scene(), thirtySix = new Scene(), thirtySeven = new Scene(), thirtyEight = new Scene();
 
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg, bg2, furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou,
+    public Sprite bg, bg2, furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou, abyzouTsu,
         counter, iceCream1, iceCream2, iceCream3, door;
 
-    public AudioClip knock, pour;
+    public AudioClip knock, pour, abyHmph, azGreetings, abyDreidel, azSuppose;
 
     // Start is called before the first frame update
     void Start()
@@ -362,6 +362,7 @@ public class PostFurfurScene : MonoBehaviour
         bg2, thirtyThree);
         thirtyTwo.center = azazelF;
         thirtyTwo.compendiumEntry = "Azazel";
+        thirtyTwo.sound = azGreetings;
 
         thirtyThree.Set(new string[]
         {
@@ -371,6 +372,7 @@ public class PostFurfurScene : MonoBehaviour
         thirtyThree.left = abyzou;
         thirtyThree.right = azazel;
         thirtyThree.compendiumEntry = "Abyzou";
+        thirtyThree.sound = abyHmph;
 
         thirtyFour.Set(new string[]
         {
@@ -392,11 +394,18 @@ public class PostFurfurScene : MonoBehaviour
             "Maybe I'll take you up on that in a bit:Azazel",
             "well do you want to play Koi-Koi?:Modayaal",
             "Why would I ever want to do that?:Abyzou",
-            "We can play dreidel"
         },
-        bg2, thirtySix);
+        bg2, thirtyFive2);
         thirtyFive.left = abyzou;
         thirtyFive.right = azazel;
+
+        thirtyFive2.Set(new string[]
+        {
+            "We can play dreidel:Abyzou"
+        },
+        bg2, thirtySix);
+        thirtyFive2.center = abyzouTsu;
+        thirtyFive2.sound = abyDreidel;
 
         thirtySix.Set(new string[]
         {
@@ -416,16 +425,24 @@ public class PostFurfurScene : MonoBehaviour
             "Actually :Azazel",
             "I'd like to try Koi-Koi::A",
             "I've never played before",
-            "How do you play?",
+            "How do you play?"       
+        },
+        bg, thirtyEight);
+        thirtySeven.left = azazelF;
+        thirtySeven.right = furfur;
+        thirtySeven.sound = azSuppose;
+
+        thirtyEight.Set(new string[]
+        {
             "It's kinda like a mix of Mah-Jongg and Go Fish:Modayaal",
             "if that makes sense",
             "well I suppose there's no better way to learn than by playing:Azazel",
             "and no better way to start than by starting"
         },
         bg);
-        thirtySeven.compendiumEntry = "Mah-Jongg";
-        thirtySeven.left = azazelF;
-        thirtySeven.right = furfur;
+        thirtyEight.compendiumEntry = "Mah-Jongg";
+        thirtyEight.left = azazelF;
+        thirtyEight.right = furfur;
 
         textC = TextControl.instance;
         current = one;
