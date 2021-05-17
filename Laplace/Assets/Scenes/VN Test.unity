@@ -3079,6 +3079,8 @@ MonoBehaviour:
   knock: {fileID: 8300000, guid: 008078e60647f9c4080146ac5c10ce5c, type: 3}
   pour: {fileID: 8300000, guid: 045276536cd8dd44fa905cec0e9f5253, type: 3}
   spitTake: {fileID: 8300000, guid: 3725ea208eb4db542a91c78be9932c6c, type: 3}
+  modayaalNeedDrink: {fileID: 8300000, guid: 0d8405e20b8f3fd4297e60621aee2c24, type: 3}
+  modayaalBored: {fileID: 8300000, guid: c1491fd3c70ce704d8cbcc27515634eb, type: 3}
   auto: 0
   autoArrow: {fileID: 1496280415}
   compAdd: {fileID: 232675049}

@@ -10,8 +10,8 @@ public class IntroText : MonoBehaviour
     public Compendium comp;
 
     //I'm sorry for this
-    public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(), nine2 = new Scene(), nine3 = new Scene(),
-        third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(), seven2 = new Scene(),
+    public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(), nine2 = new Scene(), nine3 = new Scene(), third2 = new Scene(),
+        third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(), seven2 = new Scene(), third3 = new Scene(),
         fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene(),
         nine = new Scene(), ten = new Scene(), eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(),
         nine4 = new Scene(), fourteen = new Scene(), ten2 = new Scene(), ten3 = new Scene();
@@ -22,7 +22,7 @@ public class IntroText : MonoBehaviour
         furfurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4,
         shotGlass1, shotGlass2, corpseRaiser1, corpseRaiser2;
 
-    public AudioClip knock, pour, spitTake;
+    public AudioClip knock, pour, spitTake, modayaalNeedDrink, modayaalBored;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +43,7 @@ public class IntroText : MonoBehaviour
             "I need my morning ethanol:Modayaal::N",
             "I can make it:::I"
         };
+        Intro2.sound = modayaalNeedDrink;
         Second.textBody = new string[]
         {
             "Why does it always make confetti?:Modayaal::N",
@@ -69,22 +70,35 @@ public class IntroText : MonoBehaviour
             "It's been five seconds, and today is already just as horrible as the last.:Modayaal::N",
             "I know I didn't do anything different, but why should I?",
             "Nothing will change",
-            ". It'll still be fucking boring::A",
+            
+        }, 
+        bg2, third2);
+
+        third2.Set(new string[]
+        {
+            ". It'll still be fucking boring:Modayaal:A",
             "Why did I ask to know everything?",
             "Why did I put this on myself?",
             "I'd think knowing everything that ever have and will happen down to the exact quark",
             "would provide some sort of universal enlightenment and give purpose to my life.",
             "How could I not see how wrong that was? ",
             "How could I be so ignorant?::A",
-            "How could I think trapping everyone in Gehinnom was worth anything?",
+
+        },
+        bg2, third3);
+        third2.sound = modayaalBored;
+
+        third3.Set(new string[]
+        {
+            "How could I think trapping everyone in Gehinnom was worth anything?:Modayaal",
             "STOP! :::I",
             "Stop. ::A",
             "stop stop stop::A",
             "That's enough brain.",
             "We do this every morning, and I need to stop it."
-        }, 
+        },
         bg2, fourth);
-        third.compendiumEntry = "Gehinomm";
+        third3.compendiumEntry = "Gehinomm";
 
         fourth.Set(new string[]
         {
