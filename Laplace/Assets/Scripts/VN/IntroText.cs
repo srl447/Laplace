@@ -12,17 +12,18 @@ public class IntroText : MonoBehaviour
     //I'm sorry for this
     public Scene Intro = new Scene(), Intro2 = new Scene(), Second = new Scene(), nine2 = new Scene(), nine3 = new Scene(), third2 = new Scene(),
         third = new Scene(), fourth = new Scene(), fifth = new Scene(), sixth = new Scene(), seven2 = new Scene(), third3 = new Scene(),
-        fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene(),
+        fourth2 = new Scene(), fourth3 = new Scene(), fourth4 = new Scene(), seven = new Scene(), eight = new Scene(), sixth2 = new Scene(),
         nine = new Scene(), ten = new Scene(), eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(),
-        nine4 = new Scene(), fourteen = new Scene(), ten2 = new Scene(), ten3 = new Scene();
+        nine4 = new Scene(), fourteen = new Scene(), ten2 = new Scene(), ten3 = new Scene(), ten02 = new Scene();
 
     Scene current = new Scene();
     int count = 0;
     public Sprite bg, bg2, bg3, handSmall, handSmall2, furfur, furfurEww, furfurWow,
-        furfurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4,
+        furfurH, doorSmall1, doorSmall2, doorSmall3, doorSmall4, furfurDis,
         shotGlass1, shotGlass2, corpseRaiser1, corpseRaiser2;
 
-    public AudioClip knock, pour, spitTake, modayaalNeedDrink, modayaalBored;
+    public AudioClip knock, pour, spitTake, modayaalNeedDrink, modayaalBored, modayaalAaa, modayaalFuck, modayaalWhy,
+        furfurHey, furfurLove, furfurHitMe, furfurAlright;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class IntroText : MonoBehaviour
             "The same as it does every morning.::A",
 
         };
+        Intro.sound = modayaalAaa;
         Intro2.textBody = new string[]
         {
             "I need my morning ethanol:Modayaal::N",
@@ -134,6 +136,7 @@ public class IntroText : MonoBehaviour
         },
         bg2, fifth);
         fourth4.mini = doorSmall4;
+        fourth4.sound = modayaalWhy;
 
         fifth.Set(new string[]
         {
@@ -144,27 +147,36 @@ public class IntroText : MonoBehaviour
         bg2, sixth);
         fifth.center = furfur;
         fifth.compendiumEntry = "Furfur";
+        fifth.sound = furfurHey;
 
         sixth.Set(new string[]
         {
             "And that's cause I love you so much:Furfur",
             "yeah loves bugging me:Modayaal::I",
         },
-        bg2, seven);
+        bg2, sixth2);
         sixth.center = furfurH;
+        sixth.sound = furfurLove;
 
-        seven.Set(new string[]
+        sixth2.Set(new string[]
         {
             "What was that?:Furfur::N",
             "I didn't even say anything!!!:Modayaal",
             "Anyways, you good bud?: Furfur",
             "????:Modayal",
             "fair:Furfur",
-            " fair::A",
+            " fair::A"
+        },
+        bg2, seven);
+        sixth2.center = furfur;
+
+        seven.Set(new string[]
+        {
             "You want a drink?:Modayaal"
         },
         bg2, seven2);
-        seven.center = furfur;
+        seven.center = furfurDis;
+        seven.sound = modayaalNeedDrink;
 
         seven2.Set(new string[]
         {
@@ -177,6 +189,7 @@ public class IntroText : MonoBehaviour
         bg2, eight);
         seven2.center = furfurH;
         seven2.compendiumEntry = "Blom Blamilton";
+        seven2.sound = furfurHitMe;
         
         //TODO: Split this up and create art assests as needed
         eight.Set(new string[]
@@ -207,6 +220,7 @@ public class IntroText : MonoBehaviour
         },
         bg2, nine3);
         nine2.center = furfur;
+        nine2.sound = furfurHitMe;
 
         nine3.Set(new string[]
         {
@@ -228,6 +242,7 @@ public class IntroText : MonoBehaviour
         bg2, ten);
         nine4.center = furfurH;
         nine4.compendiumEntry = "Bael";
+        nine4.sound = furfurAlright;
 
         ten.Set(new string[]
         {
@@ -249,6 +264,12 @@ public class IntroText : MonoBehaviour
         bg2, ten2);
         ten.center = furfur;
         ten.compendiumEntry = "The Quick and the Curious";
+        ten.sound = modayaalBored;
+
+        ten02.Set(new string[]
+        {
+
+        });
 
         ten2.Set(new string[]
         {

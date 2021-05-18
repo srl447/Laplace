@@ -18,7 +18,7 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlayOneShot(AudioClip clipToPlay)
     {
-        audioSource.PlayOneShot(clipToPlay,sfxVolume);
+        audioSource.PlayOneShot(clipToPlay,sfxVolume*2f);
     }
 
     public void ChangeBGM(AudioClip newBGM)

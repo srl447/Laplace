@@ -3072,6 +3072,7 @@ MonoBehaviour:
   doorSmall2: {fileID: 21300000, guid: 2448939f721a07344bc4105901831f91, type: 3}
   doorSmall3: {fileID: 21300000, guid: e7648b0b8d4f2d747a3ee823e62e36aa, type: 3}
   doorSmall4: {fileID: 21300000, guid: ef7cadbb4f5784d43b0bb0c237664a2e, type: 3}
+  furfurDis: {fileID: 21300000, guid: 5726b1660e95bbe489ec27237c380f65, type: 3}
   shotGlass1: {fileID: 21300000, guid: b59cf51e10e1c7d45ba0ad8e4420fe35, type: 3}
   shotGlass2: {fileID: 21300000, guid: 7c96d658052796b45ba143bea63d58d2, type: 3}
   corpseRaiser1: {fileID: 21300000, guid: 3fedbcb27f29a2f4ab35b39605dcabdd, type: 3}
@@ -3081,6 +3082,12 @@ MonoBehaviour:
   spitTake: {fileID: 8300000, guid: 3725ea208eb4db542a91c78be9932c6c, type: 3}
   modayaalNeedDrink: {fileID: 8300000, guid: 0d8405e20b8f3fd4297e60621aee2c24, type: 3}
   modayaalBored: {fileID: 8300000, guid: c1491fd3c70ce704d8cbcc27515634eb, type: 3}
+  modayaalAaa: {fileID: 8300000, guid: 106a2965d9bc1884e9dcf55b1bd38ff6, type: 3}
+  modayaalFuck: {fileID: 8300000, guid: a4322071ab5cb974fb2dc070eb6f9553, type: 3}
+  modayaalWhy: {fileID: 8300000, guid: d04c85cd1fba14b4687fd4969690f385, type: 3}
+  furfurHey: {fileID: 8300000, guid: 2d7d7af899f19a943988ec8639fe1941, type: 3}
+  furfurLove: {fileID: 8300000, guid: a9a89accf4f2844418e8edc3bf78a305, type: 3}
+  furfurHitMe: {fileID: 8300000, guid: 59158bc1c8c229e4da49d7a4a4bd4f12, type: 3}
   auto: 0
   autoArrow: {fileID: 1496280415}
   compAdd: {fileID: 232675049}

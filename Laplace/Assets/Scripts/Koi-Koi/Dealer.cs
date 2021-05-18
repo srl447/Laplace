@@ -34,7 +34,7 @@ public class Dealer : MonoBehaviour
 
     public Text playerScore, computerScore;
     public Image koiType, stopType;
-    public AudioClip typeNoise, abyKoi, azKoi;
+    public AudioClip typeNoise, abyKoi, azKoi, modayaalKoi, furfurKoi;
 
     public AudioClip[] cardNoise;
     // Start is called before the first frame update
@@ -1107,6 +1107,10 @@ public class Dealer : MonoBehaviour
                 {
                     AudioManager.Instance.PlayOneShot(azKoi);
                 }
+                else if(GameManager.Instance.opponent == "Furfur")
+                {
+                    AudioManager.Instance.PlayOneShot(furfurKoi);
+                }
                 StartCoroutine(TextZoom(turn, true));
             }
             else
@@ -1122,6 +1126,7 @@ public class Dealer : MonoBehaviour
     public void KoiClick()
     {
         StartCoroutine(TextZoom(turn, true));
+        AudioManager.Instance.PlayOneShot(modayaalKoi);
     }
     //What happens when someone koikois
     IEnumerator TextZoom(int pTurn, bool toKoi)
