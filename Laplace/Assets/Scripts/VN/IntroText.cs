@@ -23,7 +23,7 @@ public class IntroText : MonoBehaviour
         shotGlass1, shotGlass2, corpseRaiser1, corpseRaiser2;
 
     public AudioClip knock, pour, spitTake, modayaalNeedDrink, modayaalBored, modayaalAaa, modayaalFuck, modayaalWhy,
-        furfurHey, furfurLove, furfurHitMe, furfurAlright;
+        furfurHey, furfurLove, furfurHitMe, furfurAlright, furfurSaidThat;
 
     // Start is called before the first frame update
     void Start()
@@ -252,6 +252,15 @@ public class IntroText : MonoBehaviour
             "fuck Furfur:Modayaal",
             "they hate being trapped here... ",
             "WHY would you bring them here::A",
+            
+        },
+        bg2, ten02);
+        ten.center = furfur;
+        ten.compendiumEntry = "The Quick and the Curious";
+        ten.sound = modayaalBored;
+
+        ten02.Set(new string[]
+        {
             "That's EXACTLY why!:Furfur",
             "it's something shared to bond over",
             "UGHHGHGHG:Modayaal",
@@ -262,14 +271,8 @@ public class IntroText : MonoBehaviour
             "I'm going to go make a Corpse Reviver:Modayaal",
         },
         bg2, ten2);
-        ten.center = furfur;
-        ten.compendiumEntry = "The Quick and the Curious";
-        ten.sound = modayaalBored;
-
-        ten02.Set(new string[]
-        {
-
-        });
+        ten02.center = furfurH;
+        ten02.sound = furfurSaidThat;
 
         ten2.Set(new string[]
         {

@@ -3088,6 +3088,8 @@ MonoBehaviour:
   furfurHey: {fileID: 8300000, guid: 2d7d7af899f19a943988ec8639fe1941, type: 3}
   furfurLove: {fileID: 8300000, guid: a9a89accf4f2844418e8edc3bf78a305, type: 3}
   furfurHitMe: {fileID: 8300000, guid: 59158bc1c8c229e4da49d7a4a4bd4f12, type: 3}
+  furfurAlright: {fileID: 8300000, guid: 410dfc531b2104d498cd93fa755e0d60, type: 3}
+  furfurSaidThat: {fileID: 8300000, guid: 7573bc635ceecd04684cb743d4ea056a, type: 3}
   auto: 0
   autoArrow: {fileID: 1496280415}
   compAdd: {fileID: 232675049}
