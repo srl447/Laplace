@@ -3042,9 +3042,18 @@ MonoBehaviour:
   knock: {fileID: 8300000, guid: 008078e60647f9c4080146ac5c10ce5c, type: 3}
   pour: {fileID: 8300000, guid: 045276536cd8dd44fa905cec0e9f5253, type: 3}
   abyHmph: {fileID: 8300000, guid: 722c248cbbaa4af4fb6a57f2663cca7c, type: 3}
-  azGreetings: {fileID: 0}
+  azGreetings: {fileID: 8300000, guid: 9d3f5e86acc6e90459c03003b27753c3, type: 3}
   abyDreidel: {fileID: 8300000, guid: 94918808c39945e41b6f973eabedfe71, type: 3}
-  azSuppose: {fileID: 0}
+  azSuppose: {fileID: 8300000, guid: 7ff06833548c2374b9ef13babe760f81, type: 3}
+  furJoke: {fileID: 8300000, guid: 5d5c444c09ddb954db1db54b226b58b1, type: 3}
+  furHey: {fileID: 8300000, guid: 53a4868902df97e42bd6fa8e47db39f4, type: 3}
+  furNice: {fileID: 8300000, guid: 760753a0c59b5d5419fb08f118516c03, type: 3}
+  modEverything: {fileID: 8300000, guid: 49118474703bb384bac45311e12aa12c, type: 3}
+  modDrink: {fileID: 8300000, guid: 38cd04a038df3434aa917f5b49319eb4, type: 3}
+  furFire: {fileID: 8300000, guid: df810a7d7dd1a59428cb375b2a7047e1, type: 3}
+  modBored: {fileID: 8300000, guid: 1465c4ae14ecda44a91fa6f5f1b05b78, type: 3}
+  furfurBest: {fileID: 8300000, guid: b59d72d5af78efd48b590a64af42865b, type: 3}
+  furBelieve: {fileID: 8300000, guid: 9887e5dae30587647bcfcbdf11f6be99, type: 3}
   auto: 0
   autoArrow: {fileID: 1165042175}
   compAdd: {fileID: 1563115799}

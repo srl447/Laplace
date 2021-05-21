@@ -10,7 +10,7 @@ public class PostFurfurScene : MonoBehaviour
     public Compendium comp;
     public Scene one = new Scene(), two = new Scene(), three2 = new Scene(),
         three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(), sixteen2 = new Scene(),
-        seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(),
+        seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(), ten2 = new Scene(),
         eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene(),
         fifteen = new Scene(), sixteen = new Scene(), seventeen = new Scene(), eighteen = new Scene(),
         nineteen = new Scene(), twenty = new Scene(), twentyone = new Scene(), twentytwo = new Scene(),
@@ -24,7 +24,8 @@ public class PostFurfurScene : MonoBehaviour
     public Sprite bg, bg2, furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou, abyzouTsu,
         counter, iceCream1, iceCream2, iceCream3, door;
 
-    public AudioClip knock, pour, abyHmph, azGreetings, abyDreidel, azSuppose;
+    public AudioClip knock, pour, abyHmph, azGreetings, abyDreidel, azSuppose, furJoke, furHey, furNice, 
+        modEverything, modDrink, furFire, modBored, furfurBest, furBelieve;
 
     // Start is called before the first frame update
     void Start()
@@ -36,14 +37,15 @@ public class PostFurfurScene : MonoBehaviour
         one.Set(new string[]
         {
             "Hey ya know?:Furfur",
-            "Why do you always get to go first?"
+            "Why do you always get to go first?",
+            "Why do you come over every day?:Modayaal"
         },
         bg, two);
         one.center = furfurH;
+        one.sound = furHey;
 
         two.Set(new string[]
         {
-            "Why do you come over every day?:Modayaal",
             "You know the reasonn:Furfur",
             ";)",
             "Hey! :Furfur",
@@ -54,28 +56,31 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg, three);
         two.center = furfur;
+        two.sound = furNice;
+
 
         three.Set(new string[]
         {
             "Amon can't send his condolences:Furfur",
             "I have access to infinite knowledge of the universe, :Modayaal",
-
         },
         bg, three2);
         three.center = furfurH;
         three.compendiumEntry = "Amon";
+        three.sound = furJoke;
 
         three2.Set(new string[]
         {
-            "and even I can't comprehend how that's a joke:Modayaal:A"
+            "and even I can't comprehend how that's a joke:Modayaal:A",
+            "Maybe you should drink less:Furfur"
         },
         bg, four);
         three2.center = furfurWow;
         three2.compendiumEntry = "Furfur's Joke";
+        three2.sound = modEverything;
 
         four.Set(new string[]
         {
-            "Maybe you should drink less:Furfur",
             "Maybe I should drink more:Modayaal",
             "Where do you fall on the vote tomorrow?:Furfur",
             "shaddupp:Modayaal",
@@ -88,6 +93,7 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg, five);
         four.center = furfur;
+        four.sound = modDrink;
 
         five.Set(new string[]
         {
@@ -97,6 +103,7 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg, six);
         five.center = furfurH;
+        five.sound = furFire;
 
         six.Set(new string[]
         {
@@ -117,6 +124,7 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg, eight);
         seven.center = furfurDis;
+        seven.sound = modBored;
 
         eight.Set(new string[]
         {
@@ -147,14 +155,21 @@ public class PostFurfurScene : MonoBehaviour
             "I don't do them anymore::A",
             "that doesn't make it okay",
             ", but it's all I can do really::A",
-            "I can't just change the past to not have murder people or zapped some babies",
+            "I can't just change the past to not have murder people or zapped some babies"
+        },
+        bg, ten2);
+        ten.center = furfurDis;
+
+        ten2.Set(new string[]
+        {
             "I just do my best to do good as I can now",
             "Just hanging out and helping around Gehinomm",
             "I think makes me",
             ", at least::A"
         },
         bg, eleven);
-        ten.center = furfurDis;
+        ten2.center = furfurDis;
+        ten2.sound = furfurBest;
 
         eleven.Set(new string[]
         {
@@ -323,6 +338,7 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg, twentyEight);
         twentySeven.center = furfurH;
+        twentySeven.sound = furBelieve;
 
         twentyEight.Set(new string[]
         {
