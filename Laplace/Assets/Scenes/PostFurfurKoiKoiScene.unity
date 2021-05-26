@@ -3054,6 +3054,9 @@ MonoBehaviour:
   modBored: {fileID: 8300000, guid: 1465c4ae14ecda44a91fa6f5f1b05b78, type: 3}
   furfurBest: {fileID: 8300000, guid: b59d72d5af78efd48b590a64af42865b, type: 3}
   furBelieve: {fileID: 8300000, guid: 9887e5dae30587647bcfcbdf11f6be99, type: 3}
+  furYeah: {fileID: 8300000, guid: 575b3db73dbb899429194ded4016f388, type: 3}
+  furInsulted: {fileID: 8300000, guid: 70bb4936e5a068d4b8a11b8a231be571, type: 3}
+  modFine: {fileID: 8300000, guid: 14d2c1653f2de274f875c2341d6a3528, type: 3}
   auto: 0
   autoArrow: {fileID: 1165042175}
   compAdd: {fileID: 1563115799}

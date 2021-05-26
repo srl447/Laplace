@@ -25,7 +25,7 @@ public class PostFurfurScene : MonoBehaviour
         counter, iceCream1, iceCream2, iceCream3, door;
 
     public AudioClip knock, pour, abyHmph, azGreetings, abyDreidel, azSuppose, furJoke, furHey, furNice, 
-        modEverything, modDrink, furFire, modBored, furfurBest, furBelieve;
+        modEverything, modDrink, furFire, modBored, furfurBest, furBelieve, furYeah, furInsulted, modFine;
 
     // Start is called before the first frame update
     void Start()
@@ -216,6 +216,7 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg, sixteen);
         fifteen.center = furfur;
+        fifteen.sound = modFine;
 
         sixteen.Set(new string[]
         {
@@ -223,6 +224,7 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg, sixteen2);
         sixteen.center = furfurWow;
+        sixteen.sound = furInsulted;
 
         sixteen2.Set(new string[]
         {
@@ -280,6 +282,7 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg, twentytwo);
         twentyone.center = furfur;
+        twentyone.sound = modEverything;
 
         twentytwo.Set(new string[]
         {
@@ -355,6 +358,7 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg, thirty);
         twentyNine.center = furfurH;
+        twentyNine.sound = furYeah;
 
         thirty.Set(new string[]
         {
