@@ -2910,6 +2910,18 @@ MonoBehaviour:
   spitTake: {fileID: 8300000, guid: 3725ea208eb4db542a91c78be9932c6c, type: 3}
   pour: {fileID: 8300000, guid: 045276536cd8dd44fa905cec0e9f5253, type: 3}
   AzazelISuppose: {fileID: 8300000, guid: 7ff06833548c2374b9ef13babe760f81, type: 3}
+  abyDreidel: {fileID: 8300000, guid: 94918808c39945e41b6f973eabedfe71, type: 3}
+  furLife: {fileID: 8300000, guid: 982766bd32d34104ca21cf3281021dce, type: 3}
+  abyHmph: {fileID: 8300000, guid: e316dd39aab4205498b7fac71e3a4f31, type: 3}
+  furBelieve: {fileID: 8300000, guid: 9887e5dae30587647bcfcbdf11f6be99, type: 3}
+  azNice: {fileID: 8300000, guid: 6f7954b742c00074ea7dab67abef843b, type: 3}
+  modSigh: {fileID: 8300000, guid: 94f65e956459e6b4c9abf95f651c49bd, type: 3}
+  modReally: {fileID: 8300000, guid: d97783bca61d0474d8f432293b29a8b1, type: 3}
+  azWhatThis: {fileID: 8300000, guid: c0383287415003344aaf6290e5959520, type: 3}
+  modKillingMe: {fileID: 8300000, guid: 34efc55ba6385fa4eaa79afbba7a3e2c, type: 3}
+  modWhatDoYouWant: {fileID: 8300000, guid: db5afd9fb0aebd84b86bbd0237b4decb, type: 3}
+  modUnderstandAnything: {fileID: 8300000, guid: ebb680f5d326b834296e6f8fc869752b,
+    type: 3}
   auto: 0
   autoArrow: {fileID: 521749932}
   compAdd: {fileID: 1563115799}

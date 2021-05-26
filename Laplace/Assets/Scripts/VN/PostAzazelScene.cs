@@ -25,7 +25,8 @@ public class PostAzazelScene : MonoBehaviour
         furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou, abyzouTsu, abyzouScared,
         counter, oldFashion, carrotJuice1, carrotJuice2, scaryDoor, modayaalZoom, azazelFlex;
 
-    public AudioClip spitTake, pour, AzazelISuppose;
+    public AudioClip spitTake, pour, AzazelISuppose, abyDreidel, furLife, abyHmph, furBelieve,  azNice, modSigh, modReally, azWhatThis, 
+        modKillingMe, modWhatDoYouWant, modUnderstandAnything, furHey, abyShutUp;
 
     void Start()
     {
@@ -63,6 +64,7 @@ public class PostAzazelScene : MonoBehaviour
         bg, three);
         two.left = abyzou;
         two.right = furfur;
+        two.sound = abyDreidel;
 
         three.Set(new string[]
         {
@@ -73,6 +75,8 @@ public class PostAzazelScene : MonoBehaviour
         },
         bg, four);
         three.center = furfurH;
+        three.sound = furLife;
+
 
         four.Set(new string[]
         {
@@ -86,6 +90,7 @@ public class PostAzazelScene : MonoBehaviour
         bg, five);
         four.center = abyzouTsu;
         four.compendiumEntry = "Dreidel";
+        four.sound = abyDreidel;
 
         five.Set(new string[]
         {
@@ -99,6 +104,7 @@ public class PostAzazelScene : MonoBehaviour
         },
         bg, six);
         five.center = abyzou;
+        five.sound = abyHmph;
 
         six.Set(new string[]
         {
@@ -108,6 +114,7 @@ public class PostAzazelScene : MonoBehaviour
         },
         bg, seven);
         six.center = furfur;
+        six.sound = furBelieve;
 
         seven.Set(new string[]
         {
@@ -121,6 +128,7 @@ public class PostAzazelScene : MonoBehaviour
         bg, eight);
         seven.left = azazelF;
         seven.right = furfurH;
+        seven.sound = azNice;
 
         eight.Set(new string[]
         {
@@ -128,6 +136,7 @@ public class PostAzazelScene : MonoBehaviour
         },
         bg, nine);
         eight.mini = counter;
+        eight.sound = modSigh;
 
         nine.Set(new string[]
         {
@@ -154,6 +163,7 @@ public class PostAzazelScene : MonoBehaviour
         },
         bg, twelve);
         eleven.mini = carrotJuice2;
+        eleven.sound = modReally;
 
         twelve.Set(new string[]
         {
@@ -210,6 +220,7 @@ public class PostAzazelScene : MonoBehaviour
         },
         bg, sixteen);
         fifteen.center = azazel;
+        fifteen.sound = azWhatThis;
 
         sixteen.Set(new string[]
         {
@@ -253,6 +264,7 @@ public class PostAzazelScene : MonoBehaviour
             "Okay let's see:Modayaal"
         },
         bgFrontDoor, twenty);
+        nineteen.sound = modKillingMe;
 
         twenty.Set(new string[]
         {
@@ -299,6 +311,7 @@ public class PostAzazelScene : MonoBehaviour
         bgHallway3, twentyFive);
         twentyFour.center = abyzouScared;
         twentyFour.compendiumEntry = "Tzaraath";
+        twentyFour.sound = modWhatDoYouWant;
 
         twentyFive.Set(new string[]
         {
@@ -309,6 +322,7 @@ public class PostAzazelScene : MonoBehaviour
         },
         bgFrontDoor);
         twentyFive.center = abyzouTsu;
+        twentyFive.sound = modUnderstandAnything;
 
         twentySix.Set(new string[]
         {
@@ -320,6 +334,7 @@ public class PostAzazelScene : MonoBehaviour
         twentySix.left = azazelF;
         twentySix.right = furfurH;
         twentySix.compendiumEntry = "Forneus";
+        twentySix.sound = furHey;
 
         twentySeven.Set(new string[]
         {
@@ -331,6 +346,7 @@ public class PostAzazelScene : MonoBehaviour
         bg);
         twentySeven.left = abyzou;
         twentySeven.right = furfur;
+        twentySeven.sound = abyShutUp;
 
 
         textC = TextControl.instance;
