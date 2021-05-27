@@ -2922,6 +2922,8 @@ MonoBehaviour:
   modWhatDoYouWant: {fileID: 8300000, guid: db5afd9fb0aebd84b86bbd0237b4decb, type: 3}
   modUnderstandAnything: {fileID: 8300000, guid: ebb680f5d326b834296e6f8fc869752b,
     type: 3}
+  furHey: {fileID: 8300000, guid: 2d7d7af899f19a943988ec8639fe1941, type: 3}
+  abyShutUp: {fileID: 8300000, guid: 63772911118f24d43b947ee5a49ae3cc, type: 3}
   auto: 0
   autoArrow: {fileID: 521749932}
   compAdd: {fileID: 1563115799}

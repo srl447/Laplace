@@ -8,11 +8,11 @@ public class PostDreidelScene : MonoBehaviour
 {
     TextControl textC;
     public Compendium comp;
-    public Scene one = new Scene(), two = new Scene(), one2 = new Scene(),
+    public Scene one = new Scene(), two = new Scene(), one2 = new Scene(), one02 = new Scene(),
         three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(),
         seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(),
         eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene(),
-        fifteen = new Scene(), sixteen = new Scene(), seventeen = new Scene(), eighteen = new Scene(),
+        fifteen = new Scene(), sixteen = new Scene(), seventeen = new Scene(), eighteen = new Scene(), eighteen2 = new Scene(),
         nineteen = new Scene();
 
     Scene current = new Scene();
@@ -20,7 +20,8 @@ public class PostDreidelScene : MonoBehaviour
     public Sprite bg, dog1, dog2, dog3,
         furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, azazelFlex, abyzou, abyzouTsu;
 
-    public AudioClip spitTake, pour;
+    public AudioClip spitTake, furFuck, azOkay, azBelieve, furDoing, abyGoWithYou, modDontGet, azMissDays, furOkay, modNotMyProblem, 
+        modSuck, modFine, abyWhatsGoingOnHere, furFire, furAyy, modKnowEverything, azFire, abyOh, abyEarth;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,14 @@ public class PostDreidelScene : MonoBehaviour
             "Thank you all for playing with me.",
             "If you want anything else just mention it:Modayaal",
             "well not that you can give me:Abyzou",
-            "yeah I know...:Modayaal",
+            "yeah I know...:Modayaal"
+        },
+        bg, one02);
+        one.left = abyzou;
+        one.right = furfur;
+        one.sound = furFuck;
+
+        one02.Set(new string[] {
             "Just go beg Yaweh to let us back:Abyzou",
             "like do everything you can to revert this situation",
             "I have begged and pleaded:Modayaal",
@@ -48,11 +56,12 @@ public class PostDreidelScene : MonoBehaviour
             "Also so many of us really do love it here:Furfur",
             "we couldn't get to Gehinomm before and it's kinda a utopia",
             "infinite space and resources and it's filled with fire!",
-            "I mean, ",
+            "I mean, "
         },
         bg, one2);
-        one.left = abyzou;
-        one.right = furfur;
+        one02.left = abyzou;
+        one02.right = furfurDis;
+        one02.sound = abyEarth;
 
         one2.Set(new string[]
         {
@@ -103,6 +112,7 @@ public class PostDreidelScene : MonoBehaviour
         bg, three);
         two.left = abyzouTsu;
         two.right = azazel;
+        two.sound = azOkay;
 
         three.Set(new string[] 
         {
@@ -111,6 +121,7 @@ public class PostDreidelScene : MonoBehaviour
         bg, four);
         three.left = abyzou;
         three.right = azazelFlex;
+        three.sound = azBelieve;
 
         four.Set(new string[]
         {
@@ -123,6 +134,7 @@ public class PostDreidelScene : MonoBehaviour
         bg, five);
         four.left = azazelF;
         four.right = furfur;
+        four.sound = furDoing;
 
         five.Set(new string[]
         {
@@ -132,6 +144,7 @@ public class PostDreidelScene : MonoBehaviour
         bg, six);
         five.left = abyzou;
         five.right = furfurWow;
+        five.sound = abyGoWithYou;
 
         six.Set(new string[]
         {
@@ -149,6 +162,7 @@ public class PostDreidelScene : MonoBehaviour
         bg, seven);
         six.left = azazelF;
         six.right = furfur;
+        six.sound = modDontGet;
 
         seven.Set(new string[]
         {
@@ -159,6 +173,7 @@ public class PostDreidelScene : MonoBehaviour
         seven.left = azazelFlex;
         seven.right = furfur;
         seven.compendiumEntry = "Purim";
+        seven.sound = azMissDays;
 
         eight.Set(new string[]
         {
@@ -173,6 +188,7 @@ public class PostDreidelScene : MonoBehaviour
         bg, nine);
         eight.left = abyzou;
         eight.right = furfurH;
+        eight.sound = furOkay;
 
         nine.Set(new string[]
         {
@@ -184,6 +200,7 @@ public class PostDreidelScene : MonoBehaviour
         bg, ten);
         nine.center = abyzou;
         nine.compendiumEntry = "Golem";
+        nine.sound = modNotMyProblem;
 
         ten.Set(new string[]
         {
@@ -200,6 +217,7 @@ public class PostDreidelScene : MonoBehaviour
         ten.left = abyzou;
         ten.right = furfurDis;
         ten.compendiumEntry = "Asmodai";
+        ten.sound = modSuck;
 
         eleven.Set(new string[]
         {
@@ -218,6 +236,7 @@ public class PostDreidelScene : MonoBehaviour
         eleven.left = azazel;
         eleven.right = furfur;
         eleven.mini = dog1;
+        eleven.sound = modFine;
 
         twelve.Set(new string[]
         {
@@ -231,6 +250,7 @@ public class PostDreidelScene : MonoBehaviour
         twelve.right = furfur;
         twelve.mini = dog2;
         twelve.compendiumEntry = "Marbles";
+        twelve.sound = abyWhatsGoingOnHere;
 
         thirteen.Set(new string[]
         {
@@ -258,6 +278,7 @@ public class PostDreidelScene : MonoBehaviour
         bg, fifteen);
         fourteen.left = azazel;
         fourteen.right = furfur;
+        fourteen.sound = furFire;
 
         fifteen.Set(new string[]
         {
@@ -276,6 +297,7 @@ public class PostDreidelScene : MonoBehaviour
         fifteen.left = azazel;
         fifteen.right = furfur;
         fifteen.compendiumEntry = "Groger";
+        fifteen.sound = furAyy;
 
         sixteen.Set(new string[]
         {
@@ -289,6 +311,7 @@ public class PostDreidelScene : MonoBehaviour
         sixteen.left = abyzou;
         sixteen.right = furfur;
         sixteen.compendiumEntry = "Medically Brunette";
+        sixteen.sound = furFire;
 
         seventeen.Set(new string[]
         {
@@ -302,10 +325,19 @@ public class PostDreidelScene : MonoBehaviour
         bg, eighteen);
         seventeen.center = furfur;
         seventeen.compendiumEntry = "New Nyce";
+        seventeen.sound = modKnowEverything;
 
         eighteen.Set(new string[]
         {
             "we can set it on fire!:Furfur",
+        },
+        bg, eighteen2);
+        eighteen.left = azazelF;
+        eighteen.right = furfurH;
+        eighteen.sound = furFire;
+
+        eighteen2.Set(new string[]
+        {
             "I do like fire:Azazel",
             "Should we head out right now?:Furfur",
             "I think I've done a lot today:Modayaal",
@@ -317,8 +349,9 @@ public class PostDreidelScene : MonoBehaviour
             "play Dreidel again?"
         },
         bg, nineteen);
-        eighteen.left = azazelF;
-        eighteen.right = furfurH;
+        eighteen2.left = azazelF;
+        eighteen2.right = furfurH;
+        eighteen2.sound = azFire;
 
         nineteen.Set(new string[]
         {
@@ -335,6 +368,7 @@ public class PostDreidelScene : MonoBehaviour
             "let's play"
         });
         nineteen.left = abyzou;
+        nineteen.sound = abyOh;
 
         
 
