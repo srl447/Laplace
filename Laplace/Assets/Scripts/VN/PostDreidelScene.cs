@@ -18,7 +18,7 @@ public class PostDreidelScene : MonoBehaviour
     Scene current = new Scene();
     int count = 0;
     public Sprite bg, dog1, dog2, dog3,
-        furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, azazelFlex, abyzou, abyzouTsu;
+        furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, azazelFlex, abyzou, abyzouTsu, abyzouSquint;
 
     public AudioClip spitTake, furFuck, azOkay, azBelieve, furDoing, abyGoWithYou, modDontGet, azMissDays, furOkay, modNotMyProblem, 
         modSuck, modFine, abyWhatsGoingOnHere, furFire, furAyy, modKnowEverything, azFire, abyOh, abyEarth;
@@ -59,7 +59,7 @@ public class PostDreidelScene : MonoBehaviour
             "I mean, "
         },
         bg, one2);
-        one02.left = abyzou;
+        one02.left = abyzouSquint;
         one02.right = furfurDis;
         one02.sound = abyEarth;
 
