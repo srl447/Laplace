@@ -2890,6 +2890,7 @@ MonoBehaviour:
   bgHallway2: {fileID: 21300000, guid: 8cc31e82bbad8874b8707acbc8e12554, type: 3}
   bgHallway3: {fileID: 21300000, guid: 6d15d1ad6f92cdb4fbdf02007df8d176, type: 3}
   tess: {fileID: 21300000, guid: 0e75b001afa469248b9713987e78aa16, type: 3}
+  abyzouSquint: {fileID: 21300000, guid: 3e410d19698eff4418859522c3aa462f, type: 3}
   furfur: {fileID: 21300000, guid: 0767aa2c858d68b4897b02b47ff872b8, type: 3}
   furfurH: {fileID: 21300000, guid: 108ba565d0fcb0f4ebc45190802c68a6, type: 3}
   furfurEww: {fileID: 21300000, guid: 88ef281ec1fffca4dae2525d2f03cc32, type: 3}
@@ -2924,6 +2925,8 @@ MonoBehaviour:
     type: 3}
   furHey: {fileID: 8300000, guid: 2d7d7af899f19a943988ec8639fe1941, type: 3}
   abyShutUp: {fileID: 8300000, guid: 63772911118f24d43b947ee5a49ae3cc, type: 3}
+  abyGoingOnHere: {fileID: 8300000, guid: 713ea1f1ad5be3e43946bc7e38f0f619, type: 3}
+  abyShit: {fileID: 8300000, guid: 95fe6dfab0770ee4eab2b8ad86ddb502, type: 3}
   auto: 0
   autoArrow: {fileID: 521749932}
   compAdd: {fileID: 1563115799}

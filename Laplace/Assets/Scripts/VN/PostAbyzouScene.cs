@@ -21,7 +21,7 @@ public class PostAbyzouScene : MonoBehaviour
 
     public Button choice1, choice2;
 
-    public AudioClip abyForIt, azOkay, azMissDays;
+    public AudioClip abyForIt, azOkay, azMissDays, abyCouldntHurt, furAlright, modWhatever, modBye;
 
     void Start()
     {
@@ -43,7 +43,7 @@ public class PostAbyzouScene : MonoBehaviour
 
         two.Set(new string[]
         {
-            "They makes me play every day:Furfur",
+            "They make me play every day:Furfur",
             "that's cause you come over for no reason every day:Modayaal",
             "but... ",
             "okay::A"
@@ -83,6 +83,7 @@ public class PostAbyzouScene : MonoBehaviour
         bg, four2);
         four.left = abyzou;
         four.right = azazel;
+        four.sound = abyCouldntHurt;
 
         four2.Set(new string[]
         {
@@ -99,6 +100,7 @@ public class PostAbyzouScene : MonoBehaviour
         },
         bg2, choice);
         five.center = furfurDis;
+        five.sound = furAlright;
 
         choice.Set(new string[]
         {
@@ -115,6 +117,7 @@ public class PostAbyzouScene : MonoBehaviour
             "guess I'm alone now::I"
         },
         bg2);
+        final1.sound = modWhatever;
 
         final2.Set(new string[]
         {
@@ -126,6 +129,7 @@ public class PostAbyzouScene : MonoBehaviour
             "well off I go"
         },
         bg2);
+        final2.sound = modBye;
 
         textC = TextControl.instance;
         current = one;

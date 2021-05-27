@@ -3435,6 +3435,10 @@ MonoBehaviour:
   abyForIt: {fileID: 8300000, guid: 43eb018031a9cb04faf907264aca162e, type: 3}
   azOkay: {fileID: 8300000, guid: d9083ccd3f7bc9f4dbf60980163a6842, type: 3}
   azMissDays: {fileID: 8300000, guid: 7cef74739b7f7174e87a1a1c228aafa2, type: 3}
+  abyCouldntHurt: {fileID: 8300000, guid: d5e5b969f21c516458681887c06d39e4, type: 3}
+  furAlright: {fileID: 8300000, guid: 863e848cb70aa7d488a29441a729241d, type: 3}
+  modWhatever: {fileID: 8300000, guid: 937cb41876a74c944bf0d5b267c71707, type: 3}
+  modBye: {fileID: 8300000, guid: 34d5e231121b39a47a98981fd0103fe9, type: 3}
   auto: 0
   autoArrow: {fileID: 1645466490}
   compAdd: {fileID: 1563115799}

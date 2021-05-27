@@ -9,11 +9,11 @@ public class PostAzazelScene : MonoBehaviour
     TextControl textC;
     public Compendium comp;
     public Scene one = new Scene(), two = new Scene(), one2 = new Scene(),
-        three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(),
+        three = new Scene(), four = new Scene(), five = new Scene(), six = new Scene(), five2 = new Scene(),
         seven = new Scene(), eight = new Scene(), nine = new Scene(), ten = new Scene(),
         eleven = new Scene(), twelve = new Scene(), thirteen = new Scene(), fourteen = new Scene(),
         fifteen = new Scene(), sixteen = new Scene(), seventeen = new Scene(), eighteen = new Scene(),
-        nineteen = new Scene(), twenty = new Scene(), twentyOne = new Scene(), twentyTwo = new Scene(),
+        nineteen = new Scene(), twenty = new Scene(), twentyOne = new Scene(), twentyTwo = new Scene(), twentyFour2 = new Scene(),
         twentyThree = new Scene(), twentyFour = new Scene(), twentyFive = new Scene(), twentySix = new Scene(),
         twentySeven = new Scene(), twentyEight = new Scene(), twentyNine = new Scene(), thirty = new Scene(),
         thirtyOne = new Scene(), thirtyTwo = new Scene(), thirtyThree = new Scene(), thirtyFour = new Scene(),
@@ -21,12 +21,12 @@ public class PostAzazelScene : MonoBehaviour
 
     Scene current = new Scene();
     int count = 0;
-    public Sprite bg, bgBlank, bgFrontDoor, bgHallway1, bgHallway2, bgHallway3, tess,
+    public Sprite bg, bgBlank, bgFrontDoor, bgHallway1, bgHallway2, bgHallway3, tess, abyzouSquint,
         furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou, abyzouTsu, abyzouScared,
         counter, oldFashion, carrotJuice1, carrotJuice2, scaryDoor, modayaalZoom, azazelFlex;
 
     public AudioClip spitTake, pour, AzazelISuppose, abyDreidel, furLife, abyHmph, furBelieve,  azNice, modSigh, modReally, azWhatThis, 
-        modKillingMe, modWhatDoYouWant, modUnderstandAnything, furHey, abyShutUp;
+        modKillingMe, modWhatDoYouWant, modUnderstandAnything, furHey, abyShutUp, abyGoingOnHere, abyShit;
 
     void Start()
     {
@@ -100,11 +100,18 @@ public class PostAzazelScene : MonoBehaviour
             "that's where the hope comes in",
             "Do you want me to come and help you find them?",
             "I don't want to be alone with anyone, but I know I should help:Modayaal::I",
+        },
+        bg, five2);
+        five.center = abyzou;
+        five.sound = abyHmph;
+
+        five2.Set(new string[]
+        {
             "No I can make good on my own:Abyzou::N"
         },
         bg, six);
-        five.center = abyzou;
-        five.sound = abyHmph;
+        five.center = abyzouSquint;
+        five.sound = abyShit;
 
         six.Set(new string[]
         {
@@ -294,7 +301,14 @@ public class PostAzazelScene : MonoBehaviour
 
         twentyFour.Set(new string[]
         {
-            "what are you doinng here..?.:Modayaal",
+            "what are you doinng here..?.:Modayaal"
+        },
+        bgHallway3, twentyFour2);
+        twentyFour.center = abyzouScared;   
+        twentyFour.sound = modWhatDoYouWant;
+
+        twentyFour2.Set(new string[]
+        {
             "what is this place:Abyzou",
             "I like to pretend it doesn't exist:Modayaal",
             "This house is leprous:Abyzou",
@@ -309,9 +323,9 @@ public class PostAzazelScene : MonoBehaviour
             "we need to go before the exits ebbs "
         },
         bgHallway3, twentyFive);
-        twentyFour.center = abyzouScared;
-        twentyFour.compendiumEntry = "Tzaraath";
-        twentyFour.sound = modWhatDoYouWant;
+        twentyFour2.center = abyzouScared;
+        twentyFour2.compendiumEntry = "Tzaraath";
+        twentyFour2.sound = abyGoingOnHere;
 
         twentyFive.Set(new string[]
         {
