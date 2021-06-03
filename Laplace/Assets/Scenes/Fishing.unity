@@ -153,6 +153,7 @@ MonoBehaviour:
   fish: {fileID: 1324013979020116531, guid: 404899292cd74b54383dbe87c97362af, type: 3}
   badFish: {fileID: 5088004058993333281, guid: 57b7eb9ae5a80414f9a6a753ca08d9f4, type: 3}
   bigFish: {fileID: 2331714734501233127, guid: 2ac40a08f3629ed44bb6f941ffb28448, type: 3}
+  bgm: {fileID: 8300000, guid: f62e87cac8dce4b4cbbc13998760ad61, type: 3}
 --- !u!4 &298300218
 Transform:
   m_ObjectHideFlags: 0

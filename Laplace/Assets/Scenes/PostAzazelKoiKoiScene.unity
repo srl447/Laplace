@@ -2927,6 +2927,7 @@ MonoBehaviour:
   abyShutUp: {fileID: 8300000, guid: 63772911118f24d43b947ee5a49ae3cc, type: 3}
   abyGoingOnHere: {fileID: 8300000, guid: 713ea1f1ad5be3e43946bc7e38f0f619, type: 3}
   abyShit: {fileID: 8300000, guid: 95fe6dfab0770ee4eab2b8ad86ddb502, type: 3}
+  tessHi: {fileID: 8300000, guid: b785a793b4e26c94ab975234aeeb95ad, type: 3}
   auto: 0
   autoArrow: {fileID: 521749932}
   compAdd: {fileID: 1563115799}

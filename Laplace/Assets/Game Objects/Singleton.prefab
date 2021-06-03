@@ -48,9 +48,11 @@ MonoBehaviour:
   opponent: Furfur
   canClick: 1
   progress: 0
-  score: 0
+  scoreP: 0
+  scoreC: 0
   main: 323
-  alt: 0
+  alt: 324
+  tempCardsShow: 0
 --- !u!82 &8423463661752670577
 AudioSource:
   m_ObjectHideFlags: 0
@@ -65,7 +67,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

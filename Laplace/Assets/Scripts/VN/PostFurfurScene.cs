@@ -24,7 +24,7 @@ public class PostFurfurScene : MonoBehaviour
     public Sprite bg, bg2, furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou, abyzouTsu,
         counter, iceCream1, iceCream2, iceCream3, door;
 
-    public AudioClip knock, pour, abyHmph, azGreetings, abyDreidel, azSuppose, furJoke, furHey, furNice, 
+    public AudioClip knock, pour, abyHmph, azGreetings, abyDreidel, azSuppose, furJoke, furHey, furNice, bgm,
         modEverything, modDrink, furFire, modBored, furfurBest, furBelieve, furYeah, furInsulted, modFine;
 
     // Start is called before the first frame update
@@ -32,6 +32,7 @@ public class PostFurfurScene : MonoBehaviour
     {
         //setup next opponent
         GameManager.Instance.opponent = "Azazel";
+        AudioManager.Instance.ChangeBGM(bgm);
 
         //Note: Put speaker name at the beginning of each scene so there's a speaker name when loading 
         one.Set(new string[]

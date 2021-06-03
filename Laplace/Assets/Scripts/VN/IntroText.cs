@@ -23,7 +23,7 @@ public class IntroText : MonoBehaviour
         shotGlass1, shotGlass2, corpseRaiser1, corpseRaiser2;
 
     public AudioClip knock, pour, spitTake, modayaalNeedDrink, modayaalBored, modayaalAaa, modayaalFuck, modayaalWhy,
-        furfurHey, furfurLove, furfurHitMe, furfurAlright, furfurSaidThat;
+        furfurHey, furfurLove, furfurHitMe, furfurAlright, furfurSaidThat, bgm;
 
     // Start is called before the first frame update
     void Start()
@@ -340,6 +340,10 @@ public class IntroText : MonoBehaviour
     public bool auto = false;
     void Update()
     {
+        if(AudioManager.Instance.audioSource.clip != bgm)
+        {
+            AudioManager.Instance.ChangeBGM(bgm);
+        }
         if (auto && textC.waitForInput)
         {
             if (autoCount > 240)

@@ -25,5 +25,6 @@ public class AudioManager : Singleton<AudioManager>
     {
         bgm = newBGM;
         audioSource.clip = bgm;
+        audioSource.Play();
     }
 }

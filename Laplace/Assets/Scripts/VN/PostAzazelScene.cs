@@ -26,7 +26,7 @@ public class PostAzazelScene : MonoBehaviour
         counter, oldFashion, carrotJuice1, carrotJuice2, scaryDoor, modayaalZoom, azazelFlex;
 
     public AudioClip spitTake, pour, AzazelISuppose, abyDreidel, furLife, abyHmph, furBelieve,  azNice, modSigh, modReally, azWhatThis, 
-        modKillingMe, modWhatDoYouWant, modUnderstandAnything, furHey, abyShutUp, abyGoingOnHere, abyShit;
+        modKillingMe, modWhatDoYouWant, modUnderstandAnything, furHey, abyShutUp, abyGoingOnHere, abyShit, tessHi;
 
     void Start()
     {
@@ -239,6 +239,7 @@ public class PostAzazelScene : MonoBehaviour
         bgBlank, seventeen);
         sixteen.compendiumEntry = "Entropy";
         sixteen.center = tess;
+        sixteen.sound = tessHi;
 
         seventeen.Set(new string[]
         {

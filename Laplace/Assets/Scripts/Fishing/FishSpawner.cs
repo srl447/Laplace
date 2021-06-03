@@ -5,10 +5,11 @@ using UnityEngine;
 public class FishSpawner : MonoBehaviour
 {
     public GameObject fish, badFish, bigFish;
+    public AudioClip bgm;
     // Start is called before the first frame update
     void Start()
     {
-        
+        AudioManager.Instance.ChangeBGM(bgm);
     }
 
     // Update is called once per frame

@@ -3048,6 +3048,7 @@ MonoBehaviour:
   furJoke: {fileID: 8300000, guid: 5d5c444c09ddb954db1db54b226b58b1, type: 3}
   furHey: {fileID: 8300000, guid: 53a4868902df97e42bd6fa8e47db39f4, type: 3}
   furNice: {fileID: 8300000, guid: 760753a0c59b5d5419fb08f118516c03, type: 3}
+  bgm: {fileID: 8300000, guid: 171363cad4ab1514fb6250990182fe67, type: 3}
   modEverything: {fileID: 8300000, guid: 49118474703bb384bac45311e12aa12c, type: 3}
   modDrink: {fileID: 8300000, guid: 38cd04a038df3434aa917f5b49319eb4, type: 3}
   furFire: {fileID: 8300000, guid: df810a7d7dd1a59428cb375b2a7047e1, type: 3}
