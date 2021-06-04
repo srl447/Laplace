@@ -2151,7 +2151,7 @@ GameObject:
   - component: {fileID: 1007147427466690501}
   - component: {fileID: 6808991162004911441}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: Alt BUtton Dropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4054,7 +4054,7 @@ MonoBehaviour:
   - {fileID: 12800000, guid: ff2f444eed8f2b04289051d4c9d51deb, type: 3}
   - {fileID: 12800000, guid: 7f938e05f75e69d4a98b2f07c7f43f71, type: 3}
   typefaceDropdown: {fileID: 1735410853}
-  altButtonDropdown: {fileID: 0}
+  altButtonDropdown: {fileID: 6808991162004911441}
   colorToggle: {fileID: 2531571500820798471}
 --- !u!114 &1160250841980235866
 MonoBehaviour:
