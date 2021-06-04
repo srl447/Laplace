@@ -3280,7 +3280,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bgm
       value: 
-      objectReference: {fileID: 8300000, guid: 908a11cef060f5b4bbee48935390e068, type: 3}
+      objectReference: {fileID: 8300000, guid: ab704e25143aa5548bec7e33c0c22f1b, type: 3}
     - target: {fileID: 8423463661752670576, guid: 49f2fd8628f40814bb3dada02da0b81a,
         type: 3}
       propertyPath: audioSource
@@ -3290,7 +3290,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 908a11cef060f5b4bbee48935390e068, type: 3}
+      objectReference: {fileID: 8300000, guid: ab704e25143aa5548bec7e33c0c22f1b, type: 3}
     - target: {fileID: 8423463661752670579, guid: 49f2fd8628f40814bb3dada02da0b81a,
         type: 3}
       propertyPath: m_Name

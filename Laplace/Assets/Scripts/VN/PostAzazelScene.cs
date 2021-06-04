@@ -26,7 +26,7 @@ public class PostAzazelScene : MonoBehaviour
         counter, oldFashion, carrotJuice1, carrotJuice2, scaryDoor, modayaalZoom, azazelFlex;
 
     public AudioClip spitTake, pour, AzazelISuppose, abyDreidel, furLife, abyHmph, furBelieve,  azNice, modSigh, modReally, azWhatThis, 
-        modKillingMe, modWhatDoYouWant, modUnderstandAnything, furHey, abyShutUp, abyGoingOnHere, abyShit, tessHi;
+        modKillingMe, modWhatDoYouWant, modUnderstandAnything, furHey, abyShutUp, abyGoingOnHere, abyShit, tessHi, bgm;
 
     void Start()
     {
@@ -379,6 +379,10 @@ public class PostAzazelScene : MonoBehaviour
     
     void Update()
     {
+        if (AudioManager.Instance.audioSource.clip != bgm)
+        {
+            AudioManager.Instance.ChangeBGM(bgm);
+        }
         if (auto && textC.waitForInput)
         {
             if(autoCount > 240)

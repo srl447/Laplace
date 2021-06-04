@@ -34,7 +34,7 @@ public class Dealer : MonoBehaviour
 
     public Text playerScore, computerScore;
     public Image koiType, stopType;
-    public AudioClip typeNoise, abyKoi, azKoi, modayaalKoi, furfurKoi;
+    public AudioClip typeNoise, abyKoi, azKoi, modayaalKoi, furfurKoi, bgm;
 
     public AudioClip[] cardNoise;
     // Start is called before the first frame update
@@ -53,6 +53,10 @@ public class Dealer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (AudioManager.Instance.audioSource.clip != bgm)
+        {
+            AudioManager.Instance.ChangeBGM(bgm);
+        }
         CheckEnd(); //makes sure the table, deck, hands, etc aren't empty
         switch(turn) //runs different stuff depending on whose turn
         {

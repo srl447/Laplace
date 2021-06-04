@@ -21,7 +21,7 @@ public class PostDreidelScene : MonoBehaviour
         furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, azazelFlex, abyzou, abyzouTsu, abyzouSquint;
 
     public AudioClip spitTake, furFuck, azOkay, azBelieve, furDoing, abyGoWithYou, modDontGet, azMissDays, furOkay, modNotMyProblem, 
-        modSuck, modFine, abyWhatsGoingOnHere, furFire, furAyy, modKnowEverything, azFire, abyOh, abyEarth;
+        modSuck, modFine, abyWhatsGoingOnHere, furFire, furAyy, modKnowEverything, azFire, abyOh, abyEarth, bgm;
 
     // Start is called before the first frame update
     void Start()
@@ -387,6 +387,10 @@ public class PostDreidelScene : MonoBehaviour
     public bool auto = false;
     void Update()
     {
+        if (AudioManager.Instance.audioSource.clip != bgm)
+        {
+            AudioManager.Instance.ChangeBGM(bgm);
+        }
         if (auto && textC.waitForInput)
         {
             if (autoCount > 240)

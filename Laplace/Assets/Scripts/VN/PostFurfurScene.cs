@@ -32,7 +32,6 @@ public class PostFurfurScene : MonoBehaviour
     {
         //setup next opponent
         GameManager.Instance.opponent = "Azazel";
-        AudioManager.Instance.ChangeBGM(bgm);
 
         //Note: Put speaker name at the beginning of each scene so there's a speaker name when loading 
         one.Set(new string[]
@@ -479,6 +478,10 @@ public class PostFurfurScene : MonoBehaviour
     public bool auto = false;
     void Update()
     {
+        if (AudioManager.Instance.audioSource.clip != bgm)
+        {
+            AudioManager.Instance.ChangeBGM(bgm);
+        }
         if (auto && textC.waitForInput)
         {
             if (autoCount > 240)

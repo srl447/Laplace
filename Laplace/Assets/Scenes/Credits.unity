@@ -231,7 +231,7 @@ MonoBehaviour:
   fish: {fileID: 1324013979020116531, guid: 404899292cd74b54383dbe87c97362af, type: 3}
   badFish: {fileID: 5088004058993333281, guid: 57b7eb9ae5a80414f9a6a753ca08d9f4, type: 3}
   bigFish: {fileID: 2331714734501233127, guid: 2ac40a08f3629ed44bb6f941ffb28448, type: 3}
-  bgm: {fileID: 8300000, guid: 908a11cef060f5b4bbee48935390e068, type: 3}
+  bgm: {fileID: 8300000, guid: 8c557c0b2f3c83c4b868058003d2e514, type: 3}
 --- !u!4 &298300218
 Transform:
   m_ObjectHideFlags: 0
@@ -683,6 +683,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 1029195438}
   body: {fileID: 32548231}
+  shma: {fileID: 8300000, guid: 8c557c0b2f3c83c4b868058003d2e514, type: 3}
+  missYou: {fileID: 8300000, guid: dbe7b26afd85a614bb5e6022d1c7eb1e, type: 3}
 --- !u!1 &1116038625
 GameObject:
   m_ObjectHideFlags: 0

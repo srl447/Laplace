@@ -1733,6 +1733,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6f30ba02ed802324a95fa01e38fd786f, type: 3}
   - {fileID: 8300000, guid: b6ebc02879a892b4194dc97819f874e6, type: 3}
   dropNoise: {fileID: 8300000, guid: 2481592d91521b9419aa1518d6a67de6, type: 3}
+  bgm: {fileID: 8300000, guid: 6eb963a2c1588464797a8a60e08f9339, type: 3}
 --- !u!4 &1455622069
 Transform:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class PostAbyzouScene : MonoBehaviour
 
     public Button choice1, choice2;
 
-    public AudioClip abyForIt, azOkay, azMissDays, abyCouldntHurt, furAlright, modWhatever, modBye;
+    public AudioClip abyForIt, azOkay, azMissDays, abyCouldntHurt, furAlright, modWhatever, modBye, bgm;
 
     void Start()
     {
@@ -145,6 +145,10 @@ public class PostAbyzouScene : MonoBehaviour
     public bool auto = false;
     void Update()
     {
+        if (AudioManager.Instance.audioSource.clip != bgm)
+        {
+            AudioManager.Instance.ChangeBGM(bgm);
+        }
         if (auto && textC.waitForInput && current != choice)
         {
             if (autoCount > 240)

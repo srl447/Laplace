@@ -10,7 +10,7 @@ public class OptionMenu : MonoBehaviour
     public Slider fontSlider, musicSlider, soundSlider;
 
     public Font[] typefaces;
-    public Dropdown typefaceDropdown;
+    public Dropdown typefaceDropdown, altButtonDropdown;
 
     public Toggle colorToggle;
 
@@ -40,6 +40,27 @@ public class OptionMenu : MonoBehaviour
             t.fontSize = fontSize;
         }
         
+    }
+
+    public void UpdateAltButton()
+    {
+        int chosenAlt = altButtonDropdown.value;
+        switch(chosenAlt)
+        {
+            case 0:
+                GameManager.Instance.alt = KeyCode.Mouse1;
+                break;
+            case 1:
+                GameManager.Instance.alt = KeyCode.Space;
+                break;
+            case 2:
+                GameManager.Instance.alt = KeyCode.KeypadEnter;
+                break;
+            case 4:
+                GameManager.Instance.alt = KeyCode.Mouse2;
+                break;
+        }
+        PlayerPrefs.SetInt("Alt Button", chosenAlt);
     }
 
     public void UpdateTypeface()
@@ -78,6 +99,7 @@ public class OptionMenu : MonoBehaviour
         colorToggle.isOn = PlayerPrefs.GetInt("Text Color") == 1; //because you can't store bools
         musicSlider.value = PlayerPrefs.GetFloat("Music Volume");
         soundSlider.value = PlayerPrefs.GetFloat("Sound Volume");
+        altButtonDropdown.value = PlayerPrefs.GetInt("Alt Button");
     }
 
     public void SetCanClick()

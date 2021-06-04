@@ -3439,6 +3439,7 @@ MonoBehaviour:
   furAlright: {fileID: 8300000, guid: 863e848cb70aa7d488a29441a729241d, type: 3}
   modWhatever: {fileID: 8300000, guid: 937cb41876a74c944bf0d5b267c71707, type: 3}
   modBye: {fileID: 8300000, guid: 34d5e231121b39a47a98981fd0103fe9, type: 3}
+  bgm: {fileID: 8300000, guid: be5a678ae8850c047a0d3891537b6923, type: 3}
   auto: 0
   autoArrow: {fileID: 1645466490}
   compAdd: {fileID: 1563115799}

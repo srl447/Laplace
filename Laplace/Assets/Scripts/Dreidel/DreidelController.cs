@@ -22,7 +22,7 @@ public class DreidelController : MonoBehaviour
     public Sprite gimmel, hay, nun, shin;
     public Text modayaalText, furfurText, abyzouText, azazelText, potText, resultText;
     public AudioClip[] spinNoises;
-    public AudioClip dropNoise;
+    public AudioClip dropNoise, bgm;
 
     bool turnHappening = false;
     int turnCount = 0;
@@ -45,8 +45,12 @@ public class DreidelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (AudioManager.Instance.audioSource.clip != bgm)
+        {
+            AudioManager.Instance.ChangeBGM(bgm);
+        }
         //others eating
-        if(Random.Range(0, 5000) > 4998 && abyzouScore > 0)
+        if (Random.Range(0, 5000) > 4998 && abyzouScore > 0)
         {
             abyzouScore--;
             SetScores();

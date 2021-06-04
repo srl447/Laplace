@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Credits : MonoBehaviour
 {
     public Text title, body;
+    public AudioClip shma, missYou;
     string[] credits = new string[]
     {
         "A Game By:Tess Leiman",
@@ -19,8 +20,11 @@ public class Credits : MonoBehaviour
         "Playtesters:Matt Soree\nAdam Behar",
         "Alcohol Consultant:Lawrence Xu",
         "Voice Actors:Ronan Le - Modayaal\nPaul Merritt - Furfur\nAnnie Leiman - Abyzou\nRandy Seidler - Azazel\nTess Leiman - Tess",
-        "Music:\"Fishing on a Cliff\" - Randy Seidler\nAndante spianato and Grande Polonaise Brillante Op. 22\n   Olga Gurevich performing Chopin",
+        "Music:Fishing on a Cliff\n   Randy Seidler\nSh'ma\nperformed by Tess Leiman\nAndante spianato and Grande Polonaise Brillante Op. 22\n   Olga Gurevich performing Chopin",
         "Music:Nocturne in B flat minor, Op. 9 no. 1\n   Olga Gurevich performing Chopin\nNocturne in E flat minor, Op. 9 no. 2\n   Aya Higuchi performing Chopin",
+        "Music:Fantaisie - Impromptu, Op. 66\n   Frank Levy performing Chopin\nPeer Gynt Suite no. 1, \n   Op. 46 - I. Morning Mood\n   Musopen Symphony performing Edvard Grieg",
+        "Music:Oh How I Miss You Tonight\n   John McCormack performing Benny Davis\nWaltz Op. 8, no. 4\n   Christian Silva Gonçalves performing \n   Agustin Barrios Mangore",
+        "Music:Albinoni Adagio de Albinoni\n   The Modena Chamber Orchestra\n   performing Tomaso Albinoni\nTitanic Blues\n   Virginia Liston\nApril Kisses\n   Eddie Lang",
         "FreeSound.Org Sound Clips:Bendir - Xserra\nMarimba - Sassaby\nPour - Megashroom\n Spit Take - Jackfull16\nCard Noises - F4ngy and VKProduktion",
         "Programs:Unity - Game Engine\nKrita - Art Program\nAudacity - Sound Editing",
         "\n\n\n\nAnd You!:",
@@ -41,11 +45,22 @@ public class Credits : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(AudioManager.Instance.bgm == shma)
+        {
+            AudioManager.Instance.audioSource.loop = false;
+        }
+        if(!AudioManager.Instance.audioSource.isPlaying)
+        {
+            AudioManager.Instance.ChangeBGM(missYou);
+            AudioManager.Instance.audioSource.Play();
+            AudioManager.Instance.audioSource.loop = true;
+        }
         count++;
         if(count == 480)
         {
             if (index >= credits.Length - 1)
             {
+                Destroy(AudioManager.Instance.gameObject);
                 SceneManager.LoadScene(0);
             }
             else

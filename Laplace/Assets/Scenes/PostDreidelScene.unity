@@ -3057,6 +3057,7 @@ MonoBehaviour:
   azFire: {fileID: 8300000, guid: 200d8bd0302339a48abb760bb5b7d5e2, type: 3}
   abyOh: {fileID: 8300000, guid: 6491e3a91e5850a4f839ce089d02b783, type: 3}
   abyEarth: {fileID: 8300000, guid: 6104a1226deb0a049b4e802e106680bc, type: 3}
+  bgm: {fileID: 8300000, guid: 908a11cef060f5b4bbee48935390e068, type: 3}
   auto: 0
   autoArrow: {fileID: 1645466490}
   compAdd: {fileID: 1563115799}
