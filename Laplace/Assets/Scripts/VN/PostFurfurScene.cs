@@ -24,7 +24,7 @@ public class PostFurfurScene : MonoBehaviour
     public Sprite bg, bg2, furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, abyzou, abyzouTsu,
         counter, iceCream1, iceCream2, iceCream3, door;
 
-    public AudioClip knock, pour, abyHmph, azGreetings, abyDreidel, azSuppose, furJoke, furHey, furNice, bgm,
+    public AudioClip knock, pour, abyHmph, azGreetings, abyDreidel, azSuppose, furJoke, furHey, furNice, bgm, rimshot,
         modEverything, modDrink, furFire, modBored, furfurBest, furBelieve, furYeah, furInsulted, modFine;
 
     // Start is called before the first frame update
@@ -133,6 +133,7 @@ public class PostFurfurScene : MonoBehaviour
         },
         bg, nine);
         eight.center = furfurH;
+        eight.sound = rimshot;
 
         nine.Set(new string[]
         {

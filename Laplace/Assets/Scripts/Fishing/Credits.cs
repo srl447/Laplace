@@ -26,6 +26,7 @@ public class Credits : MonoBehaviour
         "Music:Oh How I Miss You Tonight\n   John McCormack performing Benny Davis\nWaltz Op. 8, no. 4\n   Christian Silva Gonçalves performing \n   Agustin Barrios Mangore",
         "Music:Albinoni Adagio de Albinoni\n   The Modena Chamber Orchestra\n   performing Tomaso Albinoni\nTitanic Blues\n   Virginia Liston\nApril Kisses\n   Eddie Lang",
         "FreeSound.Org Sound Clips:Bendir - Xserra\nMarimba - Sassaby\nPour - Megashroom\n Spit Take - Jackfull16\nCard Noises - F4ngy and VKProduktion",
+        "FreeSound.Org Sound Clips:Rim Shot - FREE_SOUND_ENTERTAINMENT\nConfetti Cannon - Breviceps\nCreaks - Jarred Gibb",
         "Programs:Unity - Game Engine\nKrita - Art Program\nAudacity - Sound Editing",
         "\n\n\n\nAnd You!:",
         "\n\n\n\nThank You For Playing!:"

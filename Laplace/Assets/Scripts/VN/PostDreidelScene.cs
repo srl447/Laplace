@@ -21,7 +21,7 @@ public class PostDreidelScene : MonoBehaviour
         furfur, furfurH, furfurEww, furfurDis, furfurWow, azazel, azazelF, azazelFlex, abyzou, abyzouTsu, abyzouSquint;
 
     public AudioClip spitTake, furFuck, azOkay, azBelieve, furDoing, abyGoWithYou, modDontGet, azMissDays, furOkay, modNotMyProblem, 
-        modSuck, modFine, abyWhatsGoingOnHere, furFire, furAyy, modKnowEverything, azFire, abyOh, abyEarth, bgm;
+        modSuck, modFine, abyWhatsGoingOnHere, furFire, furAyy, modKnowEverything, azFire, abyOh, abyEarth, bgm, pumf;
 
     // Start is called before the first frame update
     void Start()
@@ -265,6 +265,7 @@ public class PostDreidelScene : MonoBehaviour
         thirteen.left = azazel;
         thirteen.right = furfur;
         thirteen.mini = dog3;
+        thirteen.sound = pumf;
 
         fourteen.Set(new string[]
         {

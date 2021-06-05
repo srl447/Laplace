@@ -2929,6 +2929,8 @@ MonoBehaviour:
   abyShit: {fileID: 8300000, guid: 95fe6dfab0770ee4eab2b8ad86ddb502, type: 3}
   tessHi: {fileID: 8300000, guid: b785a793b4e26c94ab975234aeeb95ad, type: 3}
   bgm: {fileID: 8300000, guid: 76b5c659d40a0c041994ad39c02ebd37, type: 3}
+  creak: {fileID: 8300000, guid: 22606ac48b5f5a1498a136d61a830e35, type: 3}
+  creak2: {fileID: 8300000, guid: dd88bcd445c12024789d75bc336a959e, type: 3}
   auto: 0
   autoArrow: {fileID: 521749932}
   compAdd: {fileID: 1563115799}

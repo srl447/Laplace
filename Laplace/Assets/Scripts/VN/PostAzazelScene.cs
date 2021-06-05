@@ -26,7 +26,7 @@ public class PostAzazelScene : MonoBehaviour
         counter, oldFashion, carrotJuice1, carrotJuice2, scaryDoor, modayaalZoom, azazelFlex;
 
     public AudioClip spitTake, pour, AzazelISuppose, abyDreidel, furLife, abyHmph, furBelieve,  azNice, modSigh, modReally, azWhatThis, 
-        modKillingMe, modWhatDoYouWant, modUnderstandAnything, furHey, abyShutUp, abyGoingOnHere, abyShit, tessHi, bgm;
+        modKillingMe, modWhatDoYouWant, modUnderstandAnything, furHey, abyShutUp, abyGoingOnHere, abyShit, tessHi, bgm, creak, creak2;
 
     void Start()
     {
@@ -286,12 +286,14 @@ public class PostAzazelScene : MonoBehaviour
             "*CREAK*:The House::I"
         },
         bgHallway1, twentyTwo);
+        twentyOne.sound = creak;
 
         twentyTwo.Set(new string[]
         {
             "*URKK*:The House::I"
         },
         bgHallway2, twentyThree);
+        twentyTwo.sound = creak2;
 
         twentyThree.Set(new string[]
         {
