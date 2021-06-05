@@ -52,9 +52,9 @@ public class GameManager : MonoBehaviour
         return SceneManager.GetActiveScene().buildIndex;
     }
 
-    public void SaveData()
+    public bool SaveData()
     {
-        SaveSystem.SaveData(this);
+        return SaveSystem.SaveData(this);
     }
 
     public void LoadData()

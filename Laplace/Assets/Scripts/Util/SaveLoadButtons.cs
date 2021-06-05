@@ -5,6 +5,7 @@ using UnityEngine;
 public class SaveLoadButtons : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject successText;
     void Start()
     {
         
@@ -18,7 +19,12 @@ public class SaveLoadButtons : MonoBehaviour
 
     public void Save()
     {
-        GameManager.Instance.SaveData();
+        if (GameManager.Instance.SaveData())
+        {
+            GameObject newText = Instantiate(successText) as GameObject;
+            newText.transform.SetParent(transform);
+            newText.transform.position = transform.position;
+        }
     }
 
     public void Load()

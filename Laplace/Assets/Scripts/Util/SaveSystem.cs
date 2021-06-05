@@ -8,10 +8,8 @@ public static class SaveSystem
     /*
      * TODO: Multiple Save Files
      *   probably require an int and add it to the file path
-     * TODO: Implement this into Koi-Koi Scene
-     *   it'd need to save score when I get there, but progress Index can be used for rounds
      */
-    public static void SaveData(GameManager game)
+    public static bool SaveData(GameManager game)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         //Establishes a file path based on operating system
@@ -24,6 +22,7 @@ public static class SaveSystem
                 Data data = new Data(game);
 
                 formatter.Serialize(stream, data);
+                return true;
             }
             catch(Exception e)
             {
