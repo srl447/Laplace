@@ -110,8 +110,8 @@ public class PostAzazelScene : MonoBehaviour
             "No I can make good on my own:Abyzou::N"
         },
         bg, six);
-        five.center = abyzouSquint;
-        five.sound = abyShit;
+        five2.center = abyzouSquint;
+        five2.sound = abyShit;
 
         six.Set(new string[]
         {
@@ -335,7 +335,7 @@ public class PostAzazelScene : MonoBehaviour
             "Are you sure you don't wanna talk about that:Abyzou",
             "I do, but maybe not today:Modayaal"
         },
-        bgFrontDoor);
+        bgFrontDoor, twentySix);
         twentyFive.center = abyzouTsu;
         twentyFive.sound = modUnderstandAnything;
 

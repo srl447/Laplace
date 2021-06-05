@@ -9,12 +9,15 @@ public class FishSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.Instance.ChangeBGM(bgm);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(AudioManager.Instance.bgm != bgm)
+        {
+            AudioManager.Instance.ChangeBGM(bgm);
+        }
         if (Random.Range(0, 600) < 1)
         {
             GameObject newFish = Instantiate(fish) as GameObject;

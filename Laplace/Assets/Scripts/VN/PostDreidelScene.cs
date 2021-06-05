@@ -101,7 +101,7 @@ public class PostDreidelScene : MonoBehaviour
             "I'm sure you'll start to see how much people actually like it here",
             "and Abyzou",
             "There's tons of great women out there",
-            "you can still fall in love here",
+            "you can still fall in love here ",
             "it doesn't have to be on earth ::A",
             "yeah but:Abyzou",
             "yeah",
@@ -255,7 +255,7 @@ public class PostDreidelScene : MonoBehaviour
         thirteen.Set(new string[]
         {
             "*pumf*:The Dog::I",
-            "what???:Furfur",
+            "what???:Furfur::N",
             "aaa:Modayaal",
             "why did it turn into confetti:Azazel",
             "I just wanted it gone:Modayaal"
@@ -366,7 +366,8 @@ public class PostDreidelScene : MonoBehaviour
             "but hey",
             "ummm",
             "let's play"
-        });
+        },
+        bg);
         nineteen.left = abyzou;
         nineteen.sound = abyOh;
 

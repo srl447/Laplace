@@ -92,7 +92,7 @@ public class Compendium : MonoBehaviour
             "Created with gin, freshly squeezed lemon juice, curaçao, some brand name wine, and a bit of absinthe. " +
             "Usually garnished with a lemon or orange slice. Corpse Revivers are a family of cocktail originating in the " +
             "1800s and dranken to cure hangovers." +
-            "Apparently four of these quickly will unrevive the corpse, so make 5 just in case");
+            "Apparently four of these quickly will unrevive the corpse, so make 5 just in case.");
 
         compendiumImage.Add("Furfur", allSprites[5]);
         compendiumText.Add("Furfur",
@@ -236,11 +236,11 @@ public class Compendium : MonoBehaviour
         compendiumText.Add("Purim",
             "Often known as the Jewish holiday where you put on plays and get drunk, Purim celebrates the victory of the Jews over Haman. Haman, a viceroy to King Ahasuerus of the " +
             "Achaemenid Empire, plotted to kill all the Jews because Mordecai, a Jewish townsman, refused to bow to him. " +
-            "Mordecai had early bested an reigcide attempt, and the king throws him a banquet. Esther, a candidate for future queen and " +
+            "Mordecai had earlier bested a reigcide attempt, and the king throws him a banquet. Esther, a candidate for future queen and " +
             "Mordecai's niece, reveals she's Jewish and Haman wants to kill her people, so the king calls off the genicide Haman scheduled and kills Haman. " +
-            "After that, they threw a huge feast and party which is why this holiday is known for it's festive drinking. Apparently they also then killed 75,000 enemies of the Jews, " +
+            "After that, they threw a huge feast and party which is why this holiday is known for its festive drinking. Apparently they also then killed 75,000 enemies of the Jews, " +
             "which I guess they left out of my Hebrew school play. " +
-            "\n\nDepicted:Esther Megillah from the Minneapolis Institute of Arts");
+            "\n\nDepicted: Esther Megillah from the Minneapolis Institute of Arts");
 
         compendiumImage.Add("Medically Brunette", allSprites[25]);
         compendiumText.Add("MedicallyBrunette",

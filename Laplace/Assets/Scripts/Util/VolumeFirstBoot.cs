@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class VolumeFirstBoot : MonoBehaviour
 {
+    public AudioClip bgm;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,9 @@ public class VolumeFirstBoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (AudioManager.Instance.bgm != bgm)
+        {
+            AudioManager.Instance.ChangeBGM(bgm);
+        }
     }
 }
