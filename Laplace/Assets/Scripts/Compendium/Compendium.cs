@@ -243,7 +243,7 @@ public class Compendium : MonoBehaviour
             "\n\nDepicted: Esther Megillah from the Minneapolis Institute of Arts");
 
         compendiumImage.Add("Medically Brunette", allSprites[25]);
-        compendiumText.Add("MedicallyBrunette",
+        compendiumText.Add("Medically Brunette",
             "One girl, burdened by the lack of stereotypes about her hair color, defies the odds and gets into medical school. She's then forced by circumstance to replace " +
             "the doctor she was shadowing in her residency and perform brain surgery on the spot. Thanks to her deep understanding of hair care, she successfully completes the surgery, " +
             "saving the day.");
