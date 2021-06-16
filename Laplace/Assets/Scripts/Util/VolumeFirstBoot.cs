@@ -5,6 +5,7 @@ using UnityEngine;
 public class VolumeFirstBoot : MonoBehaviour
 {
     public AudioClip bgm;
+    public OptionMenu oM;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,7 @@ public class VolumeFirstBoot : MonoBehaviour
             PlayerPrefs.SetFloat("Music Volume", 1);
             PlayerPrefs.SetFloat("Sound Volume", 1);
             PlayerPrefs.SetString("Volume Fix", "Fixed");
+            oM.PullSettings();
         }
     }
 
